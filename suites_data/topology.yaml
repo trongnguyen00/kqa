@@ -1,0 +1,104 @@
+devices:
+  ### DUT definition ###
+  Switch0:
+    type: dut
+    api: V6848XG
+    model: V6848XG
+    connections:
+      protocol: telnet
+      ip: 192.168.150.212
+      port: 23
+      username: admin
+      password: kaon@2024
+
+  Olt0:
+    type: dut
+    api: V5816XC
+    model: V5816XC
+    connections:
+      protocol: telnet
+      ip: 192.168.150.213
+      port: 23
+      username: admin
+      password: kaon@2023
+
+  Olt1:
+    type: dut
+    api: ISAM_7360
+    model: ISAM_7360
+    connections:
+      protocol: telnet
+      ip: 192.168.150.216
+      port: 23
+      username: isadmin
+      password: ans#150
+
+  Onu0:
+    type: onu
+    api: default
+    model: PG2142
+    connections:
+    custom:
+      serial: KAON14000029
+
+  ### Traffic Generator definition ###
+  IXIA:
+    type: tgn
+    api: n2x
+    model: n2x
+    connections:
+      default:
+        protocol: tcl
+        ip: 192.168.150.230
+    custom:
+      session_id: 3
+      session_mode: online
+      session_label: "trongnk"
+      port_list:
+        - name: 203/2
+          alias: 203/2
+          media: sfp
+        - name: 203/3
+          alias: 203/3
+          media: rj45
+        - name: 203/4
+          alias: 203/4
+          media: rj45
+
+
+topology:
+
+  Olt0:
+    ethernet:
+      - name: ethernet 0/20
+        alias: eth0/24
+        link: olt0-ixia-1
+    pon:
+      - name: gpon 0/15
+        alias: gpon0/15
+        link: olt0-pon0
+
+  Onu0:
+    pon:
+      - name: pon0
+        alias: pon0
+        link: olt0-pon0
+    ethernet:
+      - name: eth1
+        alias: 1
+        link: onu0-ixia-1
+      - name: eth2
+        alias: 2
+        link: onu0-ixia-2
+
+  IXIA:
+    ethernet:
+      - name: 203/2
+        alias: 203/2
+        link: olt0-ixia-1
+      - name: 203/3
+        alias: 203/3
+        link: onu0-ixia-1
+      - name: 203/4
+        alias: 203/4
+        link: onu0-ixia-2
