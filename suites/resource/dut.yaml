@@ -1,0 +1,44 @@
+commands:
+  show-all-vlan:
+    - model: default
+      shell: |
+        traffic-profile s-202t create
+          tcont 1
+            gemport 1/1
+            dba-profile GPON_BE
+          mapper 1
+            gemport count 1
+          bridge 1
+            ani mapper {{mapper_value}}
+            uni virtual-eth {{uni_value}}
+              extended-vlan-tagging-operation s-202t
+          apply
+        !
+        class-map dscp_46
+         match dscp 46
+         match ip any any any
+        !
+        class-map str_vod_24
+         match dscp 24
+         match ip any any any
+        !
+
+verify:
+  mac-table-check:
+    - model: default
+      shell: |
+        +--------+-------------------------+
+        | VLAN   | MAC                     |
+        +--------+-------------------------+
+        | 2501   | 00:d0:cb:06:30:bb       |
+        | 2501   | 18:d0:71:79:10:b8       |
+        +--------+-------------------------+
+  olt-us-vlan-check:
+    - model: default
+      shell: |
+        +----------+-------+-------+-------+--------+
+        |   MAPPER |   GEM |   VID |   COS | TPID   |
+        +----------+-------+-------+-------+--------|
+        |        1 |     1 |    10 |     0 | 0x8100 |
+        |        1 |     2 |    12 |     0 | 0x8100 |
+        +----------+-------+-------+-------+--------+
