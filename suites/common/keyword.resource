@@ -7,38 +7,40 @@ Library          Telnet
 *** Keywords ***
 
 ### Setup Connection ###
-Connect To Switch
-    ${device_info}       Get Device Info    ${DEVICE_NAME}
+Connect To Dut
+    [Arguments]          ${device_name}
+    ${device_info}       Get Device Info    ${device_name}
     Set Test Variable    ${HOST1}           ${device_info['connections']['ip']}
     Set Test Variable    ${PORT1}           ${device_info['connections']['port']}
     Set Test Variable    ${USERNAME1}       ${device_info['connections']['username']}
     Set Test Variable    ${PASSWORD1}       ${device_info['connections']['password']}
     Open Connection      ${HOST1}
     Login                ${USERNAME1}       ${PASSWORD1}
-    Write                enable
+    Set Prompt           .*>                prompt_is_regexp=${True}
+    Sleep                3
 
-Connect To Olt
-    Connect To Switch
-    ${device_info2}      Get Device Info    ${DEVICE_OLT}
-    Set Test Variable    ${HOST2}           ${device_info2['connections']['ip']}
-    Set Test Variable    ${PORT2}           ${device_info2['connections']['port']}
-    Set Test Variable    ${USERNAME2}       ${device_info2['connections']['username']}
-    Set Test Variable    ${PASSWORD2}       ${device_info2['connections']['password']}
-    Open Connection      ${HOST2}
-    Login                ${USERNAME2}       ${PASSWORD2}
-    Write                enable
+Open Connection With Current Connection
+    [Arguments]          ${device_name}
+    ${device_info}       Get Device Info    ${device_name}
+    Set Test Variable    ${HOST1}           ${device_info['connections']['ip']}
+    Set Test Variable    ${PORT1}           ${device_info['connections']['port']}
+    Set Test Variable    ${USERNAME1}       ${device_info['connections']['username']}
+    Set Test Variable    ${PASSWORD1}       ${device_info['connections']['password']}
+    Write                telnet ${HOST1}
+    Login                ${USERNAME1}       ${PASSWORD1}
+    Set Prompt           .*>                prompt_is_regexp=${True}
+    Sleep                3
 
 ### Send Command ###
 
-Send Command To Config Mode
-    [Arguments]        ${command}
-    Update Prompt
-    Write              configure terminal
-    Update Prompt
-    Execute Command    ${command}
+Send Command Terminal
+    [Arguments]    ${command}
+    ${loginfo}     Execute Command    ${command}
+    RETURN         ${loginfo}
 
-Update Prompt
-    ${prompt}     Read Until Regexp    (#|>)
-    Log           ${prompt.strip()}
-    Set Prompt    ${prompt.strip()}
+Auto Detect And Set Prompt
+    [Documentation]    Tự động đọc prompt từ đầu ra và set prompt cho phiên kết nối hiện tại
 
+    ${output}=       Read Until Regexp    [>#$]
+    ${last_line}=    Evaluate             '''${output}'''.splitlines()[-1]    modules=builtins
+    Set Prompt       ${last_line}
