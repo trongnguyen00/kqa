@@ -7,7 +7,7 @@ Library          /home/ats/ATS/kqa/library/CustomTelnetLibrary.py
 *** Variables ***
 ${DEVICE_NAME}    Switch0
 ${DEVICE_OLT}     Olt0
-${CMD}            show running-config interface eth0/20
+${CMD}            show interface status
 
 *** Test Cases ***
 Connect To Device
@@ -19,7 +19,9 @@ Connect To Device
     Auto Detect And Set Prompt
     Write                                      enable
     Auto Detect And Set Prompt
-    Send Command Terminal                      ${CMD}
+    Set Terminal Length
+    ${logcmd}                                  Send Command Terminal    ${CMD}
+    Log To Console                             ${logcmd}
     Sleep                                      5s
     Send Command File
 

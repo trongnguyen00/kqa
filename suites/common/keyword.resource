@@ -32,6 +32,9 @@ Open Connection With Current Connection
     Sleep                3
 
 ### Send Command ###
+Set Terminal Length
+    [Arguments]              ${length}=0
+    Send Command Terminal    terminal length ${length}
 
 Send Command Terminal
     [Arguments]    ${command}
