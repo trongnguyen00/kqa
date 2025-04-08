@@ -2,7 +2,7 @@ commands:
   show-all-vlan:
     - model: default
       shell: |
-        traffic-profile s-202t create
+        traffic-profile trongnk_test modify
           tcont 1
             gemport 1/1
             dba-profile GPON_BE
@@ -22,6 +22,21 @@ commands:
          match dscp 24
          match ip any any any
         !
+        interface vlan 1.501
+         ip address 101.0.0.254/24
+         shutdown
+         ip igmp proxy-service
+        !
+        interface vlan 1.1000
+         ip address 210.1.1.213/24
+         shutdown
+        !
+        vlan database
+         vlan 1000 bridge 1 state enable
+        !
+        ip multicast-routing
+        !
+
 
 verify:
   mac-table-check:
