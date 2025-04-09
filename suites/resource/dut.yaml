@@ -37,17 +37,16 @@ commands:
         ip multicast-routing
         !
 
-
 verify:
-  mac-table-check:
+  interface-check:
     - model: default
       shell: |
-        +--------+-------------------------+
-        | VLAN   | MAC                     |
-        +--------+-------------------------+
-        | 2501   | 00:d0:cb:06:30:bb       |
-        | 2501   | 18:d0:71:79:10:b8       |
-        +--------+-------------------------+
+        +------------------+-------------------------+
+        | Interface        | TYPE                    |
+        +------------------+-------------------------+
+        | xgspon0/1        | Ethernet                |
+        | xgspon0/2        | Ethernet                |
+        +------------------+-------------------------+
   olt-us-vlan-check:
     - model: default
       shell: |

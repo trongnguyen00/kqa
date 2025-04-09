@@ -1,0 +1,8 @@
+Value INTERFACE (\S+)
+Value TYPE (\S+)
+Value STATUS (\S+)
+Value MODE (\S+)
+Value FLOWCTRL (\S+)
+
+Start
+  ^${INTERFACE}\s+${TYPE}\s+${STATUS}\s+${MODE}\s+${FLOWCTRL} -> Record
