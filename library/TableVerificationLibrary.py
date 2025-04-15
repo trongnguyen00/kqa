@@ -45,15 +45,17 @@ class TableVerificationLibrary:
         df = pd.DataFrame(data, columns=header)
         return df
 
-    def parse_table(self, raw_string):
+    def parse_table(self, raw_string, template_path):
         """
         Keyword: Parse Table
         Sử dụng TextFSM để parse raw output thành DataFrame.
-        File template TextFSM (ví dụ template_file.txt) cần được định nghĩa trước với cú pháp của TextFSM.
+        Tham số:
+          - raw_string: chuỗi output cần parse.
+          - template_path: đường dẫn tới file TextFSM template.
+          
+        Lưu ý: Người dùng cần truyền đúng đường dẫn tới file template. Nếu file không tồn tại, lỗi sẽ được raise bởi hàm open().
         """
-        if not os.path.exists(self.template_path):
-            raise FileNotFoundError(f"Không tìm thấy file template tại: {self.template_path}")
-        with open(self.template_path, 'r') as template_file:
+        with open(template_path, 'r') as template_file:
             fsm = textfsm.TextFSM(template_file)
             # Parse raw_string trả về list các list chứa giá trị theo thứ tự header của TextFSM
             parsed_results = fsm.ParseText(raw_string)
@@ -62,6 +64,7 @@ class TableVerificationLibrary:
         # Chuyển kết quả thành DataFrame với header từ TextFSM
         df = pd.DataFrame(parsed_results, columns=fsm.header)
         return df
+
 
     def verify_table(self, reference_input, raw_input, mode="whitelist"):
         """

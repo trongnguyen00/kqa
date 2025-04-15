@@ -1,8 +1,13 @@
 *** Settings ***
-Library    /home/ats/ATS/kqa/library/TableVerificationLibrary.py
-Library    Collections
+Library     /home/ats/ATS/kqa/library/TableVerificationLibrary.py
+Library     Collections
+Resource    /home/ats/ATS/kqa/suites/common/keyword.resource
 
 *** Variables ***
+${DEVICE_NAME}    Switch0
+${DEVICE_OLT}     Olt0
+${CMD}            show interface status
+
 ${RAW_OUTPUT}    SEPARATOR=${EMPTY}
 ...
 ...    | Interface    | TYPE        | STATUS    | MODE              | FLOWCTRL    | \n
@@ -19,11 +24,20 @@ ${REFERENCE_TABLE}    SEPARATOR=${EMPTY}
 *** Test Cases ***
 Verify Tables Example
     # Convert raw output to table
+    Load Topology                              /home/ats/ATS/kqa/suites_data/topology.yaml
+    Connect To Dut                             ${DEVICE_NAME}
+    Write                                      enable
+    Open Connection With Current Connection    ${DEVICE_OLT}
+    Auto Detect And Set Prompt
+    Write                                      enable
+    Auto Detect And Set Prompt
+    Set Terminal Length
+    ${logcmd}                                  Send Command Terminal                          ${CMD}
 
     # Verify tables using whitelist logic
-    ${table_raw}=     Create Table    ${RAW_OUTPUT}
+    ${table_raw}=     Parse Table     ${logcmd}             /home/ats/ATS/kqa/suites/resource/interface_status.template
     ${table_ref}=     Create Table    ${REFERENCE_TABLE}
-    ${result}=        Verify Table    ${table_ref}          ${table_raw}    whitelist
+    ${result}=        Verify Table    ${table_ref}          ${table_raw}                                                   whitelist
     Should Be True    ${result}
 
     # Verify tables using blacklist logic
