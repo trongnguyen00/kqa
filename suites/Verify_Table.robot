@@ -46,6 +46,6 @@ Verify Tables Example With Parse Table
 
 Verify Table With Create Table
     # Verify tables using whitelist logic
-    ${table_raw}=    Create Tabl     ${RAW_OUTPUT}
+    ${table_raw}=    Create Table    ${RAW_OUTPUT}
     ${table_ref}=    Create Table    ${REFERENCE_TABLE}
     ${result}=       Verify Table    ${table_ref}          ${table_raw}    whitelist

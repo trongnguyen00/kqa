@@ -38,7 +38,6 @@ devices:
     api: default
     model: PG2142
     connections:
-    custom:
       serial: KAON14000029
 
   ### Traffic Generator definition ###
@@ -47,9 +46,8 @@ devices:
     api: n2x
     model: n2x
     connections:
-      default:
-        protocol: tcl
-        ip: 192.168.150.230
+      protocol: tcl
+      ip: 192.168.150.230
     custom:
       session_id: 3
       session_mode: online

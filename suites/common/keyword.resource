@@ -2,6 +2,9 @@
 Documentation    This is a resource file, that can contain variables and keywords.
 ...              Keywords defined here can be used where this Keywords.resource in loaded.
 Library          /home/ats/ATS/kqa/library/DeviceTerminal.py
+Library          /home/ats/ATS/kqa/library/TerminalCommands.py
+Library          /home/ats/ATS/kqa/library/TableVerificationLibrary.py
+Library          /home/ats/ATS/kqa/library/IxiaLibrary.py
 Library          Telnet
 
 *** Keywords ***
@@ -30,6 +33,12 @@ Open Connection With Current Connection
     Login                ${USERNAME1}       ${PASSWORD1}
     Set Prompt           .*>                prompt_is_regexp=${True}
     Sleep                3
+
+Get Ixia Connection
+    ${ixia_info}         Get Device Info    IXIA
+    Set Test Variable    ${ixia_ip}         ${ixia_info['connections']['ip']}
+    Set Test Variable    ${ixia_session}    ${ixia_info['custom']['session_id']}
+    RETURN               ${ixia_ip}         ${ixia_session}
 
 ### Send Command ###
 Set Terminal Length
