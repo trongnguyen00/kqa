@@ -2,7 +2,7 @@
 Documentation    This is a resource file, that can contain variables and keywords.
 ...              Keywords defined here can be used where this Keywords.resource in loaded.
 Resource         /home/ats/ATS/kqa/suites/common/keyword.resource
-Library          /home/ats/ATS/kqa/library/CustomTelnetLibrary.py
+Library          /home/ats/ATS/kqa/library/TerminalCommands.py
 
 *** Variables ***
 ${DEVICE_NAME}    Switch0

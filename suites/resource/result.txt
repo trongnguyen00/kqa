@@ -1,0 +1,31 @@
+V5816XC_VN# show interface status
+-----------------------------------------------------------------------
+Interface     TYPE        STATUS            MODE           FLOWCTRL
+                       (ADMIN/OPER)                      (ADMIN/OPER)
+-----------------------------------------------------------------------
+xgspon0/1   Ethernet       Up/Up       Force/Full/10G       Off/Off
+xgspon0/2   Ethernet       Up/Up       Force/Full/10G       Off/Off
+xgspon0/3   Ethernet       Up/Up       Force/Full/10G       Off/Off
+xgspon0/4   Ethernet       Up/Up       Force/Full/10G       Off/Off
+xgspon0/5   Ethernet       Up/Up       Force/Full/10G       Off/Off
+xgspon0/6   Ethernet       Up/Up       Force/Full/10G       Off/Off
+xgspon0/7   Ethernet       Up/Up       Force/Full/10G       Off/Off
+xgspon0/8   Ethernet       Up/Up       Force/Full/10G       Off/Off
+gpon0/9     Ethernet       Up/Up       Force/Full/2500      Off/Off
+gpon0/10    Ethernet       Up/Up       Force/Full/2500      Off/Off
+gpon0/11    Ethernet       Up/Up       Force/Full/2500      Off/Off
+gpon0/12    Ethernet       Up/Up       Force/Full/2500      Off/Off
+gpon0/13    Ethernet       Up/Up       Force/Full/2500      Off/Off
+gpon0/14    Ethernet       Up/Up       Force/Full/2500      Off/Off
+gpon0/15    Ethernet       Up/Up       Force/Full/2500      Off/Off
+gpon0/16    Ethernet       Up/Up       Force/Full/2500      Off/Off
+eth0/17     Ethernet       Up/Down     Force/Full/0         Off/Off
+eth0/18     Ethernet       Up/Down     Force/Full/0         Off/Off
+eth0/19     Ethernet       Up/Down     Force/Full/0         Off/Off
+eth0/20     Ethernet       Up/Up       Force/Full/1000      Off/Off
+eth0/21     Ethernet       Up/Up       Force/Full/1000      Off/Off
+eth0/22     Ethernet       Up/Up       Force/Full/1000      Off/Off
+eth0/23     Ethernet       Up/Down     Force/Full/0         Off/Off
+eth0/24     Ethernet       Up/Up       Force/Full/10G       Off/Off
+-----------------------------------------------------------------------
+

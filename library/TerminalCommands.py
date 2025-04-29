@@ -3,7 +3,7 @@ import re
 from robot.api.deco import keyword
 from robot.libraries.BuiltIn import BuiltIn
 
-class CustomTelnetLibrary:
+class TerminalCommands:
     def __init__(self):
         self.telnet = BuiltIn().get_library_instance('Telnet')
         self.current_prompt_level = 0

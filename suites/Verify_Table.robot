@@ -22,7 +22,7 @@ ${REFERENCE_TABLE}    SEPARATOR=${EMPTY}
 ...    | xgspon0/2    | Up/Up     | \n
 
 *** Test Cases ***
-Verify Tables Example
+Verify Tables Example With Parse Table
     # Convert raw output to table
     Load Topology                              /home/ats/ATS/kqa/suites_data/topology.yaml
     Connect To Dut                             ${DEVICE_NAME}
@@ -43,3 +43,9 @@ Verify Tables Example
     # Verify tables using blacklist logic
     ${result}=            Verify Table    ${table_ref}    ${table_raw}    blacklist
     Should Not Be True    ${result}
+
+Verify Table With Create Table
+    # Verify tables using whitelist logic
+    ${table_raw}=    Create Tabl     ${RAW_OUTPUT}
+    ${table_ref}=    Create Table    ${REFERENCE_TABLE}
+    ${result}=       Verify Table    ${table_ref}          ${table_raw}    whitelist
