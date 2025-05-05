@@ -4,7 +4,7 @@ Documentation    This is a resource file, that can contain variables and keyword
 Library          /home/ats/ATS/kqa/library/DeviceTerminal.py
 Library          /home/ats/ATS/kqa/library/TerminalCommands.py
 Library          /home/ats/ATS/kqa/library/TableVerificationLibrary.py
-Library          /home/ats/ATS/kqa/library/IxiaLibrary.py
+Library          /home/ats/ATS/kqa/library/pixia/library.py
 Library          Telnet
 
 *** Keywords ***
