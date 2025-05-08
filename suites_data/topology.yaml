@@ -62,7 +62,16 @@ devices:
         - name: 203/4
           alias: 203/4
           media: rj45
-
+  CDRouter:
+    api: rest
+    model: CDRouter
+    connections:
+      protocol: http
+      path: http://192.168.150.240
+    custom:
+      username: KVINQA
+      password: kaon1234
+      token: none
 
 topology:
 
