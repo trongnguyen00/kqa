@@ -7,6 +7,7 @@ from cdrouter.jobs import Job
 from cdrouter.results import Result
 from cdrouter.devices import Device
 from robot.api.deco import keyword
+from robot.libraries.BuiltIn import BuiltIn
 
 class CDRouterLibrary():
     def __init__(self):
@@ -63,13 +64,15 @@ class CDRouterLibrary():
             "Device"
         ])
         package_obj = self.session.packages.get(package_id)
+        config_obj = self.session.configs.get(package_obj.config_id).name
+        device_obj = self.session.devices.get(package_obj.device_id).name
         df.loc[len(df)] = [
             package_obj.id,
             package_obj.name,
             package_obj.description,
             package_obj.test_count,
-            package_obj.config_id,
-            package_obj.device_id
+            config_obj,
+            device_obj
         ]
         return df
     
@@ -344,8 +347,10 @@ class CDRouterLibrary():
 
     def check_until_job_completed(self, job_id):
         """Check if a job is completed.
+        Now it can trigger status but after job finished, CDR always return to completed.
+        it should be FIX
         """
-        While True:
+        while True:
             job_obj = self.session.jobs.get(job_id)
             status = job_obj.status
             if status == 'completed':
@@ -353,12 +358,12 @@ class CDRouterLibrary():
                 return True
             elif status in ['error', 'stopped']:
                 logger.info(f"Job {job_id} is not completed. Status: {status}")
-                BuildIn().fail(f"Job {job_id} is not completed. Status: {status}")
+                BuiltIn().fail(f"Job {job_id} is not completed. Status: {status}")
             elif status in ['running', 'pending']:
                 logger.info(f"Job {job_id} is still running. Status: {status}")
                 time.sleep(10)
             else:
-                BuildIn().fail(f"Job {job_id} has an unknown status: {status}")
+                BuiltIn().fail(f"Job {job_id} has an unknown status: {status}")
         
     # RESULTS
 
@@ -441,6 +446,26 @@ class CDRouterLibrary():
         ]
 
         return result_df
+
+    @keyword
+    def get_result_msg(self, result_id):
+        result_obj = self.session.results.get(result_id)
+        return result_obj.result, result_obj.status
+
+    @keyword
+    def check_is_error_result(self, result_id):
+        result_obj = self.session.results.get(result_id)
+
+        if not result_obj:
+            BuiltIn().fail(f"Result with ID {result_id} not found.")
+
+        if result_obj.status == "error":
+            BuiltIn().fail(f"Message: {result_obj.result}. Status: {result_obj.status}")
+
+        if result_obj.status == "stopped":
+            BuiltIn().fail(f"Message: {result_obj.result}. Status: {result_obj.status}")
+
+
 
     @keyword
     def get_all_results(self):
