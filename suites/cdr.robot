@@ -48,11 +48,9 @@ Launch Job And Check Status
 
 Check Result From CDR
     ${result}                Get Result By Id    ${result_id}
-    # Log To Console           ${result}
     ${msg}                   ${status}           Get Result Msg    ${result_id}
+    Export Result To Csv     ${result_id}
     Check Is Error Result    ${result_id}
-    Set Suite Variable       ${msg}              
-    Set Suite Variable       ${status}
 
 Test Setup
     Load Topology    /home/ats/ATS/kqa/suites_data/topology.yaml
