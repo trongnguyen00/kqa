@@ -2,6 +2,7 @@
 Library    /home/ats/ATS/kqa/library/cdr/CDRouterLibrary.py
 Library    /home/ats/ATS/kqa/library/terminal/DeviceTerminal.py
 Library    /home/ats/ATS/kqa/library/utils/TableVerificationLibrary.py
+Library    OperatingSystem
 
 *** Variables ***
 ${PACKAGE_NAME}    QA/PG6692G/DS-LITE
@@ -48,8 +49,10 @@ Launch Job And Check Status
 Check Result From CDR
     ${result}                Get Result By Id    ${result_id}
     # Log To Console           ${result}
-    # ${msg}                   ${status}           Get Result Msg    ${result_id}
+    ${msg}                   ${status}           Get Result Msg    ${result_id}
     Check Is Error Result    ${result_id}
+    Set Suite Variable       ${msg}              
+    Set Suite Variable       ${status}
 
 Test Setup
     Load Topology    /home/ats/ATS/kqa/suites_data/topology.yaml

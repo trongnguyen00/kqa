@@ -1,5 +1,7 @@
 import pandas as pd
 import time
+from pathlib import Path
+from datetime import datetime
 from robot.api import logger
 from cdrouter import CDRouter
 from cdrouter.packages import Package
@@ -465,6 +467,45 @@ class CDRouterLibrary():
         if result_obj.status == "stopped":
             BuiltIn().fail(f"Message: {result_obj.result}. Status: {result_obj.status}")
 
+    @keyword
+    def export_result_to_csv(self, result_id, path_default="."):
+        result_df = pd.DataFrame(columns=[
+            "Config Name",
+            "Package Name",
+            "Device Name",
+            "Duration Test",
+            "Result Message",
+            "Status",
+            "Pass Count",
+            "Fail Count",
+            "Result Directory",
+            "Pause Message"
+        ])
+        result_obj = self.session.results.get(result_id)
+        result_df.loc[len(result_df)] = [
+            result_obj.config_name,
+            result_obj.package_name,
+            result_obj.device_name,
+            result_obj.duration,
+            result_obj.result,
+            result_obj.status,
+            result_obj.passed,
+            result_obj.fail,
+            result_obj.result_dir,
+            result_obj.pause_message
+        ]
+        path = Path(path_default)
+        if str(path_default).strip() in ["", "."]:
+            path = Path.cwd()
+
+        path.mkdir(parents=True, exist_ok=True)
+
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        file_path = path / f"result_{timestamp}.csv"
+
+        result_df.to_csv(file_path, index=False, encoding='utf-8-sig')
+        print(f"✅ Exported test result to: {file_path}")
+        
 
 
     @keyword
