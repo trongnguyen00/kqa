@@ -1,0 +1,1 @@
+/home/ats/ATS/kqa/send_email/result_20250509_182447.csv

@@ -1,0 +1,2 @@
+﻿Config Name,Package Name,Device Name,Duration Test,Result Message,Status,Pass Count,Fail Count,Result Directory,Pause Message
+QA-PG6692G-DS-LITE,QA/PG6692G/DS-LITE,[QA]Alpha/PG6692G/KAONCE8EF380(oldHW),6,Execution was stopped by the user while running start,stopped,0,0,/usr/cdrouter-data/results/20250509/20250509072428,

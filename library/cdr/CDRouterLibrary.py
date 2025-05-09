@@ -504,8 +504,11 @@ class CDRouterLibrary():
         file_path = path / f"result_{timestamp}.csv"
 
         result_df.to_csv(file_path, index=False, encoding='utf-8-sig')
+        with open("latest_result.txt", "w") as f:
+            f.write(str(file_path.resolve()))
+    
         print(f"✅ Exported test result to: {file_path}")
-        
+
 
 
     @keyword
