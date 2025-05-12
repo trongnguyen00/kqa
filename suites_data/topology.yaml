@@ -33,12 +33,25 @@ devices:
       username: isadmin
       password: ans#150
 
+  Olt2:
+    type: dut
+    api: MA5800-X7
+    model: MA5800-X7
+    connections:
+      protocol: telnet
+      ip: 192.168.150.215
+      port: 23
+      username: admin2
+      password: Kaon@2023vnm
+
   Onu0:
     type: onu
     api: default
-    model: PG2142
+    model: PG6629G
     connections:
-      serial: KAON14000029
+      serial: 4B414F4E1A154B58
+      ip: 192.168.150.234
+      port: 4008
 
   ### Traffic Generator definition ###
   IXIA:
@@ -84,6 +97,16 @@ topology:
       - name: gpon 0/15
         alias: gpon0/15
         link: olt0-pon0
+
+  Olt2:
+    ethernet:
+      - name: ethernet 0/20
+        alias: eth0/24
+        link: olt0-ixia-1
+    pon:
+      - name: gpon 0/2
+        alias: 0/2/12
+        link: olt2-pon0-12
 
   Onu0:
     pon:

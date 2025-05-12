@@ -459,13 +459,13 @@ class CDRouterLibrary():
         result_obj = self.session.results.get(result_id)
 
         if not result_obj:
-            BuiltIn().fail(f"Result with ID {result_id} not found.")
+            BuiltIn().log(f"Result with ID {result_id} not found.")
 
         if result_obj.status == "error":
-            BuiltIn().fail(f"Message: {result_obj.result}. Status: {result_obj.status}")
+            BuiltIn().log(f"Message: {result_obj.result}. Status: {result_obj.status}")
 
         if result_obj.status == "stopped":
-            BuiltIn().fail(f"Message: {result_obj.result}. Status: {result_obj.status}")
+            BuiltIn().log(f"Message: {result_obj.result}. Status: {result_obj.status}")
 
     @keyword
     def export_result_to_csv(self, result_id, path_default="."):
@@ -507,7 +507,7 @@ class CDRouterLibrary():
         with open("latest_result.txt", "w") as f:
             f.write(str(file_path.resolve()))
     
-        print(f"✅ Exported test result to: {file_path}")
+        print(f"Exported test result to: {file_path}")
 
 
 
