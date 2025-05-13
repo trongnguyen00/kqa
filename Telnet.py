@@ -29,6 +29,7 @@ except ImportError:
 
 from robot.api import logger
 from robot.api.deco import keyword
+from robot.libraries.BuiltIn import BuiltIn
 from robot.utils import (
     ConnectionCache, is_truthy, secs_to_timestr, seq2str, timestr_to_secs
 )
@@ -526,6 +527,86 @@ class Telnet():
 
     # Customize
     @keyword
+    def connect_to_dut(self, device_name):
+        """
+        Kết nối Telnet và đăng nhập vào thiết bị dựa trên topology đã load.
+
+        - Gọi `open_connection()`
+        - Dùng lại `login()` có sẵn
+        - Gửi ENTER sau login để phát hiện prompt thực tế
+        - Set prompt chính xác từ dòng trả về
+
+        Trả về: output từ login và prompt detection
+        """
+        import time
+        from robot.libraries.BuiltIn import BuiltIn
+
+        topo = BuiltIn().get_library_instance("TopologyLoader")
+        device_info = topo.get_device_info(device_name)
+        conn = device_info.get('connections', {})
+
+        ip = conn.get('ip')
+        port = conn.get('port', 23)
+        username = conn.get('username')
+        password = conn.get('password')
+        api = device_info.get('api')
+
+        login_info = self._get_login_prompt_by_api(api)
+        login_prompt = login_info['login_prompt']
+        password_prompt = login_info['password_prompt']
+
+        # Mở kết nối nhưng không set prompt sẵn
+        self.open_connection(ip, port=port, prompt=None, prompt_is_regexp=False)
+
+        # Gọi lại login chuẩn
+        output = self.login(
+            username=username,
+            password=password,
+            login_prompt=login_prompt,
+            password_prompt=password_prompt
+        )
+
+        # Gửi ENTER để lấy dòng prompt thực sự
+        self._conn.write("")
+        time.sleep(0.5)
+        prompt_output = self._conn.read_very_eager().decode(errors="ignore")
+        lines = prompt_output.strip().splitlines()
+        if not lines:
+            raise AssertionError("Không phát hiện được prompt thực sự sau khi gửi ENTER.")
+        exact_prompt = lines[-1].strip()
+
+        self._conn.set_prompt(exact_prompt, prompt_is_regexp=False)
+
+        output += prompt_output
+        # self._log(output)
+        return output
+
+
+    def _get_login_prompt_by_api(self, api):
+        """
+        Default
+        - login_prompt: "login: "
+        - password_prompt: "Password: "
+        """
+        mapping = {
+            "ISAM_7360": {
+                "login_prompt": "login: ",
+                "password_prompt": "password: "
+            },
+            "MA5800-X7": {
+                "login_prompt": ">>User name:",
+                "password_prompt": ">>User password:"
+            }
+        }
+
+        return mapping.get(api, {
+            "login_prompt": "login: ",
+            "password_prompt": "Password: "
+        })
+
+
+
+    @keyword
     def send_command(self, command, new_prompt=None, prompt_is_regexp=False, reset_prompt=False):
         """
         Gửi lệnh, đợi prompt mới và cập nhật prompt.
@@ -537,7 +618,9 @@ class Telnet():
         self._conn.write(command)
 
         if reset_prompt:
-            output = self._conn.read_until_prompt()
+            self._conn.write("")
+            output = self._conn.read_very_eager().decode(errors="ignore")
+            # output = self._conn.read_until_prompt()
             last_line = output.strip().splitlines()[-1]
             prompt_candidate = last_line.strip()
             self._conn.set_prompt(prompt_candidate, prompt_is_regexp=False)
