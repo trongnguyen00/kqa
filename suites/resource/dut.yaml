@@ -18,24 +18,12 @@ commands:
          match dscp 46
          match ip any any any
         !
-        class-map str_vod_24
-         match dscp 24
-         match ip any any any
-        !
-        interface vlan 1.501
-         ip address 101.0.0.254/24
-         shutdown
-         ip igmp proxy-service
-        !
-        interface vlan 1.1000
-         ip address 210.1.1.213/24
-         shutdown
-        !
-        vlan database
-         vlan 1000 bridge 1 state enable
-        !
-        ip multicast-routing
-        !
+
+  set_dhcp4_wan:
+    - model: default
+      shell: |
+        ba-cli WANManager.WAN.vlanmode.Intf.wan.IPv4Mode=dhcp4
+        ba-cli WANManager.WAN.vlanmode.Intf.wan.IPv4Reference=Device.IP.Interface.2.
 
 verify:
   interface-check:
