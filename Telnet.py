@@ -555,10 +555,8 @@ class Telnet():
         login_prompt = login_info['login_prompt']
         password_prompt = login_info['password_prompt']
 
-        # Mở kết nối nhưng không set prompt sẵn
         self.open_connection(ip, port=port, prompt=None, prompt_is_regexp=False)
 
-        # Gọi lại login chuẩn
         output = self.login(
             username=username,
             password=password,
@@ -566,7 +564,6 @@ class Telnet():
             password_prompt=password_prompt
         )
 
-        # Gửi ENTER để lấy dòng prompt thực sự
         self._conn.write("")
         time.sleep(0.5)
         prompt_output = self._conn.read_very_eager().decode(errors="ignore")

@@ -112,12 +112,12 @@ Test Connection And Verify Package
 Launch Job And Check Status
     [Documentation]    Start run a package on CDRouter and trigger running
 
-    [Arguments]                            ${packet_name}
-    ${package_id}                          Get Package Id By Name       ${packet_name}
-    ${job_id}                              Set Launch Job               ${package_id}
-    Run Keyword And Continue On Failure    Check Until Job Completed    ${job_id}
-    ${result_id}                           Get Result Id From Job       ${job_id}
-    Set Test Variable                      ${result_id}
+    [Arguments]                  ${packet_name}
+    ${package_id}                Get Package Id By Name    ${packet_name}
+    ${job_id}                    Set Launch Job            ${package_id}
+    Check Until Job Completed    ${job_id}
+    ${result_id}                 Get Result Id From Job    ${job_id}
+    Set Test Variable            ${result_id}
 
 Check Result From CDR
     [Documentation]    Get result from CDRouter and export result to prepare email
