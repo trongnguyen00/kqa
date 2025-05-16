@@ -1518,5 +1518,26 @@ class TelnetCommandGroupHandler:
     def _execute(self, command):
         self.telnet.write(command)
         output = self.telnet.read_until_regexp(r"(#|>)")
-        if "% Invalid input" in output or "Error" in output:
-            raise RuntimeError(f"Lỗi khi gửi lệnh: {command}\nOutput: {output}")
+    
+        # Lấy prompt hiện tại từ đối tượng telnet
+        prompt, is_regexp = self.telnet._prompt
+        current_prompt = prompt.pattern if is_regexp else prompt
+    
+        lines = output.strip().splitlines()
+    
+        filtered_lines = [
+            line for line in lines if line.strip() and line.strip() != current_prompt.strip()
+        ]
+    
+        for line in filtered_lines:
+            if "%" in line:
+                raise RuntimeError(
+                    f"[ERROR] Command failed: '{command}'\nDetected error line: {line}\nFull Output:\n{output}"
+                )
+    
+        return output
+    # def _execute(self, command):
+    #     self.telnet.write(command)
+    #     output = self.telnet.read_until_regexp(r"(#|>)")
+    #     if "% Invalid input" in output or "Error" in output:
+    #         raise RuntimeError(f"Lỗi khi gửi lệnh: {command}\nOutput: {output}")
