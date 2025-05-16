@@ -44,6 +44,17 @@ devices:
       username: admin2
       password: Kaon@2023vnm
 
+  Olt3:
+    type: dut
+    api: V5812G
+    model: V5812G
+    connections:
+      protocol: telnet
+      ip: 192.168.150.217
+      port: 23
+      username: user
+      password: Kaon1234
+
   Onu0:
     type: onu
     api: default

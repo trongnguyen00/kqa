@@ -565,15 +565,21 @@ class Telnet():
         )
 
         self._conn.write("")
-        time.sleep(0.5)
-        prompt_output = self._conn.read_very_eager().decode(errors="ignore")
+
+        prompt_output = ""
+        for _ in range(10):
+            time.sleep(0.5)
+            chunk = self._conn.read_very_eager().decode(errors="ignore")
+            if chunk:
+                prompt_output += chunk
+                break
+
         lines = prompt_output.strip().splitlines()
         if not lines:
-            raise AssertionError("Không phát hiện được prompt thực sự sau khi gửi ENTER.")
+            raise AssertionError("Không phát hiện được prompt sau khi gửi ENTER.")
+
         exact_prompt = lines[-1].strip()
-
         self._conn.set_prompt(exact_prompt, prompt_is_regexp=False)
-
         output += prompt_output
         # self._log(output)
         return output
