@@ -1,24 +1,27 @@
 commands:
-  show-all-vlan:
+  config-profile:
     - model: default
       shell: |
-        traffic-profile trongnk_test modify
-          tcont 1
-            gemport 1/1
-            dba-profile GPON_BE
-          mapper 1
-            gemport count 1
-          bridge 1
-            ani mapper {{mapper_value}}
-            uni virtual-eth {{uni_value}}
-              extended-vlan-tagging-operation s-202t
-          apply
+        configure terminal
+          gpon
+            traffic-profile PG2449H_trongnk modify
+             mapper 1
+              gemport count 1
+             bridge 1
+              ani mapper 1
+              uni virtual-eth 1
+               extended-vlan-tagging-operation passthrough
+             tcont 1
+              gemport 1/1
+              dba-profile DBA_DEFAULT
+             apply
+            !
+            onu-profile PG2449H_trongnk modify
+              traffic-profile PG2449H_trongnk
+              apply
+            !
+          !
         !
-        class-map dscp_46
-         match dscp 46
-         match ip any any any
-        !
-
   set_dhcp4_wan:
     - model: default
       shell: |
