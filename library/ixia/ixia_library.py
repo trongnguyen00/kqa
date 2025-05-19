@@ -5,6 +5,7 @@ from ixia.keywords.connection import ConnectionKeywords
 from ixia.keywords.session import SessionKeywords
 from ixia.keywords.port import PortKeywords
 from ixia.keywords.media import MediaKeywords
+from ixia.keywords.linklayer import LinkLayerKeywords
 
 @library
 class IxiaLibrary(DynamicCore):
@@ -14,6 +15,7 @@ class IxiaLibrary(DynamicCore):
             ConnectionKeywords(base),
             SessionKeywords(base),
             PortKeywords(base),
-            MediaKeywords(base)
+            MediaKeywords(base),
+            LinkLayerKeywords(base)
         ]
         super().__init__(libraries)
