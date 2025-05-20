@@ -2,7 +2,7 @@ class LinkLayerCommands:
     def __init__(self, base):
         self.base = base
 
-    def disable_all(self, port_handle):
+    def disable_arp(self, port_handle):
         return self.base.send_tcl_command(f"AgtInvoke AgtArpEmulation Disable {port_handle}")
 
     def set_ip_tester(self, port_handle, ip_addr, prefix_length, num_addr, step):
