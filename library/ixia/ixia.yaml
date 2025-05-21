@@ -1,0 +1,133 @@
+# Ixia resource
+# -------------
+#
+#   description: resource file to save infos relate to traffic of ixia
+
+profiles:
+  U1:
+    mode: continuous
+    rate: 100
+    unit: fps
+  U2:
+    mode: continuous
+    rate: 100
+    unit: fps
+  U3:
+    mode: continuous
+    rate: 100
+    unit: fps
+
+streams:
+  U1.S1: 
+    spec: 
+      test_payload: true
+      fcs_error: false
+    layer:
+      - ethernet
+      - ipv4
+    length: 
+      value: 64
+    pdu:
+      - ethernet:
+          data:
+            source_address: 00:00:01:00:00:00
+            destination_address: 00:00:02:00:00:00
+          instance: 1
+      - ipv4:
+          data:
+            source_address: 101.1.1.1
+            destination_address: 201.1.1.1
+          instance: 1
+    stream_id:
+        enable: true
+        protocol: ethernet
+        field: source_address
+  U2.S2:
+    spec: 
+      test_payload: true
+      fcs_error: false
+    layer:
+      - ethernet
+      - ipv4
+    length: 
+      value: 64
+    pdu:
+      - ethernet:
+          data:
+            source_address: 00:00:01:00:00:01
+            destination_address: 00:00:02:00:00:01
+            vlan_tag1:
+              vlan_id1: 101
+              vlan_user_priority1: 0
+          instance: 1
+      - ipv4:
+          data:
+            source_address: 101.1.1.2
+            destination_address: 201.1.1.2
+          instance: 1
+    stream_id:
+        enable: true
+        protocol: ethernet
+        field: source_address
+
+stream-filters:
+  ES_11:
+    format: ixia
+    pdu:
+      - ethernet:
+          data:
+            source_address: 00:00:01:00:00:00
+            destination_address: 00:00:02:00:00:00
+          instance: 1
+      - ipv4:
+          data:
+            source_address: 101.1.1.1
+            destination_address: 201.1.1.1
+          instance: 1
+  ES_12:
+    format: ixia
+    pdu:
+      - ethernet:
+          data:
+            source_address: 00:00:01:00:00:01
+            destination_address: 00:00:02:00:00:01
+            vlan_id1: 101
+            vlan_user_priority1: 0
+          instance: 1
+      - ipv4:
+          data:
+            source_address: 101.1.1.2
+            destination_address: 201.1.1.2
+          instance: 1
+  ES_21:
+    format: ixia
+    pdu:
+      - ethernet:
+          data:
+            source_address: 00:00:01:00:00:00
+            destination_address: 00:00:02:00:00:00
+            vlan_id1: 201
+            vlan_user_priority1: 4
+          instance: 1
+      - ipv4:
+          data:
+            source_address: 101.1.1.1
+            destination_address: 201.1.1.1
+          instance: 1
+  ES_22:
+    format: ixia
+    pdu:
+      - ethernet:
+          data:
+            source_address: 00:00:01:00:00:01
+            destination_address: 00:00:02:00:00:01
+            vlan_id2: 201
+            vlan_user_priority2: 4
+            vlan_id1: 101
+            vlan_user_priority1: 0
+          instance: 1
+      - ipv4:
+          data:
+            source_address: 101.1.1.2
+            destination_address: 201.1.1.2
+          instance: 1

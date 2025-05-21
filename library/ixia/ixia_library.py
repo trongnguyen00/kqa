@@ -6,6 +6,8 @@ from ixia.keywords.session import SessionKeywords
 from ixia.keywords.port import PortKeywords
 from ixia.keywords.media import MediaKeywords
 from ixia.keywords.linklayer import LinkLayerKeywords
+from ixia.keywords.trafficprofile import TrafficProfileKeywords
+from ixia.keywords.traffictest import TrafficTestKeywords
 
 @library
 class IxiaLibrary(DynamicCore):
@@ -16,6 +18,8 @@ class IxiaLibrary(DynamicCore):
             SessionKeywords(base),
             PortKeywords(base),
             MediaKeywords(base),
-            LinkLayerKeywords(base)
+            LinkLayerKeywords(base),
+            TrafficProfileKeywords(base),
+            TrafficTestKeywords(base)
         ]
         super().__init__(libraries)
