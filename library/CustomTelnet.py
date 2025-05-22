@@ -544,7 +544,11 @@ class CustomTelnet():
         import time
         from robot.libraries.BuiltIn import BuiltIn
 
-        topo = BuiltIn().get_library_instance("TopologyLoader")
+        # CustomKeywords => this value base on alias on robot file
+        # it should be like:
+        # Library    library.CustomKeywords    WITH NAME    CustomKeywords
+        topo = BuiltIn().get_library_instance("CustomKeywords").topology_loader
+        
         device_info = topo.get_device_info(device_name)
         conn = device_info.get('connections', {})
 

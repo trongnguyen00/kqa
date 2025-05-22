@@ -1,8 +1,5 @@
 import yaml
 from robot.api.deco import keyword
-from robot.libraries.BuiltIn import BuiltIn
-import pandas as pd
-import time
 
 class TopologyLoader():
 
