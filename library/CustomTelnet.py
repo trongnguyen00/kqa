@@ -582,6 +582,7 @@ class CustomTelnet():
         exact_prompt = lines[-1].strip()
         self._conn.set_prompt(exact_prompt, prompt_is_regexp=False)
         output += prompt_output
+        self._cache.current.device_info = device_info
         # self._log(output)
         return output
 

@@ -1,0 +1,20 @@
+name: V6848XG
+vendor: dasan
+connector: Dasan
+description: L3 switch
+
+default_user:
+  id: admin
+  passwd: None
+
+feature:
+  aaa: AaaDasan1
+  filter: FilterDasan1
+  igmp: IgmpDasan1
+  interface: InterfaceDasan1
+  gpon: GponDasan1
+  vlan: VlanDasan1
+  system: SystemDasan1
+  mirror: MirrorDasan1
+  os: OsDasan1
+  time: TimeDasan1
