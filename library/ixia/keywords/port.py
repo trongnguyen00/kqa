@@ -1,5 +1,5 @@
 from robot.api.deco import keyword
-from ixia.commands.port import PortCommands
+from library.ixia.commands.port import PortCommands
 
 class PortKeywords:
     def __init__(self, base):

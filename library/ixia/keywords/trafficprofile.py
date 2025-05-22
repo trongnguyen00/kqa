@@ -1,5 +1,5 @@
 from robot.api.deco import keyword
-from ixia.commands.trafficprofile import TrafficProfileCommands
+from library.ixia.commands.trafficprofile import TrafficProfileCommands
 
 class TrafficProfileKeywords:
     def __init__(self, base):
@@ -66,7 +66,7 @@ class TrafficProfileKeywords:
         return self.cmd.enable_profile(profile_handle, current_type)
     
     @keyword
-    def check_is_profile_enable(self, profile_handle, current_type="AgtConstantProfile")
+    def check_is_profile_enable(self, profile_handle, current_type="AgtConstantProfile"):
         return self.base.is_profile_enabled(profile_handle, current_type)
     
     @keyword

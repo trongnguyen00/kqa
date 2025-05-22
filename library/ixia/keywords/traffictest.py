@@ -1,5 +1,5 @@
 from robot.api.deco import keyword
-from ixia.commands.traffictest import TrafficTestCommands
+from library.ixia.commands.traffictest import TrafficTestCommands
 
 class TrafficTestKeywords:
     def __init__(self, base):

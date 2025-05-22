@@ -477,6 +477,7 @@ class CustomTelnet():
         if self._connection_timeout:
             self._connection_timeout = timestr_to_secs(connection_timeout)
 
+    @keyword
     def switch_connection(self, index_or_alias):
         """Switches between active connections using an index or an alias.
 
@@ -512,7 +513,8 @@ class CustomTelnet():
         old_index = self._cache.current_index
         self._conn = self._cache.switch(index_or_alias)
         return old_index
-
+    
+    @keyword
     def close_all_connections(self):
         """Closes all open connections and empties the connection cache.
 
@@ -699,6 +701,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
         self._set_telnetlib_log_level(telnetlib_log_level)
         self._opt_responses = []
 
+    @keyword
     def set_timeout(self, timeout):
         """Sets the timeout used for waiting output in the current connection.
 
@@ -725,6 +728,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
     def _set_timeout(self, timeout):
         self._timeout = timestr_to_secs(timeout)
 
+    @keyword
     def set_newline(self, newline):
         """Sets the newline used by `Write` keyword in the current connection.
 
@@ -750,6 +754,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
         newline = str(newline).upper()
         self._newline = newline.replace("LF", "\n").replace("CR", "\r")
 
+    @keyword
     def set_prompt(self, prompt, prompt_is_regexp=False):
         """Sets the prompt used by `Read Until Prompt` and `Login` in the current connection.
 
@@ -875,6 +880,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
             return False
         return level.upper() in ("TRACE", "DEBUG", "INFO", "WARN")
 
+    @keyword
     def close_connection(self, loglevel=None):
         """Closes the current Telnet connection.
 
@@ -893,6 +899,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
         self._log(output, loglevel)
         return output
 
+    @keyword
     def login(
         self,
         username,
@@ -956,6 +963,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
         success = incorrect not in output
         return success, output
 
+    @keyword
     def write(self, text, loglevel=None):
         """Writes the given text plus a newline into the connection.
 
@@ -988,6 +996,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
             return self._encode(self._newline)
         return self._newline
 
+    @keyword
     def write_bare(self, text):
         """Writes the given text, and nothing else, into the connection.
 
@@ -997,6 +1006,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
         self._verify_connection()
         super().write(self._encode(text))
 
+    @keyword
     def write_until_expected_output(
         self,
         text,
@@ -1040,6 +1050,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
                 pass
         raise NoMatchError(expected, timeout)
 
+    @keyword
     def write_control_character(self, character):
         """Writes the given control character into the connection.
 
@@ -1079,6 +1090,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
         except KeyError:
             raise RuntimeError(f"Unsupported control character '{name}'.")
 
+    @keyword
     def read(self, loglevel=None):
         """Reads everything that is currently available in the output.
 
@@ -1093,6 +1105,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
         self._log(output, loglevel)
         return output
 
+    @keyword
     def read_until(self, expected, loglevel=None):
         """Reads output until ``expected`` text is encountered.
 
@@ -1178,6 +1191,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
             return exp
         return re.compile(self._encode(pattern))
 
+    @keyword
     def read_until_regexp(self, *expected):
         """Reads output until any of the ``expected`` regular expressions match.
 
@@ -1214,6 +1228,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
             raise NoMatchError(expected, self._timeout, output)
         return output
 
+    @keyword
     def read_until_prompt(self, loglevel=None, strip_prompt=False):
         """Reads output until the prompt is encountered.
 
@@ -1260,6 +1275,7 @@ class CustomTelnetConnection(telnetlib.Telnet):
             length = match.end() - match.start()
         return output[:-length]
 
+    @keyword
     def execute_command(self, command, loglevel=None, strip_prompt=False):
         """Executes the given ``command`` and reads, logs, and returns everything until the prompt.
 
@@ -1418,15 +1434,18 @@ class TerminalEmulator:
         rows = (row.rstrip() for row in screen.display)
         return self._newline.join(rows).rstrip(self._newline)
 
+    @keyword
     def feed(self, text):
         self._stream.feed(text)
         self._whitespace_after_last_feed = text[len(text.rstrip()) :]
 
+    @keyword
     def read(self):
         current_out = self.current_output
         self._update_buffer("")
         return current_out
 
+    @keyword
     def read_until(self, expected):
         current_out = self.current_output
         exp_index = current_out.find(expected)
@@ -1435,6 +1454,7 @@ class TerminalEmulator:
             return current_out[: exp_index + len(expected)]
         return None
 
+    @keyword
     def read_until_regexp(self, regexp_list):
         current_out = self.current_output
         for rgx in regexp_list:
@@ -1477,6 +1497,7 @@ class TelnetCommandGroupHandler:
         self.telnet = telnet_connection
         self.current_prompt_level = 0
 
+    @keyword
     def send_commands_from_group(self, file_path, command_group, variables):
         with open(file_path, 'r') as file:
             yaml_data = yaml.safe_load(file)

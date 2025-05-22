@@ -1,5 +1,5 @@
 from robot.api.deco import keyword
-from ixia.commands.session import SessionCommands
+from library.ixia.commands.session import SessionCommands
 
 class SessionKeywords:
     def __init__(self, base):

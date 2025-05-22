@@ -44,8 +44,8 @@ class TrafficProfileCommands:
         """
         return self.base.send_tcl_command(f"AgtInvoke {current_type} SetMode {profile_handle} {mode}")
         
-    def add_stream_default(self, port_handle, stream_type="AGT_PACKET_STREAM_GROUP", num_of_streams):
-        stream = self.base.send_tcl_command(f"AgtInvoke AddStreamGroups {port_handle} {stream_type} {num_of_streams}")
+    def add_stream_default(self, port_handle, num_of_streams):
+        stream = self.base.send_tcl_command(f"AgtInvoke AddStreamGroups {port_handle} AGT_PACKET_STREAM_GROUP {num_of_streams}")
         return stream
     
     def add_stream_on_profile(self, profile_handle, num_of_streams):
@@ -87,19 +87,19 @@ class TrafficProfileCommands:
     def get_fix_value_field(self, pdu_handle, protocol, protocol_inst, optional_field):
         return self.base.send_tcl_command(f"AgtInvoke AgtPduHeader GetFieldFixedValue {pdu_handle} {protocol} {protocol_inst} {optional_field}")
     
-    def set_incre_value_field(self, pdu_handle, protocol, protocol_inst, optional_field, offset=0, start_value, num_of_value, step=1):
+    def set_incre_value_field(self, pdu_handle, protocol, protocol_inst, optional_field, offset, start_value, num_of_value, step):
         return self.base.send_tcl_command(f"AgtInvoke AgtPduHeader SetFieldIncrementingValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field} {offset} {start_value} {num_of_value} {step}")
     
     def get_incre_value_field(self, pdu_handle, protocol, protocol_inst, optional_field):
         return self.base.send_tcl_command(f"AgtInvoke AgtPduHeader GetFieldIncrementingValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field}")
     
-    def set_decre_value_field(self, pdu_handle, protocol, protocol_inst, optional_field, offset=0, start_value, num_of_value, step=1):
+    def set_decre_value_field(self, pdu_handle, protocol, protocol_inst, optional_field, offset, start_value, num_of_value, step):
         return self.base.send_tcl_command(f"AgtInvoke AgtPduHeader SetFieldDecrementingValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field} {offset} {start_value} {num_of_value} {step}")
 
     def get_decre_value_field(self, pdu_handle, protocol, protocol_inst, optional_field):
         return self.base.send_tcl_command(f"AgtInvoke AgtPduHeader GetFieldDecrementingValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field}")
     
-    def set_random_value_field(self, pdu_handle, protocol, protocol_inst, optional_field, offset=0, min_val, max_val):
+    def set_random_value_field(self, pdu_handle, protocol, protocol_inst, optional_field, offset, min_val, max_val):
         return self.base.send_tcl_command(f"AgtInvoke AgtPduHeader SetFieldRandomValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field} {offset} {min_val} {max_val}")
     
     def get_random_value_field(self, pdu_handle, protocol, protocol_inst, optional_field):
@@ -121,19 +121,19 @@ class TrafficProfileCommands:
     def get_fix_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field):
         return self.base.send_tcl_command(f"AgtTsuInvoke AgtPduHeader GetFieldFixedValue {pdu_handle} {protocol} {protocol_inst} {optional_field}")
     
-    def set_incre_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field, offset=0, start_value, num_of_value, step=1):
+    def set_incre_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field, offset, start_value, num_of_value, step):
         return self.base.send_tcl_command(f"AgtTsuInvoke AgtPduHeader SetFieldIncrementingValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field} {offset} {start_value} {num_of_value} {step}")
     
     def get_incre_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field):
         return self.base.send_tcl_command(f"AgtTsuInvoke AgtPduHeader GetFieldIncrementingValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field}")
     
-    def set_decre_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field, offset=0, start_value, num_of_value, step=1):
+    def set_decre_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field, offset, start_value, num_of_value, step):
         return self.base.send_tcl_command(f"AgtTsuInvoke AgtPduHeader SetFieldDecrementingValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field} {offset} {start_value} {num_of_value} {step}")
 
     def get_decre_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field):
         return self.base.send_tcl_command(f"AgtTsuInvoke AgtPduHeader GetFieldDecrementingValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field}")
     
-    def set_random_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field, offset=0, min_val, max_val):
+    def set_random_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field, offset, min_val, max_val):
         return self.base.send_tcl_command(f"AgtTsuInvoke AgtPduHeader SetFieldRandomValueRange {pdu_handle} {protocol} {protocol_inst} {optional_field} {offset} {min_val} {max_val}")
     
     def get_random_value_layer4(self, pdu_handle, protocol, protocol_inst, optional_field):

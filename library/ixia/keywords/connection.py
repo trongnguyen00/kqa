@@ -1,5 +1,5 @@
 from robot.api.deco import keyword
-from ixia.commands.connection import ConnectionCommands
+from library.ixia.commands.connection import ConnectionCommands
 
 class ConnectionKeywords:
     def __init__(self, base):

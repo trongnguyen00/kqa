@@ -1,5 +1,5 @@
 from robot.api.deco import keyword
-from ixia.commands.media import MediaCommands
+from library.ixia.commands.media import MediaCommands
 
 class MediaKeywords:
     def __init__(self, base):

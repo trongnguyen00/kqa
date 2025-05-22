@@ -1,11 +1,16 @@
 import yaml
+from robot.api.deco import keyword
+from robot.libraries.BuiltIn import BuiltIn
+import pandas as pd
+import time
 
-class TopologyLoader(object):
+class TopologyLoader():
 
     def __init__(self):
         """Initialize without a predefined topology YAML file."""
         self.topology = None
 
+    @keyword
     def load_topology(self, yaml_file_path):
         """Load the topology YAML file.
 
@@ -18,6 +23,7 @@ class TopologyLoader(object):
         except Exception as e:
             raise AssertionError(f"Failed to load topology file: {str(e)}")
 
+    @keyword
     def get_device_info(self, device_name):
         """Get device information from the loaded topology.
 
@@ -39,6 +45,7 @@ class TopologyLoader(object):
 
         return devices[device_name]
 
+    @keyword
     def get_connection_info(self, device_name):
         """Get connnection information from the loaded topology.
 
@@ -60,6 +67,7 @@ class TopologyLoader(object):
 
         return connections[device_name]
 
+    @keyword
     def get_port_name_from_link(self, device_name, port_link):
         """Get port name from link information.
 
@@ -89,6 +97,7 @@ class TopologyLoader(object):
 
         raise AssertionError(f"Port link '{port_link}' not found in device '{device_name}'.")
 
+    @keyword
     def get_port_alias_from_link(self, device_name, port_link):
         """Get port alias from link information.
 
