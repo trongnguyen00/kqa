@@ -1494,79 +1494,40 @@ class NoMatchError(AssertionError):
             msg += " Output:\n" + self.output
         return msg
 
-class TelnetCommandGroupHandler:
-    """Handler for executing groups of telnet commands from YAML files."""
-    
-    def __init__(self, telnet_connection):
-        self.telnet = telnet_connection
-        self.current_prompt_level = 0
+@keyword
+def send_commands_from_group(self, file_path, command_group, variables):
+    # --- Capture initial prompt ---
+    self.telnet.read_until_regexp(r"(#|>)")
+    self.prompts[0] = self._get_current_prompt()
+    logger.debug(f"[Init] Prompt[0]: {self.prompts[0]}")
 
-    @keyword
-    def send_commands_from_group(self, file_path, command_group, variables):
-        with open(file_path, 'r') as file:
-            yaml_data = yaml.safe_load(file)
-
-        commands = yaml_data['commands'][command_group][0]['shell'].splitlines()
-        commands = self._replace_variables(commands, variables)
-
-        for line in commands:
-            line = line.strip()
-            if not line or line == '!':
-                self._adjust_prompt_level(0)
+    # --- Extract raw shell block lines ---
+    raw_lines = []
+    in_block = False
+    block_indent = None
+    block_start = re.compile(rf"^\s*commands:\s*{re.escape(command_group)}:\s*-\s*shell:\s*\|\s*$")
+    with open(file_path, 'r') as f:
+        for line in f:
+            if not in_block:
+                if block_start.match(line):
+                    in_block = True
+                    block_indent = len(line) - len(line.lstrip())
                 continue
+            indent = len(line) - len(line.lstrip())
+            if indent <= block_indent:
+                break
+            raw_lines.append(line[block_indent+1:].rstrip("\n"))
 
-            level = self._get_indent_level(line)
-            command = line.lstrip()
+    # --- Replace variables ---
+    commands = [ln.format(**variables).strip() for ln in raw_lines if ln.strip()]
 
-            self._adjust_prompt_level(level)
-            self._execute(command)
-
-        self._adjust_prompt_level(0)
-
-    def _replace_variables(self, commands, variables):
-        result = []
-        for cmd in commands:
-            for key, value in variables.items():
-                cmd = cmd.replace(f"{{{{{key}}}}}", str(value))
-            result.append(cmd)
-        return result
-
-    def _get_indent_level(self, line):
-        return len(line) - len(line.lstrip())
-
-    def _adjust_prompt_level(self, target):
-        while self.current_prompt_level > target:
-            self.telnet.write("exit")
-            self.telnet.read_until_regexp(r"(#|>)")
-            self.current_prompt_level -= 1
-        while self.current_prompt_level < target:
-            # Giả định prompt sẽ tăng khi gửi lệnh (đã nằm trong logic send)
-            self.telnet.read_until_regexp(r"(#|>)")
-            self.current_prompt_level += 1
-
-    def _execute(self, command):
-        self.telnet.write(command)
+    # --- Send each command and handle output ---
+    for cmd in commands:
+        logger.debug(f"[»] Sending: '{cmd}'")
+        self.telnet.write(cmd + "\n")
         output = self.telnet.read_until_regexp(r"(#|>)")
-    
-        # Lấy prompt hiện tại từ đối tượng telnet
-        prompt, is_regexp = self.telnet._prompt
-        current_prompt = prompt.pattern if is_regexp else prompt
-    
-        lines = output.strip().splitlines()
-    
-        filtered_lines = [
-            line for line in lines if line.strip() and line.strip() != current_prompt.strip()
-        ]
-    
-        for line in filtered_lines:
-            if "%" in line:
-                raise RuntimeError(
-                    f"[ERROR] Command failed: '{command}'\nDetected error line: {line}\nFull Output:\n{output}"
-                )
-    
-        return output
-    # def _execute(self, command):
-    #     self.telnet.write(command)
-    #     output = self.telnet.read_until_regexp(r"(#|>)")
-    #     if "% Invalid input" in output or "Error" in output:
-    #         raise RuntimeError(f"Lỗi khi gửi lệnh: {command}\nOutput: {output}")
+        self._check_error(cmd, output)
+
+    # --- Reset to initial prompt ---
+    logger.debug("[✓] Commands done. Resetting to initial prompt")
+    self._reset_prompt()

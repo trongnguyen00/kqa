@@ -24,6 +24,8 @@ Connect To Device HW
     Send Command                show port status
     Send Commands From Group    /home/ats/ATS/kqa/suites/resource/dut.yaml    config-profile    mapper_value=1    uni_value=1
 
+    Send Command    show onu info 1
+
 *** Keywords ***
 Setup
     Close All Connections

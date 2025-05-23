@@ -7,11 +7,12 @@ from library.utils.TableVerificationLibrary import TableVerificationLibrary
 from library.cdr.CDRouterLibrary import CDRouterLibrary
 from library.ixia.ixia_library import IxiaLibrary
 from library.terminal.dal.keywords.gpon import GponKeywords
+from library.terminal.dal.keywords.system import SystemKeywords
 
 @library(scope='GLOBAL')
 class CustomKeywords(DynamicCore):
     def __init__(self):
-        self.topology_loader = TopologyLoader()  # 👈 gán vào biến để có thể gọi từ bên ngoài
+        self.topology_loader = TopologyLoader()
 
         libraries = [
             self.topology_loader,
@@ -19,6 +20,7 @@ class CustomKeywords(DynamicCore):
             TableVerificationLibrary(),
             CDRouterLibrary(),
             IxiaLibrary(),
-            GponKeywords()
+            GponKeywords(),
+            SystemKeywords()
         ]
         super().__init__(libraries)

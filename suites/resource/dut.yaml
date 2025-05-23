@@ -5,23 +5,16 @@ commands:
         configure terminal
           gpon
             traffic-profile PG2449H_trongnk modify
-             mapper 1
-              gemport count 1
-             bridge 1
-              ani mapper 1
-              uni virtual-eth 1
-               extended-vlan-tagging-operation passthrough
-             tcont 1
-              gemport 1/1
-              dba-profile DBA_DEFAULT
-             apply
-            !
-            onu-profile PG2449H_trongnk modify
-              traffic-profile PG2449H_trongnk
+              bridge 1
+                ani mapper 1
+                 uni virtual-eth 1
+                  extended-vlan-tagging-operation passthrough
               apply
-            !
-          !
-        !
+              ll
+              !
+            onu-profile PG2449H_trongnk modify
+              rx-power threshold high -1 low -100
+              apply
   set_dhcp4_wan:
     - model: default
       shell: |

@@ -1,6 +1,6 @@
-name: V5812G
-vendor: dasan
-connector: Dasan
+name: MA5800
+vendor: Huawei
+connector: Huawei
 description: Olt
 
 default_user:
@@ -9,9 +9,9 @@ default_user:
 
 feature:
   interface: none
-  gpon: GponDasan1
+  gpon: GponHuawei1
   vlan: none
-  system: none
+  system: SystemHuawei1
   mirror: none
   os: none
   time: none

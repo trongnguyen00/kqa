@@ -6,7 +6,7 @@ from library.terminal.dal.feature_loader import FeatureLoader
 class GponKeywords:
 
     def __init__(self):
-        self._gpon = None  # trì hoãn khởi tạo
+        self._gpon = None
 
     @property
     def gpon(self):
@@ -15,5 +15,15 @@ class GponKeywords:
         return self._gpon
 
     @keyword
-    def check_onu_active(self, onu_id):
-        return self.gpon.check_onu_active(onu_id)
+    def get_all_onu_active(self, port_id):
+        return self.gpon.get_all_onu_active(port_id)
+    
+    @keyword
+    def get_onu_info(self, port_id, onu_id):
+        return self.gpon.get_onu_info(port_id, onu_id)
+    
+    @keyword
+    def get_current_onu_config(self, frame_id=0, slot_id, port_id, onu_id):
+        return self.gpon.get_current_onu_config(frame_id, slot_id, port_id, onu_id)
+    
+    
