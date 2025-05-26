@@ -27,7 +27,7 @@ devices:
     api: default
     model: PM1191
     connections:
-      serial: 4B414F4E1A154B58
+      serial: 4B414F4EAF523D04
       ip: 192.168.150.234
       port: 4008
 

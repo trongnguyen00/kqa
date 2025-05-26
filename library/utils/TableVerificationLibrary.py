@@ -86,36 +86,70 @@ class TableVerificationLibrary:
         return df
 
     @keyword
-    def verify_table(self, reference_input, raw_input, mode="whitelist"):
+    def verify_table(self, expected_result, actual_result, mode="whitelist"):
         """
         Keyword: Verify Table
-        Compare two tables (reference_input and raw_input) based on the specified mode.
+        Compare two tables (expected_result and actual_result) based on the specified mode.
         Input can be a string or a DataFrame.
-        - If whitelist: all rows in the reference_input must appear in the raw_input.
-        - If blacklist: no rows in the reference_input should appear in the raw_input.
+        - If whitelist: all rows in the expected_result must appear in the actual_result.
+        - If blacklist: no rows in the expected_result should appear in the actual_result.
         """
-        df_ref = reference_input if isinstance(reference_input, pd.DataFrame) else self.create_table(reference_input)
-        df_raw = raw_input if isinstance(raw_input, pd.DataFrame) else self.create_table(raw_input)
+        df_ref = expected_result if isinstance(expected_result, pd.DataFrame) else self.create_table(expected_result)
+        df_raw = actual_result if isinstance(actual_result, pd.DataFrame) else self.create_table(actual_result)
+
+        common_cols = [col for col in df_ref.columns if col in df_raw.columns]
+        if not common_cols:
+            raise ValueError("No common columns found between the two tables.")
+
+        df_ref_subset = df_ref[common_cols].copy()
+        df_raw_subset = df_raw[common_cols].copy()
+
+        df_ref_subset = df_ref_subset.applymap(lambda x: str(x).strip()).dropna().sort_values(by=common_cols).reset_index(drop=True)
+        df_raw_subset = df_raw_subset.applymap(lambda x: str(x).strip()).dropna().sort_values(by=common_cols).reset_index(drop=True)
+
+        set_ref = set(tuple(row) for row in df_ref_subset.to_numpy())
+        set_raw = set(tuple(row) for row in df_raw_subset.to_numpy())
 
         if mode.lower() == "whitelist":
-            common_cols = [col for col in df_ref.columns if col in df_raw.columns]
-            df_raw_subset = df_raw[common_cols]
-            df_ref_subset = df_ref[common_cols]
-
-            for _, ref_row in df_ref_subset.iterrows():
-                match_found = ((df_raw_subset == ref_row).all(axis=1)).any()
-                if not match_found:
-                    return False
-            return True
-
+            return set_ref.issubset(set_raw)
 
         elif mode.lower() == "blacklist":
-            common_cols = [col for col in df_ref.columns if col in df_raw.columns]
-            df_raw_subset = df_raw[common_cols]
-            df_ref_subset = df_ref[common_cols]
+            return set_ref.isdisjoint(set_raw)
+
+        else:
+            raise ValueError("Mode must be either 'whitelist' or 'blacklist'.")
+
+    # @keyword
+    # def verify_table(self, expected_result, actual_result, mode="whitelist"):
+    #     """
+    #     Keyword: Verify Table
+    #     Compare two tables (expected_result and actual_result) based on the specified mode.
+    #     Input can be a string or a DataFrame.
+    #     - If whitelist: all rows in the expected_result must appear in the actual_result.
+    #     - If blacklist: no rows in the expected_result should appear in the actual_result.
+    #     """
+    #     df_ref = expected_result if isinstance(expected_result, pd.DataFrame) else self.create_table(expected_result)
+    #     df_raw = actual_result if isinstance(actual_result, pd.DataFrame) else self.create_table(actual_result)
+
+    #     if mode.lower() == "whitelist":
+    #         common_cols = [col for col in df_ref.columns if col in df_raw.columns]
+    #         df_raw_subset = df_raw[common_cols]
+    #         df_ref_subset = df_ref[common_cols]
+
+    #         for _, ref_row in df_ref_subset.iterrows():
+    #             match_found = ((df_raw_subset == ref_row).all(axis=1)).any()
+    #             if not match_found:
+    #                 return False
+    #         return True
+
+
+    #     elif mode.lower() == "blacklist":
+    #         common_cols = [col for col in df_ref.columns if col in df_raw.columns]
+    #         df_raw_subset = df_raw[common_cols]
+    #         df_ref_subset = df_ref[common_cols]
             
-            for _, ref_row in df_ref_subset.iterrows():
-                match_found = ((df_raw_subset == ref_row).all(axis=1)).any()
-                if match_found:
-                    return False
-            return True
+    #         for _, ref_row in df_ref_subset.iterrows():
+    #             match_found = ((df_raw_subset == ref_row).all(axis=1)).any()
+    #             if match_found:
+    #                 return False
+    #         return True

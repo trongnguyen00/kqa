@@ -618,28 +618,26 @@ class CustomTelnet():
 
 
     @keyword
-    def send_command(self, command, new_prompt=None, prompt_is_regexp=False, reset_prompt=False):
+    def send_command(self, command, reset_prompt=False):
         """
         Gửi lệnh, đợi prompt mới và cập nhật prompt.
 
         - Nếu `reset_prompt=True`, thư viện sẽ tự động phát hiện prompt kế tiếp và cập nhật.
-        - Nếu `reset_prompt=False` và có `new_prompt`, thì cập nhật thủ công.
-        - Nếu `reset_prompt=False` và không có `new_prompt`, thì giữ nguyên prompt hiện tại.
+        - Nếu `reset_prompt=False`, thì giữ nguyên prompt hiện tại.
         """
         self._conn.write(command)
 
         if reset_prompt:
             self._conn.write("")
+            time.sleep(0.5)
             output = self._conn.read_very_eager().decode(errors="ignore")
-            # output = self._conn.read_until_prompt()
-            last_line = output.strip().splitlines()[-1]
+            lines = output.strip().splitlines()
+            if not lines:
+                raise AssertionError("Không phát hiện được prompt sau khi gửi ENTER.")
+            last_line = lines[-1]
             prompt_candidate = last_line.strip()
             self._conn.set_prompt(prompt_candidate, prompt_is_regexp=False)
             return prompt_candidate
-        elif new_prompt:
-            self._conn.read_until(new_prompt)
-            self._conn.set_prompt(new_prompt, prompt_is_regexp)
-            return new_prompt
         else:
             return self._conn.read_until_prompt()
 
