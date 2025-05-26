@@ -23,7 +23,7 @@ class GponKeywords:
         return self.gpon.get_onu_info(port_id, onu_id)
     
     @keyword
-    def get_current_onu_config(self, frame_id=0, slot_id, port_id, onu_id):
+    def get_current_onu_config(self, frame_id, slot_id, port_id, onu_id):
         return self.gpon.get_current_onu_config(frame_id, slot_id, port_id, onu_id)
     
     

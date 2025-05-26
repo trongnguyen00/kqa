@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.8.10 on linux)" generated="2025-05-26T17:35:46.450240" rpa="false" schemaversion="5">
+<suite id="s1" name="KONT-BR-GP-2 1 1" source="/home/ats/ATS/kqa/KGPON-BR/suites/KONT-BR-GP-2_1_1.robot">
+<kw name="Setup Common" owner="keyword" type="SETUP">
+<kw name="Close All Connections">
+<msg time="2025-05-26T17:35:46.475872" level="FAIL">No keyword with name 'Close All Connections' found.</msg>
+<status status="FAIL" start="2025-05-26T17:35:46.475829" elapsed="0.000114">No keyword with name 'Close All Connections' found.</status>
+</kw>
+<kw name="Load Topology">
+<msg time="2025-05-26T17:35:46.476818" level="FAIL">No keyword with name 'Load Topology' found.</msg>
+<arg>/home/ats/ATS/kqa/suites_data/topology.yaml</arg>
+<status status="FAIL" start="2025-05-26T17:35:46.476785" elapsed="0.000076">No keyword with name 'Load Topology' found.</status>
+</kw>
+<status status="FAIL" start="2025-05-26T17:35:46.474666" elapsed="0.002306">Several failures occurred:
+
+1) No keyword with name 'Close All Connections' found.
+
+2) No keyword with name 'Load Topology' found.</status>
+</kw>
+<test id="s1-t1" name="Automatic Ont Discovery" line="15">
+<status status="FAIL" start="2025-05-26T17:35:46.477057" elapsed="0.000500">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Close All Connections' found.
+
+2) No keyword with name 'Load Topology' found.</status>
+</test>
+<kw name="Teardown Common" owner="keyword" type="TEARDOWN">
+<kw name="Close All Connections">
+<msg time="2025-05-26T17:35:46.479085" level="FAIL">No keyword with name 'Close All Connections' found.</msg>
+<status status="FAIL" start="2025-05-26T17:35:46.479049" elapsed="0.000081">No keyword with name 'Close All Connections' found.</status>
+</kw>
+<status status="FAIL" start="2025-05-26T17:35:46.478146" elapsed="0.001065">No keyword with name 'Close All Connections' found.</status>
+</kw>
+<status status="FAIL" start="2025-05-26T17:35:46.451179" elapsed="0.028086">Suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Close All Connections' found.
+
+2) No keyword with name 'Load Topology' found.
+
+Also suite teardown failed:
+No keyword with name 'Close All Connections' found.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="KONT-BR-GP-2 1 1" id="s1" pass="0" fail="1" skip="0">KONT-BR-GP-2 1 1</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-26T17:35:46.473329" level="ERROR">Error in file '/home/ats/ATS/kqa/KGPON-BR/suites/common/keyword.resource' on line 2: Importing library 'library.CustomKeywords' failed: ModuleNotFoundError: No module named 'library'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /home/ats/ATS/kqa/KGPON-BR
+  /usr/lib/python38.zip
+  /usr/lib/python3.8
+  /usr/lib/python3.8/lib-dynload
+  /usr/local/lib/python3.8/dist-packages
+  /usr/lib/python3/dist-packages</msg>
+</errors>
+</robot>

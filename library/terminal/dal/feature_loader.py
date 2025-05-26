@@ -17,7 +17,7 @@ class FeatureLoader:
             return self._instance
 
         # Bước 1: Lấy API từ CustomTelnet đã connect
-        telnet = BuiltIn().get_library_instance("CustomTelnet")
+        telnet = BuiltIn().get_library_instance("CustomKeywords").custom_telnet
         device_info = telnet._cache.current.device_info  # Đảm bảo đã gán trong connect_to_dut()
         api = device_info['api']
 

@@ -5,7 +5,7 @@ class GponBase:
     """Implementation of GPON feature"""
     
     def __init__(self):
-        self.telnet = BuiltIn().get_library_instance("CustomTelnet")
+        self.telnet = BuiltIn().get_library_instance("CustomKeywords").custom_telnet
 
 class GponDasan1(GponBase):
     """Implementation of GPON feature for Dasan V5812G"""

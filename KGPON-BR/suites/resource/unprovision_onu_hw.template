@@ -1,0 +1,12 @@
+Value INDEX (\d+)
+Value PORT (\d+/\d+/\d+)
+Value SN (\S{16})
+Value VERSION (\S+)
+Value MODEL (\S+)
+
+Start
+  ^\s*Number\s+:\s+${INDEX}
+  ^\s*F/S/P\s+:\s+${PORT}
+  ^\s*Ont SN\s+:\s+${SN}
+  ^\s*Ont SoftwareVersion\s+:\s+${VERSION}
+  ^\s*Ont EquipmentID\s+:\s+${MODEL} -> Record

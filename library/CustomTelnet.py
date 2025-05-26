@@ -604,7 +604,7 @@ class CustomTelnet():
                 "login_prompt": "login: ",
                 "password_prompt": "password: "
             },
-            "MA5800-X7": {
+            "MA5800": {
                 "login_prompt": ">>User name:",
                 "password_prompt": ">>User password:"
             }

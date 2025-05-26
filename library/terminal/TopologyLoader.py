@@ -124,5 +124,23 @@ class TopologyLoader():
 
         raise AssertionError(f"Port link '{port_link}' not found in device '{device_name}'.")
 
+    @keyword
+    def get_port_index_from_link(self, device_name, port_link):
+        if self.topology is None:
+            raise AssertionError("Topology is not loaded. Call 'load_topology' first.")
+
+        connections = self.topology.get('topology', {})
+        if device_name not in connections:
+            raise AssertionError(f"Device '{device_name}' not found in topology.")
+
+        device_connections = connections[device_name]
+        for port_type in ['ethernet', 'pon']:
+            ports = device_connections.get(port_type, [])
+            for port in ports:
+                if port.get('link') == port_link:
+                    return port.get('index')
+
+        raise AssertionError(f"Port link '{port_link}' not found in device '{device_name}'.")
+
     
     

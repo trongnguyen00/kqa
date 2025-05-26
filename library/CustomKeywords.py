@@ -13,10 +13,11 @@ from library.terminal.dal.keywords.system import SystemKeywords
 class CustomKeywords(DynamicCore):
     def __init__(self):
         self.topology_loader = TopologyLoader()
+        self.custom_telnet = CustomTelnet()
 
         libraries = [
             self.topology_loader,
-            CustomTelnet(),
+            self.custom_telnet,
             TableVerificationLibrary(),
             CDRouterLibrary(),
             IxiaLibrary(),

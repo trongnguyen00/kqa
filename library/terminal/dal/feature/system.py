@@ -5,7 +5,7 @@ class SystemBase:
     """Implementation of System feature"""
     
     def __init__(self):
-        self.telnet = BuiltIn().get_library_instance("CustomTelnet")
+        self.telnet = BuiltIn().get_library_instance("CustomKeywords").custom_telnet
 
 class SystemDasan1(SystemBase):
     """Implementation of System feature for Dasan V5812G"""
