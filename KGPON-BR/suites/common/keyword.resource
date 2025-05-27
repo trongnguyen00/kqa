@@ -20,6 +20,9 @@ Connect To Huawei
 Access Interface Mode
     Send Command    interface ${OLT_PON_NAME}    reset_prompt=True
 
+Access Diagnose Mode
+    Send Command    diagnose    reset_prompt=True
+
 Access Config Mode
     Send Command    config    reset_prompt=True
 
@@ -27,14 +30,14 @@ Go To Previous Mode
     Send Command    quit    reset_prompt=True
 
 Make Suite Variables
-    ${ONU_INFO}           Get Device Info        Onu0
-    Set Suite Variable    ${ONU_MODEL}           ${ONU_INFO['model']}
-    Set Suite Variable    ${ONU_SN}              ${ONU_INFO['custom']['serial']}
-    Set Suite Variable    ${ONU_VERSION}         ${ONU_INFO['custom']['version']}
-    ${OLT_LINK}           Get Connection Info    Olt0
-    Set Suite Variable    ${OLT_PON_ALIAS}       ${OLT_LINK['pon'][0]['alias']}
-    Set Suite Variable    ${OLT_PON_NAME}        ${OLT_LINK['pon'][0]['name']}
-    Set Suite Variable    ${OLT_PON_INDEX}       ${OLT_LINK['pon'][0]['index']}
+    ${ONU_INFO}           Get Device Info          Onu0
+    Set Suite Variable    ${ONU_MODEL}             ${ONU_INFO['model']}
+    Set Suite Variable    ${ONU_SN}                ${ONU_INFO['custom']['serial']}
+    Set Suite Variable    ${ONU_VERSION}           ${ONU_INFO['custom']['version']}
+    ${OLT_LINK}           Get Connection Info      Olt0
+    Set Suite Variable    ${OLT_PON_ALIAS}         ${OLT_LINK['pon'][0]['alias']}
+    Set Suite Variable    ${OLT_PON_NAME}          ${OLT_LINK['pon'][0]['name']}
+    Set Suite Variable    ${OLT_PON_INDEX}         ${OLT_LINK['pon'][0]['index']}
 
 Teardown Common
     Close All Connections

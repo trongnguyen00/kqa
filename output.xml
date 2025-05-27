@@ -1,177 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.8.10 on linux)" generated="2025-05-27T11:08:16.048458" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.8.10 on linux)" generated="2025-05-27T16:21:11.412303" rpa="false" schemaversion="5">
 <suite id="s1" name="KONT-BR-GP-2 1 2" source="/home/ats/ATS/kqa/KGPON-BR/suites/KONT-BR-GP-2_1_2.robot">
 <kw name="Setup Common" owner="keyword" type="SETUP">
-<msg time="2025-05-27T11:08:16.387117" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:11.759137" level="TRACE">Arguments: [  ]</msg>
 <kw name="Close All Connections" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:16.387837" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-27T11:08:16.387938" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:11.759846" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:11.759947" level="TRACE">Return: None</msg>
 <doc>Closes all open connections and empties the connection cache.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.387665" elapsed="0.000333"/>
+<status status="PASS" start="2025-05-27T16:21:11.759679" elapsed="0.000324"/>
 </kw>
 <kw name="Load Topology" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:16.388238" level="TRACE">Arguments: [ '/home/ats/ATS/kqa/KGPON-BR/suites_data/topology.yaml' ]</msg>
-<msg time="2025-05-27T11:08:16.395483" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:11.760207" level="TRACE">Arguments: [ '/home/ats/ATS/kqa/KGPON-BR/suites_data/topology.yaml' ]</msg>
+<msg time="2025-05-27T16:21:11.767583" level="TRACE">Return: None</msg>
 <arg>/home/ats/ATS/kqa/KGPON-BR/suites_data/topology.yaml</arg>
 <doc>Load the topology YAML file.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.388143" elapsed="0.007412"/>
+<status status="PASS" start="2025-05-27T16:21:11.760134" elapsed="0.007535"/>
 </kw>
 <kw name="Make Suite Variables" owner="keyword">
-<msg time="2025-05-27T11:08:16.395878" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:11.768056" level="TRACE">Arguments: [  ]</msg>
 <kw name="Get Device Info" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:16.396072" level="TRACE">Arguments: [ 'Onu0' ]</msg>
-<msg time="2025-05-27T11:08:16.396150" level="TRACE">Return: {'type': 'onu',
+<msg time="2025-05-27T16:21:11.768278" level="TRACE">Arguments: [ 'Onu0' ]</msg>
+<msg time="2025-05-27T16:21:11.768363" level="TRACE">Return: {'type': 'onu',
  'api': 'default',
  'model': 'PM1191',
  'connections': {'ip': '192.168.150.234', 'port': 4008},
  'custom': {'serial': '4B414F4EAF523D04', 'version': '2.0.30_eng'}}</msg>
-<msg time="2025-05-27T11:08:16.396290" level="INFO">${ONU_INFO} = {'type': 'onu', 'api': 'default', 'model': 'PM1191', 'connections': {'ip': '192.168.150.234', 'port': 4008}, 'custom': {'serial': '4B414F4EAF523D04', 'version': '2.0.30_eng'}}</msg>
+<msg time="2025-05-27T16:21:11.768506" level="INFO">${ONU_INFO} = {'type': 'onu', 'api': 'default', 'model': 'PM1191', 'connections': {'ip': '192.168.150.234', 'port': 4008}, 'custom': {'serial': '4B414F4EAF523D04', 'version': '2.0.30_eng'}}</msg>
 <var>${ONU_INFO}</var>
 <arg>Onu0</arg>
 <doc>Get device information from the loaded topology.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.396005" elapsed="0.000310"/>
+<status status="PASS" start="2025-05-27T16:21:11.768199" elapsed="0.000333"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-27T11:08:16.396512" level="TRACE">Arguments: [ '${ONU_MODEL}' | "${ONU_INFO['model']}" ]</msg>
-<msg time="2025-05-27T11:08:16.397371" level="INFO">${ONU_MODEL} = PM1191</msg>
-<msg time="2025-05-27T11:08:16.397416" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:11.768732" level="TRACE">Arguments: [ '${ONU_MODEL}' | "${ONU_INFO['model']}" ]</msg>
+<msg time="2025-05-27T16:21:11.769611" level="INFO">${ONU_MODEL} = PM1191</msg>
+<msg time="2025-05-27T16:21:11.769658" level="TRACE">Return: None</msg>
 <arg>${ONU_MODEL}</arg>
 <arg>${ONU_INFO['model']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.396455" elapsed="0.000999"/>
+<status status="PASS" start="2025-05-27T16:21:11.768674" elapsed="0.001023"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-27T11:08:16.397669" level="TRACE">Arguments: [ '${ONU_SN}' | "${ONU_INFO['custom']['serial']}" ]</msg>
-<msg time="2025-05-27T11:08:16.398520" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
-<msg time="2025-05-27T11:08:16.398564" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:11.769887" level="TRACE">Arguments: [ '${ONU_SN}' | "${ONU_INFO['custom']['serial']}" ]</msg>
+<msg time="2025-05-27T16:21:11.770715" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
+<msg time="2025-05-27T16:21:11.770757" level="TRACE">Return: None</msg>
 <arg>${ONU_SN}</arg>
 <arg>${ONU_INFO['custom']['serial']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.397609" elapsed="0.000993"/>
+<status status="PASS" start="2025-05-27T16:21:11.769831" elapsed="0.000963"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-27T11:08:16.398793" level="TRACE">Arguments: [ '${ONU_VERSION}' | "${ONU_INFO['custom']['version']}" ]</msg>
-<msg time="2025-05-27T11:08:16.399524" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
-<msg time="2025-05-27T11:08:16.399563" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:11.770975" level="TRACE">Arguments: [ '${ONU_VERSION}' | "${ONU_INFO['custom']['version']}" ]</msg>
+<msg time="2025-05-27T16:21:11.771742" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
+<msg time="2025-05-27T16:21:11.771789" level="TRACE">Return: None</msg>
 <arg>${ONU_VERSION}</arg>
 <arg>${ONU_INFO['custom']['version']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.398738" elapsed="0.000859"/>
+<status status="PASS" start="2025-05-27T16:21:11.770920" elapsed="0.000907"/>
 </kw>
 <kw name="Get Connection Info" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:16.399789" level="TRACE">Arguments: [ 'Olt0' ]</msg>
-<msg time="2025-05-27T11:08:16.399861" level="TRACE">Return: {'ethernet': [{'name': 'ethernet 0/20',
+<msg time="2025-05-27T16:21:11.772022" level="TRACE">Arguments: [ 'Olt0' ]</msg>
+<msg time="2025-05-27T16:21:11.772096" level="TRACE">Return: {'ethernet': [{'name': 'ethernet 0/20',
                'alias': 'eth0/24',
                'link': 'olt0-ixia-1'}],
  'pon': [{'name': 'gpon 0/2', 'alias': '0/2', 'link': 'olt0-pon0', 'index': 6}]}</msg>
-<msg time="2025-05-27T11:08:16.400004" level="INFO">${OLT_LINK} = {'ethernet': [{'name': 'ethernet 0/20', 'alias': 'eth0/24', 'link': 'olt0-ixia-1'}], 'pon': [{'name': 'gpon 0/2', 'alias': '0/2', 'link': 'olt0-pon0', 'index': 6}]}</msg>
+<msg time="2025-05-27T16:21:11.772251" level="INFO">${OLT_LINK} = {'ethernet': [{'name': 'ethernet 0/20', 'alias': 'eth0/24', 'link': 'olt0-ixia-1'}], 'pon': [{'name': 'gpon 0/2', 'alias': '0/2', 'link': 'olt0-pon0', 'index': 6}]}</msg>
 <var>${OLT_LINK}</var>
 <arg>Olt0</arg>
 <doc>Get connnection information from the loaded topology.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.399715" elapsed="0.000313"/>
+<status status="PASS" start="2025-05-27T16:21:11.771952" elapsed="0.000324"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-27T11:08:16.400216" level="TRACE">Arguments: [ '${OLT_PON_ALIAS}' | "${OLT_LINK['pon'][0]['alias']}" ]</msg>
-<msg time="2025-05-27T11:08:16.401004" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
-<msg time="2025-05-27T11:08:16.401046" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:11.772456" level="TRACE">Arguments: [ '${OLT_PON_ALIAS}' | "${OLT_LINK['pon'][0]['alias']}" ]</msg>
+<msg time="2025-05-27T16:21:11.773236" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
+<msg time="2025-05-27T16:21:11.773277" level="TRACE">Return: None</msg>
 <arg>${OLT_PON_ALIAS}</arg>
 <arg>${OLT_LINK['pon'][0]['alias']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.400147" elapsed="0.000935"/>
+<status status="PASS" start="2025-05-27T16:21:11.772402" elapsed="0.000911"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-27T11:08:16.401265" level="TRACE">Arguments: [ '${OLT_PON_NAME}' | "${OLT_LINK['pon'][0]['name']}" ]</msg>
-<msg time="2025-05-27T11:08:16.402092" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
-<msg time="2025-05-27T11:08:16.402133" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:11.773505" level="TRACE">Arguments: [ '${OLT_PON_NAME}' | "${OLT_LINK['pon'][0]['name']}" ]</msg>
+<msg time="2025-05-27T16:21:11.774294" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
+<msg time="2025-05-27T16:21:11.774331" level="TRACE">Return: None</msg>
 <arg>${OLT_PON_NAME}</arg>
 <arg>${OLT_LINK['pon'][0]['name']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.401209" elapsed="0.000961"/>
+<status status="PASS" start="2025-05-27T16:21:11.773439" elapsed="0.000927"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-27T11:08:16.402360" level="TRACE">Arguments: [ '${OLT_PON_INDEX}' | "${OLT_LINK['pon'][0]['index']}" ]</msg>
-<msg time="2025-05-27T11:08:16.403166" level="INFO">${OLT_PON_INDEX} = 6</msg>
-<msg time="2025-05-27T11:08:16.403207" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:11.774545" level="TRACE">Arguments: [ '${OLT_PON_INDEX}' | "${OLT_LINK['pon'][0]['index']}" ]</msg>
+<msg time="2025-05-27T16:21:11.775345" level="INFO">${OLT_PON_INDEX} = 6</msg>
+<msg time="2025-05-27T16:21:11.775393" level="TRACE">Return: None</msg>
 <arg>${OLT_PON_INDEX}</arg>
 <arg>${OLT_LINK['pon'][0]['index']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.402302" elapsed="0.000940"/>
+<status status="PASS" start="2025-05-27T16:21:11.774492" elapsed="0.000939"/>
 </kw>
-<msg time="2025-05-27T11:08:16.403304" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-27T11:08:16.395774" elapsed="0.007562"/>
+<msg time="2025-05-27T16:21:11.775496" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-27T16:21:11.767935" elapsed="0.007592"/>
 </kw>
-<msg time="2025-05-27T11:08:16.403372" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-27T11:08:16.386852" elapsed="0.016549"/>
+<msg time="2025-05-27T16:21:11.775565" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-27T16:21:11.758940" elapsed="0.016653"/>
 </kw>
 <test id="s1-t1" name="Automatic Ont Discovery" line="11">
 <kw name="Connect To Huawei" owner="keyword">
-<msg time="2025-05-27T11:08:16.404084" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:11.776290" level="TRACE">Arguments: [  ]</msg>
 <kw name="Connect To Dut" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:16.404278" level="TRACE">Arguments: [ 'Olt0' ]</msg>
-<msg time="2025-05-27T11:08:16.404382" level="INFO">Opening connection to 192.168.150.215:23 with prompt: None</msg>
-<msg time="2025-05-27T11:08:16.414709" level="TRACE">recv b'\xff\xfb\x01\xff\xfb\x01\xff\xfb\x01\xff\xfb\x03\xff\xfd\x18\xff\xfd\x1f'</msg>
-<msg time="2025-05-27T11:08:16.414769" level="TRACE">IAC WILL 1</msg>
-<msg time="2025-05-27T11:08:16.414824" level="TRACE">IAC WILL 1</msg>
-<msg time="2025-05-27T11:08:16.414852" level="TRACE">IAC WILL 1</msg>
-<msg time="2025-05-27T11:08:16.414874" level="TRACE">IAC WILL 3</msg>
-<msg time="2025-05-27T11:08:16.414901" level="TRACE">IAC DO 24</msg>
-<msg time="2025-05-27T11:08:16.414927" level="TRACE">IAC DO 31</msg>
-<msg time="2025-05-27T11:08:16.545050" level="TRACE">recv b'\xff\xfc\x03\xff\xfe\x18\xff\xfe\x1f'</msg>
-<msg time="2025-05-27T11:08:16.545296" level="TRACE">IAC WONT 3</msg>
-<msg time="2025-05-27T11:08:16.545457" level="TRACE">IAC DONT 24</msg>
-<msg time="2025-05-27T11:08:16.545599" level="TRACE">IAC DONT 31</msg>
-<msg time="2025-05-27T11:08:16.546968" level="TRACE">recv b'\r\nWarning: Telnet is not a secure protocol, and it'</msg>
-<msg time="2025-05-27T11:08:16.547207" level="TRACE">recv b' is recommended to use Stelnet.\r\n\r\n&gt;&gt;User name:'</msg>
-<msg time="2025-05-27T11:08:16.547592" level="TRACE">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
+<msg time="2025-05-27T16:21:11.776484" level="TRACE">Arguments: [ 'Olt0' ]</msg>
+<msg time="2025-05-27T16:21:11.776584" level="INFO">Opening connection to 192.168.150.215:23 with prompt: None</msg>
+<msg time="2025-05-27T16:21:11.787570" level="TRACE">recv b'\xff\xfb\x01\xff\xfb\x01\xff\xfb\x01\xff\xfb\x03\xff\xfd\x18\xff\xfd\x1f'</msg>
+<msg time="2025-05-27T16:21:11.787749" level="TRACE">IAC WILL 1</msg>
+<msg time="2025-05-27T16:21:11.787932" level="TRACE">IAC WILL 1</msg>
+<msg time="2025-05-27T16:21:11.788028" level="TRACE">IAC WILL 1</msg>
+<msg time="2025-05-27T16:21:11.788109" level="TRACE">IAC WILL 3</msg>
+<msg time="2025-05-27T16:21:11.788201" level="TRACE">IAC DO 24</msg>
+<msg time="2025-05-27T16:21:11.788314" level="TRACE">IAC DO 31</msg>
+<msg time="2025-05-27T16:21:12.012260" level="TRACE">recv b'\xff\xfc\x03\xff\xfe\x18\xff\xfe\x1f'</msg>
+<msg time="2025-05-27T16:21:12.012389" level="TRACE">IAC WONT 3</msg>
+<msg time="2025-05-27T16:21:12.012451" level="TRACE">IAC DONT 24</msg>
+<msg time="2025-05-27T16:21:12.012481" level="TRACE">IAC DONT 31</msg>
+<msg time="2025-05-27T16:21:12.015417" level="TRACE">recv b'\r\nWarning: Telnet is not a secure protocol, and it'</msg>
+<msg time="2025-05-27T16:21:12.015709" level="TRACE">recv b' is recommended to use Stelnet.\r\n\r\n&gt;&gt;User name:'</msg>
+<msg time="2025-05-27T16:21:12.015871" level="TRACE">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
 
 &gt;&gt;User name:</msg>
-<msg time="2025-05-27T11:08:16.547704" level="TRACE">send b'admin2\r\n'</msg>
-<msg time="2025-05-27T11:08:16.645474" level="TRACE">recv b'admin2\r\n&gt;&gt;User password:'</msg>
-<msg time="2025-05-27T11:08:16.645790" level="TRACE">admin2
+<msg time="2025-05-27T16:21:12.015917" level="TRACE">send b'admin2\r\n'</msg>
+<msg time="2025-05-27T16:21:12.076246" level="TRACE">recv b'admin2\r\n&gt;&gt;User password:'</msg>
+<msg time="2025-05-27T16:21:12.076362" level="TRACE">admin2
 &gt;&gt;User password:</msg>
-<msg time="2025-05-27T11:08:16.645906" level="TRACE">send b'Kaon@2023vnm\r\n'</msg>
-<msg time="2025-05-27T11:08:17.647414" level="TRACE">recv b'\r\n\r\n\r\n  Huawei Integrated Access Software (MA5800)'</msg>
-<msg time="2025-05-27T11:08:17.647594" level="TRACE">recv b'.\r\n  Copyright(C) Huawei Technologies Co., Ltd. 20'</msg>
-<msg time="2025-05-27T11:08:17.647673" level="TRACE">recv b'02-2022. All rights reserved.\r\n\r\n  ---------------'</msg>
-<msg time="2025-05-27T11:08:17.647735" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:17.647794" level="TRACE">recv b'------------\r\n  User last login information:\r\n  --'</msg>
-<msg time="2025-05-27T11:08:17.647850" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:17.647907" level="TRACE">recv b'-------------------------\r\n  Access Type : Telnet\r'</msg>
-<msg time="2025-05-27T11:08:17.647963" level="TRACE">recv b'\n  IP-Address  : 192.168.150.100\r\n  Login  Time : '</msg>
-<msg time="2025-05-27T11:08:17.648019" level="TRACE">recv b'2023-12-07 03:10:02+08:00\r\n  Logout Time : 2023-12'</msg>
-<msg time="2025-05-27T11:08:17.648085" level="TRACE">recv b'-07 03:10:06+08:00\r\n  ----------------------------'</msg>
-<msg time="2025-05-27T11:08:17.648140" level="TRACE">recv b'-------------------------------------------------\r'</msg>
-<msg time="2025-05-27T11:08:17.648194" level="TRACE">recv b'\n  -----------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:17.648247" level="TRACE">recv b'------------------------------\r\n  All user fail lo'</msg>
-<msg time="2025-05-27T11:08:17.648299" level="TRACE">recv b'gin information:\r\n  ------------------------------'</msg>
-<msg time="2025-05-27T11:08:17.648353" level="TRACE">recv b'-----------------------------------------------\r\n '</msg>
-<msg time="2025-05-27T11:08:17.648405" level="TRACE">recv b' Access Type IP-Address           Time            '</msg>
-<msg time="2025-05-27T11:08:17.648458" level="TRACE">recv b'              Login Times\r\n  ---------------------'</msg>
-<msg time="2025-05-27T11:08:17.648511" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:17.648566" level="TRACE">recv b'------\r\n  SSH         192.168.150.43       2023-12'</msg>
-<msg time="2025-05-27T11:08:17.648619" level="TRACE">recv b'-03 04:00:06+08:00               4\r\n  Telnet      '</msg>
-<msg time="2025-05-27T11:08:17.648671" level="TRACE">recv b'192.168.150.31       2023-12-06 08:51:45+08:00    '</msg>
-<msg time="2025-05-27T11:08:17.648723" level="TRACE">recv b'           1\r\n  SSH         192.168.150.49       2'</msg>
-<msg time="2025-05-27T11:08:17.648776" level="TRACE">recv b'023-12-01 06:49:56+08:00               1\r\n  SSH   '</msg>
-<msg time="2025-05-27T11:08:17.648828" level="TRACE">recv b'      192.168.150.81       2023-11-30 05:30:31+08:'</msg>
-<msg time="2025-05-27T11:08:17.648879" level="TRACE">recv b'00               1\r\n  Telnet      192.168.150.131 '</msg>
-<msg time="2025-05-27T11:08:17.648931" level="TRACE">recv b'     2023-11-24 03:01:46+08:00               1\r\n  '</msg>
-<msg time="2025-05-27T11:08:17.648983" level="TRACE">recv b'Telnet      192.168.150.103      2023-11-23 06:08:'</msg>
-<msg time="2025-05-27T11:08:17.649036" level="TRACE">recv b'08+08:00               1\r\n  ----------------------'</msg>
-<msg time="2025-05-27T11:08:17.649108" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:17.649164" level="TRACE">recv b'-----\r\n\r\nMA5800-X7&gt;\r\n  Warning: The user password '</msg>
-<msg time="2025-05-27T11:08:17.649222" level="TRACE">recv b'is set by other administrator or NMS, it is \r\nreco'</msg>
-<msg time="2025-05-27T11:08:17.649280" level="TRACE">recv b'mmended to change the password.\x00\r\n\r\nMA5800-X7&gt;'</msg>
-<msg time="2025-05-27T11:08:17.649338" level="TRACE">Huawei Integrated Access Software (MA5800).
+<msg time="2025-05-27T16:21:12.076398" level="TRACE">send b'Kaon@2023vnm\r\n'</msg>
+<msg time="2025-05-27T16:21:13.077823" level="TRACE">recv b'\r\n\r\n\r\n  Huawei Integrated Access Software (MA5800)'</msg>
+<msg time="2025-05-27T16:21:13.078216" level="TRACE">recv b'.\r\n  Copyright(C) Huawei Technologies Co., Ltd. 20'</msg>
+<msg time="2025-05-27T16:21:13.078476" level="TRACE">recv b'02-2022. All rights reserved.\r\n\r\n  ---------------'</msg>
+<msg time="2025-05-27T16:21:13.078701" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:13.078916" level="TRACE">recv b'------------\r\n  User last login information:\r\n  --'</msg>
+<msg time="2025-05-27T16:21:13.079124" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:13.079332" level="TRACE">recv b'-------------------------\r\n  Access Type : Telnet\r'</msg>
+<msg time="2025-05-27T16:21:13.079541" level="TRACE">recv b'\n  IP-Address  : 192.168.150.118\r\n  Login  Time : '</msg>
+<msg time="2025-05-27T16:21:13.079753" level="TRACE">recv b'2023-12-07 08:24:06+08:00\r\n  Logout Time : --\r\n  -'</msg>
+<msg time="2025-05-27T16:21:13.079962" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:13.080176" level="TRACE">recv b'--------------------------\r\n  --------------------'</msg>
+<msg time="2025-05-27T16:21:13.080429" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:13.080606" level="TRACE">recv b'-------\r\n  All user fail login information:\r\n  ---'</msg>
+<msg time="2025-05-27T16:21:13.080672" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:13.080739" level="TRACE">recv b'------------------------\r\n  Access Type IP-Address'</msg>
+<msg time="2025-05-27T16:21:13.080804" level="TRACE">recv b'           Time                          Login Tim'</msg>
+<msg time="2025-05-27T16:21:13.080871" level="TRACE">recv b'es\r\n  --------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:13.080936" level="TRACE">recv b'---------------------------------\r\n  SSH         1'</msg>
+<msg time="2025-05-27T16:21:13.081004" level="TRACE">recv b'92.168.150.43       2023-12-03 04:00:06+08:00     '</msg>
+<msg time="2025-05-27T16:21:13.081078" level="TRACE">recv b'          4\r\n  Telnet      192.168.150.240      20'</msg>
+<msg time="2025-05-27T16:21:13.081145" level="TRACE">recv b'23-12-07 08:19:09+08:00               3\r\n  Telnet '</msg>
+<msg time="2025-05-27T16:21:13.081210" level="TRACE">recv b'     172.16.4.8           2023-12-07 07:28:12+08:0'</msg>
+<msg time="2025-05-27T16:21:13.081275" level="TRACE">recv b'0               3\r\n  Telnet      192.168.150.31   '</msg>
+<msg time="2025-05-27T16:21:13.081339" level="TRACE">recv b'    2023-12-07 05:10:26+08:00               2\r\n  S'</msg>
+<msg time="2025-05-27T16:21:13.081402" level="TRACE">recv b'SH         192.168.150.49       2023-12-01 06:49:5'</msg>
+<msg time="2025-05-27T16:21:13.081466" level="TRACE">recv b'6+08:00               1\r\n  SSH         192.168.150'</msg>
+<msg time="2025-05-27T16:21:13.081545" level="TRACE">recv b'.81       2023-11-30 05:30:31+08:00               '</msg>
+<msg time="2025-05-27T16:21:13.081611" level="TRACE">recv b'1\r\n  Telnet      192.168.150.131      2023-11-24 0'</msg>
+<msg time="2025-05-27T16:21:13.081676" level="TRACE">recv b'3:01:46+08:00               1\r\n  Telnet      192.1'</msg>
+<msg time="2025-05-27T16:21:13.081741" level="TRACE">recv b'68.150.103      2023-11-23 06:08:08+08:00         '</msg>
+<msg time="2025-05-27T16:21:13.081805" level="TRACE">recv b'      1\r\n  ---------------------------------------'</msg>
+<msg time="2025-05-27T16:21:13.081871" level="TRACE">recv b'--------------------------------------\r\n\r\nMA5800-X'</msg>
+<msg time="2025-05-27T16:21:13.081936" level="TRACE">recv b'7&gt;\r\n  Warning: The user password is set by other a'</msg>
+<msg time="2025-05-27T16:21:13.082004" level="TRACE">recv b'dministrator or NMS, it is \r\nrecommended to change'</msg>
+<msg time="2025-05-27T16:21:13.082070" level="TRACE">recv b' the password.\x00\r\n\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-27T16:21:13.082126" level="TRACE">Huawei Integrated Access Software (MA5800).
   Copyright(C) Huawei Technologies Co., Ltd. 2002-2022. All rights reserved.
 
   -----------------------------------------------------------------------------
   User last login information:
   -----------------------------------------------------------------------------
   Access Type : Telnet
-  IP-Address  : 192.168.150.100
-  Login  Time : 2023-12-07 03:10:02+08:00
-  Logout Time : 2023-12-07 03:10:06+08:00
+  IP-Address  : 192.168.150.118
+  Login  Time : 2023-12-07 08:24:06+08:00
+  Logout Time : --
   -----------------------------------------------------------------------------
   -----------------------------------------------------------------------------
   All user fail login information:
@@ -179,7 +182,9 @@
   Access Type IP-Address           Time                          Login Times
   -----------------------------------------------------------------------------
   SSH         192.168.150.43       2023-12-03 04:00:06+08:00               4
-  Telnet      192.168.150.31       2023-12-06 08:51:45+08:00               1
+  Telnet      192.168.150.240      2023-12-07 08:19:09+08:00               3
+  Telnet      172.16.4.8           2023-12-07 07:28:12+08:00               3
+  Telnet      192.168.150.31       2023-12-07 05:10:26+08:00               2
   SSH         192.168.150.49       2023-12-01 06:49:56+08:00               1
   SSH         192.168.150.81       2023-11-30 05:30:31+08:00               1
   Telnet      192.168.150.131      2023-11-24 03:01:46+08:00               1
@@ -191,7 +196,7 @@ MA5800-X7&gt;
 recommended to change the password.
 
 MA5800-X7&gt;</msg>
-<msg time="2025-05-27T11:08:17.649380" level="INFO">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
+<msg time="2025-05-27T16:21:13.082174" level="INFO">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
 
 &gt;&gt;User name:admin2
 &gt;&gt;User password:
@@ -204,9 +209,9 @@ MA5800-X7&gt;</msg>
   User last login information:
   -----------------------------------------------------------------------------
   Access Type : Telnet
-  IP-Address  : 192.168.150.100
-  Login  Time : 2023-12-07 03:10:02+08:00
-  Logout Time : 2023-12-07 03:10:06+08:00
+  IP-Address  : 192.168.150.118
+  Login  Time : 2023-12-07 08:24:06+08:00
+  Logout Time : --
   -----------------------------------------------------------------------------
   -----------------------------------------------------------------------------
   All user fail login information:
@@ -214,7 +219,9 @@ MA5800-X7&gt;</msg>
   Access Type IP-Address           Time                          Login Times
   -----------------------------------------------------------------------------
   SSH         192.168.150.43       2023-12-03 04:00:06+08:00               4
-  Telnet      192.168.150.31       2023-12-06 08:51:45+08:00               1
+  Telnet      192.168.150.240      2023-12-07 08:19:09+08:00               3
+  Telnet      172.16.4.8           2023-12-07 07:28:12+08:00               3
+  Telnet      192.168.150.31       2023-12-07 05:10:26+08:00               2
   SSH         192.168.150.49       2023-12-01 06:49:56+08:00               1
   SSH         192.168.150.81       2023-11-30 05:30:31+08:00               1
   Telnet      192.168.150.131      2023-11-24 03:01:46+08:00               1
@@ -226,155 +233,155 @@ MA5800-X7&gt;
 recommended to change the password.
 
 MA5800-X7&gt;</msg>
-<msg time="2025-05-27T11:08:17.649425" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-27T11:08:17.654589" level="TRACE">recv b'\r\n\r\nMA5800-X7&gt;'</msg>
-<msg time="2025-05-27T11:08:18.155673" level="TRACE">Return: '\r\nWarning: Telnet is not a secure protocol, and it is recommended to use Stelnet.\r\n\r\n&gt;&gt;User name:admin2\r\n&gt;&gt;User password:\r\n\r\n\r\n  Huawei Integrated Access Software (MA5800).\r\n  Copyright(C) Huawei Technologies Co., Ltd. 2002-2022. All rights reserved.\r\n\r\n  -----------------------------------------------------------------------------\r\n  User last login information:\r\n  -----------------------------------------------------------------------------\r\n  Access Type : Telnet\r\n  IP-Address  : 192.168.150.100\r\n  Login  Time : 2023-12-07 03:10:02+08:00\r\n  Logout Time : 2023-12-07 03:10:06+08:00\r\n  -----------------------------------------------------------------------------\r\n  -----------------------------------------------------------------------------\r\n  All user fail login information:\r\n  -----------------------------------------------------------------------------\r\n  Access Type IP-Address           Time                          Login Times\r\n  -----------------------------------------------------------------------------\r\n  SSH         192.168.150.43       2023-12-03 04:00:06+08:00               4\r\n  Telnet      192.168.150.31       2023-12-06 08:51:45+08:00               1\r\n  SSH         192.168.150.49       2023-12-01 06:49:56+08:00               1\r\n  SSH         192.168.150.81       2023-11-30 05:30:31+08:00               1\r\n  Telnet      192.168.150.131      2023-11-24 03:01:46+08:00               1\r\n  Telnet      192.168.150.103      2023-11-23 06:08:08+08:00               1\r\n  -----------------------------------------------------------------------------\r\n\r\nMA5800-X7&gt;\r\n  Warning: The user password is set by other administrator or NMS, it is \r\nrecommended to change the password.\r\n\r\nMA5800-X7&gt;\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-27T16:21:13.082291" level="TRACE">send b'\r\n'</msg>
+<msg time="2025-05-27T16:21:13.086660" level="TRACE">recv b'\r\n\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-27T16:21:13.587808" level="TRACE">Return: '\r\nWarning: Telnet is not a secure protocol, and it is recommended to use Stelnet.\r\n\r\n&gt;&gt;User name:admin2\r\n&gt;&gt;User password:\r\n\r\n\r\n  Huawei Integrated Access Software (MA5800).\r\n  Copyright(C) Huawei Technologies Co., Ltd. 2002-2022. All rights reserved.\r\n\r\n  -----------------------------------------------------------------------------\r\n  User last login information:\r\n  -----------------------------------------------------------------------------\r\n  Access Type : Telnet\r\n  IP-Address  : 192.168.150.118\r\n  Login  Time : 2023-12-07 08:24:06+08:00\r\n  Logout Time : --\r\n  -----------------------------------------------------------------------------\r\n  -----------------------------------------------------------------------------\r\n  All user fail login information:\r\n  -----------------------------------------------------------------------------\r\n  Access Type IP-Address           Time                          Login Times\r\n  -----------------------------------------------------------------------------\r\n  SSH         192.168.150.43       2023-12-03 04:00:06+08:00               4\r\n  Telnet      192.168.150.240      2023-12-07 08:19:09+08:00               3\r\n  Telnet      172.16.4.8           2023-12-07 07:28:12+08:00               3\r\n  Telnet      192.168.150.31       2023-12-07 05:10:26+08:00               2\r\n  SSH         192.168.150.49       2023-12-01 06:49:56+08:00               1\r\n  SSH         192.168.150.81       2023-11-30 05:30:31+08:00               1\r\n  Telnet      192.168.150.131      2023-11-24 03:01:46+08:00               1\r\n  Telnet      192.168.150.103      2023-11-23 06:08:08+08:00               1\r\n  -----------------------------------------------------------------------------\r\n\r\nMA5800-X7&gt;\r\n  Warning: The user password is set by other administrator or NMS, it is \r\nrecommended to change the password.\r\n\r\nMA5800-X7&gt;\r\nMA5800-X7&gt;'</msg>
 <arg>Olt0</arg>
 <doc>Kết nối Telnet và đăng nhập vào thiết bị dựa trên topology đã load.</doc>
-<status status="PASS" start="2025-05-27T11:08:16.404210" elapsed="1.751992"/>
+<status status="PASS" start="2025-05-27T16:21:11.776418" elapsed="1.811779"/>
 </kw>
 <kw name="Unset Interactive" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:18.156995" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-27T11:08:18.161318" level="TRACE">send b'undo smart\r\n'</msg>
-<msg time="2025-05-27T11:08:18.165782" level="TRACE">recv b'undo'</msg>
-<msg time="2025-05-27T11:08:18.182145" level="TRACE">recv b' '</msg>
-<msg time="2025-05-27T11:08:18.183192" level="TRACE">recv b'smart'</msg>
-<msg time="2025-05-27T11:08:18.190321" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-27T11:08:18.190519" level="INFO">undo smart</msg>
-<msg time="2025-05-27T11:08:18.202535" level="TRACE">recv b'  Interactive function is disabled\r\n\r\nMA5800-X7&gt;'</msg>
-<msg time="2025-05-27T11:08:18.202759" level="INFO">Interactive function is disabled
+<msg time="2025-05-27T16:21:13.589021" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:13.595279" level="TRACE">send b'undo smart\r\n'</msg>
+<msg time="2025-05-27T16:21:13.603928" level="TRACE">recv b'undo'</msg>
+<msg time="2025-05-27T16:21:13.618119" level="TRACE">recv b' '</msg>
+<msg time="2025-05-27T16:21:13.619001" level="TRACE">recv b'smart'</msg>
+<msg time="2025-05-27T16:21:13.626270" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-27T16:21:13.626467" level="INFO">undo smart</msg>
+<msg time="2025-05-27T16:21:13.636465" level="TRACE">recv b'  Interactive function is disabled'</msg>
+<msg time="2025-05-27T16:21:13.637558" level="TRACE">recv b'\r\n\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-27T16:21:13.637777" level="INFO">Interactive function is disabled
 
 MA5800-X7&gt;</msg>
-<msg time="2025-05-27T11:08:18.202894" level="TRACE">Return: '  Interactive function is disabled\r\n\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-27T16:21:13.637922" level="TRACE">Return: '  Interactive function is disabled\r\n\r\nMA5800-X7&gt;'</msg>
 <doc>keyword using for huawei only, it should perform with each test</doc>
-<status status="PASS" start="2025-05-27T11:08:18.156748" elapsed="0.046288"/>
+<status status="PASS" start="2025-05-27T16:21:13.588766" elapsed="0.049304"/>
 </kw>
 <kw name="Set Terminal Length" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:18.203746" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-27T11:08:18.203958" level="TRACE">send b'scroll 512\r\n'</msg>
-<msg time="2025-05-27T11:08:18.207692" level="TRACE">recv b'scroll'</msg>
-<msg time="2025-05-27T11:08:18.225045" level="TRACE">recv b' 512'</msg>
-<msg time="2025-05-27T11:08:18.225819" level="TRACE">recv b' '</msg>
-<msg time="2025-05-27T11:08:18.226867" level="TRACE">recv b'\r\n'</msg>
-<msg time="2025-05-27T11:08:18.226988" level="INFO">scroll 512</msg>
-<msg time="2025-05-27T11:08:18.233175" level="TRACE">recv b'\r\nMA5800-X7&gt;'</msg>
-<msg time="2025-05-27T11:08:18.233389" level="INFO">MA5800-X7&gt;</msg>
-<msg time="2025-05-27T11:08:18.233555" level="TRACE">Return: '\r\nMA5800-X7&gt;'</msg>
-<status status="PASS" start="2025-05-27T11:08:18.203479" elapsed="0.030218"/>
+<msg time="2025-05-27T16:21:13.638790" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:13.639007" level="TRACE">send b'scroll 512\r\n'</msg>
+<msg time="2025-05-27T16:21:13.641423" level="TRACE">recv b'scroll'</msg>
+<msg time="2025-05-27T16:21:13.659891" level="TRACE">recv b' 512 '</msg>
+<msg time="2025-05-27T16:21:13.660765" level="TRACE">recv b'\r\n'</msg>
+<msg time="2025-05-27T16:21:13.660899" level="INFO">scroll 512</msg>
+<msg time="2025-05-27T16:21:13.666089" level="TRACE">recv b'\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-27T16:21:13.666322" level="INFO">MA5800-X7&gt;</msg>
+<msg time="2025-05-27T16:21:13.666457" level="TRACE">Return: '\r\nMA5800-X7&gt;'</msg>
+<status status="PASS" start="2025-05-27T16:21:13.638513" elapsed="0.028097"/>
 </kw>
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:18.234632" level="TRACE">Arguments: [ 'enable' | reset_prompt=True ]</msg>
-<msg time="2025-05-27T11:08:18.234912" level="TRACE">send b'enable\r\n'</msg>
-<msg time="2025-05-27T11:08:18.239289" level="TRACE">recv b'enable'</msg>
-<msg time="2025-05-27T11:08:18.261697" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-27T11:08:18.261916" level="INFO">enable</msg>
-<msg time="2025-05-27T11:08:18.262025" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-27T11:08:18.294277" level="TRACE">recv b'\r\nMA5800-X7#\r\n\r\nMA5800-X7#'</msg>
-<msg time="2025-05-27T11:08:18.795408" level="TRACE">Return: 'MA5800-X7#'</msg>
+<msg time="2025-05-27T16:21:13.667494" level="TRACE">Arguments: [ 'enable' | reset_prompt=True ]</msg>
+<msg time="2025-05-27T16:21:13.667772" level="TRACE">send b'enable\r\n'</msg>
+<msg time="2025-05-27T16:21:13.671034" level="TRACE">recv b'enable'</msg>
+<msg time="2025-05-27T16:21:13.692688" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-27T16:21:13.692899" level="INFO">enable</msg>
+<msg time="2025-05-27T16:21:13.692966" level="TRACE">send b'\r\n'</msg>
+<msg time="2025-05-27T16:21:13.727185" level="TRACE">recv b'\r\nMA5800-X7#\r\n\r\nMA5800-X7#'</msg>
+<msg time="2025-05-27T16:21:14.228165" level="TRACE">Return: 'MA5800-X7#'</msg>
 <arg>enable</arg>
 <arg>reset_prompt=True</arg>
 <doc>Gửi lệnh, đợi prompt mới và cập nhật prompt.</doc>
-<status status="PASS" start="2025-05-27T11:08:18.234116" elapsed="0.561569"/>
+<status status="PASS" start="2025-05-27T16:21:13.667021" elapsed="0.561370"/>
 </kw>
-<msg time="2025-05-27T11:08:18.795951" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-27T11:08:16.403939" elapsed="2.392150"/>
+<msg time="2025-05-27T16:21:14.228507" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-27T16:21:11.776138" elapsed="2.452410"/>
 </kw>
 <kw name="Access Config Mode" owner="keyword">
-<msg time="2025-05-27T11:08:18.797474" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:14.229143" level="TRACE">Arguments: [  ]</msg>
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:18.798355" level="TRACE">Arguments: [ 'config' | reset_prompt=True ]</msg>
-<msg time="2025-05-27T11:08:18.798671" level="TRACE">send b'config\r\n'</msg>
-<msg time="2025-05-27T11:08:18.803547" level="TRACE">recv b'config'</msg>
-<msg time="2025-05-27T11:08:18.873761" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-27T11:08:18.873992" level="INFO">config</msg>
-<msg time="2025-05-27T11:08:18.874122" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-27T11:08:18.925647" level="TRACE">recv b'\r\nMA5800-X7(config)#\r\n\r\nMA5800-X7(config)#'</msg>
-<msg time="2025-05-27T11:08:19.426724" level="TRACE">Return: 'MA5800-X7(config)#'</msg>
+<msg time="2025-05-27T16:21:14.229456" level="TRACE">Arguments: [ 'config' | reset_prompt=True ]</msg>
+<msg time="2025-05-27T16:21:14.229600" level="TRACE">send b'config\r\n'</msg>
+<msg time="2025-05-27T16:21:14.234070" level="TRACE">recv b'config'</msg>
+<msg time="2025-05-27T16:21:14.306312" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-27T16:21:14.306532" level="INFO">config</msg>
+<msg time="2025-05-27T16:21:14.306649" level="TRACE">send b'\r\n'</msg>
+<msg time="2025-05-27T16:21:14.361436" level="TRACE">recv b'\r\nMA5800-X7(config)#\r\n\r\nMA5800-X7(config)#'</msg>
+<msg time="2025-05-27T16:21:14.862545" level="TRACE">Return: 'MA5800-X7(config)#'</msg>
 <arg>config</arg>
 <arg>reset_prompt=True</arg>
 <doc>Gửi lệnh, đợi prompt mới và cập nhật prompt.</doc>
-<status status="PASS" start="2025-05-27T11:08:18.797967" elapsed="0.628936"/>
+<status status="PASS" start="2025-05-27T16:21:14.229309" elapsed="0.633511"/>
 </kw>
-<msg time="2025-05-27T11:08:19.427049" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-27T11:08:18.796923" elapsed="0.630176"/>
+<msg time="2025-05-27T16:21:14.863256" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-27T16:21:14.228910" elapsed="0.634494"/>
 </kw>
 <kw name="Access Interface Mode" owner="keyword">
-<msg time="2025-05-27T11:08:19.427766" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:14.864675" level="TRACE">Arguments: [  ]</msg>
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:19.428198" level="TRACE">Arguments: [ 'interface gpon 0/2' | reset_prompt=True ]</msg>
-<msg time="2025-05-27T11:08:19.428346" level="TRACE">send b'interface gpon 0/2\r\n'</msg>
-<msg time="2025-05-27T11:08:19.432411" level="TRACE">recv b'interface'</msg>
-<msg time="2025-05-27T11:08:19.535274" level="TRACE">recv b' gpon'</msg>
-<msg time="2025-05-27T11:08:19.544419" level="TRACE">recv b' 0/2'</msg>
-<msg time="2025-05-27T11:08:19.549585" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-27T11:08:19.549791" level="INFO">interface gpon 0/2</msg>
-<msg time="2025-05-27T11:08:19.549907" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-27T11:08:19.613733" level="TRACE">recv b'\r\nMA5800-X7(config-if-gpon-0/2)#\r\n\r\nMA5800-X7(conf'</msg>
-<msg time="2025-05-27T11:08:20.114936" level="TRACE">recv b'ig-if-gpon-0/2)#'</msg>
-<msg time="2025-05-27T11:08:20.115362" level="TRACE">Return: 'MA5800-X7(config-if-gpon-0/2)#'</msg>
+<msg time="2025-05-27T16:21:14.865700" level="TRACE">Arguments: [ 'interface gpon 0/2' | reset_prompt=True ]</msg>
+<msg time="2025-05-27T16:21:14.866028" level="TRACE">send b'interface gpon 0/2\r\n'</msg>
+<msg time="2025-05-27T16:21:14.870174" level="TRACE">recv b'interface'</msg>
+<msg time="2025-05-27T16:21:14.967813" level="TRACE">recv b' gpon'</msg>
+<msg time="2025-05-27T16:21:14.978010" level="TRACE">recv b' 0/2'</msg>
+<msg time="2025-05-27T16:21:14.982117" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-27T16:21:14.982311" level="INFO">interface gpon 0/2</msg>
+<msg time="2025-05-27T16:21:14.982422" level="TRACE">send b'\r\n'</msg>
+<msg time="2025-05-27T16:21:15.042265" level="TRACE">recv b'\r\nMA5800-X7(config-if-gpon-0/2)#\r\n\r\nMA5800-X7(conf'</msg>
+<msg time="2025-05-27T16:21:15.543385" level="TRACE">recv b'ig-if-gpon-0/2)#'</msg>
+<msg time="2025-05-27T16:21:15.543789" level="TRACE">Return: 'MA5800-X7(config-if-gpon-0/2)#'</msg>
 <arg>interface ${OLT_PON_NAME}</arg>
 <arg>reset_prompt=True</arg>
 <doc>Gửi lệnh, đợi prompt mới và cập nhật prompt.</doc>
-<status status="PASS" start="2025-05-27T11:08:19.427959" elapsed="0.687596"/>
+<status status="PASS" start="2025-05-27T16:21:14.865111" elapsed="0.678868"/>
 </kw>
-<msg time="2025-05-27T11:08:20.115812" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-27T11:08:19.427507" elapsed="0.688425"/>
+<msg time="2025-05-27T16:21:15.544239" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-27T16:21:14.864122" elapsed="0.680241"/>
 </kw>
 <kw name="Get Onuid From Serial" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:20.117140" level="TRACE">Arguments: [ 6 | '4B414F4EAF523D04' ]</msg>
-<msg time="2025-05-27T11:08:20.120407" level="TRACE">send b'display ont info summary 6\r\n'</msg>
-<msg time="2025-05-27T11:08:20.124693" level="TRACE">recv b'display'</msg>
-<msg time="2025-05-27T11:08:20.146152" level="TRACE">recv b' '</msg>
-<msg time="2025-05-27T11:08:20.150207" level="TRACE">recv b'ont'</msg>
-<msg time="2025-05-27T11:08:20.185693" level="TRACE">recv b' info'</msg>
-<msg time="2025-05-27T11:08:20.207290" level="TRACE">recv b' '</msg>
-<msg time="2025-05-27T11:08:20.208023" level="TRACE">recv b'summary'</msg>
-<msg time="2025-05-27T11:08:20.226379" level="TRACE">recv b' 6'</msg>
-<msg time="2025-05-27T11:08:20.246912" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-27T11:08:20.247152" level="INFO">display ont info summary 6</msg>
-<msg time="2025-05-27T11:08:20.319407" level="TRACE">recv b'  Command is being executed. Please wait\r\n'</msg>
-<msg time="2025-05-27T11:08:20.322224" level="TRACE">recv b'  ------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.322532" level="TRACE">recv b'------------------------------\r\n  In port 0/2/6, t'</msg>
-<msg time="2025-05-27T11:08:20.322753" level="TRACE">recv b'he total of ONTs are: 7, online: 1\r\n  ------------'</msg>
-<msg time="2025-05-27T11:08:20.322955" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.323151" level="TRACE">recv b'----------------\r\n  ONT  Run     Last             '</msg>
-<msg time="2025-05-27T11:08:20.323348" level="TRACE">recv b'   Last                Last                   \r\n  '</msg>
-<msg time="2025-05-27T11:08:20.323542" level="TRACE">recv b'ID   State   UpTime              DownTime         '</msg>
-<msg time="2025-05-27T11:08:20.323735" level="TRACE">recv b'   DownCause\r\n  ----------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.323929" level="TRACE">recv b'--------------------------------------------\r\n  0 '</msg>
-<msg time="2025-05-27T11:08:20.324124" level="TRACE">recv b'   offline -                   -                  '</msg>
-<msg time="2025-05-27T11:08:20.324316" level="TRACE">recv b' -                        \r\n  1    offline -      '</msg>
-<msg time="2025-05-27T11:08:20.324509" level="TRACE">recv b'             -                   -                '</msg>
-<msg time="2025-05-27T11:08:20.324699" level="TRACE">recv b'        \r\n  2    offline -                   -    '</msg>
-<msg time="2025-05-27T11:08:20.324905" level="TRACE">recv b'               -                        \r\n  3    o'</msg>
-<msg time="2025-05-27T11:08:20.325096" level="TRACE">recv b'ffline -                   -                   -  '</msg>
-<msg time="2025-05-27T11:08:20.325288" level="TRACE">recv b'                      \r\n  5    offline -          '</msg>
-<msg time="2025-05-27T11:08:20.325482" level="TRACE">recv b'         -                   -                    '</msg>
-<msg time="2025-05-27T11:08:20.325711" level="TRACE">recv b'    \r\n  6    offline -                   -        '</msg>
-<msg time="2025-05-27T11:08:20.325902" level="TRACE">recv b'           -                        \r\n  7    onlin'</msg>
-<msg time="2025-05-27T11:08:20.326093" level="TRACE">recv b'e  2023-12-07 03:10:49 -                   -      '</msg>
-<msg time="2025-05-27T11:08:20.326284" level="TRACE">recv b'                  \r\n  ----------------------------'</msg>
-<msg time="2025-05-27T11:08:20.326474" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.326664" level="TRACE">recv b'\r\n  ONT        SN        Type          Distance Rx'</msg>
-<msg time="2025-05-27T11:08:20.326854" level="TRACE">recv b'/Tx power  Description\r\n  ID                      '</msg>
-<msg time="2025-05-27T11:08:20.327044" level="TRACE">recv b'              (m)      (dBm)\r\n  ------------------'</msg>
-<msg time="2025-05-27T11:08:20.327236" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.327429" level="TRACE">recv b'----------\r\n  0   4B414F4E0F000014 -              '</msg>
-<msg time="2025-05-27T11:08:20.327620" level="TRACE">recv b'  -     -/-          PM1132               \r\n  1   '</msg>
-<msg time="2025-05-27T11:08:20.327828" level="TRACE">recv b'4B414F4ECE8EF370 -                -     -/-       '</msg>
-<msg time="2025-05-27T11:08:20.328023" level="TRACE">recv b'   PG6692G_TRONGNK      \r\n  2   4B414F4E012B3D40 -'</msg>
-<msg time="2025-05-27T11:08:20.328213" level="TRACE">recv b'                -     -/-          PG2142         '</msg>
-<msg time="2025-05-27T11:08:20.328274" level="TRACE">recv b'      \r\n  3   4B414F4ECE183C42 -                - '</msg>
-<msg time="2025-05-27T11:08:20.328343" level="TRACE">recv b'    -/-          PG2142               \r\n  5   4B41'</msg>
-<msg time="2025-05-27T11:08:20.328402" level="TRACE">recv b'4F4EAF523CFE -                -     -/-          P'</msg>
-<msg time="2025-05-27T11:08:20.328462" level="TRACE">recv b'M1191_TRONGNK       \r\n  6   4B414F4EEF6DC5A1 -    '</msg>
-<msg time="2025-05-27T11:08:20.328521" level="TRACE">recv b'            -     -/-          PM1132             '</msg>
-<msg time="2025-05-27T11:08:20.328580" level="TRACE">recv b'  \r\n  7   4B414F4EAF523D04 PM1191           83    '</msg>
-<msg time="2025-05-27T11:08:20.328640" level="TRACE">recv b'-14.10/6.62  PM1191_TRONGNK       \r\n  ------------'</msg>
-<msg time="2025-05-27T11:08:20.328700" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.328761" level="TRACE">recv b'----------------\r\n  \r\n\r\nMA5800-X7(config-if-gpon-0'</msg>
-<msg time="2025-05-27T11:08:20.328821" level="TRACE">recv b'/2)#'</msg>
-<msg time="2025-05-27T11:08:20.328866" level="INFO">Command is being executed. Please wait
+<msg time="2025-05-27T16:21:15.545600" level="TRACE">Arguments: [ 6 | '4B414F4EAF523D04' ]</msg>
+<msg time="2025-05-27T16:21:15.551262" level="TRACE">send b'display ont info summary 6\r\n'</msg>
+<msg time="2025-05-27T16:21:15.556099" level="TRACE">recv b'display'</msg>
+<msg time="2025-05-27T16:21:15.577580" level="TRACE">recv b' '</msg>
+<msg time="2025-05-27T16:21:15.581727" level="TRACE">recv b'ont'</msg>
+<msg time="2025-05-27T16:21:15.613255" level="TRACE">recv b' '</msg>
+<msg time="2025-05-27T16:21:15.614136" level="TRACE">recv b'info'</msg>
+<msg time="2025-05-27T16:21:15.633462" level="TRACE">recv b' summary'</msg>
+<msg time="2025-05-27T16:21:15.654954" level="TRACE">recv b' 6'</msg>
+<msg time="2025-05-27T16:21:15.674110" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-27T16:21:15.674218" level="INFO">display ont info summary 6</msg>
+<msg time="2025-05-27T16:21:15.762959" level="TRACE">recv b'  Command is being executed. Please wait\r\n'</msg>
+<msg time="2025-05-27T16:21:15.765935" level="TRACE">recv b'  ------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:15.766053" level="TRACE">recv b'------------------------------\r\n  In port 0/2/6, t'</msg>
+<msg time="2025-05-27T16:21:15.766124" level="TRACE">recv b'he total of ONTs are: 7, online: 1\r\n  ------------'</msg>
+<msg time="2025-05-27T16:21:15.766190" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:15.766254" level="TRACE">recv b'----------------\r\n  ONT  Run     Last             '</msg>
+<msg time="2025-05-27T16:21:15.766317" level="TRACE">recv b'   Last                Last                   \r\n  '</msg>
+<msg time="2025-05-27T16:21:15.766378" level="TRACE">recv b'ID   State   UpTime              DownTime         '</msg>
+<msg time="2025-05-27T16:21:15.766438" level="TRACE">recv b'   DownCause\r\n  ----------------------------------'</msg>
+<msg time="2025-05-27T16:21:15.766499" level="TRACE">recv b'--------------------------------------------\r\n  0 '</msg>
+<msg time="2025-05-27T16:21:15.766560" level="TRACE">recv b'   offline -                   -                  '</msg>
+<msg time="2025-05-27T16:21:15.766620" level="TRACE">recv b' -                        \r\n  1    offline -      '</msg>
+<msg time="2025-05-27T16:21:15.766691" level="TRACE">recv b'             -                   -                '</msg>
+<msg time="2025-05-27T16:21:15.766755" level="TRACE">recv b'        \r\n  2    offline -                   -    '</msg>
+<msg time="2025-05-27T16:21:15.766839" level="TRACE">recv b'               -                        \r\n  3    o'</msg>
+<msg time="2025-05-27T16:21:15.766908" level="TRACE">recv b'ffline -                   -                   -  '</msg>
+<msg time="2025-05-27T16:21:15.766969" level="TRACE">recv b'                      \r\n  5    offline -          '</msg>
+<msg time="2025-05-27T16:21:15.767029" level="TRACE">recv b'         -                   -                    '</msg>
+<msg time="2025-05-27T16:21:15.767094" level="TRACE">recv b'    \r\n  6    offline -                   -        '</msg>
+<msg time="2025-05-27T16:21:15.767155" level="TRACE">recv b'           -                        \r\n  7    onlin'</msg>
+<msg time="2025-05-27T16:21:15.767215" level="TRACE">recv b'e  2023-12-07 08:24:50 2023-12-07 07:23:45 LOSi/LO'</msg>
+<msg time="2025-05-27T16:21:15.767275" level="TRACE">recv b'Bi                \r\n  ----------------------------'</msg>
+<msg time="2025-05-27T16:21:15.767337" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:15.767397" level="TRACE">recv b'\r\n  ONT        SN        Type          Distance Rx'</msg>
+<msg time="2025-05-27T16:21:15.767456" level="TRACE">recv b'/Tx power  Description\r\n  ID                      '</msg>
+<msg time="2025-05-27T16:21:15.767516" level="TRACE">recv b'              (m)      (dBm)\r\n  ------------------'</msg>
+<msg time="2025-05-27T16:21:15.767576" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:15.767635" level="TRACE">recv b'----------\r\n  0   4B414F4E0F000014 -              '</msg>
+<msg time="2025-05-27T16:21:15.767694" level="TRACE">recv b'  -     -/-          PM1132               \r\n  1   '</msg>
+<msg time="2025-05-27T16:21:15.767753" level="TRACE">recv b'4B414F4ECE8EF370 -                -     -/-       '</msg>
+<msg time="2025-05-27T16:21:15.767812" level="TRACE">recv b'   PG6692G_TRONGNK      \r\n  2   4B414F4E012B3D40 -'</msg>
+<msg time="2025-05-27T16:21:15.767872" level="TRACE">recv b'                -     -/-          PG2142         '</msg>
+<msg time="2025-05-27T16:21:15.767931" level="TRACE">recv b'      \r\n  3   4B414F4ECE183C42 -                - '</msg>
+<msg time="2025-05-27T16:21:15.767991" level="TRACE">recv b'    -/-          PG2142               \r\n  5   4B41'</msg>
+<msg time="2025-05-27T16:21:15.768050" level="TRACE">recv b'4F4EAF523CFE -                -     -/-          P'</msg>
+<msg time="2025-05-27T16:21:15.768109" level="TRACE">recv b'M1191_TRONGNK       \r\n  6   4B414F4EEF6DC5A1 -    '</msg>
+<msg time="2025-05-27T16:21:15.768169" level="TRACE">recv b'            -     -/-          PM1132             '</msg>
+<msg time="2025-05-27T16:21:15.768229" level="TRACE">recv b'  \r\n  7   4B414F4EAF523D04 PM1191           82    '</msg>
+<msg time="2025-05-27T16:21:15.768288" level="TRACE">recv b'-14.09/6.63  PM1191_TRONGNK       \r\n  ------------'</msg>
+<msg time="2025-05-27T16:21:15.768379" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:15.768446" level="TRACE">recv b'----------------\r\n  \r\n\r\nMA5800-X7(config-if-gpon-0'</msg>
+<msg time="2025-05-27T16:21:15.768508" level="TRACE">recv b'/2)#'</msg>
+<msg time="2025-05-27T16:21:15.768553" level="INFO">Command is being executed. Please wait
   ------------------------------------------------------------------------------
   In port 0/2/6, the total of ONTs are: 7, online: 1
   ------------------------------------------------------------------------------
@@ -387,7 +394,7 @@ MA5800-X7&gt;</msg>
   3    offline -                   -                   -                        
   5    offline -                   -                   -                        
   6    offline -                   -                   -                        
-  7    online  2023-12-07 03:10:49 -                   -                        
+  7    online  2023-12-07 08:24:50 2023-12-07 07:23:45 LOSi/LOBi                
   ------------------------------------------------------------------------------
   ONT        SN        Type          Distance Rx/Tx power  Description
   ID                                    (m)      (dBm)
@@ -398,232 +405,226 @@ MA5800-X7&gt;</msg>
   3   4B414F4ECE183C42 -                -     -/-          PG2142               
   5   4B414F4EAF523CFE -                -     -/-          PM1191_TRONGNK       
   6   4B414F4EEF6DC5A1 -                -     -/-          PM1132               
-  7   4B414F4EAF523D04 PM1191           83    -14.10/6.62  PM1191_TRONGNK       
+  7   4B414F4EAF523D04 PM1191           82    -14.09/6.63  PM1191_TRONGNK       
   ------------------------------------------------------------------------------
   
 
 MA5800-X7(config-if-gpon-0/2)#</msg>
-<msg time="2025-05-27T11:08:20.332021" level="TRACE">Return: '7'</msg>
-<msg time="2025-05-27T11:08:20.332202" level="INFO">${onu_id} = 7</msg>
+<msg time="2025-05-27T16:21:15.771840" level="TRACE">Return: '7'</msg>
+<msg time="2025-05-27T16:21:15.772017" level="INFO">${onu_id} = 7</msg>
 <var>${onu_id}</var>
 <arg>${OLT_PON_INDEX}</arg>
 <arg>${ONU_SN}</arg>
-<status status="PASS" start="2025-05-27T11:08:20.116583" elapsed="0.215654"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<msg time="2025-05-27T11:08:20.332759" level="TRACE">Arguments: [ '7' ]</msg>
-<msg time="2025-05-27T11:08:20.332898" level="TRACE">Return: None</msg>
-<arg>${onu_id}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-05-27T11:08:20.332559" elapsed="0.000383"/>
+<status status="PASS" start="2025-05-27T16:21:15.544994" elapsed="0.227057"/>
 </kw>
 <kw name="Get Onu Info" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:20.333385" level="TRACE">Arguments: [ 6 | '7' ]</msg>
-<msg time="2025-05-27T11:08:20.333523" level="TRACE">send b'display ont info 6 7\r\n'</msg>
-<msg time="2025-05-27T11:08:20.336574" level="TRACE">recv b'display'</msg>
-<msg time="2025-05-27T11:08:20.359154" level="TRACE">recv b' '</msg>
-<msg time="2025-05-27T11:08:20.363173" level="TRACE">recv b'ont'</msg>
-<msg time="2025-05-27T11:08:20.393758" level="TRACE">recv b' '</msg>
-<msg time="2025-05-27T11:08:20.394726" level="TRACE">recv b'info'</msg>
-<msg time="2025-05-27T11:08:20.414003" level="TRACE">recv b' 6'</msg>
-<msg time="2025-05-27T11:08:20.432248" level="TRACE">recv b' '</msg>
-<msg time="2025-05-27T11:08:20.433250" level="TRACE">recv b'7'</msg>
-<msg time="2025-05-27T11:08:20.453869" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-27T11:08:20.454078" level="INFO">display ont info 6 7</msg>
-<msg time="2025-05-27T11:08:20.526285" level="TRACE">recv b'  ------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.526643" level="TRACE">recv b'-----------------------------\r\n  F/S/P            '</msg>
-<msg time="2025-05-27T11:08:20.526874" level="TRACE">recv b'       : 0/2/6\r\n  ONT-ID                  : 7\r\n  C'</msg>
-<msg time="2025-05-27T11:08:20.527080" level="TRACE">recv b'ontrol flag            : active\r\n  Run state      '</msg>
-<msg time="2025-05-27T11:08:20.527279" level="TRACE">recv b'         : online\r\n  Config state            : nor'</msg>
-<msg time="2025-05-27T11:08:20.527473" level="TRACE">recv b'mal\r\n  Match state             : match\r\n  DBA type'</msg>
-<msg time="2025-05-27T11:08:20.527670" level="TRACE">recv b'                : SR\r\n  ONT distance(m)         : '</msg>
-<msg time="2025-05-27T11:08:20.527863" level="TRACE">recv b'83\r\n  ONT last distance(m)    : -\r\n  ONT battery s'</msg>
-<msg time="2025-05-27T11:08:20.528056" level="TRACE">recv b'tate       : holding state\r\n  ONT power type      '</msg>
-<msg time="2025-05-27T11:08:20.528250" level="TRACE">recv b'    : -\r\n  Memory occupation       : -\r\n  CPU occu'</msg>
-<msg time="2025-05-27T11:08:20.528448" level="TRACE">recv b'pation          : -\r\n  Temperature             : -'</msg>
-<msg time="2025-05-27T11:08:20.528640" level="TRACE">recv b'\r\n  Authentic type          : SN-auth\r\n  SN       '</msg>
-<msg time="2025-05-27T11:08:20.528850" level="TRACE">recv b'               : 4B414F4EAF523D04 (KAON-AF523D04)\r'</msg>
-<msg time="2025-05-27T11:08:20.529012" level="TRACE">recv b'\n  Management mode         : OMCI\r\n  Software work'</msg>
-<msg time="2025-05-27T11:08:20.529072" level="TRACE">recv b' mode      : normal\r\n  Isolation state         : n'</msg>
-<msg time="2025-05-27T11:08:20.529133" level="TRACE">recv b'ormal\r\n  Description             : PM1191_TRONGNK\r'</msg>
-<msg time="2025-05-27T11:08:20.529193" level="TRACE">recv b'\n  Last down cause         : -\r\n  Last up time    '</msg>
-<msg time="2025-05-27T11:08:20.529254" level="TRACE">recv b'        : 2023-12-07 03:10:49+08:00\r\n  Last down t'</msg>
-<msg time="2025-05-27T11:08:20.529313" level="TRACE">recv b'ime          : -\r\n  Last dying gasp time    : -\r\n '</msg>
-<msg time="2025-05-27T11:08:20.529374" level="TRACE">recv b' Last restart reason     : -\r\n  ONT online duratio'</msg>
-<msg time="2025-05-27T11:08:20.529435" level="TRACE">recv b'n     : 0 day(s), 0 hour(s), 1 minute(s), 35 secon'</msg>
-<msg time="2025-05-27T11:08:20.529516" level="TRACE">recv b'd(s) \r\n  ONT system up duration  : 0 day(s), 18 ho'</msg>
-<msg time="2025-05-27T11:08:20.529581" level="TRACE">recv b'ur(s), 37 minute(s), 19 second(s) \r\n  Type C suppo'</msg>
-<msg time="2025-05-27T11:08:20.529642" level="TRACE">recv b'rt          : Not support\r\n  Interoperability-mode'</msg>
-<msg time="2025-05-27T11:08:20.529704" level="TRACE">recv b'   : ITU-T\r\n  Power reduction status  : -\r\n  ONT N'</msg>
-<msg time="2025-05-27T11:08:20.529764" level="TRACE">recv b'NI type            : 10G/10G\r\n  ONT actual NNI typ'</msg>
-<msg time="2025-05-27T11:08:20.529826" level="TRACE">recv b'e     : 10G/10G\r\n  Last ONT actual NNI type: -\r\n  '</msg>
-<msg time="2025-05-27T11:08:20.529886" level="TRACE">recv b'FEC upstream state      : enable\r\n  VS-ID         '</msg>
-<msg time="2025-05-27T11:08:20.529953" level="TRACE">recv b'          : 0\r\n  VS name                 : admin-v'</msg>
-<msg time="2025-05-27T11:08:20.530013" level="TRACE">recv b's\r\n  Global ONT-ID           : 7\r\n  --------------'</msg>
-<msg time="2025-05-27T11:08:20.530074" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.530134" level="TRACE">recv b'-------------\r\n  VoIP configure method   : Default'</msg>
-<msg time="2025-05-27T11:08:20.530194" level="TRACE">recv b'\r\n  ----------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.530254" level="TRACE">recv b'-------------------------------\r\n  Line profile ID'</msg>
-<msg time="2025-05-27T11:08:20.530314" level="TRACE">recv b'      : 13\r\n  Line profile name    : PM1191_TRONGN'</msg>
-<msg time="2025-05-27T11:08:20.530374" level="TRACE">recv b'K\r\n  ---------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.530434" level="TRACE">recv b'--------------------------------\r\n  FEC upstream s'</msg>
-<msg time="2025-05-27T11:08:20.530494" level="TRACE">recv b'witch :Disable (Downstream FEC is always enabled)\r'</msg>
-<msg time="2025-05-27T11:08:20.530554" level="TRACE">recv b'\n  OMCC encrypt switch :On\r\n  Qos mode            '</msg>
-<msg time="2025-05-27T11:08:20.530615" level="TRACE">recv b':PQ\r\n  Mapping mode        :VLAN\r\n  TR069 manageme'</msg>
-<msg time="2025-05-27T11:08:20.530677" level="TRACE">recv b'nt    :Disable\r\n'</msg>
-<msg time="2025-05-27T11:08:20.538500" level="TRACE">recv b'  TR069 IP index      :0\r\n  ----------------------'</msg>
-<msg time="2025-05-27T11:08:20.538809" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.539026" level="TRACE">recv b'------\r\n  Notes: * indicates Discrete TCONT(TCONT '</msg>
-<msg time="2025-05-27T11:08:20.539228" level="TRACE">recv b'Unbound)\r\n  --------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.539423" level="TRACE">recv b'----------------------------------------\r\n  &lt;T-CON'</msg>
-<msg time="2025-05-27T11:08:20.539642" level="TRACE">recv b'T   0&gt;          DBA Profile-ID:1\r\n  &lt;T-CONT   1&gt;* '</msg>
-<msg time="2025-05-27T11:08:20.539844" level="TRACE">recv b'        DBA Profile-ID:4\r\n   &lt;Gem Index 1&gt;\r\n   ---'</msg>
-<msg time="2025-05-27T11:08:20.540041" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.540233" level="TRACE">recv b'---------------\r\n   |Serv-Type:ETH |Encrypt:on  |C'</msg>
-<msg time="2025-05-27T11:08:20.540424" level="TRACE">recv b'ascade:off |GEM-CAR:-            |\r\n   |Upstream-p'</msg>
-<msg time="2025-05-27T11:08:20.540614" level="TRACE">recv b'riority-queue:0  |Downstream-priority-queue:-     '</msg>
-<msg time="2025-05-27T11:08:20.540819" level="TRACE">recv b'  |\r\n   ------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.541011" level="TRACE">recv b'--------------------------\r\n    Mapping VLAN  Prio'</msg>
-<msg time="2025-05-27T11:08:20.541203" level="TRACE">recv b'rity Port    Port  Bundle  Flow  Transparent\r\n    '</msg>
-<msg time="2025-05-27T11:08:20.541392" level="TRACE">recv b'index                  type    ID    ID      CAR  '</msg>
-<msg time="2025-05-27T11:08:20.541610" level="TRACE">recv b' \r\n   --------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.541808" level="TRACE">recv b'------------------------\r\n    0       800   -     '</msg>
-<msg time="2025-05-27T11:08:20.541999" level="TRACE">recv b'   -       -     -       -     -          \r\n   ---'</msg>
-<msg time="2025-05-27T11:08:20.542187" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.542377" level="TRACE">recv b'---------------\r\n  &lt;T-CONT   2&gt;*         DBA Profi'</msg>
-<msg time="2025-05-27T11:08:20.542743" level="TRACE">recv b'le-ID:4\r\n   &lt;Gem Index 2&gt;\r\n   --------------------'</msg>
-<msg time="2025-05-27T11:08:20.542948" level="TRACE">recv b'------------------------------------------------\r\n'</msg>
-<msg time="2025-05-27T11:08:20.543155" level="TRACE">recv b'   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-C'</msg>
-<msg time="2025-05-27T11:08:20.543382" level="TRACE">recv b'AR:-            |\r\n   |Upstream-priority-queue:0  '</msg>
-<msg time="2025-05-27T11:08:20.543582" level="TRACE">recv b'|Downstream-priority-queue:-       |\r\n   ---------'</msg>
-<msg time="2025-05-27T11:08:20.543774" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.543967" level="TRACE">recv b'---------\r\n    Mapping VLAN  Priority Port    Port'</msg>
-<msg time="2025-05-27T11:08:20.544161" level="TRACE">recv b'  Bundle  Flow  Transparent\r\n    index            '</msg>
-<msg time="2025-05-27T11:08:20.544354" level="TRACE">recv b'      type    ID    ID      CAR   \r\n   -----------'</msg>
-<msg time="2025-05-27T11:08:20.544549" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.544744" level="TRACE">recv b'-------\r\n    0       801   -        -       -     '</msg>
-<msg time="2025-05-27T11:08:20.544938" level="TRACE">recv b'-       -     -          \r\n   --------------------'</msg>
-<msg time="2025-05-27T11:08:20.545130" level="TRACE">recv b'------------------------------------------------\r\n'</msg>
-<msg time="2025-05-27T11:08:20.545320" level="TRACE">recv b'  &lt;T-CONT   3&gt;*         DBA Profile-ID:4\r\n   &lt;Gem '</msg>
-<msg time="2025-05-27T11:08:20.545545" level="TRACE">recv b'Index 3&gt;\r\n   -------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.545744" level="TRACE">recv b'-------------------------------\r\n   |Serv-Type:ETH'</msg>
-<msg time="2025-05-27T11:08:20.545950" level="TRACE">recv b' |Encrypt:on  |Cascade:off |GEM-CAR:-            |'</msg>
-<msg time="2025-05-27T11:08:20.546142" level="TRACE">recv b'\r\n   |Upstream-priority-queue:0  |Downstream-prior'</msg>
-<msg time="2025-05-27T11:08:20.546334" level="TRACE">recv b'ity-queue:-       |\r\n   --------------------------'</msg>
-<msg time="2025-05-27T11:08:20.546526" level="TRACE">recv b'------------------------------------------\r\n    Ma'</msg>
-<msg time="2025-05-27T11:08:20.546718" level="TRACE">recv b'pping VLAN  Priority Port    Port  Bundle  Flow  T'</msg>
-<msg time="2025-05-27T11:08:20.546909" level="TRACE">recv b'ransparent\r\n    index                  type    ID '</msg>
-<msg time="2025-05-27T11:08:20.547099" level="TRACE">recv b'   ID      CAR   \r\n   ----------------------------'</msg>
-<msg time="2025-05-27T11:08:20.547291" level="TRACE">recv b'----------------------------------------\r\n    0   '</msg>
-<msg time="2025-05-27T11:08:20.547483" level="TRACE">recv b'    802   -        -       -     -       -     -  '</msg>
-<msg time="2025-05-27T11:08:20.547673" level="TRACE">recv b'        \r\n   -------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.547861" level="TRACE">recv b'-------------------------------\r\n  ---------------'</msg>
-<msg time="2025-05-27T11:08:20.548052" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.548242" level="TRACE">recv b'-------------\r\n  Notes: Run the display traffic ta'</msg>
-<msg time="2025-05-27T11:08:20.548434" level="TRACE">recv b'ble ip command to query \r\n         traffic table c'</msg>
-<msg time="2025-05-27T11:08:20.548625" level="TRACE">recv b'onfiguration\r\n  ----------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.548832" level="TRACE">recv b'-------------------------------------------\r\n  Ser'</msg>
-<msg time="2025-05-27T11:08:20.549029" level="TRACE">recv b'vice profile ID   : 13\r\n  Service profile name : P'</msg>
-<msg time="2025-05-27T11:08:20.549126" level="TRACE">recv b'M1191_TRONGNK\r\n  ---------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.549186" level="TRACE">recv b'--------------------------------------------\r\n  Po'</msg>
-<msg time="2025-05-27T11:08:20.549246" level="TRACE">recv b'rt-type     Port-number     Max-adaptive-number\r\n '</msg>
-<msg time="2025-05-27T11:08:20.549306" level="TRACE">recv b' -------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.549365" level="TRACE">recv b'----------------------------\r\n  POTS          0   '</msg>
-<msg time="2025-05-27T11:08:20.549431" level="TRACE">recv b'            -\r\n  ETH           1               -\r\n'</msg>
-<msg time="2025-05-27T11:08:20.549502" level="TRACE">recv b'  VDSL          0               -\r\n  TDM          '</msg>
-<msg time="2025-05-27T11:08:20.549567" level="TRACE">recv b' 0               -\r\n  MOCA          0             '</msg>
-<msg time="2025-05-27T11:08:20.549628" level="TRACE">recv b'  -\r\n  CATV          0               -\r\n  --------'</msg>
-<msg time="2025-05-27T11:08:20.549688" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.549748" level="TRACE">recv b'-------------------\r\n  TDM port type              '</msg>
-<msg time="2025-05-27T11:08:20.549812" level="TRACE">recv b'       : E1\r\n  TDM service type                  :'</msg>
-<msg time="2025-05-27T11:08:20.549872" level="TRACE">recv b' TDMoGem\r\n  MAC learning function switch      : En'</msg>
-<msg time="2025-05-27T11:08:20.549932" level="TRACE">recv b'able\r\n  ONT transparent function switch   : Disabl'</msg>
-<msg time="2025-05-27T11:08:20.549992" level="TRACE">recv b'e\r\n  Ring check switch                 : Disable\r\n'</msg>
-<msg time="2025-05-27T11:08:20.550053" level="TRACE">recv b'  Ring port auto-shutdown           : Enable\r\n  Ri'</msg>
-<msg time="2025-05-27T11:08:20.550112" level="TRACE">recv b'ng detect frequency             : 8 (pps)\r\n  Ring '</msg>
-<msg time="2025-05-27T11:08:20.550172" level="TRACE">recv b'resume interval              : 300 (s)\r\n  Ring det'</msg>
-<msg time="2025-05-27T11:08:20.550232" level="TRACE">recv b'ect period                : 0 (s)\r\n  Multicast for'</msg>
-<msg time="2025-05-27T11:08:20.550293" level="TRACE">recv b'ward mode            : Tag transparent\r\n  Multicas'</msg>
-<msg time="2025-05-27T11:08:20.550355" level="TRACE">recv b't forward VLAN            : -\r\n  Multicast mode   '</msg>
-<msg time="2025-05-27T11:08:20.550418" level="TRACE">recv b'                 : Unconcern\r\n  Upstream IGMP pack'</msg>
-<msg time="2025-05-27T11:08:20.550478" level="TRACE">recv b'et forward mode : Unconcern\r\n  Upstream IGMP packe'</msg>
-<msg time="2025-05-27T11:08:20.550538" level="TRACE">recv b't forward VLAN : -\r\n  Upstream IGMP packet priorit'</msg>
-<msg time="2025-05-27T11:08:20.550598" level="TRACE">recv b'y     : -\r\n  Native VLAN option                : U'</msg>
-<msg time="2025-05-27T11:08:20.550660" level="TRACE">recv b'nconcern\r\n  Upstream PQ color policy          : -\r'</msg>
-<msg time="2025-05-27T11:08:20.550721" level="TRACE">recv b'\n  Downstream PQ color policy        : -\r\n  Monito'</msg>
-<msg time="2025-05-27T11:08:20.550783" level="TRACE">recv b'r link                      : Unconcern\r\n  MTU(byt'</msg>
-<msg time="2025-05-27T11:08:20.550843" level="TRACE">recv b'e)                         : Unconcern\r\n  --------'</msg>
-<msg time="2025-05-27T11:08:20.550903" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.550963" level="TRACE">recv b'-------------------\r\n  Port-type Port-ID QinQmode '</msg>
-<msg time="2025-05-27T11:08:20.551023" level="TRACE">recv b' PriorityPolicy Inbound     Outbound\r\n  ----------'</msg>
-<msg time="2025-05-27T11:08:20.551083" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.551142" level="TRACE">recv b'-----------------\r\n  ETH       1       unconcern u'</msg>
-<msg time="2025-05-27T11:08:20.551202" level="TRACE">recv b'nconcern      unconcern   unconcern\r\n  IPHOST    1'</msg>
-<msg time="2025-05-27T11:08:20.551312" level="TRACE">recv b'       unconcern unconcern      unconcern   unconc'</msg>
-<msg time="2025-05-27T11:08:20.551377" level="TRACE">recv b'ern\r\n  -------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.551438" level="TRACE">recv b'----------------------------------\r\n  Notes: * ind'</msg>
-<msg time="2025-05-27T11:08:20.551499" level="TRACE">recv b'icates the discretely configured traffic profile,\r'</msg>
-<msg time="2025-05-27T11:08:20.551559" level="TRACE">recv b'\n         run the display traffic table ip command'</msg>
-<msg time="2025-05-27T11:08:20.551620" level="TRACE">recv b' to query\r\n         traffic table configuration.\r\n'</msg>
-<msg time="2025-05-27T11:08:20.551680" level="TRACE">recv b'  ------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.551740" level="TRACE">recv b'-----------------------------\r\n  Port-type Port-ID'</msg>
-<msg time="2025-05-27T11:08:20.551803" level="TRACE">recv b'  DownstreamMode  MismatchPolicy\r\n  --------------'</msg>
-<msg time="2025-05-27T11:08:20.551864" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.551924" level="TRACE">recv b'-------------\r\n  ETH             1  operation     '</msg>
-<msg time="2025-05-27T11:08:20.551984" level="TRACE">recv b'  discard       \r\n  ------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.552045" level="TRACE">recv b'-----------------------------------------------\r\n '</msg>
-<msg time="2025-05-27T11:08:20.552105" level="TRACE">recv b' Port-type Port-ID Dscp-mapping-table-index Classi'</msg>
-<msg time="2025-05-27T11:08:20.552164" level="TRACE">recv b'fication-profile-id\r\n  ---------------------------'</msg>
-<msg time="2025-05-27T11:08:20.552224" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.552284" level="TRACE">recv b'\r\n  ETH       1       0                        -  '</msg>
-<msg time="2025-05-27T11:08:20.552343" level="TRACE">recv b'      \r\n  IPHOST    1       0                     '</msg>
-<msg time="2025-05-27T11:08:20.552407" level="TRACE">recv b'   -\r\n  ------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.552469" level="TRACE">recv b'-----------------------------------\r\n  Notes: the '</msg>
-<msg time="2025-05-27T11:08:20.552529" level="TRACE">recv b'port vlan of ONT is discretely configured\r\n  -----'</msg>
-<msg time="2025-05-27T11:08:20.552589" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.552649" level="TRACE">recv b'----------------------\r\n  Port    Port   Service-t'</msg>
-<msg time="2025-05-27T11:08:20.552708" level="TRACE">recv b'ype Index S-VLAN S-PRI C-VLAN C-PRI ENCAP      S-P'</msg>
-<msg time="2025-05-27T11:08:20.552767" level="TRACE">recv b'RI\r\n  type    ID                                  '</msg>
-<msg time="2025-05-27T11:08:20.552826" level="TRACE">recv b'                           POLICY\r\n  -------------'</msg>
-<msg time="2025-05-27T11:08:20.552886" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.552946" level="TRACE">recv b'--------------\r\n  ETH     1      Translation  1   '</msg>
-<msg time="2025-05-27T11:08:20.553005" level="TRACE">recv b'  800    -     700    -     -          -     \r\n  E'</msg>
-<msg time="2025-05-27T11:08:20.553064" level="TRACE">recv b'TH     1      Translation  2     801    -     701 '</msg>
-<msg time="2025-05-27T11:08:20.553125" level="TRACE">recv b'   -     -          -     \r\n'</msg>
-<msg time="2025-05-27T11:08:20.809215" level="TRACE">recv b'  ETH     1      Translation  3     802    -     7'</msg>
-<msg time="2025-05-27T11:08:20.809436" level="TRACE">recv b'02    -     -          -     \r\n  ETH     1      Tr'</msg>
-<msg time="2025-05-27T11:08:20.809543" level="TRACE">recv b'anslation  4     803    -     703    -     -      '</msg>
-<msg time="2025-05-27T11:08:20.809611" level="TRACE">recv b'    -     \r\n  ------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.809684" level="TRACE">recv b'-----------------------------------------\r\n  Notes'</msg>
-<msg time="2025-05-27T11:08:20.809747" level="TRACE">recv b': * indicates transparent attribute of the vlan\r\n '</msg>
-<msg time="2025-05-27T11:08:20.809809" level="TRACE">recv b' -------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.809869" level="TRACE">recv b'----------------------------\r\n  Port-type  Port-ID'</msg>
-<msg time="2025-05-27T11:08:20.809930" level="TRACE">recv b'    IGMP-mode         IGMP-VLAN  IGMP-PRI  Max-MAC'</msg>
-<msg time="2025-05-27T11:08:20.809991" level="TRACE">recv b'-Count\r\n  ----------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.810050" level="TRACE">recv b'-------------------------------------\r\n  ETH      '</msg>
-<msg time="2025-05-27T11:08:20.810110" level="TRACE">recv b'        1    -                         -         -'</msg>
-<msg time="2025-05-27T11:08:20.810173" level="TRACE">recv b'      Unlimited\r\n  IPHOST           1    -        '</msg>
-<msg time="2025-05-27T11:08:20.810235" level="TRACE">recv b'                 -         -      Unlimited\r\n  ---'</msg>
-<msg time="2025-05-27T11:08:20.810319" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.810383" level="TRACE">recv b'------------------------\r\n  Port-type Port-ID   Tr'</msg>
-<msg time="2025-05-27T11:08:20.810443" level="TRACE">recv b'affic-suppress   Traffic-suppress   Traffic-suppre'</msg>
-<msg time="2025-05-27T11:08:20.810503" level="TRACE">recv b'ss\r\n                      unicast(kbps)      multi'</msg>
-<msg time="2025-05-27T11:08:20.810563" level="TRACE">recv b'cast(kpbs)    broadcast(kbps)\r\n  -----------------'</msg>
-<msg time="2025-05-27T11:08:20.810622" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.810682" level="TRACE">recv b'----------\r\n  ETH             1   -               '</msg>
-<msg time="2025-05-27T11:08:20.810743" level="TRACE">recv b'   -                  -               \r\n  --------'</msg>
-<msg time="2025-05-27T11:08:20.810804" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.810886" level="TRACE">recv b'-------------------\r\n  Port-type  Port-ID  L2-isol'</msg>
-<msg time="2025-05-27T11:08:20.810951" level="TRACE">recv b'ate\r\n  -------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.811019" level="TRACE">recv b'----------------------------------\r\n  ETH         '</msg>
-<msg time="2025-05-27T11:08:20.811082" level="TRACE">recv b'     1  unconcern           \r\n  ------------------'</msg>
-<msg time="2025-05-27T11:08:20.811142" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.811206" level="TRACE">recv b'---------\r\n  Alarm policy profile ID      : 0\r\n  A'</msg>
-<msg time="2025-05-27T11:08:20.811278" level="TRACE">recv b'larm policy profile name    : alarm-policy_0\r\n  --'</msg>
-<msg time="2025-05-27T11:08:20.811347" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-27T11:08:20.811414" level="TRACE">recv b'-------------------------\r\n\r\nMA5800-X7(config-if-g'</msg>
-<msg time="2025-05-27T11:08:20.811475" level="TRACE">recv b'pon-0/2)#'</msg>
-<msg time="2025-05-27T11:08:20.811526" level="INFO">-----------------------------------------------------------------------------
+<msg time="2025-05-27T16:21:15.772607" level="TRACE">Arguments: [ 6 | '7' ]</msg>
+<msg time="2025-05-27T16:21:15.772747" level="TRACE">send b'display ont info 6 7\r\n'</msg>
+<msg time="2025-05-27T16:21:15.778041" level="TRACE">recv b'display'</msg>
+<msg time="2025-05-27T16:21:15.798439" level="TRACE">recv b' '</msg>
+<msg time="2025-05-27T16:21:15.804725" level="TRACE">recv b'ont'</msg>
+<msg time="2025-05-27T16:21:15.836301" level="TRACE">recv b' '</msg>
+<msg time="2025-05-27T16:21:15.837286" level="TRACE">recv b'info'</msg>
+<msg time="2025-05-27T16:21:15.858550" level="TRACE">recv b' 6'</msg>
+<msg time="2025-05-27T16:21:15.875798" level="TRACE">recv b' '</msg>
+<msg time="2025-05-27T16:21:15.876816" level="TRACE">recv b'7'</msg>
+<msg time="2025-05-27T16:21:15.898183" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-27T16:21:15.898279" level="INFO">display ont info 6 7</msg>
+<msg time="2025-05-27T16:21:15.992126" level="TRACE">recv b'  ------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:15.992498" level="TRACE">recv b'-----------------------------\r\n  F/S/P            '</msg>
+<msg time="2025-05-27T16:21:15.992724" level="TRACE">recv b'       : 0/2/6\r\n  ONT-ID                  : 7\r\n  C'</msg>
+<msg time="2025-05-27T16:21:15.992881" level="TRACE">recv b'ontrol flag            : active\r\n  Run state      '</msg>
+<msg time="2025-05-27T16:21:15.992946" level="TRACE">recv b'         : online\r\n  Config state            : nor'</msg>
+<msg time="2025-05-27T16:21:15.993009" level="TRACE">recv b'mal\r\n  Match state             : match\r\n  DBA type'</msg>
+<msg time="2025-05-27T16:21:15.993072" level="TRACE">recv b'                : SR\r\n  ONT distance(m)         : '</msg>
+<msg time="2025-05-27T16:21:15.993134" level="TRACE">recv b'82\r\n  ONT last distance(m)    : 82\r\n  ONT battery '</msg>
+<msg time="2025-05-27T16:21:15.993194" level="TRACE">recv b'state       : holding state\r\n  ONT power type     '</msg>
+<msg time="2025-05-27T16:21:15.993256" level="TRACE">recv b'     : -\r\n  Memory occupation       : -\r\n  CPU occ'</msg>
+<msg time="2025-05-27T16:21:15.993316" level="TRACE">recv b'upation          : -\r\n  Temperature             : '</msg>
+<msg time="2025-05-27T16:21:15.993377" level="TRACE">recv b'-\r\n  Authentic type          : SN-auth\r\n  SN      '</msg>
+<msg time="2025-05-27T16:21:15.993438" level="TRACE">recv b'                : 4B414F4EAF523D04 (KAON-AF523D04)'</msg>
+<msg time="2025-05-27T16:21:15.993514" level="TRACE">recv b'\r\n  Management mode         : OMCI\r\n  Software wor'</msg>
+<msg time="2025-05-27T16:21:15.993577" level="TRACE">recv b'k mode      : normal\r\n  Isolation state         : '</msg>
+<msg time="2025-05-27T16:21:15.993639" level="TRACE">recv b'normal\r\n  Description             : PM1191_TRONGNK'</msg>
+<msg time="2025-05-27T16:21:15.993700" level="TRACE">recv b'\r\n  Last down cause         : LOSi/LOBi\r\n  Last up'</msg>
+<msg time="2025-05-27T16:21:15.993761" level="TRACE">recv b' time            : 2023-12-07 08:24:50+08:00\r\n  La'</msg>
+<msg time="2025-05-27T16:21:15.993829" level="TRACE">recv b'st down time          : 2023-12-07 07:23:45+08:00\r'</msg>
+<msg time="2025-05-27T16:21:15.993891" level="TRACE">recv b'\n  Last dying gasp time    : -\r\n  Last restart rea'</msg>
+<msg time="2025-05-27T16:21:15.993953" level="TRACE">recv b'son     : -\r\n  ONT online duration     : 0 day(s),'</msg>
+<msg time="2025-05-27T16:21:15.994014" level="TRACE">recv b' 0 hour(s), 0 minute(s), 29 second(s) \r\n  ONT syst'</msg>
+<msg time="2025-05-27T16:21:15.994074" level="TRACE">recv b'em up duration  : 0 day(s), 23 hour(s), 50 minute('</msg>
+<msg time="2025-05-27T16:21:15.994133" level="TRACE">recv b's), 15 second(s) \r\n  Type C support          : Not'</msg>
+<msg time="2025-05-27T16:21:15.994193" level="TRACE">recv b' support\r\n  Interoperability-mode   : ITU-T\r\n  Pow'</msg>
+<msg time="2025-05-27T16:21:15.994252" level="TRACE">recv b'er reduction status  : -\r\n  ONT NNI type          '</msg>
+<msg time="2025-05-27T16:21:15.994313" level="TRACE">recv b'  : 10G/10G\r\n  ONT actual NNI type     : 10G/10G\r\n'</msg>
+<msg time="2025-05-27T16:21:15.994381" level="TRACE">recv b'  Last ONT actual NNI type: 10G/10G\r\n  FEC upstrea'</msg>
+<msg time="2025-05-27T16:21:15.994441" level="TRACE">recv b'm state      : enable\r\n  VS-ID                   :'</msg>
+<msg time="2025-05-27T16:21:15.994502" level="TRACE">recv b' 0\r\n  VS name                 : admin-vs\r\n  Global'</msg>
+<msg time="2025-05-27T16:21:15.994563" level="TRACE">recv b' ONT-ID           : 7\r\n  -------------------------'</msg>
+<msg time="2025-05-27T16:21:15.994623" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:15.994683" level="TRACE">recv b'--\r\n  VoIP configure method   : Default\r\n  -------'</msg>
+<msg time="2025-05-27T16:21:15.994745" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:15.994805" level="TRACE">recv b'--------------------\r\n  Line profile ID      : 13\r'</msg>
+<msg time="2025-05-27T16:21:15.994866" level="TRACE">recv b'\n  Line profile name    : PM1191_TRONGNK\r\n'</msg>
+<msg time="2025-05-27T16:21:16.007388" level="TRACE">recv b'  ------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.007515" level="TRACE">recv b'-----------------------------\r\n  FEC upstream swit'</msg>
+<msg time="2025-05-27T16:21:16.007595" level="TRACE">recv b'ch :Disable (Downstream FEC is always enabled)\r\n  '</msg>
+<msg time="2025-05-27T16:21:16.007660" level="TRACE">recv b'OMCC encrypt switch :On\r\n  Qos mode            :PQ'</msg>
+<msg time="2025-05-27T16:21:16.007723" level="TRACE">recv b'\r\n  Mapping mode        :VLAN\r\n  TR069 management '</msg>
+<msg time="2025-05-27T16:21:16.007786" level="TRACE">recv b'   :Disable\r\n  TR069 IP index      :0\r\n  ---------'</msg>
+<msg time="2025-05-27T16:21:16.007929" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.007993" level="TRACE">recv b'-------------------\r\n  Notes: * indicates Discrete'</msg>
+<msg time="2025-05-27T16:21:16.008053" level="TRACE">recv b' TCONT(TCONT Unbound)\r\n  -------------------------'</msg>
+<msg time="2025-05-27T16:21:16.008114" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.008178" level="TRACE">recv b'---\r\n  &lt;T-CONT   0&gt;          DBA Profile-ID:1\r\n  &lt;'</msg>
+<msg time="2025-05-27T16:21:16.008241" level="TRACE">recv b'T-CONT   1&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Ind'</msg>
+<msg time="2025-05-27T16:21:16.008308" level="TRACE">recv b'ex 1&gt;\r\n   ----------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.008370" level="TRACE">recv b'----------------------------\r\n   |Serv-Type:ETH |E'</msg>
+<msg time="2025-05-27T16:21:16.008430" level="TRACE">recv b'ncrypt:on  |Cascade:off |GEM-CAR:-            |\r\n '</msg>
+<msg time="2025-05-27T16:21:16.008491" level="TRACE">recv b'  |Upstream-priority-queue:0  |Downstream-priority'</msg>
+<msg time="2025-05-27T16:21:16.008551" level="TRACE">recv b'-queue:-       |\r\n   -----------------------------'</msg>
+<msg time="2025-05-27T16:21:16.008611" level="TRACE">recv b'---------------------------------------\r\n    Mappi'</msg>
+<msg time="2025-05-27T16:21:16.008672" level="TRACE">recv b'ng VLAN  Priority Port    Port  Bundle  Flow  Tran'</msg>
+<msg time="2025-05-27T16:21:16.008731" level="TRACE">recv b'sparent\r\n    index                  type    ID    '</msg>
+<msg time="2025-05-27T16:21:16.008791" level="TRACE">recv b'ID      CAR   \r\n   -------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.008850" level="TRACE">recv b'-------------------------------------\r\n    0      '</msg>
+<msg time="2025-05-27T16:21:16.008910" level="TRACE">recv b' 800   -        -       -     -       -     -     '</msg>
+<msg time="2025-05-27T16:21:16.008970" level="TRACE">recv b'     \r\n   ----------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.009031" level="TRACE">recv b'----------------------------\r\n  &lt;T-CONT   2&gt;*     '</msg>
+<msg time="2025-05-27T16:21:16.009093" level="TRACE">recv b'    DBA Profile-ID:4\r\n   &lt;Gem Index 2&gt;\r\n   -------'</msg>
+<msg time="2025-05-27T16:21:16.009154" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.009215" level="TRACE">recv b'-----------\r\n   |Serv-Type:ETH |Encrypt:on  |Casca'</msg>
+<msg time="2025-05-27T16:21:16.009275" level="TRACE">recv b'de:off |GEM-CAR:-            |\r\n   |Upstream-prior'</msg>
+<msg time="2025-05-27T16:21:16.009335" level="TRACE">recv b'ity-queue:0  |Downstream-priority-queue:-       |\r'</msg>
+<msg time="2025-05-27T16:21:16.009405" level="TRACE">recv b'\n   ----------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.009468" level="TRACE">recv b'----------------------\r\n    Mapping VLAN  Priority'</msg>
+<msg time="2025-05-27T16:21:16.009540" level="TRACE">recv b' Port    Port  Bundle  Flow  Transparent\r\n    inde'</msg>
+<msg time="2025-05-27T16:21:16.009602" level="TRACE">recv b'x                  type    ID    ID      CAR   \r\n '</msg>
+<msg time="2025-05-27T16:21:16.009662" level="TRACE">recv b'  ------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.009721" level="TRACE">recv b'--------------------\r\n    0       801   -        -'</msg>
+<msg time="2025-05-27T16:21:16.009782" level="TRACE">recv b'       -     -       -     -          \r\n   -------'</msg>
+<msg time="2025-05-27T16:21:16.009842" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.009903" level="TRACE">recv b'-----------\r\n'</msg>
+<msg time="2025-05-27T16:21:16.011467" level="TRACE">recv b'  &lt;T-CONT   3&gt;*         DBA Profile-ID:4\r\n   &lt;Gem '</msg>
+<msg time="2025-05-27T16:21:16.011769" level="TRACE">recv b'Index 3&gt;\r\n   -------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.011993" level="TRACE">recv b'-------------------------------\r\n   |Serv-Type:ETH'</msg>
+<msg time="2025-05-27T16:21:16.012199" level="TRACE">recv b' |Encrypt:on  |Cascade:off |GEM-CAR:-            |'</msg>
+<msg time="2025-05-27T16:21:16.012461" level="TRACE">recv b'\r\n   |Upstream-priority-queue:0  |Downstream-prior'</msg>
+<msg time="2025-05-27T16:21:16.012533" level="TRACE">recv b'ity-queue:-       |\r\n   --------------------------'</msg>
+<msg time="2025-05-27T16:21:16.012599" level="TRACE">recv b'------------------------------------------\r\n    Ma'</msg>
+<msg time="2025-05-27T16:21:16.012660" level="TRACE">recv b'pping VLAN  Priority Port    Port  Bundle  Flow  T'</msg>
+<msg time="2025-05-27T16:21:16.012721" level="TRACE">recv b'ransparent\r\n    index                  type    ID '</msg>
+<msg time="2025-05-27T16:21:16.012780" level="TRACE">recv b'   ID      CAR   \r\n   ----------------------------'</msg>
+<msg time="2025-05-27T16:21:16.012840" level="TRACE">recv b'----------------------------------------\r\n    0   '</msg>
+<msg time="2025-05-27T16:21:16.012900" level="TRACE">recv b'    802   -        -       -     -       -     -  '</msg>
+<msg time="2025-05-27T16:21:16.012959" level="TRACE">recv b'        \r\n   -------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.013018" level="TRACE">recv b'-------------------------------\r\n  ---------------'</msg>
+<msg time="2025-05-27T16:21:16.013078" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.013140" level="TRACE">recv b'-------------\r\n  Notes: Run the display traffic ta'</msg>
+<msg time="2025-05-27T16:21:16.013199" level="TRACE">recv b'ble ip command to query \r\n         traffic table c'</msg>
+<msg time="2025-05-27T16:21:16.013259" level="TRACE">recv b'onfiguration\r\n  ----------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.013324" level="TRACE">recv b'-------------------------------------------\r\n  Ser'</msg>
+<msg time="2025-05-27T16:21:16.013385" level="TRACE">recv b'vice profile ID   : 13\r\n  Service profile name : P'</msg>
+<msg time="2025-05-27T16:21:16.013446" level="TRACE">recv b'M1191_TRONGNK\r\n  ---------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.013517" level="TRACE">recv b'--------------------------------------------\r\n  Po'</msg>
+<msg time="2025-05-27T16:21:16.013578" level="TRACE">recv b'rt-type     Port-number     Max-adaptive-number\r\n '</msg>
+<msg time="2025-05-27T16:21:16.013638" level="TRACE">recv b' -------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.013697" level="TRACE">recv b'----------------------------\r\n  POTS          0   '</msg>
+<msg time="2025-05-27T16:21:16.013757" level="TRACE">recv b'            -\r\n  ETH           1               -\r\n'</msg>
+<msg time="2025-05-27T16:21:16.013816" level="TRACE">recv b'  VDSL          0               -\r\n  TDM          '</msg>
+<msg time="2025-05-27T16:21:16.013876" level="TRACE">recv b' 0               -\r\n  MOCA          0             '</msg>
+<msg time="2025-05-27T16:21:16.013935" level="TRACE">recv b'  -\r\n  CATV          0               -\r\n  --------'</msg>
+<msg time="2025-05-27T16:21:16.013994" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.014054" level="TRACE">recv b'-------------------\r\n  TDM port type              '</msg>
+<msg time="2025-05-27T16:21:16.014114" level="TRACE">recv b'       : E1\r\n  TDM service type                  :'</msg>
+<msg time="2025-05-27T16:21:16.014174" level="TRACE">recv b' TDMoGem\r\n  MAC learning function switch      : En'</msg>
+<msg time="2025-05-27T16:21:16.014244" level="TRACE">recv b'able\r\n  ONT transparent function switch   : Disabl'</msg>
+<msg time="2025-05-27T16:21:16.014305" level="TRACE">recv b'e\r\n  Ring check switch                 : Disable\r\n'</msg>
+<msg time="2025-05-27T16:21:16.014427" level="TRACE">recv b'  Ring port auto-shutdown           : Enable\r\n  Ri'</msg>
+<msg time="2025-05-27T16:21:16.014491" level="TRACE">recv b'ng detect frequency             : 8 (pps)\r\n  Ring '</msg>
+<msg time="2025-05-27T16:21:16.014552" level="TRACE">recv b'resume interval              : 300 (s)\r\n  Ring det'</msg>
+<msg time="2025-05-27T16:21:16.014612" level="TRACE">recv b'ect period                : 0 (s)\r\n  Multicast for'</msg>
+<msg time="2025-05-27T16:21:16.014676" level="TRACE">recv b'ward mode            : Tag transparent\r\n  Multicas'</msg>
+<msg time="2025-05-27T16:21:16.014737" level="TRACE">recv b't forward VLAN            : -\r\n  Multicast mode   '</msg>
+<msg time="2025-05-27T16:21:16.014797" level="TRACE">recv b'                 : Unconcern\r\n  Upstream IGMP pack'</msg>
+<msg time="2025-05-27T16:21:16.014857" level="TRACE">recv b'et forward mode : Unconcern\r\n  Upstream IGMP packe'</msg>
+<msg time="2025-05-27T16:21:16.014916" level="TRACE">recv b't forward VLAN : -\r\n  Upstream IGMP packet priorit'</msg>
+<msg time="2025-05-27T16:21:16.014976" level="TRACE">recv b'y     : -\r\n  Native VLAN option                : U'</msg>
+<msg time="2025-05-27T16:21:16.015036" level="TRACE">recv b'nconcern\r\n  Upstream PQ color policy          : -\r'</msg>
+<msg time="2025-05-27T16:21:16.015095" level="TRACE">recv b'\n  Downstream PQ color policy        : -\r\n  Monito'</msg>
+<msg time="2025-05-27T16:21:16.015155" level="TRACE">recv b'r link                      : Unconcern\r\n  MTU(byt'</msg>
+<msg time="2025-05-27T16:21:16.015215" level="TRACE">recv b'e)                         : Unconcern\r\n  --------'</msg>
+<msg time="2025-05-27T16:21:16.015284" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.015349" level="TRACE">recv b'-------------------\r\n  Port-type Port-ID QinQmode '</msg>
+<msg time="2025-05-27T16:21:16.015434" level="TRACE">recv b' PriorityPolicy Inbound     Outbound\r\n  ----------'</msg>
+<msg time="2025-05-27T16:21:16.015502" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.015564" level="TRACE">recv b'-----------------\r\n  ETH       1       unconcern u'</msg>
+<msg time="2025-05-27T16:21:16.015625" level="TRACE">recv b'nconcern      unconcern   unconcern\r\n  IPHOST    1'</msg>
+<msg time="2025-05-27T16:21:16.015684" level="TRACE">recv b'       unconcern unconcern      unconcern   unconc'</msg>
+<msg time="2025-05-27T16:21:16.015744" level="TRACE">recv b'ern\r\n  -------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.015804" level="TRACE">recv b'----------------------------------\r\n  Notes: * ind'</msg>
+<msg time="2025-05-27T16:21:16.015863" level="TRACE">recv b'icates the discretely configured traffic profile,\r'</msg>
+<msg time="2025-05-27T16:21:16.015923" level="TRACE">recv b'\n         run the display traffic table ip command'</msg>
+<msg time="2025-05-27T16:21:16.015983" level="TRACE">recv b' to query\r\n         traffic table configuration.\r\n'</msg>
+<msg time="2025-05-27T16:21:16.016043" level="TRACE">recv b'  ------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.016104" level="TRACE">recv b'-----------------------------\r\n  Port-type Port-ID'</msg>
+<msg time="2025-05-27T16:21:16.016164" level="TRACE">recv b'  DownstreamMode  MismatchPolicy\r\n  --------------'</msg>
+<msg time="2025-05-27T16:21:16.016223" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.016288" level="TRACE">recv b'-------------\r\n  ETH             1  operation     '</msg>
+<msg time="2025-05-27T16:21:16.016348" level="TRACE">recv b'  discard       \r\n  ------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.016407" level="TRACE">recv b'-----------------------------------------------\r\n '</msg>
+<msg time="2025-05-27T16:21:16.016466" level="TRACE">recv b' Port-type Port-ID Dscp-mapping-table-index Classi'</msg>
+<msg time="2025-05-27T16:21:16.016526" level="TRACE">recv b'fication-profile-id\r\n  ---------------------------'</msg>
+<msg time="2025-05-27T16:21:16.016585" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.016644" level="TRACE">recv b'\r\n  ETH       1       0                        -  '</msg>
+<msg time="2025-05-27T16:21:16.016704" level="TRACE">recv b'      \r\n'</msg>
+<msg time="2025-05-27T16:21:16.355902" level="TRACE">recv b'  IPHOST    1       0                        -\r\n  '</msg>
+<msg time="2025-05-27T16:21:16.356304" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.356589" level="TRACE">recv b'---------------------------\r\n  Notes: the port vla'</msg>
+<msg time="2025-05-27T16:21:16.356811" level="TRACE">recv b'n of ONT is discretely configured\r\n  -------------'</msg>
+<msg time="2025-05-27T16:21:16.357024" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.357218" level="TRACE">recv b'--------------\r\n  Port    Port   Service-type Inde'</msg>
+<msg time="2025-05-27T16:21:16.357328" level="TRACE">recv b'x S-VLAN S-PRI C-VLAN C-PRI ENCAP      S-PRI\r\n  ty'</msg>
+<msg time="2025-05-27T16:21:16.357389" level="TRACE">recv b'pe    ID                                          '</msg>
+<msg time="2025-05-27T16:21:16.357449" level="TRACE">recv b'                   POLICY\r\n  ---------------------'</msg>
+<msg time="2025-05-27T16:21:16.357555" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.357622" level="TRACE">recv b'------\r\n  ETH     1      Translation  1     800   '</msg>
+<msg time="2025-05-27T16:21:16.357692" level="TRACE">recv b' -     700    -     -          -     \r\n  ETH     1'</msg>
+<msg time="2025-05-27T16:21:16.357754" level="TRACE">recv b'      Translation  2     801    -     701    -    '</msg>
+<msg time="2025-05-27T16:21:16.357816" level="TRACE">recv b' -          -     \r\n  ETH     1      Translation  '</msg>
+<msg time="2025-05-27T16:21:16.357880" level="TRACE">recv b'3     802    -     702    -     -          -     \r'</msg>
+<msg time="2025-05-27T16:21:16.357968" level="TRACE">recv b'\n  ETH     1      Translation  4     803    -     '</msg>
+<msg time="2025-05-27T16:21:16.358043" level="TRACE">recv b'703    -     -          -     \r\n  ----------------'</msg>
+<msg time="2025-05-27T16:21:16.358108" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.358169" level="TRACE">recv b'-----------\r\n  Notes: * indicates transparent attr'</msg>
+<msg time="2025-05-27T16:21:16.358229" level="TRACE">recv b'ibute of the vlan\r\n  -----------------------------'</msg>
+<msg time="2025-05-27T16:21:16.358289" level="TRACE">recv b'------------------------------------------------\r\n'</msg>
+<msg time="2025-05-27T16:21:16.358364" level="TRACE">recv b'  Port-type  Port-ID    IGMP-mode         IGMP-VLA'</msg>
+<msg time="2025-05-27T16:21:16.358427" level="TRACE">recv b'N  IGMP-PRI  Max-MAC-Count\r\n  --------------------'</msg>
+<msg time="2025-05-27T16:21:16.358488" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.358547" level="TRACE">recv b'-------\r\n  ETH              1    -                '</msg>
+<msg time="2025-05-27T16:21:16.358637" level="TRACE">recv b'         -         -      Unlimited\r\n  IPHOST     '</msg>
+<msg time="2025-05-27T16:21:16.358697" level="TRACE">recv b'      1    -                         -         -  '</msg>
+<msg time="2025-05-27T16:21:16.358757" level="TRACE">recv b'    Unlimited\r\n  ---------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.358817" level="TRACE">recv b'--------------------------------------------\r\n  Po'</msg>
+<msg time="2025-05-27T16:21:16.358877" level="TRACE">recv b'rt-type Port-ID   Traffic-suppress   Traffic-suppr'</msg>
+<msg time="2025-05-27T16:21:16.359040" level="TRACE">recv b'ess   Traffic-suppress\r\n                      unic'</msg>
+<msg time="2025-05-27T16:21:16.359140" level="TRACE">recv b'ast(kbps)      multicast(kpbs)    broadcast(kbps)\r'</msg>
+<msg time="2025-05-27T16:21:16.359208" level="TRACE">recv b'\n  -----------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.359269" level="TRACE">recv b'------------------------------\r\n  ETH             '</msg>
+<msg time="2025-05-27T16:21:16.359336" level="TRACE">recv b'1   -                  -                  -       '</msg>
+<msg time="2025-05-27T16:21:16.359397" level="TRACE">recv b'        \r\n  --------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.359457" level="TRACE">recv b'---------------------------------------\r\n  Port-ty'</msg>
+<msg time="2025-05-27T16:21:16.359518" level="TRACE">recv b'pe  Port-ID  L2-isolate\r\n  -----------------------'</msg>
+<msg time="2025-05-27T16:21:16.359578" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.359638" level="TRACE">recv b'----\r\n  ETH              1  unconcern           \r\n'</msg>
+<msg time="2025-05-27T16:21:16.359697" level="TRACE">recv b'  ------------------------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.359757" level="TRACE">recv b'-----------------------------\r\n  Alarm policy prof'</msg>
+<msg time="2025-05-27T16:21:16.359818" level="TRACE">recv b'ile ID      : 0\r\n  Alarm policy profile name    : '</msg>
+<msg time="2025-05-27T16:21:16.359878" level="TRACE">recv b'alarm-policy_0\r\n  --------------------------------'</msg>
+<msg time="2025-05-27T16:21:16.359939" level="TRACE">recv b'---------------------------------------------\r\n\r\nM'</msg>
+<msg time="2025-05-27T16:21:16.360016" level="TRACE">recv b'A5800-X7(config-if-gpon-0/2)#'</msg>
+<msg time="2025-05-27T16:21:16.360088" level="INFO">-----------------------------------------------------------------------------
   F/S/P                   : 0/2/6
   ONT-ID                  : 7
   Control flag            : active
@@ -631,8 +632,8 @@ MA5800-X7(config-if-gpon-0/2)#</msg>
   Config state            : normal
   Match state             : match
   DBA type                : SR
-  ONT distance(m)         : 83
-  ONT last distance(m)    : -
+  ONT distance(m)         : 82
+  ONT last distance(m)    : 82
   ONT battery state       : holding state
   ONT power type          : -
   Memory occupation       : -
@@ -644,19 +645,19 @@ MA5800-X7(config-if-gpon-0/2)#</msg>
   Software work mode      : normal
   Isolation state         : normal
   Description             : PM1191_TRONGNK
-  Last down cause         : -
-  Last up time            : 2023-12-07 03:10:49+08:00
-  Last down time          : -
+  Last down cause         : LOSi/LOBi
+  Last up time            : 2023-12-07 08:24:50+08:00
+  Last down time          : 2023-12-07 07:23:45+08:00
   Last dying gasp time    : -
   Last restart reason     : -
-  ONT online duration     : 0 day(s), 0 hour(s), 1 minute(s), 35 second(s) 
-  ONT system up duration  : 0 day(s), 18 hour(s), 37 minute(s), 19 second(s) 
+  ONT online duration     : 0 day(s), 0 hour(s), 0 minute(s), 29 second(s) 
+  ONT system up duration  : 0 day(s), 23 hour(s), 50 minute(s), 15 second(s) 
   Type C support          : Not support
   Interoperability-mode   : ITU-T
   Power reduction status  : -
   ONT NNI type            : 10G/10G
   ONT actual NNI type     : 10G/10G
-  Last ONT actual NNI type: -
+  Last ONT actual NNI type: 10G/10G
   FEC upstream state      : enable
   VS-ID                   : 0
   VS name                 : admin-vs
@@ -796,8 +797,8 @@ MA5800-X7(config-if-gpon-0/2)#</msg>
   -----------------------------------------------------------------------------
 
 MA5800-X7(config-if-gpon-0/2)#</msg>
-<msg time="2025-05-27T11:08:20.811774" level="TRACE">Return: '  -----------------------------------------------------------------------------\r\n  F/S/P                   : 0/2/6\r\n  ONT-ID                  : 7\r\n  Control flag            : active\r\n  Run state               : online\r\n  Config state            : normal\r\n  Match state             : match\r\n  DBA type                : SR\r\n  ONT distance(m)         : 83\r\n  ONT last distance(m)    : -\r\n  ONT battery state       : holding state\r\n  ONT power type          : -\r\n  Memory occupation       : -\r\n  CPU occupation          : -\r\n  Temperature             : -\r\n  Authentic type          : SN-auth\r\n  SN                      : 4B414F4EAF523D04 (KAON-AF523D04)\r\n  Management mode         : OMCI\r\n  Software work mode      : normal\r\n  Isolation state         : normal\r\n  Description             : PM1191_TRONGNK\r\n  Last down cause         : -\r\n  Last up time            : 2023-12-07 03:10:49+08:00\r\n  Last down time          : -\r\n  Last dying gasp time    : -\r\n  Last restart reason     : -\r\n  ONT online duration     : 0 day(s), 0 hour(s), 1 minute(s), 35 second(s) \r\n  ONT system up duration  : 0 day(s), 18 hour(s), 37 minute(s), 19 second(s) \r\n  Type C support          : Not support\r\n  Interoperability-mode   : ITU-T\r\n  Power reduction status  : -\r\n  ONT NNI type            : 10G/10G\r\n  ONT actual NNI type     : 10G/10G\r\n  Last ONT actual NNI type: -\r\n  FEC upstream state      : enable\r\n  VS-ID                   : 0\r\n  VS name                 : admin-vs\r\n  Global ONT-ID           : 7\r\n  -----------------------------------------------------------------------------\r\n  VoIP configure method   : Default\r\n  -----------------------------------------------------------------------------\r\n  Line profile ID      : 13\r\n  Line profile name    : PM1191_TRONGNK\r\n  -----------------------------------------------------------------------------\r\n  FEC upstream switch :Disable (Downstream FEC is always enabled)\r\n  OMCC encrypt switch :On\r\n  Qos mode            :PQ\r\n  Mapping mode        :VLAN\r\n  TR069 management    :Disable\r\n  TR069 IP index      :0\r\n  ------------------------------------------------------------------------------\r\n  Notes: * indicates Discrete TCONT(TCONT Unbound)\r\n  ------------------------------------------------------------------------------\r\n  &lt;T-CONT   0&gt;          DBA Profile-ID:1\r\n  &lt;T-CONT   1&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 1&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       800   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  &lt;T-CONT   2&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 2&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       801   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  &lt;T-CONT   3&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 3&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       802   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  ------------------------------------------------------------------------------\r\n  Notes: Run the display traffic table ip command to query \r\n         traffic table configuration\r\n  -----------------------------------------------------------------------------\r\n  Service profile ID   : 13\r\n  Service profile name : PM1191_TRONGNK\r\n  -----------------------------------------------------------------------------\r\n  Port-type     Port-number     Max-adaptive-number\r\n  -----------------------------------------------------------------------------\r\n  POTS          0               -\r\n  ETH           1               -\r\n  VDSL          0               -\r\n  TDM           0               -\r\n  MOCA          0               -\r\n  CATV          0               -\r\n  -----------------------------------------------------------------------------\r\n  TDM port type                     : E1\r\n  TDM service type                  : TDMoGem\r\n  MAC learning function switch      : Enable\r\n  ONT transparent function switch   : Disable\r\n  Ring check switch                 : Disable\r\n  Ring port auto-shutdown           : Enable\r\n  Ring detect frequency             : 8 (pps)\r\n  Ring resume interval              : 300 (s)\r\n  Ring detect period                : 0 (s)\r\n  Multicast forward mode            : Tag transparent\r\n  Multicast forward VLAN            : -\r\n  Multicast mode                    : Unconcern\r\n  Upstream IGMP packet forward mode : Unconcern\r\n  Upstream IGMP packet forward VLAN : -\r\n  Upstream IGMP packet priority     : -\r\n  Native VLAN option                : Unconcern\r\n  Upstream PQ color policy          : -\r\n  Downstream PQ color policy        : -\r\n  Monitor link                      : Unconcern\r\n  MTU(byte)                         : Unconcern\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID QinQmode  PriorityPolicy Inbound     Outbound\r\n  -----------------------------------------------------------------------------\r\n  ETH       1       unconcern unconcern      unconcern   unconcern\r\n  IPHOST    1       unconcern unconcern      unconcern   unconcern\r\n  -----------------------------------------------------------------------------\r\n  Notes: * indicates the discretely configured traffic profile,\r\n         run the display traffic table ip command to query\r\n         traffic table configuration.\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID  DownstreamMode  MismatchPolicy\r\n  -----------------------------------------------------------------------------\r\n  ETH             1  operation       discard       \r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID Dscp-mapping-table-index Classification-profile-id\r\n  -----------------------------------------------------------------------------\r\n  ETH       1       0                        -        \r\n  IPHOST    1       0                        -\r\n  -----------------------------------------------------------------------------\r\n  Notes: the port vlan of ONT is discretely configured\r\n  -----------------------------------------------------------------------------\r\n  Port    Port   Service-type Index S-VLAN S-PRI C-VLAN C-PRI ENCAP      S-PRI\r\n  type    ID                                                             POLICY\r\n  -----------------------------------------------------------------------------\r\n  ETH     1      Translation  1     800    -     700    -     -          -     \r\n  ETH     1      Translation  2     801    -     701    -     -          -     \r\n  ETH     1      Translation  3     802    -     702    -     -          -     \r\n  ETH     1      Translation  4     803    -     703    -     -          -     \r\n  -----------------------------------------------------------------------------\r\n  Notes: * indicates transparent attribute of the vlan\r\n  -----------------------------------------------------------------------------\r\n  Port-type  Port-ID    IGMP-mode         IGMP-VLAN  IGMP-PRI  Max-MAC-Count\r\n  -----------------------------------------------------------------------------\r\n  ETH              1    -                         -         -      Unlimited\r\n  IPHOST           1    -                         -         -      Unlimited\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID   Traffic-suppress   Traffic-suppress   Traffic-suppress\r\n                      unicast(kbps)      multicast(kpbs)    broadcast(kbps)\r\n  -----------------------------------------------------------------------------\r\n  ETH             1   -                  -                  -               \r\n  -----------------------------------------------------------------------------\r\n  Port-type  Port-ID  L2-isolate\r\n  -----------------------------------------------------------------------------\r\n  ETH              1  unconcern           \r\n  -----------------------------------------------------------------------------\r\n  Alarm policy profile ID      : 0\r\n  Alarm policy profile name    : alarm-policy_0\r\n  -----------------------------------------------------------------------------\r\n\r\nMA5800-X7(config-if-gpon-0/2)#'</msg>
-<msg time="2025-05-27T11:08:20.812208" level="INFO">${find_onu} =   -----------------------------------------------------------------------------
+<msg time="2025-05-27T16:21:16.360322" level="TRACE">Return: '  -----------------------------------------------------------------------------\r\n  F/S/P                   : 0/2/6\r\n  ONT-ID                  : 7\r\n  Control flag            : active\r\n  Run state               : online\r\n  Config state            : normal\r\n  Match state             : match\r\n  DBA type                : SR\r\n  ONT distance(m)         : 82\r\n  ONT last distance(m)    : 82\r\n  ONT battery state       : holding state\r\n  ONT power type          : -\r\n  Memory occupation       : -\r\n  CPU occupation          : -\r\n  Temperature             : -\r\n  Authentic type          : SN-auth\r\n  SN                      : 4B414F4EAF523D04 (KAON-AF523D04)\r\n  Management mode         : OMCI\r\n  Software work mode      : normal\r\n  Isolation state         : normal\r\n  Description             : PM1191_TRONGNK\r\n  Last down cause         : LOSi/LOBi\r\n  Last up time            : 2023-12-07 08:24:50+08:00\r\n  Last down time          : 2023-12-07 07:23:45+08:00\r\n  Last dying gasp time    : -\r\n  Last restart reason     : -\r\n  ONT online duration     : 0 day(s), 0 hour(s), 0 minute(s), 29 second(s) \r\n  ONT system up duration  : 0 day(s), 23 hour(s), 50 minute(s), 15 second(s) \r\n  Type C support          : Not support\r\n  Interoperability-mode   : ITU-T\r\n  Power reduction status  : -\r\n  ONT NNI type            : 10G/10G\r\n  ONT actual NNI type     : 10G/10G\r\n  Last ONT actual NNI type: 10G/10G\r\n  FEC upstream state      : enable\r\n  VS-ID                   : 0\r\n  VS name                 : admin-vs\r\n  Global ONT-ID           : 7\r\n  -----------------------------------------------------------------------------\r\n  VoIP configure method   : Default\r\n  -----------------------------------------------------------------------------\r\n  Line profile ID      : 13\r\n  Line profile name    : PM1191_TRONGNK\r\n  -----------------------------------------------------------------------------\r\n  FEC upstream switch :Disable (Downstream FEC is always enabled)\r\n  OMCC encrypt switch :On\r\n  Qos mode            :PQ\r\n  Mapping mode        :VLAN\r\n  TR069 management    :Disable\r\n  TR069 IP index      :0\r\n  ------------------------------------------------------------------------------\r\n  Notes: * indicates Discrete TCONT(TCONT Unbound)\r\n  ------------------------------------------------------------------------------\r\n  &lt;T-CONT   0&gt;          DBA Profile-ID:1\r\n  &lt;T-CONT   1&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 1&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       800   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  &lt;T-CONT   2&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 2&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       801   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  &lt;T-CONT   3&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 3&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       802   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  ------------------------------------------------------------------------------\r\n  Notes: Run the display traffic table ip command to query \r\n         traffic table configuration\r\n  -----------------------------------------------------------------------------\r\n  Service profile ID   : 13\r\n  Service profile name : PM1191_TRONGNK\r\n  -----------------------------------------------------------------------------\r\n  Port-type     Port-number     Max-adaptive-number\r\n  -----------------------------------------------------------------------------\r\n  POTS          0               -\r\n  ETH           1               -\r\n  VDSL          0               -\r\n  TDM           0               -\r\n  MOCA          0               -\r\n  CATV          0               -\r\n  -----------------------------------------------------------------------------\r\n  TDM port type                     : E1\r\n  TDM service type                  : TDMoGem\r\n  MAC learning function switch      : Enable\r\n  ONT transparent function switch   : Disable\r\n  Ring check switch                 : Disable\r\n  Ring port auto-shutdown           : Enable\r\n  Ring detect frequency             : 8 (pps)\r\n  Ring resume interval              : 300 (s)\r\n  Ring detect period                : 0 (s)\r\n  Multicast forward mode            : Tag transparent\r\n  Multicast forward VLAN            : -\r\n  Multicast mode                    : Unconcern\r\n  Upstream IGMP packet forward mode : Unconcern\r\n  Upstream IGMP packet forward VLAN : -\r\n  Upstream IGMP packet priority     : -\r\n  Native VLAN option                : Unconcern\r\n  Upstream PQ color policy          : -\r\n  Downstream PQ color policy        : -\r\n  Monitor link                      : Unconcern\r\n  MTU(byte)                         : Unconcern\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID QinQmode  PriorityPolicy Inbound     Outbound\r\n  -----------------------------------------------------------------------------\r\n  ETH       1       unconcern unconcern      unconcern   unconcern\r\n  IPHOST    1       unconcern unconcern      unconcern   unconcern\r\n  -----------------------------------------------------------------------------\r\n  Notes: * indicates the discretely configured traffic profile,\r\n         run the display traffic table ip command to query\r\n         traffic table configuration.\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID  DownstreamMode  MismatchPolicy\r\n  -----------------------------------------------------------------------------\r\n  ETH             1  operation       discard       \r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID Dscp-mapping-table-index Classification-profile-id\r\n  -----------------------------------------------------------------------------\r\n  ETH       1       0                        -        \r\n  IPHOST    1       0                        -\r\n  -----------------------------------------------------------------------------\r\n  Notes: the port vlan of ONT is discretely configured\r\n  -----------------------------------------------------------------------------\r\n  Port    Port   Service-type Index S-VLAN S-PRI C-VLAN C-PRI ENCAP      S-PRI\r\n  type    ID                                                             POLICY\r\n  -----------------------------------------------------------------------------\r\n  ETH     1      Translation  1     800    -     700    -     -          -     \r\n  ETH     1      Translation  2     801    -     701    -     -          -     \r\n  ETH     1      Translation  3     802    -     702    -     -          -     \r\n  ETH     1      Translation  4     803    -     703    -     -          -     \r\n  -----------------------------------------------------------------------------\r\n  Notes: * indicates transparent attribute of the vlan\r\n  -----------------------------------------------------------------------------\r\n  Port-type  Port-ID    IGMP-mode         IGMP-VLAN  IGMP-PRI  Max-MAC-Count\r\n  -----------------------------------------------------------------------------\r\n  ETH              1    -                         -         -      Unlimited\r\n  IPHOST           1    -                         -         -      Unlimited\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID   Traffic-suppress   Traffic-suppress   Traffic-suppress\r\n                      unicast(kbps)      multicast(kpbs)    broadcast(kbps)\r\n  -----------------------------------------------------------------------------\r\n  ETH             1   -                  -                  -               \r\n  -----------------------------------------------------------------------------\r\n  Port-type  Port-ID  L2-isolate\r\n  -----------------------------------------------------------------------------\r\n  ETH              1  unconcern           \r\n  -----------------------------------------------------------------------------\r\n  Alarm policy profile ID      : 0\r\n  Alarm policy profile name    : alarm-policy_0\r\n  -----------------------------------------------------------------------------\r\n\r\nMA5800-X7(config-if-gpon-0/2)#'</msg>
+<msg time="2025-05-27T16:21:16.360752" level="INFO">${find_onu} =   -----------------------------------------------------------------------------
   F/S/P                   : 0/2/6
   ONT-ID                  : 7
   Control flag            : active
@@ -805,13 +806,13 @@ MA5800-X7(config-if-gpon-0/2)#</msg>
 <var>${find_onu}</var>
 <arg>${OLT_PON_INDEX}</arg>
 <arg>${onu_id}</arg>
-<status status="PASS" start="2025-05-27T11:08:20.333200" elapsed="0.479052"/>
+<status status="PASS" start="2025-05-27T16:21:15.772385" elapsed="0.588417"/>
 </kw>
 <kw name="Parse Table" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:20.812819" level="TRACE">Arguments: [ '  -----------------------------------------------------------------------------\r\n  F/S/P                   : 0/2/6\r\n  ONT-ID                  : 7\r\n  Control flag            : active\r\n  Run state               : online\r\n  Config state            : normal\r\n  Match state             : match\r\n  DBA type                : SR\r\n  ONT distance(m)         : 83\r\n  ONT last distance(m)    : -\r\n  ONT battery state       : holding state\r\n  ONT power type          : -\r\n  Memory occupation       : -\r\n  CPU occupation          : -\r\n  Temperature             : -\r\n  Authentic type          : SN-auth\r\n  SN                      : 4B414F4EAF523D04 (KAON-AF523D04)\r\n  Management mode         : OMCI\r\n  Software work mode      : normal\r\n  Isolation state         : normal\r\n  Description             : PM1191_TRONGNK\r\n  Last down cause         : -\r\n  Last up time            : 2023-12-07 03:10:49+08:00\r\n  Last down time          : -\r\n  Last dying gasp time    : -\r\n  Last restart reason     : -\r\n  ONT online duration     : 0 day(s), 0 hour(s), 1 minute(s), 35 second(s) \r\n  ONT system up duration  : 0 day(s), 18 hour(s), 37 minute(s), 19 second(s) \r\n  Type C support          : Not support\r\n  Interoperability-mode   : ITU-T\r\n  Power reduction status  : -\r\n  ONT NNI type            : 10G/10G\r\n  ONT actual NNI type     : 10G/10G\r\n  Last ONT actual NNI type: -\r\n  FEC upstream state      : enable\r\n  VS-ID                   : 0\r\n  VS name                 : admin-vs\r\n  Global ONT-ID           : 7\r\n  -----------------------------------------------------------------------------\r\n  VoIP configure method   : Default\r\n  -----------------------------------------------------------------------------\r\n  Line profile ID      : 13\r\n  Line profile name    : PM1191_TRONGNK\r\n  -----------------------------------------------------------------------------\r\n  FEC upstream switch :Disable (Downstream FEC is always enabled)\r\n  OMCC encrypt switch :On\r\n  Qos mode            :PQ\r\n  Mapping mode        :VLAN\r\n  TR069 management    :Disable\r\n  TR069 IP index      :0\r\n  ------------------------------------------------------------------------------\r\n  Notes: * indicates Discrete TCONT(TCONT Unbound)\r\n  ------------------------------------------------------------------------------\r\n  &lt;T-CONT   0&gt;          DBA Profile-ID:1\r\n  &lt;T-CONT   1&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 1&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       800   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  &lt;T-CONT   2&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 2&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       801   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  &lt;T-CONT   3&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 3&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       802   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  ------------------------------------------------------------------------------\r\n  Notes: Run the display traffic table ip command to query \r\n         traffic table configuration\r\n  -----------------------------------------------------------------------------\r\n  Service profile ID   : 13\r\n  Service profile name : PM1191_TRONGNK\r\n  -----------------------------------------------------------------------------\r\n  Port-type     Port-number     Max-adaptive-number\r\n  -----------------------------------------------------------------------------\r\n  POTS          0               -\r\n  ETH           1               -\r\n  VDSL          0               -\r\n  TDM           0               -\r\n  MOCA          0               -\r\n  CATV          0               -\r\n  -----------------------------------------------------------------------------\r\n  TDM port type                     : E1\r\n  TDM service type                  : TDMoGem\r\n  MAC learning function switch      : Enable\r\n  ONT transparent function switch   : Disable\r\n  Ring check switch                 : Disable\r\n  Ring port auto-shutdown           : Enable\r\n  Ring detect frequency             : 8 (pps)\r\n  Ring resume interval              : 300 (s)\r\n  Ring detect period                : 0 (s)\r\n  Multicast forward mode            : Tag transparent\r\n  Multicast forward VLAN            : -\r\n  Multicast mode                    : Unconcern\r\n  Upstream IGMP packet forward mode : Unconcern\r\n  Upstream IGMP packet forward VLAN : -\r\n  Upstream IGMP packet priority     : -\r\n  Native VLAN option                : Unconcern\r\n  Upstream PQ color policy          : -\r\n  Downstream PQ color policy        : -\r\n  Monitor link                      : Unconcern\r\n  MTU(byte)                         : Unconcern\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID QinQmode  PriorityPolicy Inbound     Outbound\r\n  -----------------------------------------------------------------------------\r\n  ETH       1       unconcern unconcern      unconcern   unconcern\r\n  IPHOST    1       unconcern unconcern      unconcern   unconcern\r\n  -----------------------------------------------------------------------------\r\n  Notes: * indicates the discretely configured traffic profile,\r\n         run the display traffic table ip command to query\r\n         traffic table configuration.\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID  DownstreamMode  MismatchPolicy\r\n  -----------------------------------------------------------------------------\r\n  ETH             1  operation       discard       \r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID Dscp-mapping-table-index Classification-profile-id\r\n  -----------------------------------------------------------------------------\r\n  ETH       1       0                        -        \r\n  IPHOST    1       0                        -\r\n  -----------------------------------------------------------------------------\r\n  Notes: the port vlan of ONT is discretely configured\r\n  -----------------------------------------------------------------------------\r\n  Port    Port   Service-type Index S-VLAN S-PRI C-VLAN C-PRI ENCAP      S-PRI\r\n  type    ID                                                             POLICY\r\n  -----------------------------------------------------------------------------\r\n  ETH     1      Translation  1     800    -     700    -     -          -     \r\n  ETH     1      Translation  2     801    -     701    -     -          -     \r\n  ETH     1      Translation  3     802    -     702    -     -          -     \r\n  ETH     1      Translation  4     803    -     703    -     -          -     \r\n  -----------------------------------------------------------------------------\r\n  Notes: * indicates transparent attribute of the vlan\r\n  -----------------------------------------------------------------------------\r\n  Port-type  Port-ID    IGMP-mode         IGMP-VLAN  IGMP-PRI  Max-MAC-Count\r\n  -----------------------------------------------------------------------------\r\n  ETH              1    -                         -         -      Unlimited\r\n  IPHOST           1    -                         -         -      Unlimited\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID   Traffic-suppress   Traffic-suppress   Traffic-suppress\r\n                      unicast(kbps)      multicast(kpbs)    broadcast(kbps)\r\n  -----------------------------------------------------------------------------\r\n  ETH             1   -                  -                  -               \r\n  -----------------------------------------------------------------------------\r\n  Port-type  Port-ID  L2-isolate\r\n  -----------------------------------------------------------------------------\r\n  ETH              1  unconcern           \r\n  -----------------------------------------------------------------------------\r\n  Alarm policy profile ID      : 0\r\n  Alarm policy profile name    : alarm-policy_0\r\n  -----------------------------------------------------------------------------\r\n\r\nMA5800-X7(config-if-gpon-0/2)#' | '/home/ats/ATS/kqa/KGPON-BR/suites/resource/onu_info_hw.template' ]</msg>
-<msg time="2025-05-27T11:08:20.815610" level="TRACE">Return:     PORT ONU_ID                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
+<msg time="2025-05-27T16:21:16.361394" level="TRACE">Arguments: [ '  -----------------------------------------------------------------------------\r\n  F/S/P                   : 0/2/6\r\n  ONT-ID                  : 7\r\n  Control flag            : active\r\n  Run state               : online\r\n  Config state            : normal\r\n  Match state             : match\r\n  DBA type                : SR\r\n  ONT distance(m)         : 82\r\n  ONT last distance(m)    : 82\r\n  ONT battery state       : holding state\r\n  ONT power type          : -\r\n  Memory occupation       : -\r\n  CPU occupation          : -\r\n  Temperature             : -\r\n  Authentic type          : SN-auth\r\n  SN                      : 4B414F4EAF523D04 (KAON-AF523D04)\r\n  Management mode         : OMCI\r\n  Software work mode      : normal\r\n  Isolation state         : normal\r\n  Description             : PM1191_TRONGNK\r\n  Last down cause         : LOSi/LOBi\r\n  Last up time            : 2023-12-07 08:24:50+08:00\r\n  Last down time          : 2023-12-07 07:23:45+08:00\r\n  Last dying gasp time    : -\r\n  Last restart reason     : -\r\n  ONT online duration     : 0 day(s), 0 hour(s), 0 minute(s), 29 second(s) \r\n  ONT system up duration  : 0 day(s), 23 hour(s), 50 minute(s), 15 second(s) \r\n  Type C support          : Not support\r\n  Interoperability-mode   : ITU-T\r\n  Power reduction status  : -\r\n  ONT NNI type            : 10G/10G\r\n  ONT actual NNI type     : 10G/10G\r\n  Last ONT actual NNI type: 10G/10G\r\n  FEC upstream state      : enable\r\n  VS-ID                   : 0\r\n  VS name                 : admin-vs\r\n  Global ONT-ID           : 7\r\n  -----------------------------------------------------------------------------\r\n  VoIP configure method   : Default\r\n  -----------------------------------------------------------------------------\r\n  Line profile ID      : 13\r\n  Line profile name    : PM1191_TRONGNK\r\n  -----------------------------------------------------------------------------\r\n  FEC upstream switch :Disable (Downstream FEC is always enabled)\r\n  OMCC encrypt switch :On\r\n  Qos mode            :PQ\r\n  Mapping mode        :VLAN\r\n  TR069 management    :Disable\r\n  TR069 IP index      :0\r\n  ------------------------------------------------------------------------------\r\n  Notes: * indicates Discrete TCONT(TCONT Unbound)\r\n  ------------------------------------------------------------------------------\r\n  &lt;T-CONT   0&gt;          DBA Profile-ID:1\r\n  &lt;T-CONT   1&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 1&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       800   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  &lt;T-CONT   2&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 2&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       801   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  &lt;T-CONT   3&gt;*         DBA Profile-ID:4\r\n   &lt;Gem Index 3&gt;\r\n   --------------------------------------------------------------------\r\n   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |\r\n   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |\r\n   --------------------------------------------------------------------\r\n    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent\r\n    index                  type    ID    ID      CAR   \r\n   --------------------------------------------------------------------\r\n    0       802   -        -       -     -       -     -          \r\n   --------------------------------------------------------------------\r\n  ------------------------------------------------------------------------------\r\n  Notes: Run the display traffic table ip command to query \r\n         traffic table configuration\r\n  -----------------------------------------------------------------------------\r\n  Service profile ID   : 13\r\n  Service profile name : PM1191_TRONGNK\r\n  -----------------------------------------------------------------------------\r\n  Port-type     Port-number     Max-adaptive-number\r\n  -----------------------------------------------------------------------------\r\n  POTS          0               -\r\n  ETH           1               -\r\n  VDSL          0               -\r\n  TDM           0               -\r\n  MOCA          0               -\r\n  CATV          0               -\r\n  -----------------------------------------------------------------------------\r\n  TDM port type                     : E1\r\n  TDM service type                  : TDMoGem\r\n  MAC learning function switch      : Enable\r\n  ONT transparent function switch   : Disable\r\n  Ring check switch                 : Disable\r\n  Ring port auto-shutdown           : Enable\r\n  Ring detect frequency             : 8 (pps)\r\n  Ring resume interval              : 300 (s)\r\n  Ring detect period                : 0 (s)\r\n  Multicast forward mode            : Tag transparent\r\n  Multicast forward VLAN            : -\r\n  Multicast mode                    : Unconcern\r\n  Upstream IGMP packet forward mode : Unconcern\r\n  Upstream IGMP packet forward VLAN : -\r\n  Upstream IGMP packet priority     : -\r\n  Native VLAN option                : Unconcern\r\n  Upstream PQ color policy          : -\r\n  Downstream PQ color policy        : -\r\n  Monitor link                      : Unconcern\r\n  MTU(byte)                         : Unconcern\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID QinQmode  PriorityPolicy Inbound     Outbound\r\n  -----------------------------------------------------------------------------\r\n  ETH       1       unconcern unconcern      unconcern   unconcern\r\n  IPHOST    1       unconcern unconcern      unconcern   unconcern\r\n  -----------------------------------------------------------------------------\r\n  Notes: * indicates the discretely configured traffic profile,\r\n         run the display traffic table ip command to query\r\n         traffic table configuration.\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID  DownstreamMode  MismatchPolicy\r\n  -----------------------------------------------------------------------------\r\n  ETH             1  operation       discard       \r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID Dscp-mapping-table-index Classification-profile-id\r\n  -----------------------------------------------------------------------------\r\n  ETH       1       0                        -        \r\n  IPHOST    1       0                        -\r\n  -----------------------------------------------------------------------------\r\n  Notes: the port vlan of ONT is discretely configured\r\n  -----------------------------------------------------------------------------\r\n  Port    Port   Service-type Index S-VLAN S-PRI C-VLAN C-PRI ENCAP      S-PRI\r\n  type    ID                                                             POLICY\r\n  -----------------------------------------------------------------------------\r\n  ETH     1      Translation  1     800    -     700    -     -          -     \r\n  ETH     1      Translation  2     801    -     701    -     -          -     \r\n  ETH     1      Translation  3     802    -     702    -     -          -     \r\n  ETH     1      Translation  4     803    -     703    -     -          -     \r\n  -----------------------------------------------------------------------------\r\n  Notes: * indicates transparent attribute of the vlan\r\n  -----------------------------------------------------------------------------\r\n  Port-type  Port-ID    IGMP-mode         IGMP-VLAN  IGMP-PRI  Max-MAC-Count\r\n  -----------------------------------------------------------------------------\r\n  ETH              1    -                         -         -      Unlimited\r\n  IPHOST           1    -                         -         -      Unlimited\r\n  -----------------------------------------------------------------------------\r\n  Port-type Port-ID   Traffic-suppress   Traffic-suppress   Traffic-suppress\r\n                      unicast(kbps)      multicast(kpbs)    broadcast(kbps)\r\n  -----------------------------------------------------------------------------\r\n  ETH             1   -                  -                  -               \r\n  -----------------------------------------------------------------------------\r\n  Port-type  Port-ID  L2-isolate\r\n  -----------------------------------------------------------------------------\r\n  ETH              1  unconcern           \r\n  -----------------------------------------------------------------------------\r\n  Alarm policy profile ID      : 0\r\n  Alarm policy profile name    : alarm-policy_0\r\n  -----------------------------------------------------------------------------\r\n\r\nMA5800-X7(config-if-gpon-0/2)#' | '/home/ats/ATS/kqa/KGPON-BR/suites/resource/onu_info_hw.template' ]</msg>
+<msg time="2025-05-27T16:21:16.364190" level="TRACE">Return:     PORT ONU_ID                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
 0  0/2/6      7  4B414F4EAF523D04       active    online       normal       match</msg>
-<msg time="2025-05-27T11:08:20.828976" level="INFO">${find_onu_table} =     PORT ONU_ID                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
+<msg time="2025-05-27T16:21:16.377776" level="INFO">${find_onu_table} =     PORT ONU_ID                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
 0  0/2/6      7  4B414F4EAF523D04       active    online       normal       match</msg>
 <var>${find_onu_table}</var>
 <arg>${find_onu}</arg>
@@ -821,14 +822,14 @@ Use TextFSM to parse the raw_string into a DataFrame.
 Arguments:
   - raw_string: output string need to be parsed.
   - template_path: path to file TextFSM template. File extension: *.template</doc>
-<status status="PASS" start="2025-05-27T11:08:20.812597" elapsed="0.016444"/>
+<status status="PASS" start="2025-05-27T16:21:16.361169" elapsed="0.016673"/>
 </kw>
 <kw name="Create Onu Info Table">
-<msg time="2025-05-27T11:08:20.829700" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:16.378533" level="TRACE">Arguments: [  ]</msg>
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2025-05-27T11:08:20.830181" level="TRACE">Arguments: [ '| PORT' | '| SN' | '| CONTROL_FLAG' | '| RUN_STATE' | '| CONFIG_STATE' | '| MATCH_STATE' | '| \n' | '| 0/2/6' | '| 4B414F4EAF523D04' | '| active' | '| online' | '| normal' | '| match' | '| \n' ]</msg>
-<msg time="2025-05-27T11:08:20.830345" level="TRACE">Return: '| PORT | SN | CONTROL_FLAG | RUN_STATE | CONFIG_STATE | MATCH_STATE | \n | 0/2/6 | 4B414F4EAF523D04 | active | online | normal | match | \n'</msg>
-<msg time="2025-05-27T11:08:20.830427" level="INFO">${onu_info} = | PORT | SN | CONTROL_FLAG | RUN_STATE | CONFIG_STATE | MATCH_STATE | 
+<msg time="2025-05-27T16:21:16.379012" level="TRACE">Arguments: [ '| PORT' | '| SN' | '| CONTROL_FLAG' | '| RUN_STATE' | '| CONFIG_STATE' | '| MATCH_STATE' | '| \n' | '| 0/2/6' | '| 4B414F4EAF523D04' | '| active' | '| online' | '| normal' | '| match' | '| \n' ]</msg>
+<msg time="2025-05-27T16:21:16.379173" level="TRACE">Return: '| PORT | SN | CONTROL_FLAG | RUN_STATE | CONFIG_STATE | MATCH_STATE | \n | 0/2/6 | 4B414F4EAF523D04 | active | online | normal | match | \n'</msg>
+<msg time="2025-05-27T16:21:16.379249" level="INFO">${onu_info} = | PORT | SN | CONTROL_FLAG | RUN_STATE | CONFIG_STATE | MATCH_STATE | 
  | 0/2/6 | 4B414F4EAF523D04 | active | online | normal | match | 
 </msg>
 <var>${onu_info}</var>
@@ -847,13 +848,13 @@ Arguments:
 <arg>| match</arg>
 <arg>| \n</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2025-05-27T11:08:20.829911" elapsed="0.000545"/>
+<status status="PASS" start="2025-05-27T16:21:16.378732" elapsed="0.000545"/>
 </kw>
 <kw name="Create Table" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:20.830840" level="TRACE">Arguments: [ '| PORT | SN | CONTROL_FLAG | RUN_STATE | CONFIG_STATE | MATCH_STATE | \n | 0/2/6 | 4B414F4EAF523D04 | active | online | normal | match | \n' ]</msg>
-<msg time="2025-05-27T11:08:20.831341" level="TRACE">Return:     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
+<msg time="2025-05-27T16:21:16.379584" level="TRACE">Arguments: [ '| PORT | SN | CONTROL_FLAG | RUN_STATE | CONFIG_STATE | MATCH_STATE | \n | 0/2/6 | 4B414F4EAF523D04 | active | online | normal | match | \n' ]</msg>
+<msg time="2025-05-27T16:21:16.380053" level="TRACE">Return:     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
 0  0/2/6  4B414F4EAF523D04       active    online       normal       match</msg>
-<msg time="2025-05-27T11:08:20.842141" level="INFO">${onu_verify_table} =     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
+<msg time="2025-05-27T16:21:16.391008" level="INFO">${onu_verify_table} =     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
 0  0/2/6  4B414F4EAF523D04       active    online       normal       match</msg>
 <var>${onu_verify_table}</var>
 <arg>${onu_info}</arg>
@@ -863,26 +864,26 @@ Nếu là chuỗi thì chuyển đổi nó thành pandas DataFrame.
 Example:
 ${RAW_OUTPUT}    SEPARATOR=${EMPTY}
 ...    | Interface    | TYPE        | STATUS    | MODE              | FLOWCTRL    | </doc>
-<status status="PASS" start="2025-05-27T11:08:20.830700" elapsed="0.011499"/>
+<status status="PASS" start="2025-05-27T16:21:16.379467" elapsed="0.011597"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-27T11:08:20.842487" level="TRACE">Arguments: [ '${onu_verify_table}' ]</msg>
-<msg time="2025-05-27T11:08:20.852971" level="INFO">${onu_verify_table} =     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
+<msg time="2025-05-27T16:21:16.391335" level="TRACE">Arguments: [ '${onu_verify_table}' ]</msg>
+<msg time="2025-05-27T16:21:16.401292" level="INFO">${onu_verify_table} =     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
 0  0/2/6  4B414F4EAF523D04       active    online       normal       match</msg>
-<msg time="2025-05-27T11:08:20.853038" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:16.401355" level="TRACE">Return: None</msg>
 <arg>${onu_verify_table}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-27T11:08:20.842404" elapsed="0.010680"/>
+<status status="PASS" start="2025-05-27T16:21:16.391256" elapsed="0.010144"/>
 </kw>
-<msg time="2025-05-27T11:08:20.853165" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-27T11:08:20.829448" elapsed="0.023754"/>
+<msg time="2025-05-27T16:21:16.401474" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-27T16:21:16.378282" elapsed="0.023243"/>
 </kw>
 <kw name="Verify Table" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:20.853637" level="TRACE">Arguments: [     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
+<msg time="2025-05-27T16:21:16.401968" level="TRACE">Arguments: [     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
 0  0/2/6  4B414F4EAF523D04       active    online       normal       match |     PORT ONU_ID                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
 0  0/2/6      7  4B414F4EAF523D04       active    online       normal       match ]</msg>
-<msg time="2025-05-27T11:08:20.872788" level="TRACE">Return: True</msg>
-<msg time="2025-05-27T11:08:20.872920" level="INFO">${result} = True</msg>
+<msg time="2025-05-27T16:21:16.420630" level="TRACE">Return: True</msg>
+<msg time="2025-05-27T16:21:16.420752" level="INFO">${result} = True</msg>
 <var>${result}</var>
 <arg>${onu_verify_table}</arg>
 <arg>${find_onu_table}</arg>
@@ -891,29 +892,29 @@ Compare two tables (expected_result and actual_result) based on the specified mo
 Input can be a string or a DataFrame.
 - If whitelist: all rows in the expected_result must appear in the actual_result.
 - If blacklist: no rows in the expected_result should appear in the actual_result.</doc>
-<status status="PASS" start="2025-05-27T11:08:20.853423" elapsed="0.019528"/>
+<status status="PASS" start="2025-05-27T16:21:16.401753" elapsed="0.019029"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
-<msg time="2025-05-27T11:08:20.873389" level="TRACE">Arguments: [ True ]</msg>
-<msg time="2025-05-27T11:08:20.873480" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:16.421166" level="TRACE">Arguments: [ True ]</msg>
+<msg time="2025-05-27T16:21:16.421253" level="TRACE">Return: None</msg>
 <arg>${result}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-27T11:08:20.873222" elapsed="0.000312"/>
+<status status="PASS" start="2025-05-27T16:21:16.421009" elapsed="0.000283"/>
 </kw>
-<status status="PASS" start="2025-05-27T11:08:16.403477" elapsed="4.470248"/>
+<status status="PASS" start="2025-05-27T16:21:11.775667" elapsed="4.645844"/>
 </test>
 <kw name="Teardown Common" owner="keyword" type="TEARDOWN">
-<msg time="2025-05-27T11:08:20.874552" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:16.422396" level="TRACE">Arguments: [  ]</msg>
 <kw name="Close All Connections" owner="CustomKeywords">
-<msg time="2025-05-27T11:08:20.874776" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-27T11:08:20.874920" level="TRACE">Return: None</msg>
+<msg time="2025-05-27T16:21:16.422610" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-27T16:21:16.422740" level="TRACE">Return: None</msg>
 <doc>Closes all open connections and empties the connection cache.</doc>
-<status status="PASS" start="2025-05-27T11:08:20.874715" elapsed="0.000258"/>
+<status status="PASS" start="2025-05-27T16:21:16.422549" elapsed="0.000250"/>
 </kw>
-<msg time="2025-05-27T11:08:20.875034" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-27T11:08:20.874418" elapsed="0.000652"/>
+<msg time="2025-05-27T16:21:16.422859" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-27T16:21:16.422260" elapsed="0.000633"/>
 </kw>
-<status status="PASS" start="2025-05-27T11:08:16.049351" elapsed="4.825751"/>
+<status status="PASS" start="2025-05-27T16:21:11.413296" elapsed="5.009631"/>
 </suite>
 <statistics>
 <total>
