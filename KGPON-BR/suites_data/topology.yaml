@@ -27,9 +27,11 @@ devices:
     api: default
     model: PM1191
     connections:
-      serial: 4B414F4EAF523D04
       ip: 192.168.150.234
       port: 4008
+    custom:
+      serial: 4B414F4EAF523D04
+      version: 2.0.30_eng
 
   ### Traffic Generator definition ###
   IXIA:
@@ -55,7 +57,6 @@ devices:
           media: rj45
 
 topology:
-
   Olt0:
     ethernet:
       - name: ethernet 0/20

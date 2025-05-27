@@ -1,0 +1,16 @@
+Value PORT (\d+/\d+/\d+)
+Value ONU_ID (\d+)
+Value SN (\S{16})
+Value CONTROL_FLAG (\S+)
+Value RUN_STATE (\S+)
+Value CONFIG_STATE (\S+)
+Value MATCH_STATE (\S+)
+
+Start
+  ^\s*F/S/P\s+:\s+${PORT}
+  ^\s*ONT-ID\s+:\s+${ONU_ID}
+  ^\s*Control flag\s+:\s+${CONTROL_FLAG}
+  ^\s*Run state\s+:\s+${RUN_STATE}
+  ^\s*Config state\s+:\s+${CONFIG_STATE}
+  ^\s*Match state\s+:\s+${MATCH_STATE}
+  ^\s*SN\s+:\s+${SN} -> Record

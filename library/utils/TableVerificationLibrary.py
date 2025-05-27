@@ -18,20 +18,25 @@ class TableVerificationLibrary:
         Nếu là chuỗi thì chuyển đổi nó thành pandas DataFrame.
         Example:
         ${RAW_OUTPUT}    SEPARATOR=${EMPTY}
-        ...
         ...    | Interface    | TYPE        | STATUS    | MODE              | FLOWCTRL    | \n
         ...    | xgspon0/1    | Ethernet    | Up/Up     | Force/Full/10G    | Off/Off     | \n
         ...    | xgspon0/2    | Ethernet    | Up/Up     | Force/Full/10G    | Off/Off     | \n
         ...    | xgspon0/3    | Ethernet    | Up/Up     | Force/Full/10G    | Off/Off     | \n
 
         ${REFERENCE_TABLE}    SEPARATOR=${EMPTY}
-        ...
         ...    | Interface    | STATUS    | \n
         ...    | xgspon0/1    | Up/Up     | \n
         ...    | xgspon0/2    | Up/Up     | \n
 
         ${table_raw}    Create Table    ${RAW_OUTPUT}
         ${table_ref}    Create Table    ${REFERENCE_TABLE}
+
+        Using with variables(can't use in Variables section):
+        ${onu_verify}    Catenate
+        ...              | PORT                                 | SN           | VERSION           | MODEL           | \n
+        ...              | ${OLT_PON_ALIAS}/${OLT_PON_INDEX}    | ${ONU_SN}    | ${ONU_VERSION}    | ${ONU_MODEL}    | \n
+        
+        ${onu_verify_table}    Create Table           ${onu_verify}
 
         """
         if isinstance(table_input, pd.DataFrame):
