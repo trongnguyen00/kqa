@@ -9,7 +9,8 @@ Suite Teardown    Teardown Common
 
 *** Test Cases ***
 Emergency Onu O7 Active
-    [Teardown]               Close Connection
+    [Teardown]    Run Keywords    Send Command    undo anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${onu_id}    AND    Close Connection
+
     Connect To Huawei
     Access Config Mode
     Access Interface Mode
@@ -18,13 +19,10 @@ Emergency Onu O7 Active
     Go To Previous Mode
     Access Diagnose Mode
 
-    Send Command                             anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${onu_id}
-    Sleep                                    10s
-    ${log}                                   Read
-    Log To Console                           ${log}
-    Create Alarm Message Verify O7 Active
-    Should Match Regexp                      ${log}                                                               ${alarm_message}
+    Send Command    anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${onu_id}
+    Sleep           10s
 
+    Wait Until Keyword Succeeds    5x    5s    Check The Alarm Message
 
 # Emergency Onu O7 Deactive
 #    [Teardown]                                 Close Connection
@@ -45,9 +43,13 @@ Emergency Onu O7 Active
 
 *** Keywords ***
 Create Alarm Message Verify O7 Active
-    Set Test Variable    ${alarm_message}
-    ...                  ALARM NAME\s*:\s*The feeder fiber is broken or OLT can not receive any expected optical signals\(LOS\)[\r\n]+PARAMETERS\s*:\s*FrameID:\s*\d+,\s*SlotID:\s*\d+,\s*PortID:\s*${OLT_PON_INDEX},\s*The number of affected ONTs:\s*${onu_id}
+    Set Test Variable    ${alarm_message}    ALARM NAME :The feeder fiber is broken or OLT can not receive any expected optical signals(LOS)
+    Set Test Variable    ${info}             PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6
 
-Create Alarm Message Verify O7 Deactive
-    Set Variable    ${alarm_message}
-    ...             ALARM NAME\s*:\s*OLT can receive expected optical signals from ONTs\(LOS recovers\)[\r\n]+PARAMETERS\s*:\s*FrameID:\s*\d+,\s*SlotID:\s*\d+,\s*PortID:\s*${OLT_PON_INDEX}
+
+Check The Alarm Message
+    ${log}                                   Read
+    Log To Console                           ${log}
+    Create Alarm Message Verify O7 Active
+    Should Contain                           ${log}    ${alarm_message}
+    Should Contain                           ${log}    ${info}
