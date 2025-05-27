@@ -1,0 +1,9 @@
+Value ONT_ID (\d+)
+Value SN (\S+)
+Value TYPE (\S+)
+Value DISTANCE (\S+)
+Value RX_TX (\S+)
+Value DESCRIPTION (.+)
+
+Start
+  ^\s*${ONT_ID}\s+${SN}\s+${TYPE}\s+${DISTANCE}\s+${RX_TX}\s+${DESCRIPTION} -> Record

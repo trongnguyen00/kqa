@@ -33,4 +33,3 @@ class GponHuawei1(GponBase):
     def get_discovered_onu(self, port_id):
         command = f"display ont autofind {port_id}"
         return self.telnet.send_command(command)
-    
