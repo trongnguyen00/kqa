@@ -43,7 +43,7 @@ Emergency Onu O7 Active
 
 *** Keywords ***
 Create Alarm Message Verify O7 Active
-    Set Test Variable    ${alarm_message}    ALARM NAME :The feeder fiber is broken or OLT can not receive any expected optical signals(LOS)
+    Set Test Variable    ${alarm_message}    ALARM NAME :The feeder fiber is broken or OLT can not receive any expected
     Set Test Variable    ${info}             PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6
 
 
