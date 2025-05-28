@@ -37,3 +37,6 @@ class GponKeywords:
             return str(match.iloc[0]['ONT_ID'])
         return None
 
+    @keyword
+    def get_onu_version(self, port_id, onu_id):
+        return self.gpon.get_onu_version(port_id, onu_id)

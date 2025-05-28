@@ -1,0 +1,6 @@
+Value MODEL (\S+)
+Value ACTIVE_OS (\S+)
+
+Start
+  ^Board ID\s+:\s+${MODEL}
+  ^SW Version\s+:\s+${ACTIVE_OS} -> Record

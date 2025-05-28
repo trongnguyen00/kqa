@@ -1,182 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.8.10 on linux)" generated="2025-05-28T10:52:12.150541" rpa="false" schemaversion="5">
-<suite id="s1" name="KONT-BR-GP-2 1 3" source="/home/ats/ATS/kqa/KGPON-BR/suites/KONT-BR-GP-2_1_3.robot">
+<robot generator="Robot 7.2.2 (Python 3.8.10 on linux)" generated="2025-05-28T13:52:50.968085" rpa="false" schemaversion="5">
+<suite id="s1" name="KONT-BR-GP-2 3 1" source="/home/ats/ATS/kqa/KGPON-BR/suites/KONT-BR-GP-2_3_1.robot">
 <kw name="Setup Common" owner="keyword" type="SETUP">
-<msg time="2025-05-28T10:52:12.495331" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:51.319815" level="TRACE">Arguments: [  ]</msg>
 <kw name="Close All Connections" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:12.496093" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:52:12.496188" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:51.320524" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:51.320613" level="TRACE">Return: None</msg>
 <doc>Closes all open connections and empties the connection cache.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.495925" elapsed="0.000324"/>
+<status status="PASS" start="2025-05-28T13:52:51.320385" elapsed="0.000287"/>
 </kw>
 <kw name="Load Topology" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:12.496457" level="TRACE">Arguments: [ '/home/ats/ATS/kqa/KGPON-BR/suites_data/topology.yaml' ]</msg>
-<msg time="2025-05-28T10:52:12.503855" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:51.320864" level="TRACE">Arguments: [ '/home/ats/ATS/kqa/KGPON-BR/suites_data/topology.yaml' ]</msg>
+<msg time="2025-05-28T13:52:51.328150" level="TRACE">Return: None</msg>
 <arg>/home/ats/ATS/kqa/KGPON-BR/suites_data/topology.yaml</arg>
 <doc>Load the topology YAML file.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.496380" elapsed="0.007545"/>
+<status status="PASS" start="2025-05-28T13:52:51.320794" elapsed="0.007423"/>
 </kw>
 <kw name="Make Suite Variables" owner="keyword">
-<msg time="2025-05-28T10:52:12.504264" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:51.328529" level="TRACE">Arguments: [  ]</msg>
 <kw name="Get Device Info" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:12.504460" level="TRACE">Arguments: [ 'Onu0' ]</msg>
-<msg time="2025-05-28T10:52:12.504539" level="TRACE">Return: {'type': 'onu',
+<msg time="2025-05-28T13:52:51.328713" level="TRACE">Arguments: [ 'Onu0' ]</msg>
+<msg time="2025-05-28T13:52:51.328804" level="TRACE">Return: {'type': 'onu',
  'api': 'default',
  'model': 'PM1191',
  'connections': {'ip': '192.168.150.234', 'port': 4008},
  'custom': {'serial': '4B414F4EAF523D04', 'version': '2.0.30_eng'}}</msg>
-<msg time="2025-05-28T10:52:12.504678" level="INFO">${ONU_INFO} = {'type': 'onu', 'api': 'default', 'model': 'PM1191', 'connections': {'ip': '192.168.150.234', 'port': 4008}, 'custom': {'serial': '4B414F4EAF523D04', 'version': '2.0.30_eng'}}</msg>
+<msg time="2025-05-28T13:52:51.328943" level="INFO">${ONU_INFO} = {'type': 'onu', 'api': 'default', 'model': 'PM1191', 'connections': {'ip': '192.168.150.234', 'port': 4008}, 'custom': {'serial': '4B414F4EAF523D04', 'version': '2.0.30_eng'}}</msg>
 <var>${ONU_INFO}</var>
 <arg>Onu0</arg>
 <doc>Get device information from the loaded topology.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.504394" elapsed="0.000309"/>
+<status status="PASS" start="2025-05-28T13:52:51.328649" elapsed="0.000319"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:12.504898" level="TRACE">Arguments: [ '${ONU_MODEL}' | "${ONU_INFO['model']}" ]</msg>
-<msg time="2025-05-28T10:52:12.505786" level="INFO">${ONU_MODEL} = PM1191</msg>
-<msg time="2025-05-28T10:52:12.505836" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:51.329173" level="TRACE">Arguments: [ '${ONU_MODEL}' | "${ONU_INFO['model']}" ]</msg>
+<msg time="2025-05-28T13:52:51.330107" level="INFO">${ONU_MODEL} = PM1191</msg>
+<msg time="2025-05-28T13:52:51.330161" level="TRACE">Return: None</msg>
 <arg>${ONU_MODEL}</arg>
 <arg>${ONU_INFO['model']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.504840" elapsed="0.001035"/>
+<status status="PASS" start="2025-05-28T13:52:51.329119" elapsed="0.001081"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:12.506064" level="TRACE">Arguments: [ '${ONU_SN}' | "${ONU_INFO['custom']['serial']}" ]</msg>
-<msg time="2025-05-28T10:52:12.506894" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
-<msg time="2025-05-28T10:52:12.506935" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:51.330394" level="TRACE">Arguments: [ '${ONU_SN}' | "${ONU_INFO['custom']['serial']}" ]</msg>
+<msg time="2025-05-28T13:52:51.331204" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
+<msg time="2025-05-28T13:52:51.331243" level="TRACE">Return: None</msg>
 <arg>${ONU_SN}</arg>
 <arg>${ONU_INFO['custom']['serial']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.506008" elapsed="0.000963"/>
+<status status="PASS" start="2025-05-28T13:52:51.330337" elapsed="0.000940"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:12.507143" level="TRACE">Arguments: [ '${ONU_VERSION}' | "${ONU_INFO['custom']['version']}" ]</msg>
-<msg time="2025-05-28T10:52:12.507911" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
-<msg time="2025-05-28T10:52:12.507952" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:51.331444" level="TRACE">Arguments: [ '${ONU_VERSION}' | "${ONU_INFO['custom']['version']}" ]</msg>
+<msg time="2025-05-28T13:52:51.332156" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
+<msg time="2025-05-28T13:52:51.332195" level="TRACE">Return: None</msg>
 <arg>${ONU_VERSION}</arg>
 <arg>${ONU_INFO['custom']['version']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.507091" elapsed="0.000898"/>
+<status status="PASS" start="2025-05-28T13:52:51.331394" elapsed="0.000836"/>
 </kw>
 <kw name="Get Connection Info" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:12.508180" level="TRACE">Arguments: [ 'Olt0' ]</msg>
-<msg time="2025-05-28T10:52:12.508251" level="TRACE">Return: {'ethernet': [{'name': 'ethernet 0/20',
+<msg time="2025-05-28T13:52:51.332414" level="TRACE">Arguments: [ 'Olt0' ]</msg>
+<msg time="2025-05-28T13:52:51.332483" level="TRACE">Return: {'ethernet': [{'name': 'ethernet 0/20',
                'alias': 'eth0/24',
                'link': 'olt0-ixia-1'}],
  'pon': [{'name': 'gpon 0/2', 'alias': '0/2', 'link': 'olt0-pon0', 'index': 6}]}</msg>
-<msg time="2025-05-28T10:52:12.508398" level="INFO">${OLT_LINK} = {'ethernet': [{'name': 'ethernet 0/20', 'alias': 'eth0/24', 'link': 'olt0-ixia-1'}], 'pon': [{'name': 'gpon 0/2', 'alias': '0/2', 'link': 'olt0-pon0', 'index': 6}]}</msg>
+<msg time="2025-05-28T13:52:51.332621" level="INFO">${OLT_LINK} = {'ethernet': [{'name': 'ethernet 0/20', 'alias': 'eth0/24', 'link': 'olt0-ixia-1'}], 'pon': [{'name': 'gpon 0/2', 'alias': '0/2', 'link': 'olt0-pon0', 'index': 6}]}</msg>
 <var>${OLT_LINK}</var>
 <arg>Olt0</arg>
 <doc>Get connnection information from the loaded topology.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.508112" elapsed="0.000311"/>
+<status status="PASS" start="2025-05-28T13:52:51.332349" elapsed="0.000295"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:12.508599" level="TRACE">Arguments: [ '${OLT_PON_ALIAS}' | "${OLT_LINK['pon'][0]['alias']}" ]</msg>
-<msg time="2025-05-28T10:52:12.509370" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
-<msg time="2025-05-28T10:52:12.509412" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:51.332806" level="TRACE">Arguments: [ '${OLT_PON_ALIAS}' | "${OLT_LINK['pon'][0]['alias']}" ]</msg>
+<msg time="2025-05-28T13:52:51.333596" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
+<msg time="2025-05-28T13:52:51.333642" level="TRACE">Return: None</msg>
 <arg>${OLT_PON_ALIAS}</arg>
 <arg>${OLT_LINK['pon'][0]['alias']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.508548" elapsed="0.000901"/>
+<status status="PASS" start="2025-05-28T13:52:51.332758" elapsed="0.000920"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:12.509660" level="TRACE">Arguments: [ '${OLT_PON_NAME}' | "${OLT_LINK['pon'][0]['name']}" ]</msg>
-<msg time="2025-05-28T10:52:12.510478" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
-<msg time="2025-05-28T10:52:12.510519" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:51.333854" level="TRACE">Arguments: [ '${OLT_PON_NAME}' | "${OLT_LINK['pon'][0]['name']}" ]</msg>
+<msg time="2025-05-28T13:52:51.334645" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
+<msg time="2025-05-28T13:52:51.334684" level="TRACE">Return: None</msg>
 <arg>${OLT_PON_NAME}</arg>
 <arg>${OLT_LINK['pon'][0]['name']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.509603" elapsed="0.000954"/>
+<status status="PASS" start="2025-05-28T13:52:51.333802" elapsed="0.000916"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:12.510744" level="TRACE">Arguments: [ '${OLT_PON_INDEX}' | "${OLT_LINK['pon'][0]['index']}" ]</msg>
-<msg time="2025-05-28T10:52:12.511546" level="INFO">${OLT_PON_INDEX} = 6</msg>
-<msg time="2025-05-28T10:52:12.511588" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:51.334916" level="TRACE">Arguments: [ '${OLT_PON_INDEX}' | "${OLT_LINK['pon'][0]['index']}" ]</msg>
+<msg time="2025-05-28T13:52:51.335705" level="INFO">${OLT_PON_INDEX} = 6</msg>
+<msg time="2025-05-28T13:52:51.335744" level="TRACE">Return: None</msg>
 <arg>${OLT_PON_INDEX}</arg>
 <arg>${OLT_LINK['pon'][0]['index']}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.510690" elapsed="0.000936"/>
+<status status="PASS" start="2025-05-28T13:52:51.334846" elapsed="0.000933"/>
 </kw>
-<msg time="2025-05-28T10:52:12.511689" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:12.504159" elapsed="0.007562"/>
+<msg time="2025-05-28T13:52:51.335839" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-28T13:52:51.328430" elapsed="0.007448"/>
 </kw>
-<msg time="2025-05-28T10:52:12.511758" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:12.495143" elapsed="0.016645"/>
+<msg time="2025-05-28T13:52:51.335912" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-28T13:52:51.319607" elapsed="0.016337"/>
 </kw>
-<test id="s1-t1" name="Emergency Onu O7 Active" line="11">
+<test id="s1-t1" name="Manage Onu Version Via Omci" line="11">
 <kw name="Connect To Huawei" owner="keyword">
-<msg time="2025-05-28T10:52:12.512493" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:51.336590" level="TRACE">Arguments: [  ]</msg>
 <kw name="Connect To Dut" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:12.512686" level="TRACE">Arguments: [ 'Olt0' ]</msg>
-<msg time="2025-05-28T10:52:12.523420" level="TRACE">recv b'\xff\xfb\x01\xff\xfb\x01\xff\xfb\x01\xff\xfb\x03\xff\xfd\x18\xff\xfd\x1f'</msg>
-<msg time="2025-05-28T10:52:12.523499" level="TRACE">IAC WILL 1</msg>
-<msg time="2025-05-28T10:52:12.523558" level="TRACE">IAC WILL 1</msg>
-<msg time="2025-05-28T10:52:12.523588" level="TRACE">IAC WILL 1</msg>
-<msg time="2025-05-28T10:52:12.523613" level="TRACE">IAC WILL 3</msg>
-<msg time="2025-05-28T10:52:12.523638" level="TRACE">IAC DO 24</msg>
-<msg time="2025-05-28T10:52:12.523661" level="TRACE">IAC DO 31</msg>
-<msg time="2025-05-28T10:52:12.526445" level="TRACE">recv b'\xff\xfc\x01'</msg>
-<msg time="2025-05-28T10:52:12.526546" level="TRACE">IAC WONT 1</msg>
-<msg time="2025-05-28T10:52:12.529671" level="TRACE">recv b'\xff\xfc\x03\xff\xfe\x18\xff\xfe\x1f'</msg>
-<msg time="2025-05-28T10:52:12.529850" level="TRACE">IAC WONT 3</msg>
-<msg time="2025-05-28T10:52:12.529961" level="TRACE">IAC DONT 24</msg>
-<msg time="2025-05-28T10:52:12.530025" level="TRACE">IAC DONT 31</msg>
-<msg time="2025-05-28T10:52:12.532747" level="TRACE">recv b'\r\nWarning: Telnet is not a secure protocol, and it'</msg>
-<msg time="2025-05-28T10:52:12.533051" level="TRACE">recv b' is recommended to use Stelnet.\r\n\r\n&gt;&gt;User name:'</msg>
-<msg time="2025-05-28T10:52:12.533463" level="TRACE">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
+<msg time="2025-05-28T13:52:51.336774" level="TRACE">Arguments: [ 'Olt0' ]</msg>
+<msg time="2025-05-28T13:52:51.347285" level="TRACE">recv b'\xff\xfb\x01\xff\xfb\x01\xff\xfb\x01'</msg>
+<msg time="2025-05-28T13:52:51.347354" level="TRACE">IAC WILL 1</msg>
+<msg time="2025-05-28T13:52:51.347403" level="TRACE">IAC WILL 1</msg>
+<msg time="2025-05-28T13:52:51.347431" level="TRACE">IAC WILL 1</msg>
+<msg time="2025-05-28T13:52:51.348269" level="TRACE">recv b'\xff\xfb\x03\xff\xfd\x18\xff\xfd\x1f'</msg>
+<msg time="2025-05-28T13:52:51.348296" level="TRACE">IAC WILL 3</msg>
+<msg time="2025-05-28T13:52:51.348320" level="TRACE">IAC DO 24</msg>
+<msg time="2025-05-28T13:52:51.348343" level="TRACE">IAC DO 31</msg>
+<msg time="2025-05-28T13:52:51.349369" level="TRACE">recv b'\xff\xfc\x01'</msg>
+<msg time="2025-05-28T13:52:51.349451" level="TRACE">IAC WONT 1</msg>
+<msg time="2025-05-28T13:52:51.351431" level="TRACE">recv b'\xff\xfc\x03'</msg>
+<msg time="2025-05-28T13:52:51.351544" level="TRACE">IAC WONT 3</msg>
+<msg time="2025-05-28T13:52:51.352492" level="TRACE">recv b'\xff\xfe\x18\xff\xfe\x1f'</msg>
+<msg time="2025-05-28T13:52:51.352586" level="TRACE">IAC DONT 24</msg>
+<msg time="2025-05-28T13:52:51.352668" level="TRACE">IAC DONT 31</msg>
+<msg time="2025-05-28T13:52:51.355586" level="TRACE">recv b'\r\nWarning: Telnet is not a secure protocol, and it'</msg>
+<msg time="2025-05-28T13:52:51.356014" level="TRACE">recv b' is recommended to use Stelnet.\r\n\r\n&gt;&gt;User name:'</msg>
+<msg time="2025-05-28T13:52:51.356238" level="TRACE">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
 
 &gt;&gt;User name:</msg>
-<msg time="2025-05-28T10:52:12.533630" level="TRACE">send b'admin2\r\n'</msg>
-<msg time="2025-05-28T10:52:13.186333" level="TRACE">recv b'admin2\r\n&gt;&gt;User password:'</msg>
-<msg time="2025-05-28T10:52:13.186497" level="TRACE">admin2
+<msg time="2025-05-28T13:52:51.356347" level="TRACE">send b'admin2\r\n'</msg>
+<msg time="2025-05-28T13:52:51.364885" level="TRACE">recv b'admin2\r\n&gt;&gt;User password:'</msg>
+<msg time="2025-05-28T13:52:51.365124" level="TRACE">admin2
 &gt;&gt;User password:</msg>
-<msg time="2025-05-28T10:52:13.186541" level="TRACE">send b'Kaon@2023vnm\r\n'</msg>
-<msg time="2025-05-28T10:52:14.187849" level="TRACE">recv b'\r\n\r\n\r\n  Huawei Integrated Access Software (MA5800)'</msg>
-<msg time="2025-05-28T10:52:14.188038" level="TRACE">recv b'.\r\n  Copyright(C) Huawei Technologies Co., Ltd. 20'</msg>
-<msg time="2025-05-28T10:52:14.188120" level="TRACE">recv b'02-2022. All rights reserved.\r\n\r\n  ---------------'</msg>
-<msg time="2025-05-28T10:52:14.188191" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:14.188259" level="TRACE">recv b'------------\r\n  User last login information:\r\n  --'</msg>
-<msg time="2025-05-28T10:52:14.188326" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:14.188393" level="TRACE">recv b'-------------------------\r\n  Access Type : Telnet\r'</msg>
-<msg time="2025-05-28T10:52:14.188460" level="TRACE">recv b'\n  IP-Address  : 192.168.150.100\r\n  Login  Time : '</msg>
-<msg time="2025-05-28T10:52:14.188536" level="TRACE">recv b'2023-12-08 02:25:46+08:00\r\n  Logout Time : 2023-12'</msg>
-<msg time="2025-05-28T10:52:14.188606" level="TRACE">recv b'-08 02:26:01+08:00\r\n  ----------------------------'</msg>
-<msg time="2025-05-28T10:52:14.188678" level="TRACE">recv b'-------------------------------------------------\r'</msg>
-<msg time="2025-05-28T10:52:14.188744" level="TRACE">recv b'\n  -----------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:14.188809" level="TRACE">recv b'------------------------------\r\n  All user fail lo'</msg>
-<msg time="2025-05-28T10:52:14.188874" level="TRACE">recv b'gin information:\r\n  ------------------------------'</msg>
-<msg time="2025-05-28T10:52:14.188940" level="TRACE">recv b'-----------------------------------------------\r\n '</msg>
-<msg time="2025-05-28T10:52:14.189005" level="TRACE">recv b' Access Type IP-Address           Time            '</msg>
-<msg time="2025-05-28T10:52:14.189070" level="TRACE">recv b'              Login Times\r\n  ---------------------'</msg>
-<msg time="2025-05-28T10:52:14.189136" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:14.189201" level="TRACE">recv b'------\r\n  Telnet      192.168.150.240      2023-12'</msg>
-<msg time="2025-05-28T10:52:14.189266" level="TRACE">recv b'-07 10:05:20+08:00              25\r\n  Telnet      '</msg>
-<msg time="2025-05-28T10:52:14.189331" level="TRACE">recv b'172.16.4.8           2023-12-07 08:26:47+08:00    '</msg>
-<msg time="2025-05-28T10:52:14.189396" level="TRACE">recv b'           4\r\n  SSH         192.168.150.43       2'</msg>
-<msg time="2025-05-28T10:52:14.189460" level="TRACE">recv b'023-12-03 04:00:06+08:00               4\r\n  Telnet'</msg>
-<msg time="2025-05-28T10:52:14.189548" level="TRACE">recv b'      192.168.150.31       2023-12-07 05:10:26+08:'</msg>
-<msg time="2025-05-28T10:52:14.189614" level="TRACE">recv b'00               2\r\n  SSH         192.168.150.49  '</msg>
-<msg time="2025-05-28T10:52:14.189678" level="TRACE">recv b'     2023-12-01 06:49:56+08:00               1\r\n  '</msg>
-<msg time="2025-05-28T10:52:14.189743" level="TRACE">recv b'SSH         192.168.150.81       2023-11-30 05:30:'</msg>
-<msg time="2025-05-28T10:52:14.189808" level="TRACE">recv b'31+08:00               1\r\n  Telnet      192.168.15'</msg>
-<msg time="2025-05-28T10:52:14.189873" level="TRACE">recv b'0.131      2023-11-24 03:01:46+08:00              '</msg>
-<msg time="2025-05-28T10:52:14.189938" level="TRACE">recv b' 1\r\n  Telnet      192.168.150.103      2023-11-23 '</msg>
-<msg time="2025-05-28T10:52:14.190004" level="TRACE">recv b'06:08:08+08:00               1\r\n  ----------------'</msg>
-<msg time="2025-05-28T10:52:14.190068" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:14.190135" level="TRACE">recv b'-----------\r\n\r\nMA5800-X7&gt;\r\n  Warning: The user pas'</msg>
-<msg time="2025-05-28T10:52:14.190203" level="TRACE">recv b'sword is set by other administrator or NMS, it is '</msg>
-<msg time="2025-05-28T10:52:14.190268" level="TRACE">recv b'\r\nrecommended to change the password.\x00\r\n\r\nMA5800-X'</msg>
-<msg time="2025-05-28T10:52:14.190333" level="TRACE">recv b'7&gt;'</msg>
-<msg time="2025-05-28T10:52:14.190373" level="TRACE">Huawei Integrated Access Software (MA5800).
+<msg time="2025-05-28T13:52:51.365231" level="TRACE">send b'Kaon@2023vnm\r\n'</msg>
+<msg time="2025-05-28T13:52:52.365819" level="TRACE">recv b'\r\n\r\n\r\n  Huawei Integrated Access Software (MA5800)'</msg>
+<msg time="2025-05-28T13:52:52.366191" level="TRACE">recv b'.\r\n  Copyright(C) Huawei Technologies Co., Ltd. 20'</msg>
+<msg time="2025-05-28T13:52:52.366438" level="TRACE">recv b'02-2022. All rights reserved.\r\n\r\n  ---------------'</msg>
+<msg time="2025-05-28T13:52:52.366660" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:52.366873" level="TRACE">recv b'------------\r\n  User last login information:\r\n  --'</msg>
+<msg time="2025-05-28T13:52:52.367091" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:52.367300" level="TRACE">recv b'-------------------------\r\n  Access Type : Telnet\r'</msg>
+<msg time="2025-05-28T13:52:52.367510" level="TRACE">recv b'\n  IP-Address  : 192.168.150.118\r\n  Login  Time : '</msg>
+<msg time="2025-05-28T13:52:52.367718" level="TRACE">recv b'2023-12-08 05:41:40+08:00\r\n  Logout Time : --\r\n  -'</msg>
+<msg time="2025-05-28T13:52:52.367928" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:52.368071" level="TRACE">recv b'--------------------------\r\n  --------------------'</msg>
+<msg time="2025-05-28T13:52:52.368141" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:52.368196" level="TRACE">recv b'-------\r\n  All user fail login information:\r\n  ---'</msg>
+<msg time="2025-05-28T13:52:52.368251" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:52.368316" level="TRACE">recv b'------------------------\r\n  Access Type IP-Address'</msg>
+<msg time="2025-05-28T13:52:52.368368" level="TRACE">recv b'           Time                          Login Tim'</msg>
+<msg time="2025-05-28T13:52:52.368421" level="TRACE">recv b'es\r\n  --------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:52.368475" level="TRACE">recv b'---------------------------------\r\n  Telnet      1'</msg>
+<msg time="2025-05-28T13:52:52.368527" level="TRACE">recv b'92.168.150.240      2023-12-07 10:05:20+08:00     '</msg>
+<msg time="2025-05-28T13:52:52.368578" level="TRACE">recv b'         25\r\n  Telnet      172.16.4.8           20'</msg>
+<msg time="2025-05-28T13:52:52.368629" level="TRACE">recv b'23-12-07 08:26:47+08:00               4\r\n  SSH    '</msg>
+<msg time="2025-05-28T13:52:52.368681" level="TRACE">recv b'     192.168.150.43       2023-12-03 04:00:06+08:0'</msg>
+<msg time="2025-05-28T13:52:52.368739" level="TRACE">recv b'0               4\r\n  Telnet      192.168.150.31   '</msg>
+<msg time="2025-05-28T13:52:52.368791" level="TRACE">recv b'    2023-12-07 05:10:26+08:00               2\r\n  S'</msg>
+<msg time="2025-05-28T13:52:52.368842" level="TRACE">recv b'SH         192.168.150.49       2023-12-01 06:49:5'</msg>
+<msg time="2025-05-28T13:52:52.368894" level="TRACE">recv b'6+08:00               1\r\n  SSH         192.168.150'</msg>
+<msg time="2025-05-28T13:52:52.368945" level="TRACE">recv b'.81       2023-11-30 05:30:31+08:00               '</msg>
+<msg time="2025-05-28T13:52:52.368998" level="TRACE">recv b'1\r\n  Telnet      192.168.150.131      2023-11-24 0'</msg>
+<msg time="2025-05-28T13:52:52.369050" level="TRACE">recv b'3:01:46+08:00               1\r\n  Telnet      192.1'</msg>
+<msg time="2025-05-28T13:52:52.369102" level="TRACE">recv b'68.150.103      2023-11-23 06:08:08+08:00         '</msg>
+<msg time="2025-05-28T13:52:52.369154" level="TRACE">recv b'      1\r\n  ---------------------------------------'</msg>
+<msg time="2025-05-28T13:52:52.369206" level="TRACE">recv b'--------------------------------------\r\n\r\nMA5800-X'</msg>
+<msg time="2025-05-28T13:52:52.369258" level="TRACE">recv b'7&gt;\r\n  Warning: The user password is set by other a'</msg>
+<msg time="2025-05-28T13:52:52.369317" level="TRACE">recv b'dministrator or NMS, it is \r\nrecommended to change'</msg>
+<msg time="2025-05-28T13:52:52.369370" level="TRACE">recv b' the password.\x00\r\n\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-28T13:52:52.369416" level="TRACE">Huawei Integrated Access Software (MA5800).
   Copyright(C) Huawei Technologies Co., Ltd. 2002-2022. All rights reserved.
 
   -----------------------------------------------------------------------------
   User last login information:
   -----------------------------------------------------------------------------
   Access Type : Telnet
-  IP-Address  : 192.168.150.100
-  Login  Time : 2023-12-08 02:25:46+08:00
-  Logout Time : 2023-12-08 02:26:01+08:00
+  IP-Address  : 192.168.150.118
+  Login  Time : 2023-12-08 05:41:40+08:00
+  Logout Time : --
   -----------------------------------------------------------------------------
   -----------------------------------------------------------------------------
   All user fail login information:
@@ -198,7 +199,7 @@ MA5800-X7&gt;
 recommended to change the password.
 
 MA5800-X7&gt;</msg>
-<msg time="2025-05-28T10:52:14.190419" level="INFO">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
+<msg time="2025-05-28T13:52:52.369452" level="INFO">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
 
 &gt;&gt;User name:admin2
 &gt;&gt;User password:
@@ -211,9 +212,9 @@ MA5800-X7&gt;</msg>
   User last login information:
   -----------------------------------------------------------------------------
   Access Type : Telnet
-  IP-Address  : 192.168.150.100
-  Login  Time : 2023-12-08 02:25:46+08:00
-  Logout Time : 2023-12-08 02:26:01+08:00
+  IP-Address  : 192.168.150.118
+  Login  Time : 2023-12-08 05:41:40+08:00
+  Logout Time : --
   -----------------------------------------------------------------------------
   -----------------------------------------------------------------------------
   All user fail login information:
@@ -235,155 +236,158 @@ MA5800-X7&gt;
 recommended to change the password.
 
 MA5800-X7&gt;</msg>
-<msg time="2025-05-28T10:52:14.190543" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-28T10:52:14.195106" level="TRACE">recv b'\r\n\r\nMA5800-X7&gt;'</msg>
-<msg time="2025-05-28T10:52:14.696210" level="TRACE">Return: '\r\nWarning: Telnet is not a secure protocol, and it is recommended to use Stelnet.\r\n\r\n&gt;&gt;User name:admin2\r\n&gt;&gt;User password:\r\n\r\n\r\n  Huawei Integrated Access Software (MA5800).\r\n  Copyright(C) Huawei Technologies Co., Ltd. 2002-2022. All rights reserved.\r\n\r\n  -----------------------------------------------------------------------------\r\n  User last login information:\r\n  -----------------------------------------------------------------------------\r\n  Access Type : Telnet\r\n  IP-Address  : 192.168.150.100\r\n  Login  Time : 2023-12-08 02:25:46+08:00\r\n  Logout Time : 2023-12-08 02:26:01+08:00\r\n  -----------------------------------------------------------------------------\r\n  -----------------------------------------------------------------------------\r\n  All user fail login information:\r\n  -----------------------------------------------------------------------------\r\n  Access Type IP-Address           Time                          Login Times\r\n  -----------------------------------------------------------------------------\r\n  Telnet      192.168.150.240      2023-12-07 10:05:20+08:00              25\r\n  Telnet      172.16.4.8           2023-12-07 08:26:47+08:00               4\r\n  SSH         192.168.150.43       2023-12-03 04:00:06+08:00               4\r\n  Telnet      192.168.150.31       2023-12-07 05:10:26+08:00               2\r\n  SSH         192.168.150.49       2023-12-01 06:49:56+08:00               1\r\n  SSH         192.168.150.81       2023-11-30 05:30:31+08:00               1\r\n  Telnet      192.168.150.131      2023-11-24 03:01:46+08:00               1\r\n  Telnet      192.168.150.103      2023-11-23 06:08:08+08:00               1\r\n  -----------------------------------------------------------------------------\r\n\r\nMA5800-X7&gt;\r\n  Warning: The user password is set by other administrator or NMS, it is \r\nrecommended to change the password.\r\n\r\nMA5800-X7&gt;\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-28T13:52:52.369600" level="TRACE">send b'\r\n'</msg>
+<msg time="2025-05-28T13:52:52.373365" level="TRACE">recv b'\r\n\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-28T13:52:52.874497" level="TRACE">Return: '\r\nWarning: Telnet is not a secure protocol, and it is recommended to use Stelnet.\r\n\r\n&gt;&gt;User name:admin2\r\n&gt;&gt;User password:\r\n\r\n\r\n  Huawei Integrated Access Software (MA5800).\r\n  Copyright(C) Huawei Technologies Co., Ltd. 2002-2022. All rights reserved.\r\n\r\n  -----------------------------------------------------------------------------\r\n  User last login information:\r\n  -----------------------------------------------------------------------------\r\n  Access Type : Telnet\r\n  IP-Address  : 192.168.150.118\r\n  Login  Time : 2023-12-08 05:41:40+08:00\r\n  Logout Time : --\r\n  -----------------------------------------------------------------------------\r\n  -----------------------------------------------------------------------------\r\n  All user fail login information:\r\n  -----------------------------------------------------------------------------\r\n  Access Type IP-Address           Time                          Login Times\r\n  -----------------------------------------------------------------------------\r\n  Telnet      192.168.150.240      2023-12-07 10:05:20+08:00              25\r\n  Telnet      172.16.4.8           2023-12-07 08:26:47+08:00               4\r\n  SSH         192.168.150.43       2023-12-03 04:00:06+08:00               4\r\n  Telnet      192.168.150.31       2023-12-07 05:10:26+08:00               2\r\n  SSH         192.168.150.49       2023-12-01 06:49:56+08:00               1\r\n  SSH         192.168.150.81       2023-11-30 05:30:31+08:00               1\r\n  Telnet      192.168.150.131      2023-11-24 03:01:46+08:00               1\r\n  Telnet      192.168.150.103      2023-11-23 06:08:08+08:00               1\r\n  -----------------------------------------------------------------------------\r\n\r\nMA5800-X7&gt;\r\n  Warning: The user password is set by other administrator or NMS, it is \r\nrecommended to change the password.\r\n\r\nMA5800-X7&gt;\r\nMA5800-X7&gt;'</msg>
 <arg>Olt0</arg>
 <doc>Connect to device using topology information.</doc>
-<status status="PASS" start="2025-05-28T10:52:12.512622" elapsed="2.184015"/>
+<status status="PASS" start="2025-05-28T13:52:51.336713" elapsed="1.538157"/>
 </kw>
 <kw name="Unset Interactive" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:14.697435" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:52:14.703661" level="TRACE">send b'undo smart\r\n'</msg>
-<msg time="2025-05-28T10:52:14.708031" level="TRACE">recv b'undo'</msg>
-<msg time="2025-05-28T10:52:14.726372" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:52:14.727307" level="TRACE">recv b'smart'</msg>
-<msg time="2025-05-28T10:52:14.735471" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-28T10:52:14.735688" level="INFO">undo smart</msg>
-<msg time="2025-05-28T10:52:14.746688" level="TRACE">recv b'  Interactive function is disabled\r\n\r\nMA5800-X7&gt;'</msg>
-<msg time="2025-05-28T10:52:14.746980" level="INFO">Interactive function is disabled
+<msg time="2025-05-28T13:52:52.875658" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:52.881773" level="TRACE">send b'undo smart\r\n'</msg>
+<msg time="2025-05-28T13:52:52.886879" level="TRACE">recv b'undo'</msg>
+<msg time="2025-05-28T13:52:52.903221" level="TRACE">recv b' smart'</msg>
+<msg time="2025-05-28T13:52:52.911474" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-28T13:52:52.911672" level="INFO">undo smart</msg>
+<msg time="2025-05-28T13:52:52.922756" level="TRACE">recv b'  Interactive function is disabled\r\n\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-28T13:52:52.923040" level="INFO">Interactive function is disabled
 
 MA5800-X7&gt;</msg>
-<msg time="2025-05-28T10:52:14.747137" level="TRACE">Return: '  Interactive function is disabled\r\n\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-28T13:52:52.923190" level="TRACE">Return: '  Interactive function is disabled\r\n\r\nMA5800-X7&gt;'</msg>
 <doc>keyword using for huawei only, it should perform with each test</doc>
-<status status="PASS" start="2025-05-28T10:52:14.697186" elapsed="0.050105"/>
+<status status="PASS" start="2025-05-28T13:52:52.875405" elapsed="0.047937"/>
 </kw>
 <kw name="Set Terminal Length" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:14.748026" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:52:14.748244" level="TRACE">send b'scroll 512\r\n'</msg>
-<msg time="2025-05-28T10:52:14.751735" level="TRACE">recv b'scroll'</msg>
-<msg time="2025-05-28T10:52:14.769264" level="TRACE">recv b' 512 '</msg>
-<msg time="2025-05-28T10:52:14.769942" level="TRACE">recv b'\r\n'</msg>
-<msg time="2025-05-28T10:52:14.770078" level="INFO">scroll 512</msg>
-<msg time="2025-05-28T10:52:14.776276" level="TRACE">recv b'\r\nMA5800-X7&gt;'</msg>
-<msg time="2025-05-28T10:52:14.776493" level="INFO">MA5800-X7&gt;</msg>
-<msg time="2025-05-28T10:52:14.776632" level="TRACE">Return: '\r\nMA5800-X7&gt;'</msg>
-<status status="PASS" start="2025-05-28T10:52:14.747740" elapsed="0.029032"/>
+<msg time="2025-05-28T13:52:52.924076" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:52.924297" level="TRACE">send b'scroll 512\r\n'</msg>
+<msg time="2025-05-28T13:52:52.928844" level="TRACE">recv b'scroll'</msg>
+<msg time="2025-05-28T13:52:52.944117" level="TRACE">recv b' '</msg>
+<msg time="2025-05-28T13:52:52.945028" level="TRACE">recv b'512 \r\n'</msg>
+<msg time="2025-05-28T13:52:52.945180" level="INFO">scroll 512</msg>
+<msg time="2025-05-28T13:52:52.952214" level="TRACE">recv b'\r\nMA5800-X7&gt;'</msg>
+<msg time="2025-05-28T13:52:52.952427" level="INFO">MA5800-X7&gt;</msg>
+<msg time="2025-05-28T13:52:52.952563" level="TRACE">Return: '\r\nMA5800-X7&gt;'</msg>
+<status status="PASS" start="2025-05-28T13:52:52.923794" elapsed="0.028911"/>
 </kw>
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:14.777693" level="TRACE">Arguments: [ 'enable' | reset_prompt=True ]</msg>
-<msg time="2025-05-28T10:52:14.777974" level="TRACE">send b'enable\r\n'</msg>
-<msg time="2025-05-28T10:52:14.782231" level="TRACE">recv b'enable'</msg>
-<msg time="2025-05-28T10:52:14.803815" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-28T10:52:14.804011" level="INFO">enable</msg>
-<msg time="2025-05-28T10:52:14.804124" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-28T10:52:14.838365" level="TRACE">recv b'\r\nMA5800-X7#\r\n\r\nMA5800-X7#'</msg>
-<msg time="2025-05-28T10:52:15.339292" level="TRACE">Return: 'MA5800-X7#'</msg>
+<msg time="2025-05-28T13:52:52.953634" level="TRACE">Arguments: [ 'enable' | reset_prompt=True ]</msg>
+<msg time="2025-05-28T13:52:52.953917" level="TRACE">send b'enable\r\n'</msg>
+<msg time="2025-05-28T13:52:52.957325" level="TRACE">recv b'enable'</msg>
+<msg time="2025-05-28T13:52:52.979857" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-28T13:52:52.980053" level="INFO">enable</msg>
+<msg time="2025-05-28T13:52:52.980160" level="TRACE">send b'\r\n'</msg>
+<msg time="2025-05-28T13:52:53.010527" level="TRACE">recv b'\r\nMA5800-X7#\r\n\r\nMA5800-X7#'</msg>
+<msg time="2025-05-28T13:52:53.511612" level="TRACE">Return: 'MA5800-X7#'</msg>
 <arg>enable</arg>
 <arg>reset_prompt=True</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-05-28T10:52:14.777171" elapsed="0.562288"/>
+<status status="PASS" start="2025-05-28T13:52:52.953114" elapsed="0.558663"/>
 </kw>
-<msg time="2025-05-28T10:52:15.339583" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:12.512341" elapsed="2.827283"/>
+<msg time="2025-05-28T13:52:53.511914" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-28T13:52:51.336456" elapsed="2.175518"/>
 </kw>
 <kw name="Access Config Mode" owner="keyword">
-<msg time="2025-05-28T10:52:15.340298" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:53.512641" level="TRACE">Arguments: [  ]</msg>
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:15.340666" level="TRACE">Arguments: [ 'config' | reset_prompt=True ]</msg>
-<msg time="2025-05-28T10:52:15.340802" level="TRACE">send b'config\r\n'</msg>
-<msg time="2025-05-28T10:52:15.344564" level="TRACE">recv b'config'</msg>
-<msg time="2025-05-28T10:52:15.413929" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-28T10:52:15.414190" level="INFO">config</msg>
-<msg time="2025-05-28T10:52:15.414317" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-28T10:52:15.472021" level="TRACE">recv b'\r\nMA5800-X7(config)#\r\n\r\nMA5800-X7(config)#'</msg>
-<msg time="2025-05-28T10:52:15.973155" level="TRACE">Return: 'MA5800-X7(config)#'</msg>
+<msg time="2025-05-28T13:52:53.512974" level="TRACE">Arguments: [ 'config' | reset_prompt=True ]</msg>
+<msg time="2025-05-28T13:52:53.513097" level="TRACE">send b'config\r\n'</msg>
+<msg time="2025-05-28T13:52:53.516881" level="TRACE">recv b'config'</msg>
+<msg time="2025-05-28T13:52:53.589254" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-28T13:52:53.589542" level="INFO">config</msg>
+<msg time="2025-05-28T13:52:53.589661" level="TRACE">send b'\r\n'</msg>
+<msg time="2025-05-28T13:52:53.647252" level="TRACE">recv b'\r\nMA5800-X7(config)#\r\n\r\nMA5800-X7(config)#'</msg>
+<msg time="2025-05-28T13:52:54.148272" level="TRACE">Return: 'MA5800-X7(config)#'</msg>
 <arg>config</arg>
 <arg>reset_prompt=True</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-05-28T10:52:15.340497" elapsed="0.632874"/>
+<status status="PASS" start="2025-05-28T13:52:53.512817" elapsed="0.635748"/>
 </kw>
-<msg time="2025-05-28T10:52:15.973542" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:15.340025" elapsed="0.633689"/>
+<msg time="2025-05-28T13:52:54.148830" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-28T13:52:53.512384" elapsed="0.636584"/>
 </kw>
 <kw name="Access Interface Mode" owner="keyword">
-<msg time="2025-05-28T10:52:15.974399" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:54.150521" level="TRACE">Arguments: [  ]</msg>
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:15.974826" level="TRACE">Arguments: [ 'interface gpon 0/2' | reset_prompt=True ]</msg>
-<msg time="2025-05-28T10:52:15.974970" level="TRACE">send b'interface gpon 0/2\r\n'</msg>
-<msg time="2025-05-28T10:52:15.978883" level="TRACE">recv b'interface'</msg>
-<msg time="2025-05-28T10:52:16.077748" level="TRACE">recv b' gpon'</msg>
-<msg time="2025-05-28T10:52:16.089841" level="TRACE">recv b' 0/2'</msg>
-<msg time="2025-05-28T10:52:16.092970" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-28T10:52:16.093176" level="INFO">interface gpon 0/2</msg>
-<msg time="2025-05-28T10:52:16.093292" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-28T10:52:16.154167" level="TRACE">recv b'\r\nMA5800-X7(config-if-gpon-0/2)#\r\n\r\nMA5800-X7(conf'</msg>
-<msg time="2025-05-28T10:52:16.655323" level="TRACE">recv b'ig-if-gpon-0/2)#'</msg>
-<msg time="2025-05-28T10:52:16.655633" level="TRACE">Return: 'MA5800-X7(config-if-gpon-0/2)#'</msg>
+<msg time="2025-05-28T13:52:54.151521" level="TRACE">Arguments: [ 'interface gpon 0/2' | reset_prompt=True ]</msg>
+<msg time="2025-05-28T13:52:54.151857" level="TRACE">send b'interface gpon 0/2\r\n'</msg>
+<msg time="2025-05-28T13:52:54.156068" level="TRACE">recv b'interface'</msg>
+<msg time="2025-05-28T13:52:54.254632" level="TRACE">recv b' '</msg>
+<msg time="2025-05-28T13:52:54.255515" level="TRACE">recv b'gpon'</msg>
+<msg time="2025-05-28T13:52:54.263955" level="TRACE">recv b' '</msg>
+<msg time="2025-05-28T13:52:54.264766" level="TRACE">recv b'0/2'</msg>
+<msg time="2025-05-28T13:52:54.267940" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-28T13:52:54.268072" level="INFO">interface gpon 0/2</msg>
+<msg time="2025-05-28T13:52:54.268112" level="TRACE">send b'\r\n'</msg>
+<msg time="2025-05-28T13:52:54.332213" level="TRACE">recv b'\r\nMA5800-X7(config-if-gpon-0/2)#'</msg>
+<msg time="2025-05-28T13:52:54.833441" level="TRACE">recv b'\r\n\r\nMA5800-X7(config-if-gpon-0/2)#'</msg>
+<msg time="2025-05-28T13:52:54.833925" level="TRACE">Return: 'MA5800-X7(config-if-gpon-0/2)#'</msg>
 <arg>interface ${OLT_PON_NAME}</arg>
 <arg>reset_prompt=True</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-05-28T10:52:15.974594" elapsed="0.681125"/>
+<status status="PASS" start="2025-05-28T13:52:54.150969" elapsed="0.683143"/>
 </kw>
-<msg time="2025-05-28T10:52:16.655848" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:15.974109" elapsed="0.681773"/>
+<msg time="2025-05-28T13:52:54.834369" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-28T13:52:54.149940" elapsed="0.684552"/>
 </kw>
+<kw name="Get Onu Id" owner="keyword">
+<msg time="2025-05-28T13:52:54.835852" level="TRACE">Arguments: [  ]</msg>
 <kw name="Get Onuid From Serial" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:16.656443" level="TRACE">Arguments: [ 6 | '4B414F4EAF523D04' ]</msg>
-<msg time="2025-05-28T10:52:16.658242" level="TRACE">send b'display ont info summary 6\r\n'</msg>
-<msg time="2025-05-28T10:52:16.662509" level="TRACE">recv b'display'</msg>
-<msg time="2025-05-28T10:52:16.689141" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:52:16.690026" level="TRACE">recv b'ont'</msg>
-<msg time="2025-05-28T10:52:16.722689" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:52:16.724661" level="TRACE">recv b'info'</msg>
-<msg time="2025-05-28T10:52:16.747215" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:52:16.748187" level="TRACE">recv b'summary'</msg>
-<msg time="2025-05-28T10:52:16.771484" level="TRACE">recv b' 6'</msg>
-<msg time="2025-05-28T10:52:16.796258" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-28T10:52:16.796336" level="INFO">display ont info summary 6</msg>
-<msg time="2025-05-28T10:52:16.878718" level="TRACE">recv b'  Command is being executed. Please wait\r\n'</msg>
-<msg time="2025-05-28T10:52:16.886971" level="TRACE">recv b'  ------------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:16.887183" level="TRACE">recv b'------------------------------\r\n  In port 0/2/6, t'</msg>
-<msg time="2025-05-28T10:52:16.887243" level="TRACE">recv b'he total of ONTs are: 7, online: 1\r\n  ------------'</msg>
-<msg time="2025-05-28T10:52:16.887298" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:16.887352" level="TRACE">recv b'----------------\r\n  ONT  Run     Last             '</msg>
-<msg time="2025-05-28T10:52:16.887456" level="TRACE">recv b'   Last                Last                   \r\n  '</msg>
-<msg time="2025-05-28T10:52:16.887534" level="TRACE">recv b'ID   State   UpTime              DownTime         '</msg>
-<msg time="2025-05-28T10:52:16.887594" level="TRACE">recv b'   DownCause\r\n  ----------------------------------'</msg>
-<msg time="2025-05-28T10:52:16.887647" level="TRACE">recv b'--------------------------------------------\r\n  0 '</msg>
-<msg time="2025-05-28T10:52:16.887698" level="TRACE">recv b'   offline -                   -                  '</msg>
-<msg time="2025-05-28T10:52:16.887750" level="TRACE">recv b' -                        \r\n  1    offline -      '</msg>
-<msg time="2025-05-28T10:52:16.887802" level="TRACE">recv b'             -                   -                '</msg>
-<msg time="2025-05-28T10:52:16.887853" level="TRACE">recv b'        \r\n  2    offline -                   -    '</msg>
-<msg time="2025-05-28T10:52:16.887905" level="TRACE">recv b'               -                        \r\n  3    o'</msg>
-<msg time="2025-05-28T10:52:16.887958" level="TRACE">recv b'ffline -                   -                   -  '</msg>
-<msg time="2025-05-28T10:52:16.888009" level="TRACE">recv b'                      \r\n  5    offline -          '</msg>
-<msg time="2025-05-28T10:52:16.888061" level="TRACE">recv b'         -                   -                    '</msg>
-<msg time="2025-05-28T10:52:16.888112" level="TRACE">recv b'    \r\n  6    offline -                   -        '</msg>
-<msg time="2025-05-28T10:52:16.888164" level="TRACE">recv b'           -                        \r\n  7    onlin'</msg>
-<msg time="2025-05-28T10:52:16.888215" level="TRACE">recv b'e  2023-12-08 02:26:21 2023-12-08 02:25:53 LOSi/LO'</msg>
-<msg time="2025-05-28T10:52:16.888265" level="TRACE">recv b'Bi                \r\n  ----------------------------'</msg>
-<msg time="2025-05-28T10:52:16.888316" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:16.888366" level="TRACE">recv b'\r\n  ONT        SN        Type          Distance Rx'</msg>
-<msg time="2025-05-28T10:52:16.888417" level="TRACE">recv b'/Tx power  Description\r\n  ID                      '</msg>
-<msg time="2025-05-28T10:52:16.888467" level="TRACE">recv b'              (m)      (dBm)\r\n  ------------------'</msg>
-<msg time="2025-05-28T10:52:16.888517" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:16.888568" level="TRACE">recv b'----------\r\n  0   4B414F4E0F000014 -              '</msg>
-<msg time="2025-05-28T10:52:16.888618" level="TRACE">recv b'  -     -/-          PM1132               \r\n  1   '</msg>
-<msg time="2025-05-28T10:52:16.888669" level="TRACE">recv b'4B414F4ECE8EF370 -                -     -/-       '</msg>
-<msg time="2025-05-28T10:52:16.888719" level="TRACE">recv b'   PG6692G_TRONGNK      \r\n  2   4B414F4E012B3D40 -'</msg>
-<msg time="2025-05-28T10:52:16.888783" level="TRACE">recv b'                -     -/-          PG2142         '</msg>
-<msg time="2025-05-28T10:52:16.888841" level="TRACE">recv b'      \r\n  3   4B414F4ECE183C42 -                - '</msg>
-<msg time="2025-05-28T10:52:16.888912" level="TRACE">recv b'    -/-          PG2142               \r\n  5   4B41'</msg>
-<msg time="2025-05-28T10:52:16.888964" level="TRACE">recv b'4F4EAF523CFE -                -     -/-          P'</msg>
-<msg time="2025-05-28T10:52:16.889017" level="TRACE">recv b'M1191_TRONGNK       \r\n  6   4B414F4EEF6DC5A1 -    '</msg>
-<msg time="2025-05-28T10:52:16.889070" level="TRACE">recv b'            -     -/-          PM1132             '</msg>
-<msg time="2025-05-28T10:52:16.889126" level="TRACE">recv b'  \r\n  7   4B414F4EAF523D04 PM1191           84    '</msg>
-<msg time="2025-05-28T10:52:16.889179" level="TRACE">recv b'-14.21/6.68  PM1191_TRONGNK       \r\n  ------------'</msg>
-<msg time="2025-05-28T10:52:16.889232" level="TRACE">recv b'--------------------------------------------------'</msg>
-<msg time="2025-05-28T10:52:16.889287" level="TRACE">recv b'----------------\r\n  \r\n\r\nMA5800-X7(config-if-gpon-0'</msg>
-<msg time="2025-05-28T10:52:16.889342" level="TRACE">recv b'/2)#'</msg>
-<msg time="2025-05-28T10:52:16.889381" level="INFO">Command is being executed. Please wait
+<msg time="2025-05-28T13:52:54.836758" level="TRACE">Arguments: [ 6 | '4B414F4EAF523D04' ]</msg>
+<msg time="2025-05-28T13:52:54.841241" level="TRACE">send b'display ont info summary 6\r\n'</msg>
+<msg time="2025-05-28T13:52:54.845442" level="TRACE">recv b'display'</msg>
+<msg time="2025-05-28T13:52:54.865799" level="TRACE">recv b' '</msg>
+<msg time="2025-05-28T13:52:54.870973" level="TRACE">recv b'ont'</msg>
+<msg time="2025-05-28T13:52:54.902522" level="TRACE">recv b' '</msg>
+<msg time="2025-05-28T13:52:54.903535" level="TRACE">recv b'info'</msg>
+<msg time="2025-05-28T13:52:54.920847" level="TRACE">recv b' '</msg>
+<msg time="2025-05-28T13:52:54.921743" level="TRACE">recv b'summary'</msg>
+<msg time="2025-05-28T13:52:54.940274" level="TRACE">recv b' 6'</msg>
+<msg time="2025-05-28T13:52:54.959672" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-28T13:52:54.959884" level="INFO">display ont info summary 6</msg>
+<msg time="2025-05-28T13:52:55.043483" level="TRACE">recv b'  Command is being executed. Please wait\r\n'</msg>
+<msg time="2025-05-28T13:52:55.045472" level="TRACE">recv b'  ------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:55.045823" level="TRACE">recv b'------------------------------\r\n  In port 0/2/6, t'</msg>
+<msg time="2025-05-28T13:52:55.046049" level="TRACE">recv b'he total of ONTs are: 7, online: 1\r\n  ------------'</msg>
+<msg time="2025-05-28T13:52:55.046333" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:55.046536" level="TRACE">recv b'----------------\r\n  ONT  Run     Last             '</msg>
+<msg time="2025-05-28T13:52:55.046732" level="TRACE">recv b'   Last                Last                   \r\n  '</msg>
+<msg time="2025-05-28T13:52:55.046934" level="TRACE">recv b'ID   State   UpTime              DownTime         '</msg>
+<msg time="2025-05-28T13:52:55.047129" level="TRACE">recv b'   DownCause\r\n  ----------------------------------'</msg>
+<msg time="2025-05-28T13:52:55.047324" level="TRACE">recv b'--------------------------------------------\r\n  0 '</msg>
+<msg time="2025-05-28T13:52:55.047521" level="TRACE">recv b'   offline -                   -                  '</msg>
+<msg time="2025-05-28T13:52:55.047715" level="TRACE">recv b' -                        \r\n  1    offline -      '</msg>
+<msg time="2025-05-28T13:52:55.047907" level="TRACE">recv b'             -                   -                '</msg>
+<msg time="2025-05-28T13:52:55.048101" level="TRACE">recv b'        \r\n  2    offline -                   -    '</msg>
+<msg time="2025-05-28T13:52:55.048299" level="TRACE">recv b'               -                        \r\n  3    o'</msg>
+<msg time="2025-05-28T13:52:55.048494" level="TRACE">recv b'ffline -                   -                   -  '</msg>
+<msg time="2025-05-28T13:52:55.048691" level="TRACE">recv b'                      \r\n  5    offline -          '</msg>
+<msg time="2025-05-28T13:52:55.048882" level="TRACE">recv b'         -                   -                    '</msg>
+<msg time="2025-05-28T13:52:55.049090" level="TRACE">recv b'    \r\n  6    offline -                   -        '</msg>
+<msg time="2025-05-28T13:52:55.049189" level="TRACE">recv b'           -                        \r\n  7    onlin'</msg>
+<msg time="2025-05-28T13:52:55.049250" level="TRACE">recv b'e  2023-12-08 02:57:05 2023-12-08 02:56:23 LOSi/LO'</msg>
+<msg time="2025-05-28T13:52:55.049310" level="TRACE">recv b'Bi                \r\n  ----------------------------'</msg>
+<msg time="2025-05-28T13:52:55.049371" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:55.049433" level="TRACE">recv b'\r\n  ONT        SN        Type          Distance Rx'</msg>
+<msg time="2025-05-28T13:52:55.049503" level="TRACE">recv b'/Tx power  Description\r\n  ID                      '</msg>
+<msg time="2025-05-28T13:52:55.049565" level="TRACE">recv b'              (m)      (dBm)\r\n  ------------------'</msg>
+<msg time="2025-05-28T13:52:55.049625" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:55.049685" level="TRACE">recv b'----------\r\n  0   4B414F4E0F000014 -              '</msg>
+<msg time="2025-05-28T13:52:55.049745" level="TRACE">recv b'  -     -/-          PM1132               \r\n  1   '</msg>
+<msg time="2025-05-28T13:52:55.049805" level="TRACE">recv b'4B414F4ECE8EF370 -                -     -/-       '</msg>
+<msg time="2025-05-28T13:52:55.049866" level="TRACE">recv b'   PG6692G_TRONGNK      \r\n  2   4B414F4E012B3D40 -'</msg>
+<msg time="2025-05-28T13:52:55.049926" level="TRACE">recv b'                -     -/-          PG2142         '</msg>
+<msg time="2025-05-28T13:52:55.049986" level="TRACE">recv b'      \r\n  3   4B414F4ECE183C42 -                - '</msg>
+<msg time="2025-05-28T13:52:55.050045" level="TRACE">recv b'    -/-          PG2142               \r\n  5   4B41'</msg>
+<msg time="2025-05-28T13:52:55.050105" level="TRACE">recv b'4F4EAF523CFE -                -     -/-          P'</msg>
+<msg time="2025-05-28T13:52:55.050165" level="TRACE">recv b'M1191_TRONGNK       \r\n  6   4B414F4EEF6DC5A1 -    '</msg>
+<msg time="2025-05-28T13:52:55.050226" level="TRACE">recv b'            -     -/-          PM1132             '</msg>
+<msg time="2025-05-28T13:52:55.050286" level="TRACE">recv b'  \r\n  7   4B414F4EAF523D04 PM1191           85    '</msg>
+<msg time="2025-05-28T13:52:55.050346" level="TRACE">recv b'-14.16/6.72  PM1191_TRONGNK       \r\n  ------------'</msg>
+<msg time="2025-05-28T13:52:55.050406" level="TRACE">recv b'--------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:55.050468" level="TRACE">recv b'----------------\r\n  \r\n\r\nMA5800-X7(config-if-gpon-0'</msg>
+<msg time="2025-05-28T13:52:55.050529" level="TRACE">recv b'/2)#'</msg>
+<msg time="2025-05-28T13:52:55.050574" level="INFO">Command is being executed. Please wait
   ------------------------------------------------------------------------------
   In port 0/2/6, the total of ONTs are: 7, online: 1
   ------------------------------------------------------------------------------
@@ -396,7 +400,7 @@ MA5800-X7&gt;</msg>
   3    offline -                   -                   -                        
   5    offline -                   -                   -                        
   6    offline -                   -                   -                        
-  7    online  2023-12-08 02:26:21 2023-12-08 02:25:53 LOSi/LOBi                
+  7    online  2023-12-08 02:57:05 2023-12-08 02:56:23 LOSi/LOBi                
   ------------------------------------------------------------------------------
   ONT        SN        Type          Distance Rx/Tx power  Description
   ID                                    (m)      (dBm)
@@ -407,512 +411,208 @@ MA5800-X7&gt;</msg>
   3   4B414F4ECE183C42 -                -     -/-          PG2142               
   5   4B414F4EAF523CFE -                -     -/-          PM1191_TRONGNK       
   6   4B414F4EEF6DC5A1 -                -     -/-          PM1132               
-  7   4B414F4EAF523D04 PM1191           84    -14.21/6.68  PM1191_TRONGNK       
+  7   4B414F4EAF523D04 PM1191           85    -14.16/6.72  PM1191_TRONGNK       
   ------------------------------------------------------------------------------
   
 
 MA5800-X7(config-if-gpon-0/2)#</msg>
-<msg time="2025-05-28T10:52:16.892664" level="TRACE">Return: '7'</msg>
-<msg time="2025-05-28T10:52:16.892828" level="INFO">${onu_id} = 7</msg>
+<msg time="2025-05-28T13:52:55.054216" level="TRACE">Return: '7'</msg>
+<msg time="2025-05-28T13:52:55.054418" level="INFO">${onu_id} = 7</msg>
 <var>${onu_id}</var>
 <arg>${OLT_PON_INDEX}</arg>
 <arg>${ONU_SN}</arg>
-<status status="PASS" start="2025-05-28T10:52:16.656200" elapsed="0.236659"/>
+<status status="PASS" start="2025-05-28T13:52:54.836300" elapsed="0.218154"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:16.893324" level="TRACE">Arguments: [ '${onu_id}' ]</msg>
-<msg time="2025-05-28T10:52:16.893568" level="INFO">${onu_id} = 7</msg>
-<msg time="2025-05-28T10:52:16.893607" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:55.054858" level="TRACE">Arguments: [ '${onu_id}' ]</msg>
+<msg time="2025-05-28T13:52:55.055099" level="INFO">${onu_id} = 7</msg>
+<msg time="2025-05-28T13:52:55.055139" level="TRACE">Return: None</msg>
 <arg>${onu_id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:52:16.893215" elapsed="0.000433"/>
+<status status="PASS" start="2025-05-28T13:52:55.054736" elapsed="0.000444"/>
 </kw>
-<kw name="Go To Previous Mode" owner="keyword">
-<msg time="2025-05-28T10:52:16.894115" level="TRACE">Arguments: [  ]</msg>
-<kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:16.894432" level="TRACE">Arguments: [ 'quit' | reset_prompt=True ]</msg>
-<msg time="2025-05-28T10:52:16.894541" level="TRACE">send b'quit\r\n'</msg>
-<msg time="2025-05-28T10:52:16.898125" level="TRACE">recv b'quit'</msg>
-<msg time="2025-05-28T10:52:16.918399" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-28T10:52:16.918506" level="INFO">quit</msg>
-<msg time="2025-05-28T10:52:16.918542" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-28T10:52:16.958296" level="TRACE">recv b'\r\nMA5800-X7(config)#'</msg>
-<msg time="2025-05-28T10:52:17.459260" level="TRACE">recv b'\r\n\r\nMA5800-X7(config)#'</msg>
-<msg time="2025-05-28T10:52:17.459679" level="TRACE">Return: 'MA5800-X7(config)#'</msg>
-<arg>quit</arg>
-<arg>reset_prompt=True</arg>
-<doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-05-28T10:52:16.894276" elapsed="0.565587"/>
+<msg time="2025-05-28T13:52:55.055255" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-28T13:52:54.835283" elapsed="0.220006"/>
 </kw>
-<msg time="2025-05-28T10:52:17.460103" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:16.893908" elapsed="0.566318"/>
-</kw>
-<kw name="Access Diagnose Mode" owner="keyword">
-<msg time="2025-05-28T10:52:17.461639" level="TRACE">Arguments: [  ]</msg>
-<kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:17.462497" level="TRACE">Arguments: [ 'diagnose' | reset_prompt=True ]</msg>
-<msg time="2025-05-28T10:52:17.462797" level="TRACE">send b'diagnose\r\n'</msg>
-<msg time="2025-05-28T10:52:17.469323" level="TRACE">recv b'diagnose'</msg>
-<msg time="2025-05-28T10:52:17.650733" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-28T10:52:17.650992" level="INFO">diagnose</msg>
-<msg time="2025-05-28T10:52:17.651107" level="TRACE">send b'\r\n'</msg>
-<msg time="2025-05-28T10:52:17.703975" level="TRACE">recv b'\r\nMA5800-X7(diagnose)%%\r\n\r\nMA5800-X7(diagnose)%%'</msg>
-<msg time="2025-05-28T10:52:18.205256" level="TRACE">Return: 'MA5800-X7(diagnose)%%'</msg>
-<arg>diagnose</arg>
-<arg>reset_prompt=True</arg>
-<doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-05-28T10:52:17.462093" elapsed="0.743554"/>
-</kw>
-<msg time="2025-05-28T10:52:18.205908" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:17.460981" elapsed="0.745065"/>
-</kw>
-<kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:18.207396" level="TRACE">Arguments: [ 'anti-rogueont isolate 0/2/6 7' ]</msg>
-<msg time="2025-05-28T10:52:18.207696" level="TRACE">send b'anti-rogueont isolate 0/2/6 7\r\n'</msg>
-<msg time="2025-05-28T10:52:18.211679" level="TRACE">recv b'anti-rogueont'</msg>
-<msg time="2025-05-28T10:52:18.315707" level="TRACE">recv b' isolate'</msg>
-<msg time="2025-05-28T10:52:18.318526" level="TRACE">recv b' 0/2/6'</msg>
-<msg time="2025-05-28T10:52:18.320692" level="TRACE">recv b' 7'</msg>
-<msg time="2025-05-28T10:52:18.326831" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-28T10:52:18.327032" level="INFO">anti-rogueont isolate 0/2/6 7</msg>
-<msg time="2025-05-28T10:52:18.347257" level="TRACE">recv b'\r\nMA5800-X7(diagnose)%%'</msg>
-<msg time="2025-05-28T10:52:18.347494" level="INFO">MA5800-X7(diagnose)%%</msg>
-<msg time="2025-05-28T10:52:18.347645" level="TRACE">Return: '\r\nMA5800-X7(diagnose)%%'</msg>
-<arg>anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${onu_id}</arg>
-<doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-05-28T10:52:18.206696" elapsed="0.141102"/>
-</kw>
-<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
-<msg time="2025-05-28T10:52:18.348778" level="TRACE">Arguments: [ '5x' | '10s' | 'Check The Alarm Active Message' ]</msg>
-<kw name="Check The Alarm Active Message">
-<msg time="2025-05-28T10:52:18.350309" level="TRACE">Arguments: [  ]</msg>
-<kw name="Read" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:18.350976" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:52:18.351253" level="TRACE">Return: ''</msg>
-<msg time="2025-05-28T10:52:18.351498" level="INFO">${log} = </msg>
-<var>${log}</var>
-<doc>Reads everything that is currently available in the output.</doc>
-<status status="PASS" start="2025-05-28T10:52:18.350761" elapsed="0.000818"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<msg time="2025-05-28T10:52:18.352305" level="TRACE">Arguments: [ '' ]</msg>
-<msg time="2025-05-28T10:52:18.352620" level="TRACE">Return: None</msg>
-<arg>${log}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-05-28T10:52:18.351954" elapsed="0.000795"/>
-</kw>
-<kw name="Create Alarm Message Verify O7 Active">
-<msg time="2025-05-28T10:52:18.353780" level="TRACE">Arguments: [  ]</msg>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:18.354389" level="TRACE">Arguments: [ '${alarm_message}' | 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected' ]</msg>
-<msg time="2025-05-28T10:52:18.355387" level="INFO">${alarm_message} = ALARM NAME :The feeder fiber is broken or OLT can not receive any expected</msg>
-<msg time="2025-05-28T10:52:18.355437" level="TRACE">Return: None</msg>
-<arg>${alarm_message}</arg>
-<arg>ALARM NAME :The feeder fiber is broken or OLT can not receive any expected</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:52:18.354211" elapsed="0.001269"/>
-</kw>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:18.355793" level="TRACE">Arguments: [ '${info}' | 'PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6' ]</msg>
-<msg time="2025-05-28T10:52:18.356518" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
-<msg time="2025-05-28T10:52:18.356562" level="TRACE">Return: None</msg>
-<arg>${info}</arg>
-<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:52:18.355715" elapsed="0.000888"/>
-</kw>
-<msg time="2025-05-28T10:52:18.356667" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:18.353233" elapsed="0.003470"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-05-28T10:52:18.356986" level="TRACE">Arguments: [ '' | 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected' ]</msg>
-<msg time="2025-05-28T10:52:18.357170" level="FAIL">'' does not contain 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected'</msg>
-<msg time="2025-05-28T10:52:18.357256" level="DEBUG">Traceback (most recent call last):
-  None
-AssertionError: '' does not contain 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected'</msg>
-<arg>${log}</arg>
-<arg>${alarm_message}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-05-28T10:52:18.356821" elapsed="0.000466">'' does not contain 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected'</status>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${log}</arg>
-<arg>${info}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-05-28T10:52:18.357433" elapsed="0.000025"/>
-</kw>
-<status status="FAIL" start="2025-05-28T10:52:18.349725" elapsed="0.007881">'' does not contain 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected'</status>
-</kw>
-<kw name="Check The Alarm Active Message">
-<msg time="2025-05-28T10:52:28.359353" level="TRACE">Arguments: [  ]</msg>
-<kw name="Read" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:28.360087" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:52:28.360414" level="TRACE">recv b'\r\n! FAULT MAJOR 2023-12-08 02:56:23+08:00\r\n  ALARM'</msg>
-<msg time="2025-05-28T10:52:28.360688" level="TRACE">recv b' NAME :The feeder fiber is broken or OLT can not r'</msg>
-<msg time="2025-05-28T10:52:28.360911" level="TRACE">recv b'eceive any expected \r\noptical signals(LOS)\r\n  PARA'</msg>
-<msg time="2025-05-28T10:52:28.361125" level="TRACE">recv b'METERS :FrameID: 0, SlotID: 2, PortID: 6,The numbe'</msg>
-<msg time="2025-05-28T10:52:28.361337" level="TRACE">recv b'r of affected ONTs: 1, \r\nThe number of DGi ONTs: 0'</msg>
-<msg time="2025-05-28T10:52:28.361609" level="TRACE">recv b'\r\n\r\nMA5800-X7(diagnose)%%'</msg>
-<msg time="2025-05-28T10:52:28.361782" level="INFO">! FAULT MAJOR 2023-12-08 02:56:23+08:00
-  ALARM NAME :The feeder fiber is broken or OLT can not receive any expected 
-optical signals(LOS)
-  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6,The number of affected ONTs: 1, 
-The number of DGi ONTs: 0
+<kw name="Verify Onu Version">
+<msg time="2025-05-28T13:52:55.055857" level="TRACE">Arguments: [  ]</msg>
+<kw name="Get Onu Version Via Omci">
+<msg time="2025-05-28T13:52:55.056245" level="TRACE">Arguments: [  ]</msg>
+<kw name="Get Onu Version" owner="CustomKeywords">
+<msg time="2025-05-28T13:52:55.056561" level="TRACE">Arguments: [ 6 | '7' ]</msg>
+<msg time="2025-05-28T13:52:55.056689" level="TRACE">send b'display ont version 6 7\r\n'</msg>
+<msg time="2025-05-28T13:52:55.060540" level="TRACE">recv b'display'</msg>
+<msg time="2025-05-28T13:52:55.078907" level="TRACE">recv b' '</msg>
+<msg time="2025-05-28T13:52:55.083133" level="TRACE">recv b'ont'</msg>
+<msg time="2025-05-28T13:52:55.114694" level="TRACE">recv b' '</msg>
+<msg time="2025-05-28T13:52:55.115691" level="TRACE">recv b'version'</msg>
+<msg time="2025-05-28T13:52:55.134062" level="TRACE">recv b' 6'</msg>
+<msg time="2025-05-28T13:52:55.155495" level="TRACE">recv b' 7'</msg>
+<msg time="2025-05-28T13:52:55.179937" level="TRACE">recv b' \r\n'</msg>
+<msg time="2025-05-28T13:52:55.180162" level="INFO">display ont version 6 7</msg>
+<msg time="2025-05-28T13:52:55.265063" level="TRACE">recv b'  ------------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:55.265422" level="TRACE">recv b'-------------------------- \r\n  F/S/P              '</msg>
+<msg time="2025-05-28T13:52:55.265702" level="TRACE">recv b'      : 0/2/6 \r\n  ONT-ID                   : 7 \r\n '</msg>
+<msg time="2025-05-28T13:52:55.265911" level="TRACE">recv b' Vendor-ID                : KAON \r\n  ONT Version  '</msg>
+<msg time="2025-05-28T13:52:55.266111" level="TRACE">recv b'            : V1.0 \r\n  Product-ID               : '</msg>
+<msg time="2025-05-28T13:52:55.266357" level="TRACE">recv b'0 \r\n  Equipment-ID             : PM1191 \r\n  Main S'</msg>
+<msg time="2025-05-28T13:52:55.266559" level="TRACE">recv b'oftware Version    : 2.0.30_eng \r\n  Standby Softwa'</msg>
+<msg time="2025-05-28T13:52:55.266755" level="TRACE">recv b're Version : 2.0.30_eng \r\n  OntProductDescription '</msg>
+<msg time="2025-05-28T13:52:55.266975" level="TRACE">recv b'   :  \r\n  Support XML Version      :  \r\n  Ont MAC '</msg>
+<msg time="2025-05-28T13:52:55.267175" level="TRACE">recv b'                 : - \r\n  Ont Equipment SN         '</msg>
+<msg time="2025-05-28T13:52:55.267370" level="TRACE">recv b': - \r\n  ------------------------------------------'</msg>
+<msg time="2025-05-28T13:52:55.267562" level="TRACE">recv b'-------------------------------- \r\n\r\nMA5800-X7(con'</msg>
+<msg time="2025-05-28T13:52:55.267806" level="TRACE">recv b'fig-if-gpon-0/2)#'</msg>
+<msg time="2025-05-28T13:52:55.267956" level="INFO">-------------------------------------------------------------------------- 
+  F/S/P                    : 0/2/6 
+  ONT-ID                   : 7 
+  Vendor-ID                : KAON 
+  ONT Version              : V1.0 
+  Product-ID               : 0 
+  Equipment-ID             : PM1191 
+  Main Software Version    : 2.0.30_eng 
+  Standby Software Version : 2.0.30_eng 
+  OntProductDescription    :  
+  Support XML Version      :  
+  Ont MAC                  : - 
+  Ont Equipment SN         : - 
+  -------------------------------------------------------------------------- 
 
-MA5800-X7(diagnose)%%</msg>
-<msg time="2025-05-28T10:52:28.361921" level="TRACE">Return: '\r\n! FAULT MAJOR 2023-12-08 02:56:23+08:00\r\n  ALARM NAME :The feeder fiber is broken or OLT can not receive any expected \r\noptical signals(LOS)\r\n  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6,The number of affected ONTs: 1, \r\nThe number of DGi ONTs: 0\r\n\r\nMA5800-X7(diagnose)%%'</msg>
-<msg time="2025-05-28T10:52:28.362217" level="INFO">${log} = 
-! FAULT MAJOR 2023-12-08 02:56:23+08:00
-  ALARM NAME :The feeder fiber is broken or OLT can not receive any expected 
-optical signals(LOS)
-  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6,The numbe...</msg>
-<var>${log}</var>
-<doc>Reads everything that is currently available in the output.</doc>
-<status status="PASS" start="2025-05-28T10:52:28.359864" elapsed="0.002441"/>
+MA5800-X7(config-if-gpon-0/2)#</msg>
+<msg time="2025-05-28T13:52:55.268119" level="TRACE">Return: '  -------------------------------------------------------------------------- \r\n  F/S/P                    : 0/2/6 \r\n  ONT-ID                   : 7 \r\n  Vendor-ID                : KAON \r\n  ONT Version              : V1.0 \r\n  Product-ID               : 0 \r\n  Equipment-ID             : PM1191 \r\n  Main Software Version    : 2.0.30_eng \r\n  Standby Software Version : 2.0.30_eng \r\n  OntProductDescription    :  \r\n  Support XML Version      :  \r\n  Ont MAC                  : - \r\n  Ont Equipment SN         : - \r\n  -------------------------------------------------------------------------- \r\n\r\nMA5800-X7(config-if-gpon-0/2)#'</msg>
+<msg time="2025-05-28T13:52:55.268486" level="INFO">${version_onu} =   -------------------------------------------------------------------------- 
+  F/S/P                    : 0/2/6 
+  ONT-ID                   : 7 
+  Vendor-ID                : KAON 
+  ONT Version  ...</msg>
+<var>${version_onu}</var>
+<arg>${OLT_PON_INDEX}</arg>
+<arg>${onu_id}</arg>
+<status status="PASS" start="2025-05-28T13:52:55.056402" elapsed="0.212177"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<msg time="2025-05-28T10:52:28.363136" level="TRACE">Arguments: [ '\r\n! FAULT MAJOR 2023-12-08 02:56:23+08:00\r\n  ALARM NAME :The feeder fiber is broken or OLT can not receive any expected \r\noptical signals(LOS)\r\n  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6,The number of affected ONTs: 1, \r\nThe number of DGi ONTs: 0\r\n\r\nMA5800-X7(diagnose)%%' ]</msg>
-<msg time="2025-05-28T10:52:28.363491" level="TRACE">Return: None</msg>
-<arg>${log}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-05-28T10:52:28.362737" elapsed="0.000883"/>
+<kw name="Parse Table" owner="CustomKeywords">
+<msg time="2025-05-28T13:52:55.269581" level="TRACE">Arguments: [ '  -------------------------------------------------------------------------- \r\n  F/S/P                    : 0/2/6 \r\n  ONT-ID                   : 7 \r\n  Vendor-ID                : KAON \r\n  ONT Version              : V1.0 \r\n  Product-ID               : 0 \r\n  Equipment-ID             : PM1191 \r\n  Main Software Version    : 2.0.30_eng \r\n  Standby Software Version : 2.0.30_eng \r\n  OntProductDescription    :  \r\n  Support XML Version      :  \r\n  Ont MAC                  : - \r\n  Ont Equipment SN         : - \r\n  -------------------------------------------------------------------------- \r\n\r\nMA5800-X7(config-if-gpon-0/2)#' | '/home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_version.template' ]</msg>
+<msg time="2025-05-28T13:52:55.271837" level="TRACE">Return:     PORT ONU_ID   MODEL   ACTIVE_OS  STANDBY_OS
+0  0/2/6      7  PM1191  2.0.30_eng  2.0.30_eng</msg>
+<msg time="2025-05-28T13:52:55.283310" level="INFO">${onu_ver_table} =     PORT ONU_ID   MODEL   ACTIVE_OS  STANDBY_OS
+0  0/2/6      7  PM1191  2.0.30_eng  2.0.30_eng</msg>
+<var>${onu_ver_table}</var>
+<arg>${version_onu}</arg>
+<arg>/home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_version.template</arg>
+<doc>Keyword: Parse Table
+Use TextFSM to parse the raw_string into a DataFrame.
+Arguments:
+  - raw_string: output string need to be parsed.
+  - template_path: path to file TextFSM template. File extension: *.template</doc>
+<status status="PASS" start="2025-05-28T13:52:55.269108" elapsed="0.014267"/>
 </kw>
-<kw name="Create Alarm Message Verify O7 Active">
-<msg time="2025-05-28T10:52:28.364612" level="TRACE">Arguments: [  ]</msg>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:28.364861" level="TRACE">Arguments: [ '${alarm_message}' | 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected' ]</msg>
-<msg time="2025-05-28T10:52:28.365090" level="INFO">${alarm_message} = ALARM NAME :The feeder fiber is broken or OLT can not receive any expected</msg>
-<msg time="2025-05-28T10:52:28.365130" level="TRACE">Return: None</msg>
-<arg>${alarm_message}</arg>
-<arg>ALARM NAME :The feeder fiber is broken or OLT can not receive any expected</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:52:28.364794" elapsed="0.000374"/>
+<return>
+<value>${onu_ver_table}</value>
+<status status="PASS" start="2025-05-28T13:52:55.283501" elapsed="0.000083"/>
+</return>
+<msg time="2025-05-28T13:52:55.283750" level="TRACE">Return:     PORT ONU_ID   MODEL   ACTIVE_OS  STANDBY_OS
+0  0/2/6      7  PM1191  2.0.30_eng  2.0.30_eng</msg>
+<msg time="2025-05-28T13:52:55.293012" level="INFO">${onu_ver_omci} =     PORT ONU_ID   MODEL   ACTIVE_OS  STANDBY_OS
+0  0/2/6      7  PM1191  2.0.30_eng  2.0.30_eng</msg>
+<var>${onu_ver_omci}</var>
+<status status="PASS" start="2025-05-28T13:52:55.056080" elapsed="0.236992"/>
 </kw>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:28.365599" level="TRACE">Arguments: [ '${info}' | 'PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6' ]</msg>
-<msg time="2025-05-28T10:52:28.365828" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
-<msg time="2025-05-28T10:52:28.365867" level="TRACE">Return: None</msg>
-<arg>${info}</arg>
-<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:52:28.365318" elapsed="0.000588"/>
-</kw>
-<msg time="2025-05-28T10:52:28.365977" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:28.364158" elapsed="0.001854"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-05-28T10:52:28.366309" level="TRACE">Arguments: [ '\r\n! FAULT MAJOR 2023-12-08 02:56:23+08:00\r\n  ALARM NAME :The feeder fiber is broken or OLT can not receive any expected \r\noptical signals(LOS)\r\n  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6,The number of affected ONTs: 1, \r\nThe number of DGi ONTs: 0\r\n\r\nMA5800-X7(diagnose)%%' | 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected' ]</msg>
-<msg time="2025-05-28T10:52:28.366406" level="TRACE">Return: None</msg>
-<arg>${log}</arg>
-<arg>${alarm_message}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-05-28T10:52:28.366139" elapsed="0.000305"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-05-28T10:52:28.366723" level="TRACE">Arguments: [ '\r\n! FAULT MAJOR 2023-12-08 02:56:23+08:00\r\n  ALARM NAME :The feeder fiber is broken or OLT can not receive any expected \r\noptical signals(LOS)\r\n  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6,The number of affected ONTs: 1, \r\nThe number of DGi ONTs: 0\r\n\r\nMA5800-X7(diagnose)%%' | 'PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6' ]</msg>
-<msg time="2025-05-28T10:52:28.366821" level="TRACE">Return: None</msg>
-<arg>${log}</arg>
-<arg>${info}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-05-28T10:52:28.366575" elapsed="0.000283"/>
-</kw>
-<msg time="2025-05-28T10:52:28.366919" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:28.358602" elapsed="0.008351"/>
-</kw>
-<msg time="2025-05-28T10:52:28.367101" level="TRACE">Return: None</msg>
-<arg>5x</arg>
-<arg>10s</arg>
-<arg>Check The Alarm Active Message</arg>
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-05-28T10:52:18.348509" elapsed="10.018641"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-05-28T10:52:28.367477" level="TRACE">Arguments: [ '15s' ]</msg>
-<msg time="2025-05-28T10:52:43.367935" level="INFO">Slept 15 seconds.</msg>
-<msg time="2025-05-28T10:52:43.368243" level="TRACE">Return: None</msg>
-<arg>15s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-05-28T10:52:28.367377" elapsed="15.001037"/>
+<kw name="Get Onu Version Via Console">
+<msg time="2025-05-28T13:52:55.293645" level="TRACE">Arguments: [  ]</msg>
+<kw name="Connect To Dut" owner="CustomKeywords">
+<msg time="2025-05-28T13:52:55.293939" level="TRACE">Arguments: [ 'Onu0' ]</msg>
+<msg time="2025-05-28T13:52:55.296127" level="FAIL">ConnectionRefusedError: [Errno 111] Connection refused</msg>
+<msg time="2025-05-28T13:52:55.297118" level="DEBUG">Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/robotlibcore.py", line 173, in run_keyword
+    return self.keywords[name](*args, **(kwargs or {}))
+  File "/home/ats/ATS/kqa/library/CustomTelnet.py", line 182, in connect_to_dut
+    self.open_connection(ip, port=port, prompt=None, prompt_is_regexp=False)
+  File "/home/ats/ATS/kqa/library/CustomTelnet.py", line 135, in open_connection
+    super().__init__(host, int(port) if port else 23)
+  File "/usr/lib/python3.8/telnetlib.py", line 218, in __init__
+    self.open(host, port, timeout)
+  File "/usr/lib/python3.8/telnetlib.py", line 235, in open
+    self.sock = socket.create_connection((host, port), timeout)
+  File "/usr/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused</msg>
+<arg>Onu0</arg>
+<doc>Connect to device using topology information.</doc>
+<status status="FAIL" start="2025-05-28T13:52:55.293845" elapsed="0.003342">ConnectionRefusedError: [Errno 111] Connection refused</status>
 </kw>
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:43.369904" level="TRACE">Arguments: [ 'undo anti-rogueont isolate 0/2/6 7' ]</msg>
-<msg time="2025-05-28T10:52:43.370222" level="TRACE">send b'undo anti-rogueont isolate 0/2/6 7\r\n'</msg>
-<msg time="2025-05-28T10:52:43.374513" level="TRACE">recv b'undo'</msg>
-<msg time="2025-05-28T10:52:43.478338" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:52:43.481184" level="TRACE">recv b'anti-rogueont'</msg>
-<msg time="2025-05-28T10:52:43.500721" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:52:43.501418" level="TRACE">recv b'isolate'</msg>
-<msg time="2025-05-28T10:52:43.513905" level="TRACE">recv b' 0/2/6'</msg>
-<msg time="2025-05-28T10:52:43.524988" level="TRACE">recv b' 7'</msg>
-<msg time="2025-05-28T10:52:43.542242" level="TRACE">recv b' \r\n'</msg>
-<msg time="2025-05-28T10:52:43.542452" level="INFO">undo anti-rogueont isolate 0/2/6 7</msg>
-<msg time="2025-05-28T10:52:43.580075" level="TRACE">recv b'\r\nMA5800-X7(diagnose)%%'</msg>
-<msg time="2025-05-28T10:52:43.580329" level="INFO">MA5800-X7(diagnose)%%</msg>
-<msg time="2025-05-28T10:52:43.580488" level="TRACE">Return: '\r\nMA5800-X7(diagnose)%%'</msg>
-<arg>undo anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${onu_id}</arg>
+<var>${actual_rlt}</var>
+<arg>sw_info</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-05-28T10:52:43.369138" elapsed="0.211509"/>
+<status status="NOT RUN" start="2025-05-28T13:52:55.297390" elapsed="0.000049"/>
 </kw>
-<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
-<msg time="2025-05-28T10:52:43.581693" level="TRACE">Arguments: [ '5x' | '10s' | 'Check The Alarm Deactive Message' ]</msg>
-<kw name="Check The Alarm Deactive Message">
-<msg time="2025-05-28T10:52:43.583207" level="TRACE">Arguments: [  ]</msg>
-<kw name="Read" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:43.583871" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:52:43.584180" level="TRACE">Return: ''</msg>
-<msg time="2025-05-28T10:52:43.584434" level="INFO">${log} = </msg>
-<var>${log}</var>
-<doc>Reads everything that is currently available in the output.</doc>
-<status status="PASS" start="2025-05-28T10:52:43.583660" elapsed="0.000857"/>
+<kw name="Parse Table" owner="CustomKeywords">
+<var>${actual_rlt_table}</var>
+<arg>${actual_rlt}</arg>
+<arg>/home/ats/ATS/kqa/library/terminal/dal/template/ont_console_version.template</arg>
+<doc>Keyword: Parse Table
+Use TextFSM to parse the raw_string into a DataFrame.
+Arguments:
+  - raw_string: output string need to be parsed.
+  - template_path: path to file TextFSM template. File extension: *.template</doc>
+<status status="NOT RUN" start="2025-05-28T13:52:55.297582" elapsed="0.000024"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<msg time="2025-05-28T10:52:43.585238" level="TRACE">Arguments: [ '' ]</msg>
-<msg time="2025-05-28T10:52:43.585563" level="TRACE">Return: None</msg>
-<arg>${log}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-05-28T10:52:43.584884" elapsed="0.000810"/>
-</kw>
-<kw name="Create Alarm Message Verify O7 Deactive">
-<msg time="2025-05-28T10:52:43.586780" level="TRACE">Arguments: [  ]</msg>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:43.587382" level="TRACE">Arguments: [ '${alarm_message}' | 'ALARM NAME :OLT can receive expected optical signals from ONTs' ]</msg>
-<msg time="2025-05-28T10:52:43.587977" level="INFO">${alarm_message} = ALARM NAME :OLT can receive expected optical signals from ONTs</msg>
-<msg time="2025-05-28T10:52:43.588089" level="TRACE">Return: None</msg>
-<arg>${alarm_message}</arg>
-<arg>ALARM NAME :OLT can receive expected optical signals from ONTs</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:52:43.587198" elapsed="0.001005"/>
-</kw>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:43.588776" level="TRACE">Arguments: [ '${info}' | 'PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6' ]</msg>
-<msg time="2025-05-28T10:52:43.589307" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
-<msg time="2025-05-28T10:52:43.589412" level="TRACE">Return: None</msg>
-<arg>${info}</arg>
-<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:52:43.588607" elapsed="0.000948"/>
-</kw>
-<msg time="2025-05-28T10:52:43.589731" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:43.586190" elapsed="0.003648"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-05-28T10:52:43.590626" level="TRACE">Arguments: [ '' | 'ALARM NAME :OLT can receive expected optical signals from ONTs' ]</msg>
-<msg time="2025-05-28T10:52:43.591013" level="FAIL">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</msg>
-<msg time="2025-05-28T10:52:43.591189" level="DEBUG">Traceback (most recent call last):
-  None
-AssertionError: '' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</msg>
-<arg>${log}</arg>
-<arg>${alarm_message}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-05-28T10:52:43.590169" elapsed="0.001106">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${log}</arg>
-<arg>${info}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-05-28T10:52:43.591730" elapsed="0.000074"/>
-</kw>
-<status status="FAIL" start="2025-05-28T10:52:43.582569" elapsed="0.009542">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
-</kw>
-<kw name="Check The Alarm Deactive Message">
-<msg time="2025-05-28T10:52:53.594083" level="TRACE">Arguments: [  ]</msg>
-<kw name="Read" owner="CustomKeywords">
-<msg time="2025-05-28T10:52:53.594889" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:52:53.595215" level="TRACE">Return: ''</msg>
-<msg time="2025-05-28T10:52:53.595477" level="INFO">${log} = </msg>
-<var>${log}</var>
-<doc>Reads everything that is currently available in the output.</doc>
-<status status="PASS" start="2025-05-28T10:52:53.594646" elapsed="0.000915"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<msg time="2025-05-28T10:52:53.596296" level="TRACE">Arguments: [ '' ]</msg>
-<msg time="2025-05-28T10:52:53.596623" level="TRACE">Return: None</msg>
-<arg>${log}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-05-28T10:52:53.595942" elapsed="0.000836"/>
-</kw>
-<kw name="Create Alarm Message Verify O7 Deactive">
-<msg time="2025-05-28T10:52:53.597926" level="TRACE">Arguments: [  ]</msg>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:53.598549" level="TRACE">Arguments: [ '${alarm_message}' | 'ALARM NAME :OLT can receive expected optical signals from ONTs' ]</msg>
-<msg time="2025-05-28T10:52:53.599155" level="INFO">${alarm_message} = ALARM NAME :OLT can receive expected optical signals from ONTs</msg>
-<msg time="2025-05-28T10:52:53.599269" level="TRACE">Return: None</msg>
-<arg>${alarm_message}</arg>
-<arg>ALARM NAME :OLT can receive expected optical signals from ONTs</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:52:53.598358" elapsed="0.001026"/>
-</kw>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:52:53.599950" level="TRACE">Arguments: [ '${info}' | 'PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6' ]</msg>
-<msg time="2025-05-28T10:52:53.600476" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
-<msg time="2025-05-28T10:52:53.600581" level="TRACE">Return: None</msg>
-<arg>${info}</arg>
-<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:52:53.599785" elapsed="0.001121"/>
-</kw>
-<msg time="2025-05-28T10:52:53.601193" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:52:53.597288" elapsed="0.004081"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-05-28T10:52:53.602283" level="TRACE">Arguments: [ '' | 'ALARM NAME :OLT can receive expected optical signals from ONTs' ]</msg>
-<msg time="2025-05-28T10:52:53.602796" level="FAIL">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</msg>
-<msg time="2025-05-28T10:52:53.602990" level="DEBUG">Traceback (most recent call last):
-  None
-AssertionError: '' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</msg>
-<arg>${log}</arg>
-<arg>${alarm_message}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-05-28T10:52:53.601765" elapsed="0.001314">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${log}</arg>
-<arg>${info}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-05-28T10:52:53.603516" elapsed="0.000077"/>
-</kw>
-<status status="FAIL" start="2025-05-28T10:52:53.593184" elapsed="0.010761">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
-</kw>
-<kw name="Check The Alarm Deactive Message">
-<msg time="2025-05-28T10:53:03.605009" level="TRACE">Arguments: [  ]</msg>
-<kw name="Read" owner="CustomKeywords">
-<msg time="2025-05-28T10:53:03.605429" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:53:03.605624" level="TRACE">recv b'\r\n! RECOVERY CLEARED 2023-12-08 02:57:04+08:00\r\n  '</msg>
-<msg time="2025-05-28T10:53:03.605716" level="TRACE">recv b'ALARM NAME :OLT can receive expected optical signa'</msg>
-<msg time="2025-05-28T10:53:03.605790" level="TRACE">recv b'ls from ONTs(LOS recovers)\r\n  PARAMETERS :FrameID:'</msg>
-<msg time="2025-05-28T10:53:03.605862" level="TRACE">recv b' 0, SlotID: 2, PortID: 6\r\n\r\nMA5800-X7(diagnose)%%'</msg>
-<msg time="2025-05-28T10:53:03.605937" level="INFO">! RECOVERY CLEARED 2023-12-08 02:57:04+08:00
-  ALARM NAME :OLT can receive expected optical signals from ONTs(LOS recovers)
-  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6
-
-MA5800-X7(diagnose)%%</msg>
-<msg time="2025-05-28T10:53:03.605992" level="TRACE">Return: '\r\n! RECOVERY CLEARED 2023-12-08 02:57:04+08:00\r\n  ALARM NAME :OLT can receive expected optical signals from ONTs(LOS recovers)\r\n  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6\r\n\r\nMA5800-X7(diagnose)%%'</msg>
-<msg time="2025-05-28T10:53:03.606112" level="INFO">${log} = 
-! RECOVERY CLEARED 2023-12-08 02:57:04+08:00
-  ALARM NAME :OLT can receive expected optical signals from ONTs(LOS recovers)
-  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6
-
-MA5800-X7(diagnose)%%</msg>
-<var>${log}</var>
-<doc>Reads everything that is currently available in the output.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.605324" elapsed="0.000818"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<msg time="2025-05-28T10:53:03.606489" level="TRACE">Arguments: [ '\r\n! RECOVERY CLEARED 2023-12-08 02:57:04+08:00\r\n  ALARM NAME :OLT can receive expected optical signals from ONTs(LOS recovers)\r\n  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6\r\n\r\nMA5800-X7(diagnose)%%' ]</msg>
-<msg time="2025-05-28T10:53:03.606660" level="TRACE">Return: None</msg>
-<arg>${log}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.606318" elapsed="0.000392"/>
-</kw>
-<kw name="Create Alarm Message Verify O7 Deactive">
-<msg time="2025-05-28T10:53:03.607152" level="TRACE">Arguments: [  ]</msg>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:53:03.607387" level="TRACE">Arguments: [ '${alarm_message}' | 'ALARM NAME :OLT can receive expected optical signals from ONTs' ]</msg>
-<msg time="2025-05-28T10:53:03.607867" level="INFO">${alarm_message} = ALARM NAME :OLT can receive expected optical signals from ONTs</msg>
-<msg time="2025-05-28T10:53:03.607916" level="TRACE">Return: None</msg>
-<arg>${alarm_message}</arg>
-<arg>ALARM NAME :OLT can receive expected optical signals from ONTs</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.607322" elapsed="0.000637"/>
-</kw>
-<kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-05-28T10:53:03.608182" level="TRACE">Arguments: [ '${info}' | 'PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6' ]</msg>
-<msg time="2025-05-28T10:53:03.608377" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
-<msg time="2025-05-28T10:53:03.608414" level="TRACE">Return: None</msg>
-<arg>${info}</arg>
-<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.608109" elapsed="0.000342"/>
-</kw>
-<msg time="2025-05-28T10:53:03.608516" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:53:03.606922" elapsed="0.001628"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-05-28T10:53:03.608829" level="TRACE">Arguments: [ '\r\n! RECOVERY CLEARED 2023-12-08 02:57:04+08:00\r\n  ALARM NAME :OLT can receive expected optical signals from ONTs(LOS recovers)\r\n  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6\r\n\r\nMA5800-X7(diagnose)%%' | 'ALARM NAME :OLT can receive expected optical signals from ONTs' ]</msg>
-<msg time="2025-05-28T10:53:03.608922" level="TRACE">Return: None</msg>
-<arg>${log}</arg>
-<arg>${alarm_message}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.608669" elapsed="0.000291"/>
-</kw>
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-05-28T10:53:03.609234" level="TRACE">Arguments: [ '\r\n! RECOVERY CLEARED 2023-12-08 02:57:04+08:00\r\n  ALARM NAME :OLT can receive expected optical signals from ONTs(LOS recovers)\r\n  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6\r\n\r\nMA5800-X7(diagnose)%%' | 'PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6' ]</msg>
-<msg time="2025-05-28T10:53:03.609320" level="TRACE">Return: None</msg>
-<arg>${log}</arg>
-<arg>${info}</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.609088" elapsed="0.000304"/>
-</kw>
-<msg time="2025-05-28T10:53:03.609459" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:53:03.604616" elapsed="0.004889"/>
-</kw>
-<msg time="2025-05-28T10:53:03.609542" level="TRACE">Return: None</msg>
-<arg>5x</arg>
-<arg>10s</arg>
-<arg>Check The Alarm Deactive Message</arg>
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<status status="PASS" start="2025-05-28T10:52:43.581386" elapsed="20.028189"/>
-</kw>
-<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
-<msg time="2025-05-28T10:53:03.609998" level="TRACE">Arguments: [ 'Send Command' | 'undo anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${onu_id}' | 'AND' | 'Close Connection' ]</msg>
-<kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-05-28T10:53:03.610406" level="TRACE">Arguments: [ 'undo anti-rogueont isolate 0/2/6 7' ]</msg>
-<msg time="2025-05-28T10:53:03.610509" level="TRACE">send b'undo anti-rogueont isolate 0/2/6 7\r\n'</msg>
-<msg time="2025-05-28T10:53:03.614278" level="TRACE">recv b'undo'</msg>
-<msg time="2025-05-28T10:53:03.720052" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:53:03.721994" level="TRACE">recv b'anti-rogueont'</msg>
-<msg time="2025-05-28T10:53:03.742682" level="TRACE">recv b' isolate'</msg>
-<msg time="2025-05-28T10:53:03.752763" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:53:03.753643" level="TRACE">recv b'0/2/6'</msg>
-<msg time="2025-05-28T10:53:03.764969" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:53:03.765825" level="TRACE">recv b'7'</msg>
-<msg time="2025-05-28T10:53:03.782265" level="TRACE">recv b' '</msg>
-<msg time="2025-05-28T10:53:03.783291" level="TRACE">recv b'\r\n'</msg>
-<msg time="2025-05-28T10:53:03.783491" level="INFO">undo anti-rogueont isolate 0/2/6 7</msg>
-<msg time="2025-05-28T10:53:03.816978" level="TRACE">recv b'\r\nMA5800-X7(diagnose)%%'</msg>
-<msg time="2025-05-28T10:53:03.817219" level="INFO">MA5800-X7(diagnose)%%</msg>
-<msg time="2025-05-28T10:53:03.817407" level="TRACE">Return: '\r\nMA5800-X7(diagnose)%%'</msg>
-<arg>undo anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${onu_id}</arg>
-<doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.610207" elapsed="0.207401"/>
-</kw>
-<kw name="Close Connection" owner="CustomKeywords">
-<msg time="2025-05-28T10:53:03.818446" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:53:03.818789" level="TRACE">Return: ''</msg>
+<return>
+<value>${actual_rlt_table}</value>
+<status status="NOT RUN" start="2025-05-28T13:52:55.297667" elapsed="0.000024"/>
+</return>
+<kw name="Close Connection" owner="CustomKeywords" type="TEARDOWN">
+<msg time="2025-05-28T13:52:55.298024" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:55.298124" level="TRACE">Return: ''</msg>
 <doc>Closes the current Telnet connection.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.818183" elapsed="0.000756"/>
+<status status="PASS" start="2025-05-28T13:52:55.297929" elapsed="0.000242"/>
 </kw>
-<msg time="2025-05-28T10:53:03.819074" level="TRACE">Return: None</msg>
-<arg>Send Command</arg>
-<arg>undo anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${onu_id}</arg>
-<arg>AND</arg>
-<arg>Close Connection</arg>
-<doc>Executes all the given keywords in a sequence.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.609916" elapsed="0.209268"/>
+<var>${onu_ver_cs}</var>
+<status status="FAIL" start="2025-05-28T13:52:55.293394" elapsed="0.004876">ConnectionRefusedError: [Errno 111] Connection refused</status>
 </kw>
-<status status="PASS" start="2025-05-28T10:52:12.511867" elapsed="51.307617"/>
+<kw name="Verify Table" owner="CustomKeywords">
+<var>${result}</var>
+<arg>${onu_ver_cs}</arg>
+<arg>${onu_ver_omci}</arg>
+<doc>Keyword: Verify Table
+Compare two tables (expected_result and actual_result) based on the specified mode.
+Input can be a string or a DataFrame.
+- If whitelist: all rows in the expected_result must appear in the actual_result.
+- If blacklist: no rows in the expected_result should appear in the actual_result.</doc>
+<status status="NOT RUN" start="2025-05-28T13:52:55.298417" elapsed="0.000025"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${result}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-05-28T13:52:55.298565" elapsed="0.000021"/>
+</kw>
+<status status="FAIL" start="2025-05-28T13:52:55.055626" elapsed="0.243057">ConnectionRefusedError: [Errno 111] Connection refused</status>
+</kw>
+<status status="FAIL" start="2025-05-28T13:52:51.336013" elapsed="3.962938">ConnectionRefusedError: [Errno 111] Connection refused</status>
 </test>
 <kw name="Teardown Common" owner="keyword" type="TEARDOWN">
-<msg time="2025-05-28T10:53:03.821821" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:55.299796" level="TRACE">Arguments: [  ]</msg>
 <kw name="Close All Connections" owner="CustomKeywords">
-<msg time="2025-05-28T10:53:03.822553" level="TRACE">Arguments: [  ]</msg>
-<msg time="2025-05-28T10:53:03.822786" level="TRACE">Return: None</msg>
+<msg time="2025-05-28T13:52:55.300102" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-05-28T13:52:55.300197" level="TRACE">Return: None</msg>
 <doc>Closes all open connections and empties the connection cache.</doc>
-<status status="PASS" start="2025-05-28T10:53:03.822366" elapsed="0.000553"/>
+<status status="PASS" start="2025-05-28T13:52:55.300023" elapsed="0.000221"/>
 </kw>
-<msg time="2025-05-28T10:53:03.823075" level="TRACE">Return: None</msg>
-<status status="PASS" start="2025-05-28T10:53:03.821445" elapsed="0.001741"/>
+<msg time="2025-05-28T13:52:55.300302" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-05-28T13:52:55.299663" elapsed="0.000676"/>
 </kw>
-<status status="PASS" start="2025-05-28T10:52:12.151437" elapsed="51.671841"/>
+<status status="FAIL" start="2025-05-28T13:52:50.968954" elapsed="4.331416"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="KONT-BR-GP-2 1 3" id="s1" pass="1" fail="0" skip="0">KONT-BR-GP-2 1 3</stat>
+<stat name="KONT-BR-GP-2 3 1" id="s1" pass="0" fail="1" skip="0">KONT-BR-GP-2 3 1</stat>
 </suite>
 </statistics>
 <errors>

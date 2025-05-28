@@ -1,0 +1,32 @@
+Value PORT (\d+/\d+/\d+)
+Value ONU_ID (\d+)
+Value MODEL (\S+)
+Value ACTIVE_OS (\S+)
+Value STANDBY_OS (\S+)
+
+Start
+  ^\s*F/S/P\s+:\s+${PORT}
+  ^\s*ONT-ID\s+:\s+${ONU_ID}
+  ^\s*Equipment-ID\s+:\s+${MODEL}
+  ^\s*Main Software Version\s+:\s+${ACTIVE_OS}
+  ^\s*Standby Software Version\s+:\s+${STANDBY_OS} -> Record
+
+#MA5800-X7(config-if-gpon-0/2)#display ont version 6 5
+#{ <cr>||<K> }:
+#
+#  Command:
+#          display ont version 6 5
+#  --------------------------------------------------------------------------
+#  F/S/P                    : 0/2/6
+#  ONT-ID                   : 5
+#  Vendor-ID                : KAON
+#  ONT Version              : V1.0
+#  Product-ID               : 0
+#  Equipment-ID             : PM1191
+#  Main Software Version    : 2.0.30_eng
+#  Standby Software Version : 2.0.29_eng
+#  OntProductDescription    :
+#  Support XML Version      :
+#  Ont MAC                  : -
+#  Ont Equipment SN         : -
+#  --------------------------------------------------------------------------
