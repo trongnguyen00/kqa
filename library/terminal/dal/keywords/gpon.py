@@ -63,3 +63,7 @@ class GponKeywords:
     @keyword
     def set_state_onu_uni_up(self, port_id, onu_id, uni_id):
         return self.gpon.set_state_onu_uni(port_id, onu_id, uni_id, "on")
+    
+    @keyword
+    def get_onu_iphost_info(self, port_id, onu_id):
+        return self.gpon.get_onu_iphost_info(port_id, onu_id)

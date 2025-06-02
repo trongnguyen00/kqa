@@ -8,7 +8,7 @@ Suite Teardown    Teardown Common
 
 
 *** Test Cases ***
-Ont Optical Verification
+Manage Onu Lan Via Omci
     [Teardown]                Set State Onu Uni Up    ${OLT_PON_INDEX}    ${ONU_ID}           ${ONU_UNI_ALIAS}
     Connect To Huawei
     Access Config Mode

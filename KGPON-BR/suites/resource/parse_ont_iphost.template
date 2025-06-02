@@ -1,0 +1,24 @@
+Value HOST_INDEX (\d+)
+Value CONFIG_TYPE ([\w\s]+)
+Value IP (\d{1,3}(?:\.\d{1,3}){3}|-)
+Value MASK (\d{1,3}(?:\.\d{1,3}){3}|-)
+Value GATEWAY (\d{1,3}(?:\.\d{1,3}){3}|-)
+Value DNS1 (\d{1,3}(?:\.\d{1,3}){3}|-)
+Value DNS2 (\d{1,3}(?:\.\d{1,3}){3}|-)
+Value MAC ([\dA-Fa-f:-]+|-)
+Value VLAN (\d+|-)
+Value PRIORITY (\d+|-)
+Value DSCP_INDEX (\d+|-)
+
+Start
+  ^\s*ONT IP host index\s+:\s+${HOST_INDEX}
+  ^\s*ONT config type\s+:\s+${CONFIG_TYPE}
+  ^\s*ONT IP\s+:\s+${IP}
+  ^\s*ONT subnet mask\s+:\s+${MASK}
+  ^\s*ONT gateway\s+:\s+${GATEWAY}
+  ^\s*ONT primary DNS\s+:\s+${DNS1}
+  ^\s*ONT slave DNS\s+:\s+${DNS2}
+  ^\s*ONT MAC\s+:\s+${MAC}
+  ^\s*ONT manage VLAN\s+:\s+${VLAN}
+  ^\s*ONT manage priority\s+:\s+${PRIORITY}
+  ^\s*Dscp mapping table index\s+:\s+${DSCP_INDEX} -> Record
