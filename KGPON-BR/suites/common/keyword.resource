@@ -38,6 +38,9 @@ Make Suite Variables
     Set Suite Variable    ${OLT_PON_ALIAS}       ${OLT_LINK['pon'][0]['alias']}
     Set Suite Variable    ${OLT_PON_NAME}        ${OLT_LINK['pon'][0]['name']}
     Set Suite Variable    ${OLT_PON_INDEX}       ${OLT_LINK['pon'][0]['index']}
+    ${ONU_LINK}           Get Connection Info    Onu0
+    Set Suite Variable    ${ONU_UNI_ALIAS}       ${ONU_LINK['ethernet'][0]['alias']}
+    Set Suite Variable    ${ONU_UNI_NAME}        ${ONU_LINK['ethernet'][0]['name']}
 
 Get Onu Id
     ${ONU_ID}            Get Onuid From Serial    ${OLT_PON_INDEX}    ${ONU_SN}

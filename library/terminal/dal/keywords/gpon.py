@@ -51,4 +51,15 @@ class GponKeywords:
     @keyword
     def get_onu_optical_info(self, port_id, onu_id):
         return self.gpon.get_onu_optical_info(port_id, onu_id)
+
+    @keyword
+    def get_onu_uni_info(self, port_id, onu_id, uni_id="all"):
+        return self.gpon.get_onu_uni_info(port_id, onu_id, uni_id)
     
+    @keyword
+    def set_state_onu_uni_down(self, port_id, onu_id, uni_id):
+        return self.gpon.set_state_onu_uni(port_id, onu_id, uni_id, "off")
+    
+    @keyword
+    def set_state_onu_uni_up(self, port_id, onu_id, uni_id):
+        return self.gpon.set_state_onu_uni(port_id, onu_id, uni_id, "on")

@@ -1,0 +1,13 @@
+Value ONT_ID (\d+)
+Value PORT_ID (\d+)
+Value PORT_TYPE (\S+)
+Value SPEED (\d+|-)
+Value DUPLEX (\S+|-)
+Value LINK_STATE (\S+)
+Value RING_STATUS (\S+|-)
+
+Start
+  ^\s*ONT-ID\s+ONT\s+ONT\s+Speed\(Mbps\)\s+Duplex\s+LinkState\s+RingStatus
+  ^\s*port-ID\s+Port-type
+  ^-+
+  ^\s*${ONT_ID}\s+${PORT_ID}\s+${PORT_TYPE}\s+${SPEED}\s+${DUPLEX}\s+${LINK_STATE}\s+${RING_STATUS} -> Record

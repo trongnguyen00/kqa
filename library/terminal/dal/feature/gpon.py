@@ -48,3 +48,11 @@ class GponHuawei1(GponBase):
     def get_onu_optical_info(self, port_id, onu_id):
         command = f"display ont optical-info {port_id} {onu_id}"
         return self.telnet.send_command(command)
+    
+    def get_onu_uni_info(self, port_id, onu_id, uni_id):
+        command = f"display ont port state {port_id} {onu_id} eth-port {uni_id}"
+        return self.telnet.send_command(command)
+
+    def set_state_onu_uni(self, port_id, onu_id, uni_id, state):
+        command = f"ont port attribute {port_id} {onu_id} eth {uni_id} operational-state {state}"
+        return self.telnet.send_command(command)

@@ -77,9 +77,6 @@ topology:
       - name: eth1
         alias: 1
         link: onu0-ixia-1
-      - name: eth2
-        alias: 2
-        link: onu0-ixia-2
 
   IXIA:
     ethernet:
@@ -89,6 +86,3 @@ topology:
       - name: 203/3
         alias: 203/3
         link: onu0-ixia-1
-      - name: 203/4
-        alias: 203/4
-        link: onu0-ixia-2
