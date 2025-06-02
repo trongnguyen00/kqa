@@ -158,3 +158,29 @@ class TableVerificationLibrary:
     #             if match_found:
     #                 return False
     #         return True
+
+    @keyword
+    def get_value_by_column(self, df, column_name, index_row=0):
+        """
+        Keyword: Get Cell Value by Column
+        """
+        try:
+            return str(df.loc[index_row, column_name])
+        except Exception as e:
+            raise ValueError(f"Cannot get value at column '{column_name}': {e}")
+
+    @keyword
+    def filter_table(self, df, column_name, target_value):
+        """
+        Keyword: Filter Table by Column
+        Arguments:
+          - df: DataFrame to filter.
+          - column_name: Name of the column to filter by.
+          - target_value: Value to filter the column by.
+        Returns a DataFrame filtered by the specified column and value.
+        """
+        if column_name not in df.columns:
+            raise ValueError(f"Column '{column_name}' does not exist in the DataFrame.")
+        
+        filtered_df = df[df[column_name] == target_value]
+        return filtered_df.reset_index(drop=True)

@@ -40,8 +40,24 @@ Make Suite Variables
     Set Suite Variable    ${OLT_PON_INDEX}       ${OLT_LINK['pon'][0]['index']}
 
 Get Onu Id
-    ${onu_id}            Get Onuid From Serial    ${OLT_PON_INDEX}    ${ONU_SN}
-    Set Test Variable    ${onu_id}
+    ${ONU_ID}            Get Onuid From Serial    ${OLT_PON_INDEX}    ${ONU_SN}
+    Set Test Variable    ${ONU_ID}
+
+Check ONT Activation Status
+    Get Onu Id
+    ${find_onu}              Get Onu Info    ${OLT_PON_INDEX}       ${ONU_ID}
+    ${find_onu_table}        Parse Table     ${find_onu}            /home/ats/ATS/kqa/KGPON-BR/suites/resource/onu_info_hw.template
+    Create Onu Info Table
+    ${result}                Verify Table    ${onu_verify_table}    ${find_onu_table}
+    Should Be True           ${result}
+
+Create Onu Info Table
+    ${onu_info}    Catenate
+    ...            | PORT                                 | SN           | CONTROL_FLAG    | RUN_STATE    | CONFIG_STATE    | MATCH_STATE    | \n
+    ...            | ${OLT_PON_ALIAS}/${OLT_PON_INDEX}    | ${ONU_SN}    | active          | online       | normal          | match          | \n
+
+    ${onu_verify_table}    Create Table           ${onu_info}
+    Set Test Variable      ${onu_verify_table}
 
 Teardown Common
     Close All Connections

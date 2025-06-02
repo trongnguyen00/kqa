@@ -37,3 +37,14 @@ class GponHuawei1(GponBase):
     def get_onu_version(self,port_id, onu_id):
         command = f"display ont version {port_id} {onu_id}"
         return self.telnet.send_command(command)
+
+    def switch_os_onu(self, port_id, onu_id):
+        command = f"ont rollback software {port_id} {onu_id}"
+        self.telnet.write(command)
+        time.sleep(0.5)
+        output = self.read_very_eager().decode(errors="ignore")
+        return output
+
+    def get_onu_optical_info(self, port_id, onu_id):
+        command = f"display ont optical-info {port_id} {onu_id}"
+        return self.telnet.send_command(command)

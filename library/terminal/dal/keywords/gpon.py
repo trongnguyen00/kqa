@@ -40,3 +40,15 @@ class GponKeywords:
     @keyword
     def get_onu_version(self, port_id, onu_id):
         return self.gpon.get_onu_version(port_id, onu_id)
+
+    @keyword
+    def switch_os_onu(self, port_id, onu_id):
+        send_switch_os = self.gpon.switch_os_onu(port_id, onu_id)
+        if "(y/n)" in send_switch_os:
+            self.gpon.telnet.send_command("y")
+            return "Switch OS command sent successfully, please confirm on the device."
+
+    @keyword
+    def get_onu_optical_info(self, port_id, onu_id):
+        return self.gpon.get_onu_optical_info(port_id, onu_id)
+    

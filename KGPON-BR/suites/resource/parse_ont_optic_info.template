@@ -1,0 +1,14 @@
+Value RX_POWER (-?\d+\.\d+)
+Value TX_POWER (-?\d+\.\d+)
+Value BIAS_CURRENT (\d+)
+Value TEMPERATURE (\d+)
+Value VOLTAGE (\d+\.\d+)
+Value OLT_RX_POWER (-?\d+\.\d+)
+
+Start
+  ^\s*Rx optical power\(dBm\)\s+:\s+${RX_POWER}
+  ^\s*Tx optical power\(dBm\)\s+:\s+${TX_POWER}
+  ^\s*Laser bias current\(mA\)\s+:\s+${BIAS_CURRENT}
+  ^\s*Temperature\(C\)\s+:\s+${TEMPERATURE}
+  ^\s*Voltage\(V\)\s+:\s+${VOLTAGE}
+  ^\s*OLT Rx ONT optical power\(dBm\)\s+:\s+${OLT_RX_POWER} -> Record
