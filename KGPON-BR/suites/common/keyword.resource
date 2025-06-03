@@ -62,6 +62,24 @@ Create Onu Info Table
     ${onu_verify_table}    Create Table           ${onu_info}
     Set Test Variable      ${onu_verify_table}
 
+Get Onu Version Via Omci
+    ${version_onu}      Get Onu Version     ${OLT_PON_INDEX}    ${ONU_ID}
+    ${onu_ver_table}    Parse Table         ${version_onu}      /home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_version.template
+    RETURN              ${onu_ver_table}
+
+Get Onu Version Via Console
+    [Teardown]             Close Connection
+    Connect To Dut         Onu0
+    ${actual_rlt}          Send Command           sw_info
+    ${actual_rlt_table}    Parse Table            ${actual_rlt}    /home/ats/ATS/kqa/library/terminal/dal/template/ont_console_version.template
+    RETURN                 ${actual_rlt_table}
+
+Verify Onu Version
+    ${onu_ver_omci}    Get Onu Version Via Omci
+    ${onu_ver_cs}      Get Onu Version Via Console
+    ${result}          Verify Table                   ${onu_ver_cs}    ${onu_ver_omci}
+    Should Be True     ${result}
+
 Teardown Common
     Close All Connections
 

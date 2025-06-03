@@ -39,5 +39,5 @@ Verify Onu Version
 Change Os Onu
     Switch Os Onu                  ${OLT_PON_INDEX}    ${ONU_ID}
     Sleep                          150s
-    Wait Until Keyword Succeeds    5x                  10s          Check ONT Activation Status.
+    Wait Until Keyword Succeeds    5x                  10s          Check ONT Activation Status
     Verify Onu Version
