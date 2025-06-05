@@ -199,7 +199,7 @@ class CustomTelnet(telnetlib.Telnet):
 
         lines = prompt_output.strip().splitlines()
         if not lines:
-            raise AssertionError("Không phát hiện được prompt sau khi gửi ENTER.")
+            raise AssertionError("No prompt detected after sending ENTER.")
 
         exact_prompt = lines[-1].strip()
         self._set_prompt(exact_prompt, prompt_is_regexp=False)
