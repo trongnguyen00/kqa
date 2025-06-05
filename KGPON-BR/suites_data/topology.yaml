@@ -59,9 +59,10 @@ devices:
 topology:
   Olt0:
     ethernet:
-      - name: ethernet 0/20
-        alias: eth0/24
+      - name: mpu 0/8
+        alias: 0/8
         link: olt0-ixia-1
+        index: 3
     pon:
       - name: gpon 0/2
         alias: 0/2

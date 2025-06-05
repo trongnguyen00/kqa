@@ -6,23 +6,35 @@ class GponBase:
     
     def __init__(self):
         self.telnet = BuiltIn().get_library_instance("CustomKeywords").custom_telnet
+        self.device = BuiltIn().get_library_instance("CustomKeywords").topology_loader
+        self.device_info = self.telnet._cache.current.device_info
+        self.topology_link = self.telnet._cache.current.topology_link
+        self.dut = self.device_info['name']
+        
 
 class GponDasan1(GponBase):
     """Implementation of GPON feature for Dasan V5812G"""
-    
-    def get_all_onu_active(self, port_id):
+    def __init__(self):
+        super().__init__()
+        
+    def get_all_onu_active(self, link):
+        port_id = self.device.get_port_index_from_link(self.dut, link)
         command = f"show onu active {port_id}"
         return self.telnet.send_command(command)
     
 
 class GponHuawei1(GponBase):
     """Implementation of GPON feature for MA5800-X7"""
+    def __init__(self):
+        super().__init__()
     
-    def get_all_onu_active(self, port_id):
+    def get_all_onu_active(self, link):
+        port_id = self.device.get_port_index_from_link(self.dut, link)
         command = f"display ont info summary {port_id}"
         return self.telnet.send_command(command)
     
-    def get_onu_info(self, port_id, onu_id):
+    def get_onu_info(self, link, onu_id):
+        port_id = self.device.get_port_index_from_link(self.dut, link)
         command = f"display ont info {port_id} {onu_id}"
         return self.telnet.send_command(command)
     

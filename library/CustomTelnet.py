@@ -164,24 +164,29 @@ class CustomTelnet(telnetlib.Telnet):
 
     @keyword
     def connect_to_dut(self, device_name):
-        """Connect to device using topology information."""
+        """Connect to DUT using topology data from TopologyLoader."""
         topo = BuiltIn().get_library_instance("CustomKeywords").topology_loader
-        device_info = topo.get_device_info(device_name)
-        conn = device_info.get('connections', {})
+        device = topo.get_device(device_name)
+        topology_link = topo.get_topology_links(device_name)
+        conn = device.connections
 
-        ip = conn.get('ip')
-        port = conn.get('port', 23)
-        username = conn.get('username')
-        password = conn.get('password')
-        api = device_info.get('api')
+        ip = conn.get("ip")
+        port = conn.get("port", 23)
+        username = conn.get("username")
+        password = conn.get("password")
+        api = device.api
 
         login_info = self._get_login_prompt_by_api(api)
-        login_prompt = login_info['login_prompt']
-        password_prompt = login_info['password_prompt']
+        login_prompt = login_info["login_prompt"]
+        password_prompt = login_info["password_prompt"]
 
         self.open_connection(ip, port=port, prompt=None, prompt_is_regexp=False)
-        output = self.login(username=username, password=password,
-                          login_prompt=login_prompt, password_prompt=password_prompt)
+        output = self.login(
+            username=username,
+            password=password,
+            login_prompt=login_prompt,
+            password_prompt=password_prompt
+        )
 
         self.write("")
         prompt_output = ""
@@ -199,7 +204,17 @@ class CustomTelnet(telnetlib.Telnet):
         exact_prompt = lines[-1].strip()
         self._set_prompt(exact_prompt, prompt_is_regexp=False)
         output += prompt_output
-        self._cache.current.device_info = device_info
+
+        self._cache.current.device_info = {
+            "name": device.name,
+            "api": device.api,
+            "model": device.model,
+            "connections": device.connections,
+            "custom": device.custom
+        }
+        self._cache.current.topology_link = topology_link
+        # self._cache.current.dut = device_name
+
         return output
 
     @keyword
