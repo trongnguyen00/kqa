@@ -9,17 +9,17 @@ Suite Teardown    Teardown Common
 
 *** Test Cases ***
 Manage Onu Lan Via Omci
-    [Teardown]                Set State Onu Uni Up    ${OLT_PON_INDEX}    ${ONU_ID}           ${ONU_UNI_ALIAS}
+    [Teardown]                Set State Onu Uni Up    olt0-pon0    ${ONU_ID}           ${ONU_UNI_ALIAS}
     Connect To Huawei
     Access Config Mode
     Access Interface Mode
     Get Onu Id
     Verify Onu Uni State      up
-    Set State Onu Uni Down    ${OLT_PON_INDEX}        ${ONU_ID}           ${ONU_UNI_ALIAS}
+    Set State Onu Uni Down    olt0-pon0               ${ONU_ID}    ${ONU_UNI_ALIAS}
     Sleep                     5s
     Verify Onu Uni State      down
     Sleep                     5s
-    Set State Onu Uni Up      ${OLT_PON_INDEX}        ${ONU_ID}           ${ONU_UNI_ALIAS}
+    Set State Onu Uni Up      olt0-pon0               ${ONU_ID}    ${ONU_UNI_ALIAS}
     Sleep                     5s
     Verify Onu Uni State      up
 
@@ -31,7 +31,7 @@ Verify Onu Uni State
     ...                  | ${ONU_ID}         | ${ONU_UNI_ALIAS}    | ${onu_uni_state}    | \n
 
     ${onu_verify_table}    Create Table        ${onu_uni_verify}
-    ${onu_uni_info}        Get Onu Uni Info    ${OLT_PON_INDEX}       ${ONU_ID}
+    ${onu_uni_info}        Get Onu Uni Info    olt0-pon0              ${ONU_ID}
     Log To Console         ${onu_uni_info}
     ${onu_uni_table}       Parse Table         ${onu_uni_info}        /home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_uni_status.template
     ${result}              Verify Table        ${onu_verify_table}    ${onu_uni_table}

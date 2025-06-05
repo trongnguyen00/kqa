@@ -18,7 +18,7 @@ Ont Optical Verification
 
 *** Keywords ***
 Get Value Of Optical
-    ${onu_optical_info}     Get Onu Optical Info    ${OLT_PON_INDEX}        ${ONU_ID}
+    ${onu_optical_info}     Get Onu Optical Info    Olt0       ${ONU_ID}
     ${onu_optical_table}    Parse Table             ${onu_optical_info}     /home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_optic_info.template
     ${rx_power}             Get Value By Column     ${onu_optical_table}    RX_POWER
     ${tx_power}             Get Value By Column     ${onu_optical_table}    TX_POWER

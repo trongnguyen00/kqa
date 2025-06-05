@@ -30,7 +30,7 @@ Go To Previous Mode
     Send Command    quit    reset_prompt=True
 
 Make Suite Variables
-    ${ONU_INFO}           Get Device Info        Onu0
+    ${ONU_INFO}           Get Device             Onu0
     Set Suite Variable    ${ONU_MODEL}           ${ONU_INFO['model']}
     Set Suite Variable    ${ONU_SN}              ${ONU_INFO['custom']['serial']}
     Set Suite Variable    ${ONU_VERSION}         ${ONU_INFO['custom']['version']}
@@ -43,12 +43,12 @@ Make Suite Variables
     Set Suite Variable    ${ONU_UNI_NAME}        ${ONU_LINK['ethernet'][0]['name']}
 
 Get Onu Id
-    ${ONU_ID}            Get Onuid From Serial    ${OLT_PON_INDEX}    ${ONU_SN}
+    ${ONU_ID}            Get Onuid From Serial    olt0-pon0    ${ONU_SN}
     Set Test Variable    ${ONU_ID}
 
 Check ONT Activation Status
     Get Onu Id
-    ${find_onu}              Get Onu Info    ${OLT_PON_INDEX}       ${ONU_ID}
+    ${find_onu}              Get Onu Info    olt0-pon0              ${ONU_ID}
     ${find_onu_table}        Parse Table     ${find_onu}            /home/ats/ATS/kqa/KGPON-BR/suites/resource/onu_info_hw.template
     Create Onu Info Table
     ${result}                Verify Table    ${onu_verify_table}    ${find_onu_table}
@@ -63,8 +63,8 @@ Create Onu Info Table
     Set Test Variable      ${onu_verify_table}
 
 Get Onu Version Via Omci
-    ${version_onu}      Get Onu Version     ${OLT_PON_INDEX}    ${ONU_ID}
-    ${onu_ver_table}    Parse Table         ${version_onu}      /home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_version.template
+    ${version_onu}      Get Onu Version     olt0-pon0         ${ONU_ID}
+    ${onu_ver_table}    Parse Table         ${version_onu}    /home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_version.template
     RETURN              ${onu_ver_table}
 
 Get Onu Version Via Console

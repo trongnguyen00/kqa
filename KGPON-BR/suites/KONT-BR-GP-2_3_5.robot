@@ -36,8 +36,8 @@ Set Iphost Static
     Send Command    ont ipconfig ${OLT_PON_INDEX} ${ONU_ID} static ip-address ${IPHOST_STATIC_IP} mask ${IPHOST_MASK} gateway ${IPHOST_GW} vlan ${IPHOST_VLAN} pri-dns ${IPHOST_PRI_DNS}
 
 Verify Iphost Dynamic
-    ${iphost_info}          Get Onu Iphost Info    ${OLT_PON_INDEX}    ${ONU_ID}
-    ${iphost_info_table}    Parse Table            ${iphost_info}      /home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_iphost.template
+    ${iphost_info}          Get Onu Iphost Info    olt0-pon0         ${ONU_ID}
+    ${iphost_info_table}    Parse Table            ${iphost_info}    /home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_iphost.template
 
     ${verify_iphost}    Catenate
     ...                 | IP              | MASK              | GATEWAY         | DNS1                 | VLAN              | CONFIG_TYPE    | \n
@@ -48,8 +48,8 @@ Verify Iphost Dynamic
     Should Be True            ${result}
 
 Verify Iphost Static
-    ${iphost_info}          Get Onu Iphost Info    ${OLT_PON_INDEX}    ${ONU_ID}
-    ${iphost_info_table}    Parse Table            ${iphost_info}      /home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_iphost.template
+    ${iphost_info}          Get Onu Iphost Info    olt0-pon0         ${ONU_ID}
+    ${iphost_info_table}    Parse Table            ${iphost_info}    /home/ats/ATS/kqa/KGPON-BR/suites/resource/parse_ont_iphost.template
 
     ${verify_iphost}    Catenate
     ...                 | IP                     | MASK              | GATEWAY         | DNS1                 | VLAN              | CONFIG_TYPE      | \n
