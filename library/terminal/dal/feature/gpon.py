@@ -8,7 +8,6 @@ class GponBase:
         self.telnet = BuiltIn().get_library_instance("CustomKeywords").custom_telnet
         self.device = BuiltIn().get_library_instance("CustomKeywords").topology_loader
         self.device_info = self.telnet._cache.current.device
-        self.topology_link = self.telnet._cache.current.topology_link
         self.dut = self.device_info.name
         
 

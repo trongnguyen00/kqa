@@ -7,7 +7,6 @@ class TerminalBase:
     def __init__(self):
         self.telnet = BuiltIn().get_library_instance("CustomKeywords").custom_telnet
         self.device = BuiltIn().get_library_instance("CustomKeywords").topology_loader
-        self.topology_link = self.telnet._cache.current.topology_link
         self.dut = self.telnet._cache.current.device.name
 
 class TerminalDasan1(TerminalBase):

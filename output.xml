@@ -1,127 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.8.10 on linux)" generated="2025-06-06T17:20:56.012643" rpa="false" schemaversion="5">
-<suite id="s1" name="KONT-BR-GP-2 1 1" source="/home/ats/ATS/kqa/KGPON-BR/suites/KONT-BR-GP-2_1_1.robot">
+<robot generator="Robot 7.2.2 (Python 3.8.10 on linux)" generated="2025-06-06T17:23:49.037108" rpa="false" schemaversion="5">
+<suite id="s1" name="KONT-BR-GP-2 1 2" source="/home/ats/ATS/kqa/KGPON-BR/suites/KONT-BR-GP-2_1_2.robot">
 <kw name="Setup Common" owner="keyword" type="SETUP">
 <kw name="Close All Connections" owner="CustomKeywords">
 <doc>Closes all open connections and empties the connection cache.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.373576" elapsed="0.000350"/>
+<status status="PASS" start="2025-06-06T17:23:49.418774" elapsed="0.000269"/>
 </kw>
 <kw name="Load Topology" owner="CustomKeywords">
 <arg>/home/ats/ATS/kqa/KGPON-BR/suites_data/topology.yaml</arg>
-<status status="PASS" start="2025-06-06T17:20:56.374087" elapsed="0.006794"/>
+<status status="PASS" start="2025-06-06T17:23:49.419223" elapsed="0.007992"/>
 </kw>
 <kw name="Make Suite Variables" owner="keyword">
 <kw name="Get Device Model" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:56.381543" level="INFO">${ONU_MODEL} = PM1191</msg>
+<msg time="2025-06-06T17:23:49.427983" level="INFO">${ONU_MODEL} = PM1191</msg>
 <var>${ONU_MODEL}</var>
 <arg>Onu0</arg>
-<status status="PASS" start="2025-06-06T17:20:56.381361" elapsed="0.000217"/>
+<status status="PASS" start="2025-06-06T17:23:49.427787" elapsed="0.000236"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:20:56.381950" level="INFO">${ONU_MODEL} = PM1191</msg>
+<msg time="2025-06-06T17:23:49.428436" level="INFO">${ONU_MODEL} = PM1191</msg>
 <arg>${ONU_MODEL}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.381717" elapsed="0.000279"/>
+<status status="PASS" start="2025-06-06T17:23:49.428177" elapsed="0.000319"/>
 </kw>
 <kw name="Get Device Custom Field" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:56.382256" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
+<msg time="2025-06-06T17:23:49.428792" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
 <var>${ONU_SN}</var>
 <arg>Onu0</arg>
 <arg>serial</arg>
-<status status="PASS" start="2025-06-06T17:20:56.382105" elapsed="0.000177"/>
+<status status="PASS" start="2025-06-06T17:23:49.428621" elapsed="0.000200"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:20:56.382582" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
+<msg time="2025-06-06T17:23:49.429158" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
 <arg>${ONU_SN}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.382396" elapsed="0.000229"/>
+<status status="PASS" start="2025-06-06T17:23:49.428954" elapsed="0.000253"/>
 </kw>
 <kw name="Get Device Custom Field" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:56.382885" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
+<msg time="2025-06-06T17:23:49.429526" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
 <var>${ONU_VERSION}</var>
 <arg>Onu0</arg>
 <arg>version</arg>
-<status status="PASS" start="2025-06-06T17:20:56.382730" elapsed="0.000182"/>
+<status status="PASS" start="2025-06-06T17:23:49.429330" elapsed="0.000230"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:20:56.383203" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
+<msg time="2025-06-06T17:23:49.429907" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
 <arg>${ONU_VERSION}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.383024" elapsed="0.000220"/>
+<status status="PASS" start="2025-06-06T17:23:49.429695" elapsed="0.000260"/>
 </kw>
 <kw name="Get Port Alias From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:56.383493" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
+<msg time="2025-06-06T17:23:49.430248" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
 <var>${OLT_PON_ALIAS}</var>
 <arg>Olt0</arg>
 <arg>olt0-pon0</arg>
-<status status="PASS" start="2025-06-06T17:20:56.383346" elapsed="0.000173"/>
+<status status="PASS" start="2025-06-06T17:23:49.430073" elapsed="0.000205"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:20:56.383808" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
+<msg time="2025-06-06T17:23:49.430612" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
 <arg>${OLT_PON_ALIAS}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.383629" elapsed="0.000220"/>
+<status status="PASS" start="2025-06-06T17:23:49.430406" elapsed="0.000263"/>
 </kw>
 <kw name="Get Port Name From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:56.384104" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
+<msg time="2025-06-06T17:23:49.430960" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
 <var>${OLT_PON_NAME}</var>
 <arg>Olt0</arg>
 <arg>olt0-pon0</arg>
-<status status="PASS" start="2025-06-06T17:20:56.383953" elapsed="0.000176"/>
+<status status="PASS" start="2025-06-06T17:23:49.430790" elapsed="0.000201"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:20:56.384427" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
+<msg time="2025-06-06T17:23:49.431319" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
 <arg>${OLT_PON_NAME}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.384238" elapsed="0.000231"/>
+<status status="PASS" start="2025-06-06T17:23:49.431116" elapsed="0.000250"/>
 </kw>
 <kw name="Get Port Index From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:56.384717" level="INFO">${OLT_PON_INDEX} = 6</msg>
+<msg time="2025-06-06T17:23:49.431650" level="INFO">${OLT_PON_INDEX} = 6</msg>
 <var>${OLT_PON_INDEX}</var>
 <arg>Olt0</arg>
 <arg>olt0-pon0</arg>
-<status status="PASS" start="2025-06-06T17:20:56.384571" elapsed="0.000171"/>
+<status status="PASS" start="2025-06-06T17:23:49.431482" elapsed="0.000197"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:20:56.385040" level="INFO">${OLT_PON_INDEX} = 6</msg>
+<msg time="2025-06-06T17:23:49.432015" level="INFO">${OLT_PON_INDEX} = 6</msg>
 <arg>${OLT_PON_INDEX}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.384859" elapsed="0.000230"/>
+<status status="PASS" start="2025-06-06T17:23:49.431808" elapsed="0.000253"/>
 </kw>
 <kw name="Get Port Alias From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:56.385340" level="INFO">${ONU_UNI_ALIAS} = 1</msg>
+<msg time="2025-06-06T17:23:49.432342" level="INFO">${ONU_UNI_ALIAS} = 1</msg>
 <var>${ONU_UNI_ALIAS}</var>
 <arg>Onu0</arg>
 <arg>onu0-ixia-1</arg>
-<status status="PASS" start="2025-06-06T17:20:56.385194" elapsed="0.000172"/>
+<status status="PASS" start="2025-06-06T17:23:49.432176" elapsed="0.000195"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:20:56.385694" level="INFO">${ONU_UNI_ALIAS} = 1</msg>
+<msg time="2025-06-06T17:23:49.432717" level="INFO">${ONU_UNI_ALIAS} = 1</msg>
 <arg>${ONU_UNI_ALIAS}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.385484" elapsed="0.000254"/>
+<status status="PASS" start="2025-06-06T17:23:49.432508" elapsed="0.000258"/>
 </kw>
 <kw name="Get Port Name From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:56.385994" level="INFO">${ONU_UNI_NAME} = eth1</msg>
+<msg time="2025-06-06T17:23:49.433056" level="INFO">${ONU_UNI_NAME} = eth1</msg>
 <var>${ONU_UNI_NAME}</var>
 <arg>Onu0</arg>
 <arg>onu0-ixia-1</arg>
-<status status="PASS" start="2025-06-06T17:20:56.385847" elapsed="0.000173"/>
+<status status="PASS" start="2025-06-06T17:23:49.432884" elapsed="0.000202"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:20:56.386310" level="INFO">${ONU_UNI_NAME} = eth1</msg>
+<msg time="2025-06-06T17:23:49.433420" level="INFO">${ONU_UNI_NAME} = eth1</msg>
 <arg>${ONU_UNI_NAME}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.386132" elapsed="0.000220"/>
+<status status="PASS" start="2025-06-06T17:23:49.433216" elapsed="0.000251"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:20:56.381155" elapsed="0.005262"/>
+<status status="PASS" start="2025-06-06T17:23:49.427529" elapsed="0.006031"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:20:56.372817" elapsed="0.013643"/>
+<status status="PASS" start="2025-06-06T17:23:49.417947" elapsed="0.015662"/>
 </kw>
-<test id="s1-t1" name="Automatic Ont Discovery" line="14">
+<test id="s1-t1" name="Check ONT Activation Status Via Omci" line="11">
 <kw name="Connect To Huawei" owner="keyword">
 <kw name="Connect To Dut" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:57.535944" level="INFO">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
+<msg time="2025-06-06T17:23:50.510108" level="INFO">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
 
 &gt;&gt;User name:admin2
 &gt;&gt;User password:
@@ -135,8 +135,8 @@
   -----------------------------------------------------------------------------
   Access Type : Telnet
   IP-Address  : 192.168.150.100
-  Login  Time : 2023-12-17 09:20:44+08:00
-  Logout Time : 2023-12-17 09:20:45+08:00
+  Login  Time : 2023-12-17 09:26:47+08:00
+  Logout Time : 2023-12-17 09:26:50+08:00
   -----------------------------------------------------------------------------
   -----------------------------------------------------------------------------
   All user fail login information:
@@ -155,100 +155,344 @@ recommended to change the password.
 MA5800-X7&gt;</msg>
 <arg>Olt0</arg>
 <doc>Connect to DUT using topology data from TopologyLoader.</doc>
-<status status="PASS" start="2025-06-06T17:20:56.387212" elapsed="1.654056"/>
+<status status="PASS" start="2025-06-06T17:23:49.434513" elapsed="1.580957"/>
 </kw>
 <kw name="Unset Interactive" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:58.078966" level="INFO">undo smart</msg>
-<msg time="2025-06-06T17:20:58.090536" level="INFO">Interactive function is disabled
+<msg time="2025-06-06T17:23:51.048902" level="INFO">undo smart</msg>
+<msg time="2025-06-06T17:23:51.059188" level="INFO">Interactive function is disabled
 
 MA5800-X7&gt;</msg>
 <doc>keyword using for huawei only, it should perform with each test</doc>
-<status status="PASS" start="2025-06-06T17:20:58.041984" elapsed="0.048809"/>
+<status status="PASS" start="2025-06-06T17:23:51.016087" elapsed="0.043202"/>
 </kw>
 <kw name="Set Terminal Length" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:58.113829" level="INFO">scroll 512</msg>
-<msg time="2025-06-06T17:20:58.118875" level="INFO">MA5800-X7&gt;</msg>
-<status status="PASS" start="2025-06-06T17:20:58.091308" elapsed="0.027792"/>
+<msg time="2025-06-06T17:23:51.083571" level="INFO">scroll 512</msg>
+<msg time="2025-06-06T17:23:51.089787" level="INFO">MA5800-X7&gt;</msg>
+<status status="PASS" start="2025-06-06T17:23:51.059516" elapsed="0.030356"/>
 </kw>
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:58.146689" level="INFO">enable</msg>
+<msg time="2025-06-06T17:23:51.120458" level="INFO">enable</msg>
 <arg>enable</arg>
 <arg>reset_prompt=True</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-06-06T17:20:58.119580" elapsed="0.557607"/>
+<status status="PASS" start="2025-06-06T17:23:51.090043" elapsed="0.565009"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:20:56.386977" elapsed="2.290597"/>
+<status status="PASS" start="2025-06-06T17:23:49.434229" elapsed="2.221178"/>
 </kw>
-<kw name="Get Onu Unprovision" owner="keyword">
 <kw name="Access Config Mode" owner="keyword">
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:58.759474" level="INFO">config</msg>
+<msg time="2025-06-06T17:23:51.740862" level="INFO">config</msg>
 <arg>config</arg>
 <arg>reset_prompt=True</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-06-06T17:20:58.680452" elapsed="0.629747"/>
+<status status="PASS" start="2025-06-06T17:23:51.657166" elapsed="0.641996"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:20:58.679582" elapsed="0.630975"/>
+<status status="PASS" start="2025-06-06T17:23:51.656226" elapsed="0.643163"/>
 </kw>
 <kw name="Access Interface Mode" owner="keyword">
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-06-06T17:20:59.435909" level="INFO">interface gpon 0/2</msg>
+<msg time="2025-06-06T17:23:52.418672" level="INFO">interface gpon 0/2</msg>
 <arg>interface ${OLT_PON_NAME}</arg>
 <arg>reset_prompt=True</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-06-06T17:20:59.312159" elapsed="0.689710"/>
+<status status="PASS" start="2025-06-06T17:23:52.300268" elapsed="0.679969"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:20:59.311184" elapsed="0.690875"/>
+<status status="PASS" start="2025-06-06T17:23:52.299824" elapsed="0.680781"/>
 </kw>
-<kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-06-06T17:21:00.102433" level="INFO">display ont autofind 6</msg>
-<msg time="2025-06-06T17:21:00.147213" level="INFO">Failure: The automatically found ONTs do not exist
+<kw name="Check ONT Activation Status" owner="keyword">
+<kw name="Get Onu Id" owner="keyword">
+<kw name="Get Onuid From Serial" owner="CustomKeywords">
+<msg time="2025-06-06T17:23:53.108936" level="INFO">display ont info summary 6</msg>
+<msg time="2025-06-06T17:23:53.177227" level="INFO">Command is being executed. Please wait
+  ------------------------------------------------------------------------------
+  In port 0/2/6, the total of ONTs are: 8, online: 1
+  ------------------------------------------------------------------------------
+  ONT  Run     Last                Last                Last                   
+  ID   State   UpTime              DownTime            DownCause
+  ------------------------------------------------------------------------------
+  0    offline -                   -                   -                        
+  1    offline -                   -                   -                        
+  2    offline -                   -                   -                        
+  3    offline -                   -                   -                        
+  5    offline -                   -                   -                        
+  6    offline -                   -                   -                        
+  7    online  2023-12-16 01:18:17 2023-12-14 01:30:13 LOSi/LOBi                
+  10   offline 2023-12-15 09:57:10 2023-12-16 01:18:07 LOSi/LOBi                
+  ------------------------------------------------------------------------------
+  ONT        SN        Type          Distance Rx/Tx power  Description
+  ID                                    (m)      (dBm)
+  ------------------------------------------------------------------------------
+  0   4B414F4E0F000014 -                -     -/-          PM1132               
+  1   4B414F4ECE8EF370 -                -     -/-          PG6692G_TRONGNK      
+  2   4B414F4E012B3D40 -                -     -/-          PG2142               
+  3   4B414F4ECE183C42 -                -     -/-          PG2142               
+  5   4B414F4EAF523CFE -                -     -/-          PM1191_TRONGNK       
+  6   4B414F4EEF6DC5A1 -                -     -/-          PM1132               
+  7   4B414F4EAF523D04 PM1191           84    -13.92/6.66  PM1191_TRONGNK       
+  10  4B414F4E14000029 PG2142           -     -/-          PG2142_TRONGNK       
+  ------------------------------------------------------------------------------
+  
 
 MA5800-X7(config-if-gpon-0/2)#</msg>
-<msg time="2025-06-06T17:21:00.147444" level="INFO">${result} =   Failure: The automatically found ONTs do not exist
-
-MA5800-X7(config-if-gpon-0/2)#</msg>
-<var>${result}</var>
-<arg>display ont autofind ${OLT_PON_INDEX}</arg>
-<doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-06-06T17:21:00.002313" elapsed="0.145168"/>
+<msg time="2025-06-06T17:23:53.182356" level="INFO">${ONU_ID} = 7</msg>
+<var>${ONU_ID}</var>
+<arg>olt0-pon0</arg>
+<arg>${ONU_SN}</arg>
+<status status="PASS" start="2025-06-06T17:23:52.983460" elapsed="0.198975"/>
 </kw>
-<return>
-<value>${result}</value>
-<status status="PASS" start="2025-06-06T17:21:00.147637" elapsed="0.000103"/>
-</return>
-<msg time="2025-06-06T17:21:00.147974" level="INFO">${find_onu} =   Failure: The automatically found ONTs do not exist
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:23:53.183005" level="INFO">${ONU_ID} = 7</msg>
+<arg>${ONU_ID}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:23:53.182693" elapsed="0.000371"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:23:52.982594" elapsed="0.200552"/>
+</kw>
+<kw name="Get Onu Info" owner="CustomKeywords">
+<msg time="2025-06-06T17:23:53.308409" level="INFO">display ont info 6 7</msg>
+<msg time="2025-06-06T17:23:53.556005" level="INFO">-----------------------------------------------------------------------------
+  F/S/P                   : 0/2/6
+  ONT-ID                  : 7
+  Control flag            : active
+  Run state               : online
+  Config state            : normal
+  Match state             : match
+  DBA type                : SR
+  ONT distance(m)         : 84
+  ONT last distance(m)    : 84
+  ONT battery state       : holding state
+  ONT power type          : -
+  Memory occupation       : -
+  CPU occupation          : -
+  Temperature             : -
+  Authentic type          : SN-auth
+  SN                      : 4B414F4EAF523D04 (KAON-AF523D04)
+  Management mode         : OMCI
+  Software work mode      : normal
+  Isolation state         : normal
+  Description             : PM1191_TRONGNK
+  Last down cause         : LOSi/LOBi
+  Last up time            : 2023-12-16 01:18:17+08:00
+  Last down time          : 2023-12-14 01:30:13+08:00
+  Last dying gasp time    : -
+  Last restart reason     : -
+  ONT online duration     : 1 day(s), 8 hour(s), 9 minute(s), 50 second(s) 
+  ONT system up duration  : 6 day(s), 2 hour(s), 58 minute(s), 6 second(s) 
+  Type C support          : Not support
+  Interoperability-mode   : ITU-T
+  Power reduction status  : -
+  ONT NNI type            : 10G/10G
+  ONT actual NNI type     : 10G/10G
+  Last ONT actual NNI type: 10G/10G
+  FEC upstream state      : enable
+  VS-ID                   : 0
+  VS name                 : admin-vs
+  Global ONT-ID           : 7
+  -----------------------------------------------------------------------------
+  VoIP configure method   : Default
+  -----------------------------------------------------------------------------
+  Line profile ID      : 13
+  Line profile name    : PM1191_TRONGNK
+  -----------------------------------------------------------------------------
+  FEC upstream switch :Disable (Downstream FEC is always enabled)
+  OMCC encrypt switch :On
+  Qos mode            :PQ
+  Mapping mode        :VLAN
+  TR069 management    :Disable
+  TR069 IP index      :0
+  ------------------------------------------------------------------------------
+  Notes: * indicates Discrete TCONT(TCONT Unbound)
+  ------------------------------------------------------------------------------
+  &lt;T-CONT   0&gt;          DBA Profile-ID:1
+  &lt;T-CONT   1&gt;*         DBA Profile-ID:4
+   &lt;Gem Index 1&gt;
+   --------------------------------------------------------------------
+   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |
+   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |
+   --------------------------------------------------------------------
+    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent
+    index                  type    ID    ID      CAR   
+   --------------------------------------------------------------------
+    0       800   2        -       -     -       -     -          
+   --------------------------------------------------------------------
+  &lt;T-CONT   2&gt;*         DBA Profile-ID:4
+   &lt;Gem Index 2&gt;
+   --------------------------------------------------------------------
+   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |
+   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |
+   --------------------------------------------------------------------
+    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent
+    index                  type    ID    ID      CAR   
+   --------------------------------------------------------------------
+    0       801   5        -       -     -       -     -          
+   --------------------------------------------------------------------
+  &lt;T-CONT   3&gt;*         DBA Profile-ID:4
+   &lt;Gem Index 3&gt;
+   --------------------------------------------------------------------
+   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |
+   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |
+   --------------------------------------------------------------------
+    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent
+    index                  type    ID    ID      CAR   
+   --------------------------------------------------------------------
+    0       802   -        -       -     -       -     -          
+   --------------------------------------------------------------------
+  ------------------------------------------------------------------------------
+  Notes: Run the display traffic table ip command to query 
+         traffic table configuration
+  -----------------------------------------------------------------------------
+  Service profile ID   : 13
+  Service profile name : PM1191_TRONGNK
+  -----------------------------------------------------------------------------
+  Port-type     Port-number     Max-adaptive-number
+  -----------------------------------------------------------------------------
+  POTS          0               -
+  ETH           1               -
+  VDSL          0               -
+  TDM           0               -
+  MOCA          0               -
+  CATV          0               -
+  -----------------------------------------------------------------------------
+  TDM port type                     : E1
+  TDM service type                  : TDMoGem
+  MAC learning function switch      : Enable
+  ONT transparent function switch   : Disable
+  Ring check switch                 : Disable
+  Ring port auto-shutdown           : Enable
+  Ring detect frequency             : 8 (pps)
+  Ring resume interval              : 300 (s)
+  Ring detect period                : 0 (s)
+  Multicast forward mode            : Tag transparent
+  Multicast forward VLAN            : -
+  Multicast mode                    : Unconcern
+  Upstream IGMP packet forward mode : Unconcern
+  Upstream IGMP packet forward VLAN : -
+  Upstream IGMP packet priority     : -
+  Native VLAN option                : Unconcern
+  Upstream PQ color policy          : -
+  Downstream PQ color policy        : -
+  Monitor link                      : Unconcern
+  MTU(byte)                         : Unconcern
+  -----------------------------------------------------------------------------
+  Port-type Port-ID QinQmode  PriorityPolicy Inbound     Outbound
+  -----------------------------------------------------------------------------
+  ETH       1       unconcern unconcern      unconcern   unconcern
+  IPHOST    1       unconcern unconcern      unconcern   unconcern
+  -----------------------------------------------------------------------------
+  Notes: * indicates the discretely configured traffic profile,
+         run the display traffic table ip command to query
+         traffic table configuration.
+  -----------------------------------------------------------------------------
+  Port-type Port-ID  DownstreamMode  MismatchPolicy
+  -----------------------------------------------------------------------------
+  ETH             1  operation       discard       
+  -----------------------------------------------------------------------------
+  Port-type Port-ID Dscp-mapping-table-index Classification-profile-id
+  -----------------------------------------------------------------------------
+  ETH       1       0                        -        
+  IPHOST    1       0                        -
+  -----------------------------------------------------------------------------
+  Notes: the port vlan of ONT is discretely configured
+  -----------------------------------------------------------------------------
+  Port    Port   Service-type Index S-VLAN S-PRI C-VLAN C-PRI ENCAP      S-PRI
+  type    ID                                                             POLICY
+  -----------------------------------------------------------------------------
+  ETH     1      Translation  1     800    -     700    -     -          -     
+  ETH     1      Translation  2     801    -     701    -     -          -     
+  ETH     1      Translation  3     802    -     702    -     -          -     
+  ETH     1      Translation  4     803    -     703    -     -          -     
+  -----------------------------------------------------------------------------
+  Notes: * indicates transparent attribute of the vlan
+  -----------------------------------------------------------------------------
+  Port-type  Port-ID    IGMP-mode         IGMP-VLAN  IGMP-PRI  Max-MAC-Count
+  -----------------------------------------------------------------------------
+  ETH              1    -                         -         -      Unlimited
+  IPHOST           1    -                         -         -      Unlimited
+  -----------------------------------------------------------------------------
+  Port-type Port-ID   Traffic-suppress   Traffic-suppress   Traffic-suppress
+                      unicast(kbps)      multicast(kpbs)    broadcast(kbps)
+  -----------------------------------------------------------------------------
+  ETH             1   -                  -                  -               
+  -----------------------------------------------------------------------------
+  Port-type  Port-ID  L2-isolate
+  -----------------------------------------------------------------------------
+  ETH              1  unconcern           
+  -----------------------------------------------------------------------------
+  Alarm policy profile ID      : 0
+  Alarm policy profile name    : alarm-policy_0
+  -----------------------------------------------------------------------------
 
 MA5800-X7(config-if-gpon-0/2)#</msg>
+<msg time="2025-06-06T17:23:53.556939" level="INFO">${find_onu} =   -----------------------------------------------------------------------------
+  F/S/P                   : 0/2/6
+  ONT-ID                  : 7
+  Control flag            : active
+  Run state      ...</msg>
 <var>${find_onu}</var>
-<status status="PASS" start="2025-06-06T17:20:58.678556" elapsed="1.469448"/>
+<arg>olt0-pon0</arg>
+<arg>${ONU_ID}</arg>
+<status status="PASS" start="2025-06-06T17:23:53.183281" elapsed="0.373776"/>
 </kw>
 <kw name="Parse Table" owner="CustomKeywords">
-<msg time="2025-06-06T17:21:00.149979" level="FAIL">ValueError: Cannot parse the raw string with the provided template.</msg>
+<msg time="2025-06-06T17:23:53.568606" level="INFO">${find_onu_table} =     PORT ONU_ID                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
+0  0/2/6      7  4B414F4EAF523D04       active    online       normal       match</msg>
 <var>${find_onu_table}</var>
 <arg>${find_onu}</arg>
-<arg>/home/ats/ATS/kqa/KGPON-BR/suites/resource/unprovision_onu_hw.template</arg>
+<arg>/home/ats/ATS/kqa/KGPON-BR/suites/resource/onu_info_hw.template</arg>
 <doc>Keyword: Parse Table
 Use TextFSM to parse the raw_string into a DataFrame.
 Arguments:
   - raw_string: output string need to be parsed.
   - template_path: path to file TextFSM template. File extension: *.template</doc>
-<status status="FAIL" start="2025-06-06T17:21:00.148321" elapsed="0.002097">ValueError: Cannot parse the raw string with the provided template.</status>
+<status status="PASS" start="2025-06-06T17:23:53.557620" elapsed="0.011069"/>
 </kw>
-<kw name="Create Onu Verify Table">
-<status status="NOT RUN" start="2025-06-06T17:21:00.150853" elapsed="0.000043"/>
+<kw name="Create Onu Info Table" owner="keyword">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-06-06T17:23:53.569830" level="INFO">${onu_info} = | PORT | SN | CONTROL_FLAG | RUN_STATE | CONFIG_STATE | MATCH_STATE | 
+ | 0/2/6 | 4B414F4EAF523D04 | active | online | normal | match | 
+</msg>
+<var>${onu_info}</var>
+<arg>| PORT</arg>
+<arg>| SN</arg>
+<arg>| CONTROL_FLAG</arg>
+<arg>| RUN_STATE</arg>
+<arg>| CONFIG_STATE</arg>
+<arg>| MATCH_STATE</arg>
+<arg>| \n</arg>
+<arg>| ${OLT_PON_ALIAS}/${OLT_PON_INDEX}</arg>
+<arg>| ${ONU_SN}</arg>
+<arg>| active</arg>
+<arg>| online</arg>
+<arg>| normal</arg>
+<arg>| match</arg>
+<arg>| \n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-06-06T17:23:53.569432" elapsed="0.000438"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${find_onu_table}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-06-06T17:21:00.151097" elapsed="0.000026"/>
+<kw name="Create Table" owner="CustomKeywords">
+<msg time="2025-06-06T17:23:53.576319" level="INFO">${onu_verify_table} =     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
+0  0/2/6  4B414F4EAF523D04       active    online       normal       match</msg>
+<var>${onu_verify_table}</var>
+<arg>${onu_info}</arg>
+<doc>Keyword: Create Table
+Nhận đầu vào là chuỗi định dạng bảng (pipe separated) hoặc đã là DataFrame.
+Nếu là chuỗi thì chuyển đổi nó thành pandas DataFrame.
+Example:
+${RAW_OUTPUT}    SEPARATOR=${EMPTY}
+...    | Interface    | TYPE        | STATUS    | MODE              | FLOWCTRL    | </doc>
+<status status="PASS" start="2025-06-06T17:23:53.570066" elapsed="0.006315"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:23:53.588448" level="INFO">${onu_verify_table} =     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
+0  0/2/6  4B414F4EAF523D04       active    online       normal       match</msg>
 <arg>${onu_verify_table}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-06-06T17:21:00.151266" elapsed="0.000021"/>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:23:53.576571" elapsed="0.011979"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:23:53.569032" elapsed="0.019612"/>
 </kw>
 <kw name="Verify Table" owner="CustomKeywords">
+<msg time="2025-06-06T17:23:53.599867" level="INFO">${result} = True</msg>
 <var>${result}</var>
 <arg>${onu_verify_table}</arg>
 <arg>${find_onu_table}</arg>
@@ -257,32 +501,34 @@ Compare two tables (expected_result and actual_result) based on the specified mo
 Input can be a string or a DataFrame.
 - If whitelist: all rows in the expected_result must appear in the actual_result.
 - If blacklist: no rows in the expected_result should appear in the actual_result.</doc>
-<status status="NOT RUN" start="2025-06-06T17:21:00.151428" elapsed="0.000021"/>
+<status status="PASS" start="2025-06-06T17:23:53.588801" elapsed="0.011121"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${result}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="NOT RUN" start="2025-06-06T17:21:00.151591" elapsed="0.000020"/>
+<status status="PASS" start="2025-06-06T17:23:53.600139" elapsed="0.000234"/>
 </kw>
-<status status="FAIL" start="2025-06-06T17:20:56.386529" elapsed="3.765335">ValueError: Cannot parse the raw string with the provided template.</status>
+<status status="PASS" start="2025-06-06T17:23:52.981538" elapsed="0.618914"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:23:49.433692" elapsed="4.166967"/>
 </test>
 <kw name="Teardown Common" owner="keyword" type="TEARDOWN">
 <kw name="Close All Connections" owner="CustomKeywords">
 <doc>Closes all open connections and empties the connection cache.</doc>
-<status status="PASS" start="2025-06-06T17:21:00.152866" elapsed="0.000244"/>
+<status status="PASS" start="2025-06-06T17:23:53.601632" elapsed="0.000197"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:21:00.152572" elapsed="0.000626"/>
+<status status="PASS" start="2025-06-06T17:23:53.601352" elapsed="0.000555"/>
 </kw>
-<status status="FAIL" start="2025-06-06T17:20:56.013531" elapsed="4.139698"/>
+<status status="PASS" start="2025-06-06T17:23:49.037999" elapsed="4.563940"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="KONT-BR-GP-2 1 1" id="s1" pass="0" fail="1" skip="0">KONT-BR-GP-2 1 1</stat>
+<stat name="KONT-BR-GP-2 1 2" id="s1" pass="1" fail="0" skip="0">KONT-BR-GP-2 1 2</stat>
 </suite>
 </statistics>
 <errors>
