@@ -7,9 +7,9 @@ class GponBase:
     def __init__(self):
         self.telnet = BuiltIn().get_library_instance("CustomKeywords").custom_telnet
         self.device = BuiltIn().get_library_instance("CustomKeywords").topology_loader
-        self.device_info = self.telnet._cache.current.device_info
+        self.device_info = self.telnet._cache.current.device
         self.topology_link = self.telnet._cache.current.topology_link
-        self.dut = self.device_info['name']
+        self.dut = self.device_info.name
         
 
 class GponDasan1(GponBase):

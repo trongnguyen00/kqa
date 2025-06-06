@@ -167,19 +167,18 @@ class CustomTelnet(telnetlib.Telnet):
         """Connect to DUT using topology data from TopologyLoader."""
         topo = BuiltIn().get_library_instance("CustomKeywords").topology_loader
         device = topo.get_device(device_name)
-        topology_link = topo.get_topology_links(device_name)
-        conn = device.connections
-
-        ip = conn.get("ip")
-        port = conn.get("port", 23)
-        username = conn.get("username")
-        password = conn.get("password")
+        conn = device.connections  # CustomField: .ip, .port, .username, etc.
+    
+        ip = conn.ip
+        port = getattr(conn, "port", 23)
+        username = conn.username
+        password = conn.password
         api = device.api
-
+    
         login_info = self._get_login_prompt_by_api(api)
         login_prompt = login_info["login_prompt"]
         password_prompt = login_info["password_prompt"]
-
+    
         self.open_connection(ip, port=port, prompt=None, prompt_is_regexp=False)
         output = self.login(
             username=username,
@@ -187,7 +186,7 @@ class CustomTelnet(telnetlib.Telnet):
             login_prompt=login_prompt,
             password_prompt=password_prompt
         )
-
+    
         self.write("")
         prompt_output = ""
         for _ in range(10):
@@ -196,25 +195,16 @@ class CustomTelnet(telnetlib.Telnet):
             if chunk:
                 prompt_output += chunk
                 break
-
+            
         lines = prompt_output.strip().splitlines()
         if not lines:
             raise AssertionError("No prompt detected after sending ENTER.")
-
+    
         exact_prompt = lines[-1].strip()
         self._set_prompt(exact_prompt, prompt_is_regexp=False)
         output += prompt_output
-
-        self._cache.current.device_info = {
-            "name": device.name,
-            "api": device.api,
-            "model": device.model,
-            "connections": device.connections,
-            "custom": device.custom
-        }
-        self._cache.current.topology_link = topology_link
-        # self._cache.current.dut = device_name
-
+    
+        self._cache.current.device = device  # Lưu object Device để dùng toàn cục
         return output
 
     @keyword

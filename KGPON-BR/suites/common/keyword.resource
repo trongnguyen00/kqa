@@ -30,17 +30,22 @@ Go To Previous Mode
     Send Command    quit    reset_prompt=True
 
 Make Suite Variables
-    ${ONU_INFO}           Get Device             Onu0
-    Set Suite Variable    ${ONU_MODEL}           ${ONU_INFO['model']}
-    Set Suite Variable    ${ONU_SN}              ${ONU_INFO['custom']['serial']}
-    Set Suite Variable    ${ONU_VERSION}         ${ONU_INFO['custom']['version']}
-    ${OLT_LINK}           Get Connection Info    Olt0
-    Set Suite Variable    ${OLT_PON_ALIAS}       ${OLT_LINK['pon'][0]['alias']}
-    Set Suite Variable    ${OLT_PON_NAME}        ${OLT_LINK['pon'][0]['name']}
-    Set Suite Variable    ${OLT_PON_INDEX}       ${OLT_LINK['pon'][0]['index']}
-    ${ONU_LINK}           Get Connection Info    Onu0
-    Set Suite Variable    ${ONU_UNI_ALIAS}       ${ONU_LINK['ethernet'][0]['alias']}
-    Set Suite Variable    ${ONU_UNI_NAME}        ${ONU_LINK['ethernet'][0]['name']}
+    ${ONU_MODEL}          Get Device Model            Onu0
+    Set Suite Variable    ${ONU_MODEL}
+    ${ONU_SN}             Get Device Custom Field     Onu0    serial
+    Set Suite Variable    ${ONU_SN}
+    ${ONU_VERSION}        Get Device Custom Field     Onu0    version
+    Set Suite Variable    ${ONU_VERSION}
+    ${OLT_PON_ALIAS}      Get Port Alias From Link    Olt0    olt0-pon0
+    Set Suite Variable    ${OLT_PON_ALIAS}
+    ${OLT_PON_NAME}       Get Port Name From link     Olt0    olt0-pon0
+    Set Suite Variable    ${OLT_PON_NAME}
+    ${OLT_PON_INDEX}      Get Port Index From Link    Olt0    olt0-pon0
+    Set Suite Variable    ${OLT_PON_INDEX}
+    ${ONU_UNI_ALIAS}      Get Port Alias From Link    Onu0    onu0-ixia-1
+    Set Suite Variable    ${ONU_UNI_ALIAS}
+    ${ONU_UNI_NAME}       Get Port Name From Link     Onu0    onu0-ixia-1
+    Set Suite Variable    ${ONU_UNI_NAME}
 
 Get Onu Id
     ${ONU_ID}            Get Onuid From Serial    olt0-pon0    ${ONU_SN}

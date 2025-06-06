@@ -1,5 +1,11 @@
 import yaml
 from robot.api.deco import keyword
+from robot.libraries.BuiltIn import BuiltIn
+
+class CustomField:
+    def __init__(self, data):
+        for k, v in (data or {}).items():
+            setattr(self, k, v)
 
 class Port:
     def __init__(self, name, index=None, alias=None, link=None, port_type=None):
@@ -19,40 +25,57 @@ class Device:
         self.type = info.get("type")
         self.api = info.get("api")
         self.model = info.get("model")
-        self.connections = info.get("connections", {})
-        self.custom = info.get("custom", {})
-        self.ports = []
+        self.connections = CustomField(info.get("connections", {}))
+        self.custom = CustomField(info.get("custom", {}))
 
-    def add_port(self, port: Port):
-        self.ports.append(port)
 
-    def get_ports_by_type(self, port_type):
-        return [p for p in self.ports if p.type == port_type]
+class Topology:
+    def __init__(self):
+        self._device_ports = {}
 
-    def get_port_by_link(self, link):
-        for port in self.ports:
+    def add_ports(self, device_name, port_type, ports):
+        if device_name not in self._device_ports:
+            self._device_ports[device_name] = []
+        for p in ports:
+            port = Port(
+                name=p.get("name"),
+                index=p.get("index"),
+                alias=p.get("alias"),
+                link=p.get("link"),
+                port_type=port_type
+            )
+            self._device_ports[device_name].append(port)
+
+    def get_ports(self, device_name):
+        return self._device_ports.get(device_name, [])
+
+    def get_ports_by_type(self, device_name, port_type):
+        return [p for p in self.get_ports(device_name) if p.type == port_type]
+
+    def get_port_by_link(self, device_name, link):
+        for port in self.get_ports(device_name):
             if port.link == link:
                 return port
-        raise AssertionError(f"Link '{link}' not found on device '{self.name}'")
+        raise AssertionError(f"Link '{link}' not found on device '{device_name}'")
 
-    def get_port_by_alias(self, alias):
-        for port in self.ports:
+    def get_port_by_alias(self, device_name, alias):
+        for port in self.get_ports(device_name):
             if port.alias == alias:
                 return port
-        raise AssertionError(f"Alias '{alias}' not found on device '{self.name}'")
+        raise AssertionError(f"Alias '{alias}' not found on device '{device_name}'")
 
-    def get_port_by_name(self, name):
-        for port in self.ports:
+    def get_port_by_name(self, device_name, name):
+        for port in self.get_ports(device_name):
             if port.name == name:
                 return port
-        raise AssertionError(f"Port name '{name}' not found on device '{self.name}'")
+        raise AssertionError(f"Port name '{name}' not found on device '{device_name}'")
 
 
 class TopologyLoader:
     def __init__(self):
         self.devices = {}
+        self.topology = Topology()
         self.topology_data = None
-        self.topology_links = {}
 
     @keyword
     def load_topology(self, yaml_file_path):
@@ -63,24 +86,11 @@ class TopologyLoader:
             raise AssertionError(f"Failed to load topology file: {str(e)}")
 
         for device_name, info in self.topology_data.get("devices", {}).items():
-            device = Device(name=device_name, info=info)
+            self.devices[device_name] = Device(name=device_name, info=info)
 
-            conn_ports = self.topology_data.get("topology", {}).get(device_name, {})
-            self.topology_links[device_name] = conn_ports
-
-            for port_type in ['ethernet', 'pon']:
-                ports = conn_ports.get(port_type, [])
-                for p in ports:
-                    port = Port(
-                        name=p.get("name"),
-                        index=p.get("index"),
-                        alias=p.get("alias"),
-                        link=p.get("link"),
-                        port_type=port_type
-                    )
-                    device.add_port(port)
-
-            self.devices[device_name] = device
+        for device_name, port_groups in self.topology_data.get("topology", {}).items():
+            for port_type, ports in port_groups.items():
+                self.topology.add_ports(device_name, port_type, ports)
 
     @keyword
     def get_device(self, device_name):
@@ -98,31 +108,31 @@ class TopologyLoader:
 
     @keyword
     def get_all_ports_of_device(self, device_name):
-        return [vars(p) for p in self.get_device(device_name).ports]
+        return [vars(p) for p in self.topology.get_ports(device_name)]
 
     @keyword
     def get_ports_by_type(self, device_name, port_type):
-        return [vars(p) for p in self.get_device(device_name).get_ports_by_type(port_type)]
+        return [vars(p) for p in self.topology.get_ports_by_type(device_name, port_type)]
 
     @keyword
     def get_port_name_from_link(self, device_name, link):
-        return self.get_device(device_name).get_port_by_link(link).name
+        return self.topology.get_port_by_link(device_name, link).name
 
     @keyword
     def get_port_index_from_link(self, device_name, link):
-        return self.get_device(device_name).get_port_by_link(link).index
+        return self.topology.get_port_by_link(device_name, link).index
 
     @keyword
     def get_port_alias_from_link(self, device_name, link):
-        return self.get_device(device_name).get_port_by_link(link).alias
+        return self.topology.get_port_by_link(device_name, link).alias
 
     @keyword
     def get_port_name_from_alias(self, device_name, alias):
-        return self.get_device(device_name).get_port_by_alias(alias).name
+        return self.topology.get_port_by_alias(device_name, alias).name
 
     @keyword
     def get_port_index_from_alias(self, device_name, alias):
-        return self.get_device(device_name).get_port_by_alias(alias).index
+        return self.topology.get_port_by_alias(device_name, alias).index
 
     @keyword
     def get_device_api(self, device_name):
@@ -138,11 +148,11 @@ class TopologyLoader:
 
     @keyword
     def get_device_ip(self, device_name):
-        return self.get_device(device_name).connections.get("ip")
+        return self.get_device(device_name).connections.ip
 
     @keyword
     def get_device_custom_field(self, device_name, field):
-        return self.get_device(device_name).custom.get(field)
+        return getattr(self.get_device(device_name).custom, field, None)
 
     @keyword
     def get_full_device_info(self, device_name):
@@ -152,11 +162,18 @@ class TopologyLoader:
             "type": device.type,
             "api": device.api,
             "model": device.model,
-            "connections": device.connections,
-            "custom": device.custom,
-            "ports": [vars(p) for p in device.ports]
+            "connections": vars(device.connections),
+            "custom": vars(device.custom)
         }
 
     @keyword
-    def get_topology_links(self, device_name):
-        return self.topology_links.get(device_name, {})
+    def get_port_object_by_link(self, device_name, link):
+        return self.topology.get_port_by_link(device_name, link)
+
+    @keyword
+    def get_port_object_by_alias(self, device_name, alias):
+        return self.topology.get_port_by_alias(device_name, alias)
+
+    @keyword
+    def get_all_port_objects(self, device_name):
+        return self.topology.get_ports(device_name)

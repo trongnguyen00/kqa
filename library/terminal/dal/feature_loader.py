@@ -15,8 +15,8 @@ class FeatureLoader:
             return self._instance
 
         telnet = BuiltIn().get_library_instance("CustomKeywords").custom_telnet
-        device_info = telnet._cache.current.device_info
-        api = device_info['api']
+        device_info = telnet._cache.current.device
+        api = device_info.api
 
         spec_path = os.path.abspath(os.path.join(self.spec_directory, f"{api}.yaml"))
         if not os.path.exists(spec_path):
