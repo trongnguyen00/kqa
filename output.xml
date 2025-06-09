@@ -1,127 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.8.10 on linux)" generated="2025-06-06T17:23:49.037108" rpa="false" schemaversion="5">
-<suite id="s1" name="KONT-BR-GP-2 1 2" source="/home/ats/ATS/kqa/KGPON-BR/suites/KONT-BR-GP-2_1_2.robot">
+<robot generator="Robot 7.2.2 (Python 3.8.10 on linux)" generated="2025-06-06T17:34:04.117872" rpa="false" schemaversion="5">
+<suite id="s1" name="KONT-BR-GP-2 1 3" source="/home/ats/ATS/kqa/KGPON-BR/suites/KONT-BR-GP-2_1_3.robot">
 <kw name="Setup Common" owner="keyword" type="SETUP">
 <kw name="Close All Connections" owner="CustomKeywords">
 <doc>Closes all open connections and empties the connection cache.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.418774" elapsed="0.000269"/>
+<status status="PASS" start="2025-06-06T17:34:04.522730" elapsed="0.000303"/>
 </kw>
 <kw name="Load Topology" owner="CustomKeywords">
 <arg>/home/ats/ATS/kqa/KGPON-BR/suites_data/topology.yaml</arg>
-<status status="PASS" start="2025-06-06T17:23:49.419223" elapsed="0.007992"/>
+<status status="PASS" start="2025-06-06T17:34:04.523179" elapsed="0.006893"/>
 </kw>
 <kw name="Make Suite Variables" owner="keyword">
 <kw name="Get Device Model" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:49.427983" level="INFO">${ONU_MODEL} = PM1191</msg>
+<msg time="2025-06-06T17:34:04.530713" level="INFO">${ONU_MODEL} = PM1191</msg>
 <var>${ONU_MODEL}</var>
 <arg>Onu0</arg>
-<status status="PASS" start="2025-06-06T17:23:49.427787" elapsed="0.000236"/>
+<status status="PASS" start="2025-06-06T17:34:04.530545" elapsed="0.000202"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:49.428436" level="INFO">${ONU_MODEL} = PM1191</msg>
+<msg time="2025-06-06T17:34:04.531126" level="INFO">${ONU_MODEL} = PM1191</msg>
 <arg>${ONU_MODEL}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.428177" elapsed="0.000319"/>
+<status status="PASS" start="2025-06-06T17:34:04.530889" elapsed="0.000286"/>
 </kw>
 <kw name="Get Device Custom Field" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:49.428792" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
+<msg time="2025-06-06T17:34:04.531439" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
 <var>${ONU_SN}</var>
 <arg>Onu0</arg>
 <arg>serial</arg>
-<status status="PASS" start="2025-06-06T17:23:49.428621" elapsed="0.000200"/>
+<status status="PASS" start="2025-06-06T17:34:04.531287" elapsed="0.000186"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:49.429158" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
+<msg time="2025-06-06T17:34:04.531771" level="INFO">${ONU_SN} = 4B414F4EAF523D04</msg>
 <arg>${ONU_SN}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.428954" elapsed="0.000253"/>
+<status status="PASS" start="2025-06-06T17:34:04.531589" elapsed="0.000226"/>
 </kw>
 <kw name="Get Device Custom Field" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:49.429526" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
+<msg time="2025-06-06T17:34:04.532071" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
 <var>${ONU_VERSION}</var>
 <arg>Onu0</arg>
 <arg>version</arg>
-<status status="PASS" start="2025-06-06T17:23:49.429330" elapsed="0.000230"/>
+<status status="PASS" start="2025-06-06T17:34:04.531919" elapsed="0.000189"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:49.429907" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
+<msg time="2025-06-06T17:34:04.532384" level="INFO">${ONU_VERSION} = 2.0.30_eng</msg>
 <arg>${ONU_VERSION}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.429695" elapsed="0.000260"/>
+<status status="PASS" start="2025-06-06T17:34:04.532214" elapsed="0.000211"/>
 </kw>
 <kw name="Get Port Alias From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:49.430248" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
+<msg time="2025-06-06T17:34:04.532663" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
 <var>${OLT_PON_ALIAS}</var>
 <arg>Olt0</arg>
 <arg>olt0-pon0</arg>
-<status status="PASS" start="2025-06-06T17:23:49.430073" elapsed="0.000205"/>
+<status status="PASS" start="2025-06-06T17:34:04.532524" elapsed="0.000164"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:49.430612" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
+<msg time="2025-06-06T17:34:04.532962" level="INFO">${OLT_PON_ALIAS} = 0/2</msg>
 <arg>${OLT_PON_ALIAS}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.430406" elapsed="0.000263"/>
+<status status="PASS" start="2025-06-06T17:34:04.532793" elapsed="0.000209"/>
 </kw>
 <kw name="Get Port Name From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:49.430960" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
+<msg time="2025-06-06T17:34:04.533274" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
 <var>${OLT_PON_NAME}</var>
 <arg>Olt0</arg>
 <arg>olt0-pon0</arg>
-<status status="PASS" start="2025-06-06T17:23:49.430790" elapsed="0.000201"/>
+<status status="PASS" start="2025-06-06T17:34:04.533121" elapsed="0.000177"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:49.431319" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
+<msg time="2025-06-06T17:34:04.533618" level="INFO">${OLT_PON_NAME} = gpon 0/2</msg>
 <arg>${OLT_PON_NAME}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.431116" elapsed="0.000250"/>
+<status status="PASS" start="2025-06-06T17:34:04.533403" elapsed="0.000261"/>
 </kw>
 <kw name="Get Port Index From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:49.431650" level="INFO">${OLT_PON_INDEX} = 6</msg>
+<msg time="2025-06-06T17:34:04.533923" level="INFO">${OLT_PON_INDEX} = 6</msg>
 <var>${OLT_PON_INDEX}</var>
 <arg>Olt0</arg>
 <arg>olt0-pon0</arg>
-<status status="PASS" start="2025-06-06T17:23:49.431482" elapsed="0.000197"/>
+<status status="PASS" start="2025-06-06T17:34:04.533773" elapsed="0.000177"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:49.432015" level="INFO">${OLT_PON_INDEX} = 6</msg>
+<msg time="2025-06-06T17:34:04.534253" level="INFO">${OLT_PON_INDEX} = 6</msg>
 <arg>${OLT_PON_INDEX}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.431808" elapsed="0.000253"/>
+<status status="PASS" start="2025-06-06T17:34:04.534068" elapsed="0.000234"/>
 </kw>
 <kw name="Get Port Alias From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:49.432342" level="INFO">${ONU_UNI_ALIAS} = 1</msg>
+<msg time="2025-06-06T17:34:04.534552" level="INFO">${ONU_UNI_ALIAS} = 1</msg>
 <var>${ONU_UNI_ALIAS}</var>
 <arg>Onu0</arg>
 <arg>onu0-ixia-1</arg>
-<status status="PASS" start="2025-06-06T17:23:49.432176" elapsed="0.000195"/>
+<status status="PASS" start="2025-06-06T17:34:04.534407" elapsed="0.000171"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:49.432717" level="INFO">${ONU_UNI_ALIAS} = 1</msg>
+<msg time="2025-06-06T17:34:04.534895" level="INFO">${ONU_UNI_ALIAS} = 1</msg>
 <arg>${ONU_UNI_ALIAS}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.432508" elapsed="0.000258"/>
+<status status="PASS" start="2025-06-06T17:34:04.534700" elapsed="0.000235"/>
 </kw>
 <kw name="Get Port Name From Link" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:49.433056" level="INFO">${ONU_UNI_NAME} = eth1</msg>
+<msg time="2025-06-06T17:34:04.535171" level="INFO">${ONU_UNI_NAME} = eth1</msg>
 <var>${ONU_UNI_NAME}</var>
 <arg>Onu0</arg>
 <arg>onu0-ixia-1</arg>
-<status status="PASS" start="2025-06-06T17:23:49.432884" elapsed="0.000202"/>
+<status status="PASS" start="2025-06-06T17:34:04.535035" elapsed="0.000160"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:49.433420" level="INFO">${ONU_UNI_NAME} = eth1</msg>
+<msg time="2025-06-06T17:34:04.535475" level="INFO">${ONU_UNI_NAME} = eth1</msg>
 <arg>${ONU_UNI_NAME}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.433216" elapsed="0.000251"/>
+<status status="PASS" start="2025-06-06T17:34:04.535304" elapsed="0.000211"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:49.427529" elapsed="0.006031"/>
+<status status="PASS" start="2025-06-06T17:34:04.530343" elapsed="0.005230"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:49.417947" elapsed="0.015662"/>
+<status status="PASS" start="2025-06-06T17:34:04.522017" elapsed="0.013597"/>
 </kw>
-<test id="s1-t1" name="Check ONT Activation Status Via Omci" line="11">
+<test id="s1-t1" name="Emergency Onu O7" line="11">
 <kw name="Connect To Huawei" owner="keyword">
 <kw name="Connect To Dut" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:50.510108" level="INFO">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
+<msg time="2025-06-06T17:34:05.563441" level="INFO">Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.
 
 &gt;&gt;User name:admin2
 &gt;&gt;User password:
@@ -135,8 +135,8 @@
   -----------------------------------------------------------------------------
   Access Type : Telnet
   IP-Address  : 192.168.150.100
-  Login  Time : 2023-12-17 09:26:47+08:00
-  Logout Time : 2023-12-17 09:26:50+08:00
+  Login  Time : 2023-12-17 09:28:04+08:00
+  Logout Time : 2023-12-17 09:28:08+08:00
   -----------------------------------------------------------------------------
   -----------------------------------------------------------------------------
   All user fail login information:
@@ -155,55 +155,54 @@ recommended to change the password.
 MA5800-X7&gt;</msg>
 <arg>Olt0</arg>
 <doc>Connect to DUT using topology data from TopologyLoader.</doc>
-<status status="PASS" start="2025-06-06T17:23:49.434513" elapsed="1.580957"/>
+<status status="PASS" start="2025-06-06T17:34:04.536367" elapsed="1.532681"/>
 </kw>
 <kw name="Unset Interactive" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:51.048902" level="INFO">undo smart</msg>
-<msg time="2025-06-06T17:23:51.059188" level="INFO">Interactive function is disabled
+<msg time="2025-06-06T17:34:06.105992" level="INFO">undo smart</msg>
+<msg time="2025-06-06T17:34:06.117363" level="INFO">Interactive function is disabled
 
 MA5800-X7&gt;</msg>
 <doc>keyword using for huawei only, it should perform with each test</doc>
-<status status="PASS" start="2025-06-06T17:23:51.016087" elapsed="0.043202"/>
+<status status="PASS" start="2025-06-06T17:34:06.069673" elapsed="0.047977"/>
 </kw>
 <kw name="Set Terminal Length" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:51.083571" level="INFO">scroll 512</msg>
-<msg time="2025-06-06T17:23:51.089787" level="INFO">MA5800-X7&gt;</msg>
-<status status="PASS" start="2025-06-06T17:23:51.059516" elapsed="0.030356"/>
+<msg time="2025-06-06T17:34:06.143618" level="INFO">scroll 512</msg>
+<msg time="2025-06-06T17:34:06.146653" level="INFO">MA5800-X7&gt;</msg>
+<status status="PASS" start="2025-06-06T17:34:06.118148" elapsed="0.028705"/>
 </kw>
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:51.120458" level="INFO">enable</msg>
+<msg time="2025-06-06T17:34:06.172286" level="INFO">enable</msg>
 <arg>enable</arg>
 <arg>reset_prompt=True</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-06-06T17:23:51.090043" elapsed="0.565009"/>
+<status status="PASS" start="2025-06-06T17:34:06.147300" elapsed="0.557591"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:49.434229" elapsed="2.221178"/>
+<status status="PASS" start="2025-06-06T17:34:04.536127" elapsed="2.168966"/>
 </kw>
 <kw name="Access Config Mode" owner="keyword">
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:51.740862" level="INFO">config</msg>
+<msg time="2025-06-06T17:34:06.777974" level="INFO">config</msg>
 <arg>config</arg>
 <arg>reset_prompt=True</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-06-06T17:23:51.657166" elapsed="0.641996"/>
+<status status="PASS" start="2025-06-06T17:34:06.705982" elapsed="0.628074"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:51.656226" elapsed="0.643163"/>
+<status status="PASS" start="2025-06-06T17:34:06.705565" elapsed="0.628725"/>
 </kw>
 <kw name="Access Interface Mode" owner="keyword">
 <kw name="Send Command" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:52.418672" level="INFO">interface gpon 0/2</msg>
+<msg time="2025-06-06T17:34:07.454651" level="INFO">interface gpon 0/2</msg>
 <arg>interface ${OLT_PON_NAME}</arg>
 <arg>reset_prompt=True</arg>
 <doc>Send command and optionally reset prompt.</doc>
-<status status="PASS" start="2025-06-06T17:23:52.300268" elapsed="0.679969"/>
+<status status="PASS" start="2025-06-06T17:34:07.335192" elapsed="0.683057"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:52.299824" elapsed="0.680781"/>
+<status status="PASS" start="2025-06-06T17:34:07.334753" elapsed="0.683873"/>
 </kw>
-<kw name="Check ONT Activation Status" owner="keyword">
 <kw name="Get Onu Id" owner="keyword">
 <kw name="Get Onuid From Serial" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:53.108936" level="INFO">display ont info summary 6</msg>
-<msg time="2025-06-06T17:23:53.177227" level="INFO">Command is being executed. Please wait
+<msg time="2025-06-06T17:34:08.150372" level="INFO">display ont info summary 6</msg>
+<msg time="2025-06-06T17:34:08.309323" level="INFO">Command is being executed. Please wait
   ------------------------------------------------------------------------------
   In port 0/2/6, the total of ONTs are: 8, online: 1
   ------------------------------------------------------------------------------
@@ -228,298 +227,401 @@ MA5800-X7&gt;</msg>
   3   4B414F4ECE183C42 -                -     -/-          PG2142               
   5   4B414F4EAF523CFE -                -     -/-          PM1191_TRONGNK       
   6   4B414F4EEF6DC5A1 -                -     -/-          PM1132               
-  7   4B414F4EAF523D04 PM1191           84    -13.92/6.66  PM1191_TRONGNK       
+  7   4B414F4EAF523D04 PM1191           84    -13.91/6.72  PM1191_TRONGNK       
   10  4B414F4E14000029 PG2142           -     -/-          PG2142_TRONGNK       
   ------------------------------------------------------------------------------
   
 
 MA5800-X7(config-if-gpon-0/2)#</msg>
-<msg time="2025-06-06T17:23:53.182356" level="INFO">${ONU_ID} = 7</msg>
+<msg time="2025-06-06T17:34:08.317535" level="INFO">${ONU_ID} = 7</msg>
 <var>${ONU_ID}</var>
 <arg>olt0-pon0</arg>
 <arg>${ONU_SN}</arg>
-<status status="PASS" start="2025-06-06T17:23:52.983460" elapsed="0.198975"/>
+<status status="PASS" start="2025-06-06T17:34:08.020407" elapsed="0.297265"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:53.183005" level="INFO">${ONU_ID} = 7</msg>
+<msg time="2025-06-06T17:34:08.318433" level="INFO">${ONU_ID} = 7</msg>
 <arg>${ONU_ID}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-06T17:23:53.182693" elapsed="0.000371"/>
+<status status="PASS" start="2025-06-06T17:34:08.318127" elapsed="0.000365"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:52.982594" elapsed="0.200552"/>
+<status status="PASS" start="2025-06-06T17:34:08.019455" elapsed="0.299119"/>
 </kw>
-<kw name="Get Onu Info" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:53.308409" level="INFO">display ont info 6 7</msg>
-<msg time="2025-06-06T17:23:53.556005" level="INFO">-----------------------------------------------------------------------------
-  F/S/P                   : 0/2/6
-  ONT-ID                  : 7
-  Control flag            : active
-  Run state               : online
-  Config state            : normal
-  Match state             : match
-  DBA type                : SR
-  ONT distance(m)         : 84
-  ONT last distance(m)    : 84
-  ONT battery state       : holding state
-  ONT power type          : -
-  Memory occupation       : -
-  CPU occupation          : -
-  Temperature             : -
-  Authentic type          : SN-auth
-  SN                      : 4B414F4EAF523D04 (KAON-AF523D04)
-  Management mode         : OMCI
-  Software work mode      : normal
-  Isolation state         : normal
-  Description             : PM1191_TRONGNK
-  Last down cause         : LOSi/LOBi
-  Last up time            : 2023-12-16 01:18:17+08:00
-  Last down time          : 2023-12-14 01:30:13+08:00
-  Last dying gasp time    : -
-  Last restart reason     : -
-  ONT online duration     : 1 day(s), 8 hour(s), 9 minute(s), 50 second(s) 
-  ONT system up duration  : 6 day(s), 2 hour(s), 58 minute(s), 6 second(s) 
-  Type C support          : Not support
-  Interoperability-mode   : ITU-T
-  Power reduction status  : -
-  ONT NNI type            : 10G/10G
-  ONT actual NNI type     : 10G/10G
-  Last ONT actual NNI type: 10G/10G
-  FEC upstream state      : enable
-  VS-ID                   : 0
-  VS name                 : admin-vs
-  Global ONT-ID           : 7
-  -----------------------------------------------------------------------------
-  VoIP configure method   : Default
-  -----------------------------------------------------------------------------
-  Line profile ID      : 13
-  Line profile name    : PM1191_TRONGNK
-  -----------------------------------------------------------------------------
-  FEC upstream switch :Disable (Downstream FEC is always enabled)
-  OMCC encrypt switch :On
-  Qos mode            :PQ
-  Mapping mode        :VLAN
-  TR069 management    :Disable
-  TR069 IP index      :0
-  ------------------------------------------------------------------------------
-  Notes: * indicates Discrete TCONT(TCONT Unbound)
-  ------------------------------------------------------------------------------
-  &lt;T-CONT   0&gt;          DBA Profile-ID:1
-  &lt;T-CONT   1&gt;*         DBA Profile-ID:4
-   &lt;Gem Index 1&gt;
-   --------------------------------------------------------------------
-   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |
-   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |
-   --------------------------------------------------------------------
-    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent
-    index                  type    ID    ID      CAR   
-   --------------------------------------------------------------------
-    0       800   2        -       -     -       -     -          
-   --------------------------------------------------------------------
-  &lt;T-CONT   2&gt;*         DBA Profile-ID:4
-   &lt;Gem Index 2&gt;
-   --------------------------------------------------------------------
-   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |
-   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |
-   --------------------------------------------------------------------
-    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent
-    index                  type    ID    ID      CAR   
-   --------------------------------------------------------------------
-    0       801   5        -       -     -       -     -          
-   --------------------------------------------------------------------
-  &lt;T-CONT   3&gt;*         DBA Profile-ID:4
-   &lt;Gem Index 3&gt;
-   --------------------------------------------------------------------
-   |Serv-Type:ETH |Encrypt:on  |Cascade:off |GEM-CAR:-            |
-   |Upstream-priority-queue:0  |Downstream-priority-queue:-       |
-   --------------------------------------------------------------------
-    Mapping VLAN  Priority Port    Port  Bundle  Flow  Transparent
-    index                  type    ID    ID      CAR   
-   --------------------------------------------------------------------
-    0       802   -        -       -     -       -     -          
-   --------------------------------------------------------------------
-  ------------------------------------------------------------------------------
-  Notes: Run the display traffic table ip command to query 
-         traffic table configuration
-  -----------------------------------------------------------------------------
-  Service profile ID   : 13
-  Service profile name : PM1191_TRONGNK
-  -----------------------------------------------------------------------------
-  Port-type     Port-number     Max-adaptive-number
-  -----------------------------------------------------------------------------
-  POTS          0               -
-  ETH           1               -
-  VDSL          0               -
-  TDM           0               -
-  MOCA          0               -
-  CATV          0               -
-  -----------------------------------------------------------------------------
-  TDM port type                     : E1
-  TDM service type                  : TDMoGem
-  MAC learning function switch      : Enable
-  ONT transparent function switch   : Disable
-  Ring check switch                 : Disable
-  Ring port auto-shutdown           : Enable
-  Ring detect frequency             : 8 (pps)
-  Ring resume interval              : 300 (s)
-  Ring detect period                : 0 (s)
-  Multicast forward mode            : Tag transparent
-  Multicast forward VLAN            : -
-  Multicast mode                    : Unconcern
-  Upstream IGMP packet forward mode : Unconcern
-  Upstream IGMP packet forward VLAN : -
-  Upstream IGMP packet priority     : -
-  Native VLAN option                : Unconcern
-  Upstream PQ color policy          : -
-  Downstream PQ color policy        : -
-  Monitor link                      : Unconcern
-  MTU(byte)                         : Unconcern
-  -----------------------------------------------------------------------------
-  Port-type Port-ID QinQmode  PriorityPolicy Inbound     Outbound
-  -----------------------------------------------------------------------------
-  ETH       1       unconcern unconcern      unconcern   unconcern
-  IPHOST    1       unconcern unconcern      unconcern   unconcern
-  -----------------------------------------------------------------------------
-  Notes: * indicates the discretely configured traffic profile,
-         run the display traffic table ip command to query
-         traffic table configuration.
-  -----------------------------------------------------------------------------
-  Port-type Port-ID  DownstreamMode  MismatchPolicy
-  -----------------------------------------------------------------------------
-  ETH             1  operation       discard       
-  -----------------------------------------------------------------------------
-  Port-type Port-ID Dscp-mapping-table-index Classification-profile-id
-  -----------------------------------------------------------------------------
-  ETH       1       0                        -        
-  IPHOST    1       0                        -
-  -----------------------------------------------------------------------------
-  Notes: the port vlan of ONT is discretely configured
-  -----------------------------------------------------------------------------
-  Port    Port   Service-type Index S-VLAN S-PRI C-VLAN C-PRI ENCAP      S-PRI
-  type    ID                                                             POLICY
-  -----------------------------------------------------------------------------
-  ETH     1      Translation  1     800    -     700    -     -          -     
-  ETH     1      Translation  2     801    -     701    -     -          -     
-  ETH     1      Translation  3     802    -     702    -     -          -     
-  ETH     1      Translation  4     803    -     703    -     -          -     
-  -----------------------------------------------------------------------------
-  Notes: * indicates transparent attribute of the vlan
-  -----------------------------------------------------------------------------
-  Port-type  Port-ID    IGMP-mode         IGMP-VLAN  IGMP-PRI  Max-MAC-Count
-  -----------------------------------------------------------------------------
-  ETH              1    -                         -         -      Unlimited
-  IPHOST           1    -                         -         -      Unlimited
-  -----------------------------------------------------------------------------
-  Port-type Port-ID   Traffic-suppress   Traffic-suppress   Traffic-suppress
-                      unicast(kbps)      multicast(kpbs)    broadcast(kbps)
-  -----------------------------------------------------------------------------
-  ETH             1   -                  -                  -               
-  -----------------------------------------------------------------------------
-  Port-type  Port-ID  L2-isolate
-  -----------------------------------------------------------------------------
-  ETH              1  unconcern           
-  -----------------------------------------------------------------------------
-  Alarm policy profile ID      : 0
-  Alarm policy profile name    : alarm-policy_0
-  -----------------------------------------------------------------------------
+<kw name="Go To Previous Mode" owner="keyword">
+<kw name="Send Command" owner="CustomKeywords">
+<msg time="2025-06-06T17:34:08.344765" level="INFO">quit</msg>
+<arg>quit</arg>
+<arg>reset_prompt=True</arg>
+<doc>Send command and optionally reset prompt.</doc>
+<status status="PASS" start="2025-06-06T17:34:08.319204" elapsed="0.568510"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:34:08.318869" elapsed="0.569234"/>
+</kw>
+<kw name="Access Diagnose Mode" owner="keyword">
+<kw name="Send Command" owner="CustomKeywords">
+<msg time="2025-06-06T17:34:09.057160" level="INFO">diagnose</msg>
+<arg>diagnose</arg>
+<arg>reset_prompt=True</arg>
+<doc>Send command and optionally reset prompt.</doc>
+<status status="PASS" start="2025-06-06T17:34:08.889943" elapsed="0.714349"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:34:08.888913" elapsed="0.715714"/>
+</kw>
+<kw name="Send Command" owner="CustomKeywords">
+<msg time="2025-06-06T17:34:09.730563" level="INFO">anti-rogueont isolate 0/2/6 7</msg>
+<msg time="2025-06-06T17:34:09.752198" level="INFO">MA5800-X7(diagnose)%%</msg>
+<arg>anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${ONU_ID}</arg>
+<doc>Send command and optionally reset prompt.</doc>
+<status status="PASS" start="2025-06-06T17:34:09.605211" elapsed="0.147216"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Check The Alarm Active Message">
+<kw name="Read" owner="CustomKeywords">
+<msg time="2025-06-06T17:34:09.755649" level="INFO">${log} = </msg>
+<var>${log}</var>
+<doc>Reads everything that is currently available in the output.</doc>
+<status status="PASS" start="2025-06-06T17:34:09.755066" elapsed="0.000685"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${log}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-06T17:34:09.756131" elapsed="0.000602"/>
+</kw>
+<kw name="Create Alarm Message Verify O7 Active">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:34:09.760566" level="INFO">${alarm_message} = ALARM NAME :The feeder fiber is broken or OLT can not receive any expected</msg>
+<arg>${alarm_message}</arg>
+<arg>ALARM NAME :The feeder fiber is broken or OLT can not receive any expected</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:34:09.758138" elapsed="0.002608"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:34:09.763648" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
+<arg>${info}</arg>
+<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: ${OLT_PON_INDEX}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:34:09.761158" elapsed="0.002678"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:34:09.757234" elapsed="0.006823"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-06-06T17:34:09.765198" level="FAIL">'' does not contain 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected'</msg>
+<arg>${log}</arg>
+<arg>${alarm_message}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-06-06T17:34:09.764398" elapsed="0.001062">'' does not contain 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected'</status>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${log}</arg>
+<arg>${info}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-06-06T17:34:09.765977" elapsed="0.000085"/>
+</kw>
+<status status="FAIL" start="2025-06-06T17:34:09.754153" elapsed="0.012297">'' does not contain 'ALARM NAME :The feeder fiber is broken or OLT can not receive any expected'</status>
+</kw>
+<kw name="Check The Alarm Active Message">
+<kw name="Read" owner="CustomKeywords">
+<msg time="2025-06-06T17:34:19.770800" level="INFO">! FAULT MAJOR 2023-12-17 09:38:27+08:00
+  ALARM NAME :The feeder fiber is broken or OLT can not receive any expected 
+optical signals(LOS)
+  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6,The number of affected ONTs: 1, 
+The number of DGi ONTs: 0
 
-MA5800-X7(config-if-gpon-0/2)#</msg>
-<msg time="2025-06-06T17:23:53.556939" level="INFO">${find_onu} =   -----------------------------------------------------------------------------
-  F/S/P                   : 0/2/6
-  ONT-ID                  : 7
-  Control flag            : active
-  Run state      ...</msg>
-<var>${find_onu}</var>
-<arg>olt0-pon0</arg>
-<arg>${ONU_ID}</arg>
-<status status="PASS" start="2025-06-06T17:23:53.183281" elapsed="0.373776"/>
+MA5800-X7(diagnose)%%</msg>
+<msg time="2025-06-06T17:34:19.771189" level="INFO">${log} = 
+! FAULT MAJOR 2023-12-17 09:38:27+08:00
+  ALARM NAME :The feeder fiber is broken or OLT can not receive any expected 
+optical signals(LOS)
+  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6,The numbe...</msg>
+<var>${log}</var>
+<doc>Reads everything that is currently available in the output.</doc>
+<status status="PASS" start="2025-06-06T17:34:19.769194" elapsed="0.002094"/>
 </kw>
-<kw name="Parse Table" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:53.568606" level="INFO">${find_onu_table} =     PORT ONU_ID                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
-0  0/2/6      7  4B414F4EAF523D04       active    online       normal       match</msg>
-<var>${find_onu_table}</var>
-<arg>${find_onu}</arg>
-<arg>/home/ats/ATS/kqa/KGPON-BR/suites/resource/onu_info_hw.template</arg>
-<doc>Keyword: Parse Table
-Use TextFSM to parse the raw_string into a DataFrame.
-Arguments:
-  - raw_string: output string need to be parsed.
-  - template_path: path to file TextFSM template. File extension: *.template</doc>
-<status status="PASS" start="2025-06-06T17:23:53.557620" elapsed="0.011069"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${log}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-06T17:34:19.771723" elapsed="0.000769"/>
 </kw>
-<kw name="Create Onu Info Table" owner="keyword">
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2025-06-06T17:23:53.569830" level="INFO">${onu_info} = | PORT | SN | CONTROL_FLAG | RUN_STATE | CONFIG_STATE | MATCH_STATE | 
- | 0/2/6 | 4B414F4EAF523D04 | active | online | normal | match | 
-</msg>
-<var>${onu_info}</var>
-<arg>| PORT</arg>
-<arg>| SN</arg>
-<arg>| CONTROL_FLAG</arg>
-<arg>| RUN_STATE</arg>
-<arg>| CONFIG_STATE</arg>
-<arg>| MATCH_STATE</arg>
-<arg>| \n</arg>
-<arg>| ${OLT_PON_ALIAS}/${OLT_PON_INDEX}</arg>
-<arg>| ${ONU_SN}</arg>
-<arg>| active</arg>
-<arg>| online</arg>
-<arg>| normal</arg>
-<arg>| match</arg>
-<arg>| \n</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2025-06-06T17:23:53.569432" elapsed="0.000438"/>
-</kw>
-<kw name="Create Table" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:53.576319" level="INFO">${onu_verify_table} =     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
-0  0/2/6  4B414F4EAF523D04       active    online       normal       match</msg>
-<var>${onu_verify_table}</var>
-<arg>${onu_info}</arg>
-<doc>Keyword: Create Table
-Nhận đầu vào là chuỗi định dạng bảng (pipe separated) hoặc đã là DataFrame.
-Nếu là chuỗi thì chuyển đổi nó thành pandas DataFrame.
-Example:
-${RAW_OUTPUT}    SEPARATOR=${EMPTY}
-...    | Interface    | TYPE        | STATUS    | MODE              | FLOWCTRL    | </doc>
-<status status="PASS" start="2025-06-06T17:23:53.570066" elapsed="0.006315"/>
+<kw name="Create Alarm Message Verify O7 Active">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:34:19.774711" level="INFO">${alarm_message} = ALARM NAME :The feeder fiber is broken or OLT can not receive any expected</msg>
+<arg>${alarm_message}</arg>
+<arg>ALARM NAME :The feeder fiber is broken or OLT can not receive any expected</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:34:19.774023" elapsed="0.000853"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-06-06T17:23:53.588448" level="INFO">${onu_verify_table} =     PORT                SN CONTROL_FLAG RUN_STATE CONFIG_STATE MATCH_STATE
-0  0/2/6  4B414F4EAF523D04       active    online       normal       match</msg>
-<arg>${onu_verify_table}</arg>
+<msg time="2025-06-06T17:34:19.775938" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
+<arg>${info}</arg>
+<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: ${OLT_PON_INDEX}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-06-06T17:23:53.576571" elapsed="0.011979"/>
+<status status="PASS" start="2025-06-06T17:34:19.775264" elapsed="0.000823"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:53.569032" elapsed="0.019612"/>
+<status status="PASS" start="2025-06-06T17:34:19.773043" elapsed="0.003249"/>
 </kw>
-<kw name="Verify Table" owner="CustomKeywords">
-<msg time="2025-06-06T17:23:53.599867" level="INFO">${result} = True</msg>
-<var>${result}</var>
-<arg>${onu_verify_table}</arg>
-<arg>${find_onu_table}</arg>
-<doc>Keyword: Verify Table
-Compare two tables (expected_result and actual_result) based on the specified mode.
-Input can be a string or a DataFrame.
-- If whitelist: all rows in the expected_result must appear in the actual_result.
-- If blacklist: no rows in the expected_result should appear in the actual_result.</doc>
-<status status="PASS" start="2025-06-06T17:23:53.588801" elapsed="0.011121"/>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${log}</arg>
+<arg>${alarm_message}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-06T17:34:19.776615" elapsed="0.000580"/>
 </kw>
-<kw name="Should Be True" owner="BuiltIn">
-<arg>${result}</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-06-06T17:23:53.600139" elapsed="0.000234"/>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${log}</arg>
+<arg>${info}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-06T17:34:19.777327" elapsed="0.000207"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:52.981538" elapsed="0.618914"/>
+<status status="PASS" start="2025-06-06T17:34:19.767749" elapsed="0.009865"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:49.433692" elapsed="4.166967"/>
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Check The Alarm Active Message</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-06-06T17:34:09.753100" elapsed="10.024560"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-06T17:34:34.778359" level="INFO">Slept 15 seconds.</msg>
+<arg>15s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-06T17:34:19.777873" elapsed="15.000801"/>
+</kw>
+<kw name="Send Command" owner="CustomKeywords">
+<msg time="2025-06-06T17:34:34.966645" level="INFO">undo anti-rogueont isolate 0/2/6 7</msg>
+<msg time="2025-06-06T17:34:34.999470" level="INFO">MA5800-X7(diagnose)%%</msg>
+<arg>undo anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${ONU_ID}</arg>
+<doc>Send command and optionally reset prompt.</doc>
+<status status="PASS" start="2025-06-06T17:34:34.779126" elapsed="0.220494"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Check The Alarm Deactive Message">
+<kw name="Read" owner="CustomKeywords">
+<msg time="2025-06-06T17:34:35.001568" level="INFO">${log} = </msg>
+<var>${log}</var>
+<doc>Reads everything that is currently available in the output.</doc>
+<status status="PASS" start="2025-06-06T17:34:35.001277" elapsed="0.000334"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${log}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-06T17:34:35.001762" elapsed="0.000248"/>
+</kw>
+<kw name="Create Alarm Message Verify O7 Deactive">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:34:35.002792" level="INFO">${alarm_message} = ALARM NAME :OLT can receive expected optical signals from ONTs</msg>
+<arg>${alarm_message}</arg>
+<arg>ALARM NAME :OLT can receive expected optical signals from ONTs</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:34:35.002560" elapsed="0.000291"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:34:35.003220" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
+<arg>${info}</arg>
+<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: ${OLT_PON_INDEX}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:34:35.002986" elapsed="0.000286"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:34:35.002218" elapsed="0.001128"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-06-06T17:34:35.003750" level="FAIL">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</msg>
+<arg>${log}</arg>
+<arg>${alarm_message}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-06-06T17:34:35.003461" elapsed="0.000394">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${log}</arg>
+<arg>${info}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-06-06T17:34:35.004011" elapsed="0.000028"/>
+</kw>
+<status status="FAIL" start="2025-06-06T17:34:35.000811" elapsed="0.003348">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
+</kw>
+<kw name="Check The Alarm Deactive Message">
+<kw name="Read" owner="CustomKeywords">
+<msg time="2025-06-06T17:34:45.007275" level="INFO">${log} = </msg>
+<var>${log}</var>
+<doc>Reads everything that is currently available in the output.</doc>
+<status status="PASS" start="2025-06-06T17:34:45.006526" elapsed="0.000885"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${log}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-06T17:34:45.007898" elapsed="0.000680"/>
+</kw>
+<kw name="Create Alarm Message Verify O7 Deactive">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:34:45.010928" level="INFO">${alarm_message} = ALARM NAME :OLT can receive expected optical signals from ONTs</msg>
+<arg>${alarm_message}</arg>
+<arg>ALARM NAME :OLT can receive expected optical signals from ONTs</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:34:45.010224" elapsed="0.000872"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:34:45.012287" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
+<arg>${info}</arg>
+<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: ${OLT_PON_INDEX}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:34:45.011540" elapsed="0.000909"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:34:45.009129" elapsed="0.003530"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-06-06T17:34:45.013804" level="FAIL">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</msg>
+<arg>${log}</arg>
+<arg>${alarm_message}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-06-06T17:34:45.012995" elapsed="0.001055">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${log}</arg>
+<arg>${info}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-06-06T17:34:45.014689" elapsed="0.000098"/>
+</kw>
+<status status="FAIL" start="2025-06-06T17:34:45.005143" elapsed="0.009974">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
+</kw>
+<kw name="Check The Alarm Deactive Message">
+<kw name="Read" owner="CustomKeywords">
+<msg time="2025-06-06T17:34:55.018191" level="INFO">${log} = </msg>
+<var>${log}</var>
+<doc>Reads everything that is currently available in the output.</doc>
+<status status="PASS" start="2025-06-06T17:34:55.017462" elapsed="0.000848"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${log}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-06T17:34:55.018722" elapsed="0.000609"/>
+</kw>
+<kw name="Create Alarm Message Verify O7 Deactive">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:34:55.021432" level="INFO">${alarm_message} = ALARM NAME :OLT can receive expected optical signals from ONTs</msg>
+<arg>${alarm_message}</arg>
+<arg>ALARM NAME :OLT can receive expected optical signals from ONTs</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:34:55.020780" elapsed="0.000845"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:34:55.022430" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
+<arg>${info}</arg>
+<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: ${OLT_PON_INDEX}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:34:55.022046" elapsed="0.000436"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:34:55.019856" elapsed="0.002700"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-06-06T17:34:55.022953" level="FAIL">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</msg>
+<arg>${log}</arg>
+<arg>${alarm_message}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-06-06T17:34:55.022670" elapsed="0.000370">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${log}</arg>
+<arg>${info}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-06-06T17:34:55.023185" elapsed="0.000026"/>
+</kw>
+<status status="FAIL" start="2025-06-06T17:34:55.016250" elapsed="0.007072">'' does not contain 'ALARM NAME :OLT can receive expected optical signals from ONTs'</status>
+</kw>
+<kw name="Check The Alarm Deactive Message">
+<kw name="Read" owner="CustomKeywords">
+<msg time="2025-06-06T17:35:05.026644" level="INFO">! RECOVERY CLEARED 2023-12-17 09:39:10+08:00
+  ALARM NAME :OLT can receive expected optical signals from ONTs(LOS recovers)
+  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6
+
+MA5800-X7(diagnose)%%</msg>
+<msg time="2025-06-06T17:35:05.026811" level="INFO">${log} = 
+! RECOVERY CLEARED 2023-12-17 09:39:10+08:00
+  ALARM NAME :OLT can receive expected optical signals from ONTs(LOS recovers)
+  PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6
+
+MA5800-X7(diagnose)%%</msg>
+<var>${log}</var>
+<doc>Reads everything that is currently available in the output.</doc>
+<status status="PASS" start="2025-06-06T17:35:05.025630" elapsed="0.001215"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${log}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-06T17:35:05.027028" elapsed="0.000303"/>
+</kw>
+<kw name="Create Alarm Message Verify O7 Deactive">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:35:05.028460" level="INFO">${alarm_message} = ALARM NAME :OLT can receive expected optical signals from ONTs</msg>
+<arg>${alarm_message}</arg>
+<arg>ALARM NAME :OLT can receive expected optical signals from ONTs</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:35:05.028185" elapsed="0.000340"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-06-06T17:35:05.028913" level="INFO">${info} = PARAMETERS :FrameID: 0, SlotID: 2, PortID: 6</msg>
+<arg>${info}</arg>
+<arg>PARAMETERS :FrameID: 0, SlotID: 2, PortID: ${OLT_PON_INDEX}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-06-06T17:35:05.028668" elapsed="0.000297"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:35:05.027810" elapsed="0.001241"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${log}</arg>
+<arg>${alarm_message}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-06T17:35:05.029169" elapsed="0.000219"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${log}</arg>
+<arg>${info}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-06T17:35:05.029536" elapsed="0.000207"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:35:05.024322" elapsed="0.005500"/>
+</kw>
+<arg>5x</arg>
+<arg>10s</arg>
+<arg>Check The Alarm Deactive Message</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-06-06T17:34:35.000038" elapsed="30.029830"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Send Command" owner="CustomKeywords">
+<msg time="2025-06-06T17:35:05.213808" level="INFO">undo anti-rogueont isolate 0/2/6 7</msg>
+<msg time="2025-06-06T17:35:05.254849" level="INFO">MA5800-X7(diagnose)%%</msg>
+<arg>undo anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${ONU_ID}</arg>
+<doc>Send command and optionally reset prompt.</doc>
+<status status="PASS" start="2025-06-06T17:35:05.030424" elapsed="0.224578"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-06T17:35:10.255954" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-06T17:35:05.255344" elapsed="5.000985"/>
+</kw>
+<kw name="Close Connection" owner="CustomKeywords">
+<doc>Closes the current Telnet connection.</doc>
+<status status="PASS" start="2025-06-06T17:35:10.256999" elapsed="0.000696"/>
+</kw>
+<arg>Send Command</arg>
+<arg>undo anti-rogueont isolate ${OLT_PON_ALIAS}/${OLT_PON_INDEX} ${ONU_ID}</arg>
+<arg>AND</arg>
+<arg>Sleep</arg>
+<arg>5s</arg>
+<arg>AND</arg>
+<arg>Close Connection</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-06-06T17:35:05.030211" elapsed="5.227681"/>
+</kw>
+<status status="PASS" start="2025-06-06T17:34:04.535682" elapsed="65.722562"/>
 </test>
 <kw name="Teardown Common" owner="keyword" type="TEARDOWN">
 <kw name="Close All Connections" owner="CustomKeywords">
 <doc>Closes all open connections and empties the connection cache.</doc>
-<status status="PASS" start="2025-06-06T17:23:53.601632" elapsed="0.000197"/>
+<status status="PASS" start="2025-06-06T17:35:10.260998" elapsed="0.000396"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:53.601352" elapsed="0.000555"/>
+<status status="PASS" start="2025-06-06T17:35:10.260277" elapsed="0.001398"/>
 </kw>
-<status status="PASS" start="2025-06-06T17:23:49.037999" elapsed="4.563940"/>
+<status status="PASS" start="2025-06-06T17:34:04.118846" elapsed="66.142935"/>
 </suite>
 <statistics>
 <total>
@@ -528,7 +630,7 @@ Input can be a string or a DataFrame.
 <tag>
 </tag>
 <suite>
-<stat name="KONT-BR-GP-2 1 2" id="s1" pass="1" fail="0" skip="0">KONT-BR-GP-2 1 2</stat>
+<stat name="KONT-BR-GP-2 1 3" id="s1" pass="1" fail="0" skip="0">KONT-BR-GP-2 1 3</stat>
 </suite>
 </statistics>
 <errors>
