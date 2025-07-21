@@ -155,6 +155,10 @@ class TopologyLoader:
         return getattr(self.get_device(device_name).custom, field, None)
 
     @keyword
+    def get_device_connection_field(self, device_name, field):
+        return getattr(self.get_device(device_name).connections, field, None)
+
+    @keyword
     def get_full_device_info(self, device_name):
         device = self.get_device(device_name)
         return {

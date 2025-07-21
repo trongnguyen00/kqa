@@ -395,7 +395,6 @@ class CDRouterLibrary():
             count_diff (int): Number of test items with differing results.
             df (pd.DataFrame): DataFrame showing the differing test items.
         """
-        # Chuẩn bị tên cột bằng f-string
         df = pd.DataFrame(columns=[
             "Test Item",
             f"Result({test_ids_list[0]})",
@@ -589,6 +588,33 @@ class CDRouterLibrary():
                 var.description
             ]
         return df
+    
+    @keyword
+    def export_test_detail_to_csv(self, result_id, file_name=None):
+        """Export test details to a CSV file."""
+        if file_name is None:
+            file_name = result_id
+
+        result_df = self.get_list_test_result(result_id)
+        path = Path.cwd() / f"{file_name}.csv"
+
+        # Đảm bảo thư mục tồn tại (cần thiết nếu bạn thay đổi path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        result_df.to_csv(path, index=False, encoding='utf-8-sig')
+
+        return str(path.resolve())
+
+    
+    @keyword
+    def export_bulk_result(self, result_id, exclude_pcap=False):
+        "Export a file with JSON format, it depends on CDRouter system and it seem useful with read by CDR, not a text viewer"
+        buf, filename = self.session.results.export(result_id, exclude_pcap)
+        output_path = filename  # hoặc dùng result_id nếu muốn tự đặt tên
+        with open(output_path, 'wb') as f:
+            f.write(buf.getvalue())
+
+        return output_path
     
     # DEVICES
     @keyword
