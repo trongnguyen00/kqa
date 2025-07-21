@@ -11,11 +11,14 @@ ${CDR_DEVICE_NAME}     [QA]Alpha/PG6692G/KAON1A154B58(newHW)
 *** Test Cases ***
 Test Get Result
     Get CDRouter Info
-    Connect To CDRouter     ${CDR_PATH}                  ${USER}           ${PASS}
-    Get Diff Test Item      ${IDS_LIST}
-    Get List Test Result    20250514102230
-    ${file_path}            Export Test Detail To CSV    20250514102230
-    Log To Console          File path: ${file_path}
+    Connect To CDRouter    ${CDR_PATH}    ${USER}    ${PASS}
+    # Get Diff Test Item      ${IDS_LIST}
+    # Get List Test Result    20250514102230
+    # ${file_path}            Export Test Detail To CSV    20250514102230
+    # Log To Console          File path: ${file_path}
+
+    ${id_last}        Get Latest Result Id            ${CDR_PACKAGE_NAME}
+    Log To Console    Latest result ID: ${id_last}
 
 *** Keywords ***
 Get CDRouter Info

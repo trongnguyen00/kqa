@@ -605,7 +605,39 @@ class CDRouterLibrary():
 
         return str(path.resolve())
 
+    @keyword
+    def list_all_results_in_package(self, package_name):
+        df = pd.DataFrame(columns=[
+            "Result ID",
+            "Package Name",
+            "Device Name",
+            "Package ID",
+            "Device ID",
+            "Result Status"
+        ])
+        result_obj = self.session.results.iter_list()
+        for item in result_obj:
+            if item.package_name == package_name:
+                df.loc[len(df)] = [
+                    item.id,
+                    item.package_name,
+                    item.device_name,
+                    item.package_id,
+                    item.device_id,
+                    item.status
+                ]
+        return df
     
+    @keyword
+    def get_latest_result_id(self, package_name):
+        """Get the latest result ID in package"""
+        list_results = self.list_all_results_in_package(package_name)
+        if list_results.empty:
+            raise ValueError(f"No results found for package: {package_name}")
+
+        latest_id = list_results["Result ID"].astype(int).max()
+        return str(latest_id)
+
     @keyword
     def export_bulk_result(self, result_id, exclude_pcap=False):
         "Export a file with JSON format, it depends on CDRouter system and it seem useful with read by CDR, not a text viewer"
